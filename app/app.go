@@ -113,6 +113,11 @@ import (
 	irclient "github.com/tharsis/evmos/x/intrarelayer/client"
 	irk "github.com/tharsis/evmos/x/intrarelayer/keeper"
 	irt "github.com/tharsis/evmos/x/intrarelayer/types"
+
+
+	"github.com/tharsis/evmos/x/reap"
+	reapkeeper "github.com/tharsis/evmos/x/reap/keeper"
+	reaptypes "github.com/tharsis/evmos/x/reap/types"
 )
 
 func init() {
@@ -165,6 +170,7 @@ var (
 		evm.AppModuleBasic{},
 		feemarket.AppModuleBasic{},
 		intrarelayer.AppModuleBasic{},
+		reap.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -178,6 +184,7 @@ var (
 		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
 		evmtypes.ModuleName:            {authtypes.Minter, authtypes.Burner}, // used for secure addition and subtraction of balance using module account
 		irt.ModuleName:                 {authtypes.Minter, authtypes.Burner},
+		reaptypes.ModuleName:           {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -249,6 +256,8 @@ type Evmos struct {
 	configurator module.Configurator
 
 	tpsCounter *tpsCounter
+
+	ReapKeeper reapkeeper.Keeper
 }
 
 // NewEvmos returns a reference to a new initialized Ethermint application.
@@ -292,7 +301,7 @@ func NewEvmos(
 		// ethermint keys
 		evmtypes.StoreKey, feemarkettypes.StoreKey,
 		// evmos keys
-		irt.StoreKey,
+		irt.StoreKey, reaptypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -393,6 +402,11 @@ func NewEvmos(
 		&stakingKeeper, govRouter,
 	)
 
+	app.ReapKeeper = *reapkeeper.NewKeeper(
+		appCodec, keys[reaptypes.StoreKey], keys[reaptypes.MemStoreKey], app.GetSubspace(govtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
+	)
+	reapModule := reap.NewAppModule(appCodec, app.ReapKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// Evmos Keeper
 	app.IntrarelayerKeeper = irk.NewKeeper(
 		keys[irt.StoreKey], appCodec, app.GetSubspace(irt.ModuleName), app.AccountKeeper, app.BankKeeper, govKeeper, app.EvmKeeper,
@@ -466,6 +480,7 @@ func NewEvmos(
 		feemarket.NewAppModule(app.FeeMarketKeeper),
 		// Evmos app modules
 		intrarelayer.NewAppModule(app.IntrarelayerKeeper, app.AccountKeeper),
+		reapModule,
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -504,7 +519,7 @@ func NewEvmos(
 		// Evmos modules
 		irt.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
-		crisistypes.ModuleName,
+		crisistypes.ModuleName, reaptypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -803,5 +818,6 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(feemarkettypes.ModuleName)
 	// evmos subspaces
 	paramsKeeper.Subspace(irt.ModuleName)
+	paramsKeeper.Subspace(reaptypes.ModuleName)
 	return paramsKeeper
 }
