@@ -22,10 +22,10 @@ LOGLEVEL="info"
 
 
 # Allocate genesis accounts (cosmos formatted addresses)
-evmosd add-genesis-account $KEY 100000000000000000000000000aphoton --keyring-backend $KEYRING
+mercuryd add-genesis-account $KEY 100000000000000000000000000aphoton --keyring-backend $KEYRING
 
 # Sign genesis transaction
-evmosd gentx $KEY 1000000000000000000000aphoton --keyring-backend $KEYRING --chain-id $CHAINID
+mercuryd gentx $KEY 1000000000000000000000aphoton --keyring-backend $KEYRING --chain-id $CHAINID
 ```
 
 The default configuration will generate a single validator localnet with the chain-id
@@ -51,7 +51,7 @@ $KEY=mykey
 $CHAINID="evmos_9000-2"
 
 # The argument $MONIKER is the custom username of your node, it should be human-readable.
-evmosd init $MONIKER --chain-id=$CHAINID
+mercuryd init $MONIKER --chain-id=$CHAINID
 ```
 
 ::: tip
@@ -67,13 +67,13 @@ The command above creates all the configuration files needed for your node and v
 Before starting the chain, you need to populate the state with at least one account using the [keyring](./../keys-wallets/keyring.md#add-keys):
 
 ```bash
-evmosd keys add my_validator --keyring-backend=test
+mercuryd keys add my_validator --keyring-backend=test
 ```
 
 Once you have created a local account, go ahead and grant it some `aphoton` tokens in your chain's genesis file. Doing so will also make sure your chain is aware of this account's existence:
 
 ```bash
-evmosd add-genesis-account my_validator 10000000000aphoton --keyring-backend test
+mercuryd add-genesis-account my_validator 10000000000aphoton --keyring-backend test
 ```
 
 Now that your account has some tokens, you need to add a validator to your chain.
@@ -84,7 +84,7 @@ Now that your account has some tokens, you need to add a validator to your chain
 # Create a gentx
 # NOTE: this command lets you set the number of coins. 
 # Make sure this account has some coins with the genesis.app_state.staking.params.bond_denom denom
-evmosd add-genesis-account my_validator 1000000000stake,10000000000aphoton
+mercuryd add-genesis-account my_validator 1000000000stake,10000000000aphoton
 ```
 
 A `gentx` does three things:
@@ -96,7 +96,7 @@ A `gentx` does three things:
 For more information on `gentx`, use the following command:
 
 ```bash
-evmosd gentx --help
+mercuryd gentx --help
 ```
 
 ### Collecting `gentx`
@@ -110,7 +110,7 @@ A `gentx` can be added manually to the genesis file, or via the following comman
 
 ```bash
 # Add the gentx to the genesis file
-evmosd collect-gentxs
+mercuryd collect-gentxs
 ```
 
 This command will add all the `gentxs` stored in `~/.evmosd/config/gentx` to the genesis file.
@@ -120,13 +120,13 @@ This command will add all the `gentxs` stored in `~/.evmosd/config/gentx` to the
 Finally, check the correctness of the `genesis.json` file:
 
 ```bash
-evmosd validate-genesis
+mercuryd validate-genesis
 ```
 
 Now that everything is set up, you can finally start your node:
 
 ```bash
-evmosd start
+mercuryd start
 ```
 
 :::tip

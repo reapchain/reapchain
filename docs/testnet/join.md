@@ -32,7 +32,7 @@ See the Official [Chain IDs](./../basics/chain_id.md#official-chain-ids) for ref
 :::
 
 ```bash
-evmosd config chain-id evmos_9000-2
+mercuryd config chain-id evmos_9000-2
 ```
 
 ## Initialize Node
@@ -40,7 +40,7 @@ evmosd config chain-id evmos_9000-2
 We need to initialize the node to create all the necessary validator and node configuration files:
 
 ```bash
-evmosd init <your_custom_moniker> --chain-id evmos_9000-2
+mercuryd init <your_custom_moniker> --chain-id evmos_9000-2
 ```
 
 ::: danger
@@ -57,13 +57,13 @@ In the `config` directory, the most important files for configuration are `app.t
 Check the `genesis.json` file from the [`testnets`](https://github.com/tharsis/testnets) repository and copy it over to the `config` directory: `~/.evmosd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
 ```bash
-curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.evmosd/config/genesis.json
+curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.mercuryd/config/genesis.json
 ```
 
 Then verify the correctness of the genesis configuration file:
 
 ```bash
-evmosd validate-genesis
+mercuryd validate-genesis
 ```
 
 ### Add Seed Nodes
@@ -88,7 +88,7 @@ You can use the following code to get seeds from the repo and add it to your con
 
 ```bash
 SEEDS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/seeds.txt | awk '{print $1}' | paste -s -d, -`
-sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.evmosd/config/config.toml
+sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.mercuryd/config/config.toml
 ```
 
 :::tip
@@ -109,7 +109,7 @@ PEERS=`curl -sL https://raw.githubusercontent.com/tharsis/testnets/main/olympus_
 Use `sed` to include them into the configuration. You can also add them manually:
 
 ```bash
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.evmosd/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.mercuryd/config/config.toml
 ```
 
 ## Run a Testnet Validator
@@ -121,9 +121,9 @@ For more details on how to configure your validator, follow the validator [setup
 :::
 
 ```bash
-evmosd tx staking create-validator \
+mercuryd tx staking create-validator \
   --amount=1000000000000aphoton \
-  --pubkey=$(evmosd tendermint show-validator) \
+  --pubkey=$(mercuryd tendermint show-validator) \
   --moniker="EvmosWhale" \
   --chain-id=<chain_id> \
   --commission-rate="0.10" \
@@ -140,7 +140,7 @@ evmosd tx staking create-validator \
 The final step is to [start the nodes](./../quickstart/run_node#start-node). Once enough voting power (+2/3) from the genesis validators is up-and-running, the testnet will start producing blocks.
 
 ```bash
-evmosd start
+mercuryd start
 ```
 
 ## Upgrading Your Node
@@ -156,8 +156,8 @@ If the version <new_version> you are upgrading to is not breaking from the previ
 First, remove the outdated files and reset the data.
 
 ```bash
-rm $HOME/.evmosd/config/addrbook.json $HOME/.evmosd/config/genesis.json
-evmosd unsafe-reset-all
+rm $HOME/.mercuryd/config/addrbook.json $HOME/.mercuryd/config/genesis.json
+mercuryd unsafe-reset-all
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before,
@@ -173,7 +173,7 @@ Make sure that every node has a unique `priv_validator.json`. Do not copy the `p
 To restart your node, just type:
 
 ```bash
-evmosd start
+mercuryd start
 ```
 
 ## Share your Peer
@@ -184,7 +184,7 @@ You can share your peer to posting it in the `#find-peers` channel in the [Evmos
 To get your Node ID use
 
 ```bash
-evmosd tendermint show-node-id
+mercuryd tendermint show-node-id
 ```
 
 :::

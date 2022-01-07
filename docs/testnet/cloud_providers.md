@@ -59,7 +59,7 @@ go install https://github.com/tharsis/evmos.git
 Check that the binaries have been successfully installed:
 
 ```bash
-evmosd -h
+mercuryd -h
 ```
 
 ### Copy the Genesis File
@@ -71,7 +71,7 @@ To do this ssh into both the testnet droplet and the new node droplet.
 On your local machine copy the genesis.json file from the testnet droplet to the new droplet using:
 
 ```bash
-scp -3 root@<TESTNET_IP_ADDRESS>:$HOME/.evmosd/config/genesis.json root@<NODE_IP_ADDRESS>:$HOME/.evmosd/config/genesis.json
+scp -3 root@<TESTNET_IP_ADDRESS>:$HOME/.mercuryd/config/genesis.json root@<NODE_IP_ADDRESS>:$HOME/.mercuryd/config/genesis.json
 ```
 
 ### Start the Node

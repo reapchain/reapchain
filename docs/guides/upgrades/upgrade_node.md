@@ -31,10 +31,10 @@ You will need to ensure that the version installed matches the one needed for th
 Verify that everything is OK. If you get something like the following, you've successfully installed Evmos on your system.
 
 ```bash
-$ evmosd version --long
+$ mercuryd version --long
 
 name: evmos
-server_name: evmosd
+server_name: mercuryd
 version: 0.4.0
 commit: 070b668f2cbbf52548c46e96b236e09884483dd4
 build_tags: netgo,ledger
@@ -78,12 +78,12 @@ source ~/.profile
 After this, you must make the necessary folders for cosmosvisor in your daemon home directory (~/.evmosd).
 
 ```bash
-mkdir -p ~/.evmosd/cosmovisor/upgrades
-mkdir -p ~/.evmosd/cosmovisor/genesis/bin
-cp $(which evmosd) ~/.evmosd/cosmovisor/genesis/bin/
+mkdir -p ~/.mercuryd/cosmovisor/upgrades
+mkdir -p ~/.mercuryd/cosmovisor/genesis/bin
+cp $(which mercuryd) ~/.mercuryd/cosmovisor/genesis/bin/
 
 # Verify the setup
-# It should return the same version as evmosd
+# It should return the same version as mercuryd
 cosmovisor version
 ```
 
@@ -102,13 +102,13 @@ export DAEMON_ALLOW_DOWNLOAD_BINARIES=true
 You can now download the "genesis" file for the chain. It is pre-filled with the entire genesis state and gentxs.
 
 ```bash
-$ curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.evmosd/config/genesis.json
+$ curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.mercuryd/config/genesis.json
 ```
 
 We recommend using `sha256sum` to check the hash of the genesis.
 
 ```bash
-cd ~/.evmosd/config
+cd ~/.mercuryd/config
 echo "2b5164f4bab00263cb424c3d0aa5c47a707184c6ff288322acc4c7e0c5f6f36f  genesis.json" | sha256sum -c
 ```
 
@@ -117,7 +117,7 @@ echo "2b5164f4bab00263cb424c3d0aa5c47a707184c6ff288322acc4c7e0c5f6f36f  genesis.
 There shouldn't be any chain database yet, but in case there is for some reason, you should reset it. This is a good idea especially if you ran `evmosd start` on an old, broken genesis file.
 
 ```bash
-evmosd unsafe-reset-all
+mercuryd unsafe-reset-all
 ```
 
 #### Ensure that you have set peers
@@ -133,7 +133,7 @@ persistent_peers = "5576b0160761fe81ccdf88e06031a01bc8643d51@195.201.108.97:2465
 You can share your peer with
 
 ```bash
-evmosd tendermint show-node-id
+mercuryd tendermint show-node-id
 ```
 
 **Peer Format**: `node-id@ip:port`
@@ -161,7 +161,7 @@ cosmovisor start
 You will need some way to keep the process always running. If you're on linux, you can do this by creating a service.
 
 ```bash
-sudo tee /etc/systemd/system/evmosd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/mercuryd.service > /dev/null <<EOF
 [Unit]
 Description=Evmos Daemon
 After=network-online.target
@@ -187,14 +187,14 @@ Then update and start the node
 
 ```bash
 sudo -S systemctl daemon-reload
-sudo -S systemctl enable evmosd
-sudo -S systemctl start evmosd
+sudo -S systemctl enable mercuryd
+sudo -S systemctl start mercuryd
 ```
 
 You can check the status with:
 
 ```bash
-systemctl status evmosd
+systemctl status mercuryd
 ```
 
 ### Upgrade Manually
@@ -216,7 +216,7 @@ If you are joining an existing testnet, you can fetch the genesis from the appro
 Save the new genesis as `new_genesis.json`. Then, replace the old `genesis.json` with `new_genesis.json`.
 
 ```bash
-cd $HOME/.evmosd/config
+cd $HOME/.mercuryd/config
 cp -f genesis.json new_genesis.json
 mv new_genesis.json genesis.json
 ```
@@ -230,19 +230,19 @@ useful for manual analysis of the state at a given height.
 Export state with:
 
 ```bash
-evmosd export > new_genesis.json
+mercuryd export > new_genesis.json
 ```
 
 You can also export state from a particular height (at the end of processing the block of that height):
 
 ```bash
-evmosd export --height [height] > new_genesis.json
+mercuryd export --height [height] > new_genesis.json
 ```
 
 If you plan to start a new network for 0 height (i.e genesis) from the exported state, export with the `--for-zero-height` flag:
 
 ```bash
-evmosd export --height [height] --for-zero-height > new_genesis.json
+mercuryd export --height [height] --for-zero-height > new_genesis.json
 ```
 
 Then, replace the old `genesis.json` with `new_genesis.json`.
@@ -257,7 +257,7 @@ At this point, you might want to run a script to update the exported genesis int
 You can use the `migrate` command to migrate from a given version to the next one (eg: `v0.X.X` to `v1.X.X`):
 
 ```bash
-evmosd migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id> --genesis-time=<yyyy-mm-ddThh:mm:ssZ>
+mercuryd migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id> --genesis-time=<yyyy-mm-ddThh:mm:ssZ>
 ```
 
 #### Restart Node
@@ -265,5 +265,5 @@ evmosd migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id
 To restart your node once the new genesis has been updated, use the `start` command:
 
 ```bash
-evmosd start
+mercuryd start
 ```

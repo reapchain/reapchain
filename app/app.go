@@ -114,7 +114,6 @@ import (
 	irk "github.com/tharsis/evmos/x/intrarelayer/keeper"
 	irt "github.com/tharsis/evmos/x/intrarelayer/types"
 
-
 	"github.com/tharsis/evmos/x/reap"
 	reapkeeper "github.com/tharsis/evmos/x/reap/keeper"
 	reaptypes "github.com/tharsis/evmos/x/reap/types"
@@ -126,12 +125,12 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".evmosd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".mercuryd")
 }
 
 const (
 	// Name defines the application binary name
-	Name = "evmosd"
+	Name        = "mercuryd"
 	upgradeName = "Olympus-Mons-v0.4.1"
 )
 

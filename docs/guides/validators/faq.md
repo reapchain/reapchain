@@ -52,7 +52,7 @@ Any participant in the network can signal their intent to become a validator by 
 - **Initial self-bond amount**: Initial amount of Photon the validator wants to self-bond.
 
 ```bash
-evmosd tx staking create-validator
+mercuryd tx staking create-validator
     --pubkey evmosvalconspub1zcjduepqs5s0vddx5m65h5ntjzwd0x8g3245rgrytpds4ds7vdtlwx06mcesmnkzly
     --amount "2aphoton"
     --from tmp

@@ -17,19 +17,19 @@ order: 2
 After you have obtained the latest `evmosd` binary, run:
 
 ```bash
-evmosd [command]
+mercuryd [command]
 ```
 
 Check the version you are running using
 
 ```bash
-evmosd version
+mercuryd version
 ```
 
 There is also a `-h`, `--help` command available
 
 ```bash
-evmosd -h
+mercuryd -h
 ```
 
 ::: tip
@@ -41,7 +41,7 @@ You can also enable auto-completion with the `evmosd completion` command. For ex
 By default, your config and data are stored in the folder located at the `~/.evmosd` directory.
 
 ```bash
-.                                   # ~/.evmosd
+.                                   # ~/.mercuryd
   ├── data/                           # Contains the databases used by the node.
   └── config/
       ├── app.toml                   # Application-related configuration file.
@@ -97,7 +97,7 @@ When you are pruning state you will not be able to query the heights that are no
 We can view the default client config setting by using `evmosd config` command:
 
 ```bash
-evmosd config
+mercuryd config
 {
  "chain-id": "",
  "keyring-backend": "os",
@@ -112,8 +112,8 @@ We can make changes to the default settings upon our choices, so it allows users
 For example, the chain identifier can be changed to `evmos_9000-2` from a blank name by using:
 
 ```bash
-evmosd config "chain-id" evmos_9000-2
-evmosd config
+mercuryd config "chain-id" evmos_9000-2
+mercuryd config
 {
  "chain-id": "evmos_9000-2",
  "keyring-backend": "os",
@@ -157,7 +157,7 @@ broadcast-mode = "sync"
 After the necessary changes are made in the `client.toml`, then save. For example, if we directly change the chain-id from `evmos_{{ $themeConfig.project.testnet_chain_id }}-2` to `evmostest_9000-1`, and output to number, it would change instantly as shown below.
 
 ```bash
-evmosd config
+mercuryd config
 {
  "chain-id": "evmostest_9000-1",
  "keyring-backend": "os",

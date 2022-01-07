@@ -34,7 +34,7 @@ The instructions for setting up a brand new full node from scratch are the the s
 To start your node, just type:
 
 ```bash
-evmosd start --json-rpc.enable=true --json-rpc.api="eth,web3,net"
+mercuryd start --json-rpc.enable=true --json-rpc.api="eth,web3,net"
 ```
 
 ## Key Management
@@ -42,7 +42,7 @@ evmosd start --json-rpc.enable=true --json-rpc.api="eth,web3,net"
 To run a node with the same key every time: replace `evmosd keys add $KEY` in `./init.sh` with:
 
 ```bash
-echo "your mnemonic here" | evmosd keys add $KEY --recover
+echo "your mnemonic here" | mercuryd keys add $KEY --recover
 ```
 
 ::: tip
@@ -52,19 +52,19 @@ Evmos currently only supports 24 word mnemonics.
 You can generate a new key/mnemonic with:
 
 ```bash
-evmosd keys add $KEY
+mercuryd keys add $KEY
 ```
 
 To export your evmos key as an Ethereum private key (for use with [Metamask](./../guides/keys-wallets/metamask) for example):
 
 ```bash
-evmosd keys unsafe-export-eth-key $KEY
+mercuryd keys unsafe-export-eth-key $KEY
 ```
 
 For more about the available key commands, use the `--help` flag
 
 ```bash
-evmosd keys -h
+mercuryd keys -h
 ```
 
 ### Keyring backend options
@@ -77,7 +77,7 @@ relevant command and the password prompt will occur through the command line. Th
 as a CLI config option with:
 
 ```bash
-evmosd config keyring-backend file
+mercuryd config keyring-backend file
 ```
 
 :::tip
@@ -101,8 +101,8 @@ If you are running a **validator node**, always be careful when doing `evmosd un
 First, remove the outdated files and reset the data.
 
 ```bash
-rm $HOME/.evmosd/config/addrbook.json $HOME/.evmosd/config/genesis.json
-evmosd unsafe-reset-all
+rm $HOME/.mercuryd/config/addrbook.json $HOME/.mercuryd/config/genesis.json
+mercuryd unsafe-reset-all
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before, your node will still try to connect to them, but may fail if they haven't also been upgraded.
@@ -112,7 +112,7 @@ Your node is now in a pristine state while keeping the original `priv_validator.
 Data for the {{ $themeConfig.project.binary }} binary should be stored at `~/.{{ $themeConfig.project.binary }}`, respectively by default. To **delete** the existing binaries and configuration, run:
 
 ```bash
-rm -rf ~/.evmosd
+rm -rf ~/.mercuryd
 ```
 
 To clear all data except key storage (if keyring backend chosen) and then you can rerun the full node installation commands from above to start the node again.

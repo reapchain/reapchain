@@ -73,45 +73,45 @@ calling the `evmosd testnet` command. This outputs a handful of files in the
 tree -L 3 build/
 
 build/
-├── evmosd
-├── evmosd
+├── mercuryd
+├── mercuryd
 ├── gentxs
 │   ├── node0.json
 │   ├── node1.json
 │   ├── node2.json
 │   └── node3.json
 ├── node0
-│   ├── evmosd
+│   ├── mercuryd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── evmosd
+│   └── mercuryd
 │       ├── config
 │       ├── data
-│       └── evmosd.log
+│       └── mercuryd.log
 ├── node1
-│   ├── evmosd
+│   ├── mercuryd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── evmosd
+│   └── mercuryd
 │       ├── config
 │       ├── data
-│       └── evmosd.log
+│       └── mercuryd.log
 ├── node2
-│   ├── evmosd
+│   ├── mercuryd
 │   │   ├── key_seed.json
 │   │   └── keyring-test-cosmos
-│   └── evmosd
+│   └── mercuryd
 │       ├── config
 │       ├── data
-│       └── evmosd.log
+│       └── mercuryd.log
 └── node3
-    ├── evmosd
+    ├── mercuryd
     │   ├── key_seed.json
     │   └── keyring-test-cosmos
-    └── evmosd
+    └── mercuryd
         ├── config
         ├── data
-        └── evmosd.log
+        └── mercuryd.log
 ```
 
 Each `./build/nodeN` directory is mounted to the `/evmosd` directory in each container.
@@ -122,10 +122,10 @@ In order to see the logs of a particular node you can use the following command:
 
 ```bash
 # node 0: daemon logs
-docker exec evmosdnode0 tail evmosd.log
+docker exec evmosdnode0 tail mercuryd.log
 
 # node 0: REST & RPC logs
-docker exec evmosdnode0 tail evmosd.log
+docker exec evmosdnode0 tail mercuryd.log
 ```
 
 The logs for the daemon will look like:
@@ -194,7 +194,7 @@ To interact with `evmosd` and start querying state or creating txs, you use the
 `evmosd` directory of any given node as your `home`, for example:
 
 ```bash
-evmosd keys list --home ./build/node0/evmosd
+mercuryd keys list --home ./build/node0/mercuryd
 ```
 
 Now that accounts exists, you may create new accounts and send those accounts

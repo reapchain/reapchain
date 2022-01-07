@@ -9,7 +9,7 @@ order: 8
 Find below a list of  `evmosd` commands added with the  `x/intrarelayer` module. You can obtain the full list by using the `evmosd -h` command. A CLI command can look like this:
 
 ```bash
-evmosd query intrarelayer params
+mercuryd query intrarelayer params
 ```
 
 ### Queries
