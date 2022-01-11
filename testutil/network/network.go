@@ -3,7 +3,7 @@ package network
 import (
 	"fmt"
 
-	tmrand "github.com/tendermint/tendermint/libs/rand"
+	tmrand "github.com/reapchain/reapchain-core/libs/rand"
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/cosmos/cosmos-sdk/baseapp"

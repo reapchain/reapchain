@@ -123,7 +123,7 @@ For more details on how to configure your validator, follow the validator [setup
 ```bash
 evmosd tx staking create-validator \
   --amount=1000000000000aphoton \
-  --pubkey=$(evmosd tendermint show-validator) \
+  --pubkey=$(evmosd reapchain show-validator) \
   --moniker="EvmosWhale" \
   --chain-id=<chain_id> \
   --commission-rate="0.10" \
@@ -184,7 +184,7 @@ You can share your peer to posting it in the `#find-peers` channel in the [Evmos
 To get your Node ID use
 
 ```bash
-evmosd tendermint show-node-id
+evmosd reapchain show-node-id
 ```
 
 :::

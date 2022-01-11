@@ -3,7 +3,7 @@ package types
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tendermint/tendermint/crypto/tmhash"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
 	ethermint "github.com/tharsis/ethermint/types"
 )
 

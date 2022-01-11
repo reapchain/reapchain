@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	tmcli "github.com/tendermint/tendermint/libs/cli"
+	tmcli "github.com/reapchain/reapchain-core/libs/cli"
 
 	"github.com/stretchr/testify/suite"
 

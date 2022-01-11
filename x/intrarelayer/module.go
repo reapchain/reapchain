@@ -16,7 +16,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/reapchain/reapchain-core/abci/types"
 
 	"github.com/tharsis/evmos/x/intrarelayer/client/cli"
 	"github.com/tharsis/evmos/x/intrarelayer/keeper"

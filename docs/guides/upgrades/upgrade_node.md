@@ -133,7 +133,7 @@ persistent_peers = "5576b0160761fe81ccdf88e06031a01bc8643d51@195.201.108.97:2465
 You can share your peer with
 
 ```bash
-evmosd tendermint show-node-id
+evmosd reapchain show-node-id
 ```
 
 **Peer Format**: `node-id@ip:port`
