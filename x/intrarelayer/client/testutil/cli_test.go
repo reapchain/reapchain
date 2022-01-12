@@ -12,11 +12,11 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	clitestutil "github.com/cosmos/cosmos-sdk/testutil/cli"
+	clitestutil "github.com/reapchain/cosmos-sdk/testutil/cli"
 
-	"github.com/tharsis/ethermint/testutil/network"
-	evmosnetwork "github.com/tharsis/evmos/testutil/network"
-	"github.com/tharsis/evmos/x/intrarelayer/client/cli"
+	"github.com/reapchain/ethermint/testutil/network"
+	evmosnetwork "github.com/reapchain/mercury/testutil/network"
+	"github.com/reapchain/mercury/x/intrarelayer/client/cli"
 )
 
 type IntegrationTestSuite struct {

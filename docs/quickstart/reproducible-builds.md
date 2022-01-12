@@ -23,7 +23,7 @@ All the following instructions have been tested on *Ubuntu 18.04.2 LTS* with *Do
 Clone `evmos`:
 
 ``` bash
-git clone git@github.com:tharsis/evmos.git
+git clone git@github.com:reapchain/mercury.git
 ```
 
 Checkout the commit, branch, or release tag you want to build (eg `v0.4.0`):

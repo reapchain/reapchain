@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/suite"
 
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/tharsis/ethermint/server/config"
-	"github.com/tharsis/ethermint/testutil/network"
-	evmosnetwork "github.com/tharsis/evmos/testutil/network"
+	"github.com/reapchain/ethermint/server/config"
+	"github.com/reapchain/ethermint/testutil/network"
+	evmosnetwork "github.com/reapchain/mercury/testutil/network"
 )
 
 type IntegrationTestSuite struct {

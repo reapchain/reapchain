@@ -5,7 +5,7 @@ import "gogoproto/gogo.proto";
 import "reap/params.proto";
 // this line is used by starport scaffolding # genesis/proto/import
 
-option go_package = "github.com/tharsis/evmos/x/reap/types";
+option go_package = "github.com/reapchain/mercury/x/reap/types";
 
 // GenesisState defines the reap module's genesis state.
 message GenesisState {

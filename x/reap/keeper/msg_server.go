@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/tharsis/evmos/x/reap/types"
+	"github.com/reapchain/mercury/x/reap/types"
 )
 
 type msgServer struct {

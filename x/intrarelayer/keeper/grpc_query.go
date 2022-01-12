@@ -6,11 +6,11 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/cosmos/cosmos-sdk/store/prefix"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/query"
-	ethermint "github.com/tharsis/ethermint/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/cosmos-sdk/store/prefix"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/query"
+	ethermint "github.com/reapchain/ethermint/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 var _ types.QueryServer = Keeper{}

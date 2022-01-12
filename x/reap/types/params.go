@@ -3,7 +3,7 @@ package types
 import (
 	
 
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"gopkg.in/yaml.v2"
 )
 

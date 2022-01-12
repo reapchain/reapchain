@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	"github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	svrcmd "github.com/reapchain/cosmos-sdk/server/cmd"
+	"github.com/reapchain/cosmos-sdk/x/genutil/client/cli"
 	"github.com/stretchr/testify/require"
 
-	"github.com/tharsis/evmos/app"
-	evmosd "github.com/tharsis/evmos/cmd/evmosd"
+	"github.com/reapchain/mercury/app"
+	evmosd "github.com/reapchain/mercury/cmd/evmosd"
 )
 
 func TestInitCmd(t *testing.T) {

@@ -110,8 +110,8 @@ import (
 
   "google.golang.org/grpc"
 
-    sdk "github.com/cosmos/cosmos-sdk/types"
-  "github.com/cosmos/cosmos-sdk/types/tx"
+    sdk "github.com/reapchain/cosmos-sdk/types"
+  "github.com/reapchain/cosmos-sdk/types/tx"
 )
 
 func queryState() error {
@@ -155,8 +155,8 @@ import (
   "google.golang.org/grpc"
   "google.golang.org/grpc/metadata"
 
-  grpctypes "github.com/cosmos/cosmos-sdk/types/grpc"
-  "github.com/cosmos/cosmos-sdk/types/tx"
+  grpctypes "github.com/reapchain/cosmos-sdk/types/grpc"
+  "github.com/reapchain/cosmos-sdk/types/tx"
 )
 
 func queryState() error {

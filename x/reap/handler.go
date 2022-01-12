@@ -3,10 +3,10 @@ package reap
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tharsis/evmos/x/reap/keeper"
-	"github.com/tharsis/evmos/x/reap/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/mercury/x/reap/keeper"
+	"github.com/reapchain/mercury/x/reap/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 )
 
 // NewHandler ...

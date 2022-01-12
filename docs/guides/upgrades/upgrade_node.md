@@ -26,7 +26,7 @@ make install
 If you have issues at this step, please check that you have the latest stable version of GO installed.
 :::
 
-You will need to ensure that the version installed matches the one needed for th testnet. Check the Evmos [release page](https://github.com/tharsis/evmos/releases) for details on each release.
+You will need to ensure that the version installed matches the one needed for th testnet. Check the Evmos [release page](https://github.com/reapchain/mercury/releases) for details on each release.
 
 Verify that everything is OK. If you get something like the following, you've successfully installed Evmos on your system.
 
@@ -58,10 +58,10 @@ If you choose to use Cosmovisor, please continue with these instructions. If you
 
 #### Install and Setup
 
-To get started with [Cosmovisor](https://github.com/cosmos/cosmos-sdk/tree/master/cosmovisor) first download it
+To get started with [Cosmovisor](https://github.com/reapchain/cosmos-sdk/tree/master/cosmovisor) first download it
 
 ```bash
-go get github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor
+go get github.com/reapchain/cosmos-sdk/cosmovisor/cmd/cosmovisor
 ```
 
 Set up the Cosmovisor environment variables. We recommend setting these in your `.profile` so it is automatically set in every session.

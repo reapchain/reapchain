@@ -11,14 +11,14 @@ import (
 
 	abci "github.com/reapchain/reapchain-core/abci/types"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/codec"
-	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/tharsis/evmos/x/reap/keeper"
-	"github.com/tharsis/evmos/x/reap/types"
-	"github.com/tharsis/evmos/x/reap/client/cli"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/codec"
+	cdctypes "github.com/reapchain/cosmos-sdk/codec/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	"github.com/reapchain/mercury/x/reap/keeper"
+	"github.com/reapchain/mercury/x/reap/types"
+	"github.com/reapchain/mercury/x/reap/client/cli"
 	
 )
 

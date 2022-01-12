@@ -7,7 +7,7 @@ import "evmos/intrarelayer/v1/intrarelayer.proto";
 import "google/api/annotations.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/tharsis/evmos/x/intrarelayer/types";
+option go_package = "github.com/reapchain/mercury/x/intrarelayer/types";
 
 // Query defines the gRPC querier service.
 service Query {

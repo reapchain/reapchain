@@ -3,7 +3,7 @@ package keeper
 import (
 	"fmt"
 
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 )
 
 func equalMetadata(a, b banktypes.Metadata) error {

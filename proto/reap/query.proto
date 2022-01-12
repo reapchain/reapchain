@@ -7,13 +7,13 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "reap/params.proto";
 // this line is used by starport scaffolding # 1
 
-option go_package = "github.com/tharsis/evmos/x/reap/types";
+option go_package = "github.com/reapchain/mercury/x/reap/types";
 
 // Query defines the gRPC querier service.
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/tharsis/evmos/reap/params";
+    option (google.api.http).get = "/reapchain/mercury/reap/params";
   }
   // this line is used by starport scaffolding # 2
 }

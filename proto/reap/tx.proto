@@ -3,7 +3,7 @@ package tharsis.evmos.reap;
 
 // this line is used by starport scaffolding # proto/tx/import
 
-option go_package = "github.com/tharsis/evmos/x/reap/types";
+option go_package = "github.com/reapchain/mercury/x/reap/types";
 
 // Msg defines the Msg service.
 service Msg {

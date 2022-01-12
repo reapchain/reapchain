@@ -1,12 +1,12 @@
 package intrarelayer
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/evmos/x/intrarelayer/keeper"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/mercury/x/intrarelayer/keeper"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // NewIntrarelayerProposalHandler creates a governance handler to manage new proposal types.

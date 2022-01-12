@@ -5,7 +5,7 @@ import "evmos/intrarelayer/v1/intrarelayer.proto";
 import "gogoproto/gogo.proto";
 import "google/protobuf/duration.proto";
 
-option go_package = "github.com/tharsis/evmos/x/intrarelayer/types";
+option go_package = "github.com/reapchain/mercury/x/intrarelayer/types";
 
 // GenesisState defines the module's genesis state.
 message GenesisState {

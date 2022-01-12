@@ -3,13 +3,13 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/reapchain/cosmos-sdk/codec"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"github.com/reapchain/reapchain-core/libs/log"
 
-	evmkeeper "github.com/tharsis/ethermint/x/evm/keeper"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	evmkeeper "github.com/reapchain/ethermint/x/evm/keeper"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // Keeper of this module maintains collections of intrarelayer.

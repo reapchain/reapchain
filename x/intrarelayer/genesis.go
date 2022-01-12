@@ -1,10 +1,10 @@
 package intrarelayer
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
-	"github.com/tharsis/evmos/x/intrarelayer/keeper"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
+	"github.com/reapchain/mercury/x/intrarelayer/keeper"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // InitGenesis import module genesis

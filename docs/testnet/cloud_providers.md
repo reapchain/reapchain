@@ -53,7 +53,7 @@ Now you are connected to the droplet.
 Clone and build Evmos in the droplet using `git`:
 
 ```bash
-go install https://github.com/tharsis/evmos.git
+go install https://github.com/reapchain/mercury.git
 ```
 
 Check that the binaries have been successfully installed:

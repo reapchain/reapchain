@@ -1,6 +1,6 @@
 FROM golang:stretch AS build-env
 
-WORKDIR /go/src/github.com/tharsis/evmos
+WORKDIR /go/src/github.com/reapchain/mercury
 
 RUN apt update
 RUN apt install git -y
@@ -16,7 +16,7 @@ RUN apt install ca-certificates jq -y
 
 WORKDIR /root
 
-COPY --from=build-env /go/src/github.com/tharsis/evmos/build/evmosd /usr/bin/evmosd
+COPY --from=build-env /go/src/github.com/reapchain/mercury/build/evmosd /usr/bin/evmosd
 
 EXPOSE 26656 26657 1317 9090
 

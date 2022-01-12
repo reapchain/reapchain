@@ -3,13 +3,13 @@ package keeper
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types/contracts"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types/contracts"
 )
 
 // RegisterCoin deploys an erc20 contract and creates the token pair for the cosmos coin

@@ -4,8 +4,8 @@ import (
 	fmt "fmt"
 	"time"
 
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 )
 
 // Parameter store key

@@ -3,12 +3,12 @@ package main
 import (
 	"os"
 
-	"github.com/cosmos/cosmos-sdk/server"
-	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/server"
+	svrcmd "github.com/reapchain/cosmos-sdk/server/cmd"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/app"
-	cmdcfg "github.com/tharsis/evmos/cmd/config"
+	"github.com/reapchain/mercury/app"
+	cmdcfg "github.com/reapchain/mercury/cmd/config"
 )
 
 func main() {

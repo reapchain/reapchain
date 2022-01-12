@@ -1,6 +1,6 @@
 package keeper_test
 
-import "github.com/tharsis/evmos/x/intrarelayer/types"
+import "github.com/reapchain/mercury/x/intrarelayer/types"
 
 func (suite *KeeperTestSuite) TestParams() {
 	params := suite.app.IntrarelayerKeeper.GetParams(suite.ctx)

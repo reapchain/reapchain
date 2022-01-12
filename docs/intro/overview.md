@@ -9,7 +9,7 @@ Learn about Evmos and its primary features. {synopsis}
 ## What is Evmos
 
 Evmos is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
-interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/cosmos/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/reapchain/reapchain-core) consensus engine.
+interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/reapchain/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/reapchain/reapchain-core) consensus engine.
 
 Evmos allows for running vanilla Ethereum as a [Cosmos](https://cosmos.network/)
 application-specific blockchain. This allows developers to have all the desired features of
