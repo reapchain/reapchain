@@ -10,11 +10,11 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/reapchain/mercury/app"
-	evmosd "github.com/reapchain/mercury/cmd/evmosd"
+	mercuryd "github.com/reapchain/mercury/cmd/mercuryd"
 )
 
 func TestInitCmd(t *testing.T) {
-	rootCmd, _ := evmosd.NewRootCmd()
+	rootCmd, _ := mercuryd.NewRootCmd()
 	rootCmd.SetArgs([]string{
 		"init",       // Test the init cmd
 		"evmos-test", // Moniker
