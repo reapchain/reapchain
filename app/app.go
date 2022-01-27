@@ -126,12 +126,12 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".evmosd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".mercuryd")
 }
 
 const (
 	// Name defines the application binary name
-	Name = "evmosd"
+	Name = "mercuryd"
 	upgradeName = "Olympus-Mons-v0.4.1"
 )
 

@@ -17,26 +17,26 @@ set LOGLEVEL="info"
 # to trace evm
 #TRACE="--trace"
 set TRACE=""
-set HOME=%USERPROFILE%\.evmosd
+set HOME=%USERPROFILE%\.mercuryd
 echo %HOME%
 set ETHCONFIG=%HOME%\config\config.toml
 set GENESIS=%HOME%\config\genesis.json
 set TMPGENESIS=%HOME%\config\tmp_genesis.json
 
 @echo build binary
-go build .\cmd\evmosd
+go build .\cmd\mercuryd
 
 
 @echo clear home folder
 del /s /q %HOME%
 
-evmosd config keyring-backend %KEYRING%
-evmosd config chain-id %CHAINID%
+mercuryd config keyring-backend %KEYRING%
+mercuryd config chain-id %CHAINID%
 
-evmosd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
+mercuryd keys add %KEY% --keyring-backend %KEYRING% --algo %KEYALGO%
 
 rem Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
-evmosd init %MONIKER% --chain-id %CHAINID% 
+mercuryd init %MONIKER% --chain-id %CHAINID%
 
 rem Change parameter token denominations to aphoton
 cat %GENESIS% | jq ".app_state[\"staking\"][\"params\"][\"bond_denom\"]=\"aphoton\""   >   %TMPGENESIS% && move %TMPGENESIS% %GENESIS%
@@ -54,18 +54,18 @@ rem setup
 sed -i "s/create_empty_blocks = true/create_empty_blocks = false/g" %ETHCONFIG%
 
 rem Allocate genesis accounts (cosmos formatted addresses)
-evmosd add-genesis-account %KEY% 100000000000000000000000000aphoton --keyring-backend %KEYRING%
+mercuryd add-genesis-account %KEY% 100000000000000000000000000aphoton --keyring-backend %KEYRING%
 
 rem Sign genesis transaction
-evmosd gentx %KEY% 1000000000000000000000aphoton --keyring-backend %KEYRING% --chain-id %CHAINID%
+mercuryd gentx %KEY% 1000000000000000000000aphoton --keyring-backend %KEYRING% --chain-id %CHAINID%
 
 rem Collect genesis tx
-evmosd collect-gentxs
+mercuryd collect-gentxs
 
 rem Run this to ensure everything worked and that the genesis file is setup correctly
-evmosd validate-genesis
+mercuryd validate-genesis
 
 
 
 rem Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-evmosd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001aphoton
+mercuryd start --pruning=nothing %TRACE% --log_level %LOGLEVEL% --minimum-gas-prices=0.0001aphoton
