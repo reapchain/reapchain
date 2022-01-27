@@ -4,7 +4,7 @@ parent:
 -->
 
 <div align="center">
-  <h1> Evmos </h1>
+  <h1> Mercury </h1>
 </div>
 
 <!-- TODO: add banner -->
@@ -37,12 +37,10 @@ parent:
   <a href="https://codecov.io/gh/reapchain/mercury">
     <img alt="Code Coverage" src="https://codecov.io/gh/reapchain/mercury/branch/main/graph/badge.svg" />
   </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow Evmos" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
   </a>
 </div>
 
-Evmos is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
+Mercury is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
 interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/reapchain/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/reapchain/reapchain-core) consensus engine.
 
 **Note**: Requires [Go 1.17+](https://golang.org/dl/)
@@ -59,7 +57,7 @@ Or check out the latest [release](https://github.com/reapchain/mercury/releases)
 
 ## Quick Start
 
-To learn how the Evmos works from a high-level perspective, go to the [Introduction](https://evmos.dev/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/quickstart/run_node.html).
+To learn how the Mercury works from a high-level perspective, go to the [Introduction](https://evmos.dev/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/quickstart/run_node.html).
 
 ## Community
 
