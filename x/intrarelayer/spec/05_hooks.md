@@ -38,7 +38,7 @@ The intrarelayer module implements two transaction hooks from the EVM and Govern
 
 ### Overwriting the Voting Period
 
-By Implementing the [GovHooks](https://github.com/cosmos/cosmos-sdk/blob/86474748888204515f59aaeab9be295066563f46/x/gov/types/expected_keepers.go#L57) Interface from the Cosmos-SDK, the voting period for all proposals of the Intrarelayer module can be customized using the `AfterProposalDeposit` hook.
+By Implementing the [GovHooks](https://github.com/reapchain/cosmos-sdk/blob/86474748888204515f59aaeab9be295066563f46/x/gov/types/expected_keepers.go#L57) Interface from the Cosmos-SDK, the voting period for all proposals of the Intrarelayer module can be customized using the `AfterProposalDeposit` hook.
 
 1. Set the voting period  on the intrarelayer module parameters at genesis or through governance
 2. Submit a new governance proposal, e.g. `RegisterERC20Proposal`

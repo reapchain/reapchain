@@ -3,9 +3,9 @@ package keeper
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 var _ govtypes.GovHooks = &Keeper{}

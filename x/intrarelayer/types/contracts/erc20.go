@@ -5,8 +5,8 @@ import (
 	"encoding/json"
 
 	"github.com/ethereum/go-ethereum/common"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 var (

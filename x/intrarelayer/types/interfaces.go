@@ -3,11 +3,11 @@ package types
 import (
 	"time"
 
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/reapchain/reapchain-core/libs/log"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 )
 
 // AccountKeeper defines the expected interface needed to retrieve account info.

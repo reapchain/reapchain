@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 func (suite *KeeperTestSuite) TestProposalNoOps() {

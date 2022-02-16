@@ -13,10 +13,10 @@ import (
 
 	"github.com/ethereum/go-ethereum/ethclient"
 
-	"github.com/tharsis/ethermint/server/config"
-	"github.com/tharsis/ethermint/testutil/network"
-	evmosnetwork "github.com/tharsis/evmos/testutil/network"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/ethermint/server/config"
+	"github.com/reapchain/ethermint/testutil/network"
+	evmosnetwork "github.com/reapchain/mercury/testutil/network"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // var _ = Describe("E2e", func() {

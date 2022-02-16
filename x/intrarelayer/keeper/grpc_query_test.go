@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/query"
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/query"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 func (suite *KeeperTestSuite) TestTokenPairs() {

@@ -44,8 +44,8 @@ module.exports = {
     // ['link', { rel: "apple-touch-icon-precomposed", href: "/apple-touch-icon-precomposed.png" }],
   ],
   themeConfig: {
-    repo: 'tharsis/evmos',
-    docsRepo: 'tharsis/evmos',
+    repo: 'reapchain/mercury',
+    docsRepo: 'reapchain/mercury',
     docsBranch: 'main',
     docsDir: 'docs',
     editLinks: true,
@@ -54,7 +54,7 @@ module.exports = {
       name: 'Evmos',
       denom: 'Evmos',
       ticker: 'EVMOS',
-      binary: 'evmosd',
+      binary: 'mercuryd',
       testnet_denom: 'Photon',
       testnet_ticker: 'PHOTON',
       rpc_url: 'http://localhost:8545/',
@@ -207,11 +207,11 @@ module.exports = {
           children: [
             {
               title: 'Evmos API Reference',
-              path: 'https://pkg.go.dev/github.com/tharsis/evmos'
+              path: 'https://pkg.go.dev/github.com/reapchain/mercury'
             },
             {
               title: 'Ethermint Library API Reference',
-              path: 'https://pkg.go.dev/github.com/tharsis/ethermint'
+              path: 'https://pkg.go.dev/github.com/reapchain/ethermint'
             },
             {
               title: 'JSON-RPC API Reference',
@@ -251,7 +251,7 @@ module.exports = {
       services: [
         {
           service: 'github',
-          url: 'https://github.com/tharsis/evmos'
+          url: 'https://github.com/reapchain/mercury'
         },
         {
           service: "twitter",

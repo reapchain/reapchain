@@ -1693,7 +1693,7 @@ paths:
 
                   Tendermint sha256 hash of the transaction bytes. See
 
-                  https://github.com/tendermint/tendermint/issues/6539 for
+                  https://github.com/reapchain/reapchain-core/issues/6539 for
                   reference
               logs:
                 type: array
@@ -13351,7 +13351,7 @@ definitions:
         title: |-
           ethereum transaction hash in hex format. This hash differs from the
           Tendermint sha256 hash of the transaction bytes. See
-          https://github.com/tendermint/tendermint/issues/6539 for reference
+          https://github.com/reapchain/reapchain-core/issues/6539 for reference
       logs:
         type: array
         items:

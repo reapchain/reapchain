@@ -4,9 +4,9 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/ethermint/tests"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 func (suite *KeeperTestSuite) TestGetAllTokenPairs() {

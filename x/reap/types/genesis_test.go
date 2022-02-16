@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tharsis/evmos/x/reap/types"
+	"github.com/reapchain/mercury/x/reap/types"
 )
 
 func TestGenesisState_Validate(t *testing.T) {

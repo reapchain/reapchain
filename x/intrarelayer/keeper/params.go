@@ -1,8 +1,8 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // GetParams returns the total set of intrarelayer parameters.

@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"fmt"
 
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 const (

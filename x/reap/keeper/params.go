@@ -1,8 +1,8 @@
 package keeper
 
 import (
-	"github.com/tharsis/evmos/x/reap/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/mercury/x/reap/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 )
 
 // GetParams get all parameters as types.Params

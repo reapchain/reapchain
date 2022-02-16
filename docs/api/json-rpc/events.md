@@ -39,7 +39,7 @@ The main `eventCategory` you can subscribe to are:
 
 These events are triggered from the `state` package after a block is committed. You can get the full
 list of `event` categories
-[here](https://godoc.org/github.com/tendermint/tendermint/types#pkg-constants).
+[here](https://godoc.org/github.com/reapchain/reapchain-core/types#pkg-constants).
 
 The `type` and `attribute` value of the `query` allow you to filter the specific `event` you are
 looking for. For example, a `MsgEthereumTx` transaction triggers an `event` of type `ethermint` and
@@ -90,13 +90,13 @@ To start a connection with the Tendermint websocket you need to define the addre
 flag when starting the node (default `tcp://127.0.0.1:26657`):
 
 ```bash
-evmosd start --rpc.laddr="tcp://127.0.0.1:26657"
+mercuryd start --rpc.laddr="tcp://127.0.0.1:26657"
 ```
 
 Then, start a websocket subscription with [ws](https://github.com/hashrocket/ws)
 
 ```bash
-# connect to tendermint websocket at port 8080 as defined above
+# connect to reapchain websocket at port 8080 as defined above
 ws ws://localhost:8080/websocket
 
 # subscribe to new Tendermint block headers
@@ -115,13 +115,13 @@ You can start a connection with the Ethereum websocket using the `--json-rpc.ws-
 the node (default `"0.0.0.0:8546"`):
 
 ```bash
-evmosd start  --json-rpc.address"0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --evm.rpc.api="eth,web3,net,txpool,debug" --json-rpc.enable
+mercuryd start  --json-rpc.address"0.0.0.0:8545" --json-rpc.ws-address="0.0.0.0:8546" --evm.rpc.api="eth,web3,net,txpool,debug" --json-rpc.enable
 ```
 
 Then, start a websocket subscription with [`ws`](https://github.com/hashrocket/ws)
 
 ```bash
-# connect to tendermint websocet at port 8546 as defined above
+# connect to reapchain websocet at port 8546 as defined above
 ws ws://localhost:8546/
 
 # subscribe to new Ethereum-formatted block Headers

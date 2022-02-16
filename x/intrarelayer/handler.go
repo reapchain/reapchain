@@ -1,10 +1,10 @@
 package intrarelayer
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 
-	"github.com/tharsis/evmos/x/intrarelayer/types"
+	"github.com/reapchain/mercury/x/intrarelayer/types"
 )
 
 // NewHandler defines the intrarelayer module handler instance

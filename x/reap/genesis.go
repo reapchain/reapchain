@@ -1,9 +1,9 @@
 package reap
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tharsis/evmos/x/reap/keeper"
-	"github.com/tharsis/evmos/x/reap/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/mercury/x/reap/keeper"
+	"github.com/reapchain/mercury/x/reap/types"
 )
 
 // InitGenesis initializes the capability module's state from a provided genesis

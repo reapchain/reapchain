@@ -1,9 +1,9 @@
 package client
 
 import (
-	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
-	"github.com/tharsis/evmos/x/intrarelayer/client/cli"
-	"github.com/tharsis/evmos/x/intrarelayer/client/rest"
+	govclient "github.com/reapchain/cosmos-sdk/x/gov/client"
+	"github.com/reapchain/mercury/x/intrarelayer/client/cli"
+	"github.com/reapchain/mercury/x/intrarelayer/client/rest"
 )
 
 var (
