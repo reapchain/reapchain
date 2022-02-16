@@ -10,10 +10,10 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.44.3
-	github.com/reapchain/ethermint v0.0.1
-	github.com/reapchain/ibc-go v0.0.1
-	github.com/reapchain/reapchain-core v0.1.1
+	github.com/reapchain/cosmos-sdk v0.44.4
+	github.com/reapchain/ethermint v0.0.2
+	github.com/reapchain/ibc-go v0.0.2
+	github.com/reapchain/reapchain-core v0.1.2
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.3.0
 	github.com/stretchr/testify v1.7.0
@@ -114,7 +114,7 @@ require (
 	github.com/prometheus/statsd_exporter v0.21.0 // indirect
 	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/reapchain/iavl v0.0.2 // indirect
+	github.com/reapchain/iavl v0.0.3 // indirect
 	github.com/regen-network/cosmos-proto v0.3.1 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rs/cors v1.8.2 // indirect
