@@ -2,6 +2,7 @@ package types
 
 import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/mercury/types"
 
 	ethermint "github.com/reapchain/ethermint/types"
 )
@@ -50,7 +51,7 @@ func RegisterDenoms() {
 		panic(err)
 	}
 
-	if err := sdk.RegisterDenom(ethermint.AttoPhoton, sdk.NewDecWithPrec(1, ethermint.BaseDenomUnit)); err != nil {
+	if err := sdk.RegisterDenom(types.AttoReap, sdk.NewDecWithPrec(1, types.BaseDenomUnit)); err != nil {
 		panic(err)
 	}
 }
