@@ -13,14 +13,14 @@ require (
 	github.com/reapchain/cosmos-sdk v0.44.5
 	github.com/reapchain/ethermint v0.0.2
 	github.com/reapchain/ibc-go v0.0.2
-	github.com/reapchain/reapchain-core v0.1.2
+	github.com/reapchain/reapchain-core v0.1.3
 	github.com/spf13/cast v1.4.1
-	github.com/spf13/cobra v1.3.0
-	github.com/stretchr/testify v1.7.0
-	github.com/tendermint/tm-db v0.6.6
+	github.com/spf13/cobra v1.4.0
+	github.com/stretchr/testify v1.7.1
+	github.com/tendermint/tm-db v0.6.7
 	go.opencensus.io v0.23.0
 	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa
-	google.golang.org/grpc v1.43.0
+	google.golang.org/grpc v1.45.0
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/yaml.v2 v2.4.0
 )
