@@ -16,8 +16,8 @@ require (
 	github.com/rakyll/statik v0.1.7
 	github.com/reapchain/cosmos-sdk v0.45.1
 	github.com/reapchain/ethermint v0.12.0
-	github.com/reapchain/ibc-go v3.0.0
-	github.com/reapchain/reapchain-core v0.1.2
+	github.com/reapchain/ibc-go v0.3.0
+	github.com/reapchain/reapchain-core v0.1.3
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.1
