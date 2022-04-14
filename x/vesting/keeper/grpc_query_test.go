@@ -3,12 +3,12 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/v3/testutil"
-	"github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/testutil"
+	"github.com/reapchain/reapchain/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestBalances() {

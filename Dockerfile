@@ -16,8 +16,8 @@ RUN apt install ca-certificates jq -y
 
 WORKDIR /root
 
-COPY --from=build-env /go/src/github.com/tharsis/evmos/build/evmosd /usr/bin/evmosd
+COPY --from=build-env /go/src/github.com/tharsis/evmos/build/reapchaind /usr/bin/reapchaind
 
 EXPOSE 26656 26657 1317 9090
 
-CMD ["evmosd"]
+CMD ["reapchaind"]

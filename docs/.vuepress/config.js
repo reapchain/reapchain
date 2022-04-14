@@ -54,7 +54,7 @@ module.exports = {
       name: 'Evmos',
       denom: 'Evmos',
       ticker: 'EVMOS',
-      binary: 'evmosd',
+      binary: 'reapchaind',
       testnet_denom: 'tEvmos',
       testnet_ticker: 'tEVMOS',
       rpc_url: 'https://eth.bd.evmos.org:8545',
@@ -251,7 +251,7 @@ module.exports = {
             },
             {
               title: 'Ethermint Library Go API',
-              path: 'https://pkg.go.dev/github.com/tharsis/ethermint'
+              path: 'https://pkg.go.dev/github.com/reapchain/ethermint'
             },
             {
               title: 'Evmos gRPC Gateway API',

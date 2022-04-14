@@ -3,9 +3,9 @@ package types
 import (
 	"testing"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/suite"
 )
 

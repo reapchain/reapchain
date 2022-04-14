@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 )
 
 func TestSplitGasMeterKey(t *testing.T) {

@@ -1,11 +1,11 @@
 package incentives
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
 
-	"github.com/tharsis/evmos/v3/x/incentives/keeper"
-	"github.com/tharsis/evmos/v3/x/incentives/types"
+	"github.com/reapchain/reapchain/x/incentives/keeper"
+	"github.com/reapchain/reapchain/x/incentives/types"
 )
 
 // InitGenesis import module genesis

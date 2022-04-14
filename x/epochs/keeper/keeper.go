@@ -3,11 +3,11 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/reapchain/cosmos-sdk/codec"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/reapchain-core/libs/log"
 
-	"github.com/tharsis/evmos/v3/x/epochs/types"
+	"github.com/reapchain/reapchain/x/epochs/types"
 )
 
 // Keeper of this module maintains collections of epochs and hooks.

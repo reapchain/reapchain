@@ -4,11 +4,11 @@ import (
 	"math/big"
 	"strconv"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/tharsis/evmos/v3/x/incentives/types"
+	"github.com/reapchain/reapchain/x/incentives/types"
 )
 
 // Distribute transfers the allocated rewards to the participants of a given

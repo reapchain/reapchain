@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 // GetParams returns the total set of claim parameters.

@@ -54,7 +54,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) [\#427](https://github.com/tharsis/evmos/pull/427) Bump Ethermint to [`v0.12.0`](https://github.com/tharsis/ethermint/releases/tag/v0.12.0)
+- (deps) [\#427](https://github.com/tharsis/evmos/pull/427) Bump Ethermint to [`v0.12.0`](https://github.com/reapchain/ethermint/releases/tag/v0.12.0)
 - (ibc) [\#412](https://github.com/tharsis/evmos/pull/412) Introduce boilerplate struct for IBC applications.
 - (deps) [\#402](https://github.com/tharsis/evmos/pull/402) Bump IBC go to [`v3.0.0`](https://github.com/cosmos/ibc-go/releases/tag/v3.0.0)
 - (ibctesting) [\#388](https://github.com/tharsis/evmos/pull/388) Support Cosmos and EVM chains in IBC testing `Coordinator`.
@@ -77,7 +77,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) [\#360](https://github.com/tharsis/evmos/pull/360) Bump Ethermint to [`v0.11.0`](https://github.com/tharsis/ethermint/releases/tag/v0.11.0)
+- (deps) [\#360](https://github.com/tharsis/evmos/pull/360) Bump Ethermint to [`v0.11.0`](https://github.com/reapchain/ethermint/releases/tag/v0.11.0)
 - (deps) [\#282](https://github.com/tharsis/evmos/pull/282) Bump IBC go to [`v3.0.0-rc1`](https://github.com/cosmos/ibc-go/releases/tag/v3.0.0-rc1)
 
 ### Bug Fixes
@@ -95,7 +95,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) [\#345](https://github.com/tharsis/evmos/pull/345) Bump Ethermint to [`v0.10.2`](https://github.com/tharsis/ethermint/releases/tag/v0.10.2)
+- (deps) [\#345](https://github.com/tharsis/evmos/pull/345) Bump Ethermint to [`v0.10.2`](https://github.com/reapchain/ethermint/releases/tag/v0.10.2)
 
 ### Bug Fixes
 
@@ -128,9 +128,9 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) Bumped Ethermint to [`v0.10.0`](https://github.com/tharsis/ethermint/releases/tag/v0.10.0)
+- (deps) Bumped Ethermint to [`v0.10.0`](https://github.com/reapchain/ethermint/releases/tag/v0.10.0)
 - (deps) Bumped IBC-go to `v3.0.0-rc0`
-- (deps) Bumped Cosmos SDK to [`v0.45.1`](https://github.com/cosmos/cosmos-sdk/releases/tag/v0.45.1)
+- (deps) Bumped Cosmos SDK to [`v0.45.1`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.1)
 - (deps) bumped Tendermint to `v0.34.15` and tm-db to `v0.6.6`.
 - [\#180](https://github.com/tharsis/evmos/pull/180) Delete `TokenPair` if ERC20 contract has been selfdestructed.
 
@@ -171,7 +171,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 - (app) [\#128](https://github.com/tharsis/evmos/pull/128) Add ibc-go `TestingApp` interface.
 - (ci) [\#117](https://github.com/tharsis/evmos/pull/117) Enable automatic backport of PRs.
-- (deps) [\#135](https://github.com/tharsis/evmos/pull/135) Bump Ethermint version to [`v0.9.0`](https://github.com/tharsis/ethermint/releases/tag/v0.9.0)
+- (deps) [\#135](https://github.com/tharsis/evmos/pull/135) Bump Ethermint version to [`v0.9.0`](https://github.com/reapchain/ethermint/releases/tag/v0.9.0)
 - (ci) [\#136](https://github.com/tharsis/evmos/pull/136) Deploy `evmos` docker container to [docker hub](https://hub.docker.com/u/tharsishq) for every versioned releases
 
 ### Bug Fixes
@@ -186,7 +186,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) [\#110](https://github.com/tharsis/evmos/pull/110) Bump Ethermint version to [`v0.8.1`](https://github.com/tharsis/ethermint/releases/tag/v0.8.1)
+- (deps) [\#110](https://github.com/tharsis/evmos/pull/110) Bump Ethermint version to [`v0.8.1`](https://github.com/reapchain/ethermint/releases/tag/v0.8.1)
 - (erc20) [\#107](https://github.com/tharsis/evmos/pull/107) Add IBC validation
 - (cmd) [\#105](https://github.com/tharsis/evmos/pull/105) Improve testnet command to include JSON-RPC client.
 
@@ -204,7 +204,7 @@ Ref: https://keepachangelog.com/en/1.0.0/
 
 ### Improvements
 
-- (deps) [\#94](https://github.com/tharsis/evmos/pull/94) Bump Ethermint version to [`v0.8.0`](https://github.com/tharsis/ethermint/releases/tag/v0.8.0)
+- (deps) [\#94](https://github.com/tharsis/evmos/pull/94) Bump Ethermint version to [`v0.8.0`](https://github.com/reapchain/ethermint/releases/tag/v0.8.0)
 - (deps) [\#80](https://github.com/tharsis/evmos/pull/80) Bump ibc-go to [`v2.0.0`](https://github.com/cosmos/ibc-go/releases/tag/v2.0.0)
 
 ## [v0.1.3] - 2021-10-24

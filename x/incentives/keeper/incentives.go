@@ -1,11 +1,11 @@
 package keeper
 
 import (
-	"github.com/cosmos/cosmos-sdk/store/prefix"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/store/prefix"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/tharsis/evmos/v3/x/incentives/types"
+	"github.com/reapchain/reapchain/x/incentives/types"
 )
 
 // GetAllIncentives - get all registered Incentives

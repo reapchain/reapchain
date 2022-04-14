@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	"github.com/tharsis/ethermint/tests"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	distrtypes "github.com/reapchain/cosmos-sdk/x/distribution/types"
+	"github.com/reapchain/ethermint/tests"
 
-	"github.com/tharsis/evmos/v3/testutil"
-	"github.com/tharsis/evmos/v3/x/claims/types"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
-	vestingtypes "github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/reapchain/testutil"
+	"github.com/reapchain/reapchain/x/claims/types"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
+	vestingtypes "github.com/reapchain/reapchain/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestEndBlock() {

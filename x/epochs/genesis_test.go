@@ -5,12 +5,12 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	simapp "github.com/tharsis/evmos/v3/app"
-	"github.com/tharsis/evmos/v3/x/epochs"
-	"github.com/tharsis/evmos/v3/x/epochs/types"
+	simapp "github.com/reapchain/reapchain/app"
+	"github.com/reapchain/reapchain/x/epochs"
+	"github.com/reapchain/reapchain/x/epochs/types"
 )
 
 func TestEpochsExportGenesis(t *testing.T) {

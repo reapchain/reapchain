@@ -3,12 +3,12 @@ package keeper
 import (
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	ethermint "github.com/tharsis/ethermint/types"
+	ethermint "github.com/reapchain/ethermint/types"
 
-	incentivestypes "github.com/tharsis/evmos/v3/x/incentives/types"
-	"github.com/tharsis/evmos/v3/x/inflation/types"
+	incentivestypes "github.com/reapchain/reapchain/x/incentives/types"
+	"github.com/reapchain/reapchain/x/inflation/types"
 )
 
 // 200M token at year 4 allocated to the team

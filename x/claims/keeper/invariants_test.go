@@ -1,12 +1,12 @@
 package keeper_test
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 
-	"github.com/tharsis/evmos/v3/x/claims/types"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
+	"github.com/reapchain/reapchain/x/claims/types"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestClaimsInvariant() {

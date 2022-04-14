@@ -7,20 +7,20 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/reapchain/reapchain-core/abci/types"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/codec"
-	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/codec"
+	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
+	bankkeeper "github.com/reapchain/cosmos-sdk/x/bank/keeper"
+	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
 
-	"github.com/tharsis/evmos/v3/x/vesting/client/cli"
-	"github.com/tharsis/evmos/v3/x/vesting/keeper"
-	"github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/reapchain/x/vesting/client/cli"
+	"github.com/reapchain/reapchain/x/vesting/keeper"
+	"github.com/reapchain/reapchain/x/vesting/types"
 )
 
 var (

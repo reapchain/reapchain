@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/cosmos/cosmos-sdk/testutil"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/reapchain/cosmos-sdk/testutil"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/require"
-	"github.com/tharsis/ethermint/encoding"
-	"github.com/tharsis/evmos/v3/app"
-	v2 "github.com/tharsis/evmos/v3/x/claims/migrations/v2"
-	claims "github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/ethermint/encoding"
+	"github.com/reapchain/reapchain/app"
+	v2 "github.com/reapchain/reapchain/x/claims/migrations/v2"
+	claims "github.com/reapchain/reapchain/x/claims/types"
 )
 
 func TestStoreMigration(t *testing.T) {

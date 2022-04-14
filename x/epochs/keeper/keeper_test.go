@@ -7,20 +7,20 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
+	abci "github.com/reapchain/reapchain-core/abci/types"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain/version"
+	"github.com/reapchain/reapchain-core/version"
 
-	evm "github.com/tharsis/ethermint/x/evm/types"
+	evm "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v3/app"
-	"github.com/tharsis/evmos/v3/x/epochs/types"
+	"github.com/reapchain/reapchain/app"
+	"github.com/reapchain/reapchain/x/epochs/types"
 )
 
 var denomMint = evm.DefaultEVMDenom

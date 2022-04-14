@@ -3,11 +3,11 @@ package keeper
 import (
 	"strconv"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
 
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 // EndBlocker checks if the airdrop claiming period has ended in order to

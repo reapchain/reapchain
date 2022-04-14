@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	io "io"
@@ -34,13 +34,13 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 type InflationDistribution struct {
 	// staking_rewards defines the proportion of the minted minted_denom that is
 	// to be allocated as staking rewards
-	StakingRewards github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=staking_rewards,json=stakingRewards,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"staking_rewards"`
+	StakingRewards github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=staking_rewards,json=stakingRewards,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"staking_rewards"`
 	// usage_incentives defines the proportion of the minted minted_denom that is
 	// to be allocated to the incentives module address
-	UsageIncentives github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=usage_incentives,json=usageIncentives,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"usage_incentives"`
+	UsageIncentives github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=usage_incentives,json=usageIncentives,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"usage_incentives"`
 	// community_pool defines the proportion of the minted minted_denom that is to
 	// be allocated to the community pool
-	CommunityPool github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=community_pool,json=communityPool,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"community_pool"`
+	CommunityPool github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=community_pool,json=communityPool,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"community_pool"`
 }
 
 func (m *InflationDistribution) Reset()         { *m = InflationDistribution{} }
@@ -83,15 +83,15 @@ var xxx_messageInfo_InflationDistribution proto.InternalMessageInfo
 // (max_variance / bonding_target))
 type ExponentialCalculation struct {
 	// initial value
-	A github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=a,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"a"`
+	A github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=a,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"a"`
 	// reduction factor
-	R github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=r,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"r"`
+	R github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=r,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"r"`
 	// long term inflation
-	C github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=c,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"c"`
+	C github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=c,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"c"`
 	// bonding target
-	BondingTarget github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,4,opt,name=bonding_target,json=bondingTarget,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"bonding_target"`
+	BondingTarget github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,4,opt,name=bonding_target,json=bondingTarget,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"bonding_target"`
 	// max variance
-	MaxVariance github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,5,opt,name=max_variance,json=maxVariance,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"max_variance"`
+	MaxVariance github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,5,opt,name=max_variance,json=maxVariance,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"max_variance"`
 }
 
 func (m *ExponentialCalculation) Reset()         { *m = ExponentialCalculation{} }

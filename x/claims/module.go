@@ -9,17 +9,17 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/reapchain/reapchain-core/abci/types"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/codec"
-	cdctypes "github.com/cosmos/cosmos-sdk/codec/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/codec"
+	cdctypes "github.com/reapchain/cosmos-sdk/codec/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
 
-	"github.com/tharsis/evmos/v3/x/claims/client/cli"
-	"github.com/tharsis/evmos/v3/x/claims/keeper"
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/client/cli"
+	"github.com/reapchain/reapchain/x/claims/keeper"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 var (

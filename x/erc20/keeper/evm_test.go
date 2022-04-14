@@ -2,11 +2,11 @@ package keeper_test
 
 import (
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/reapchain/ethermint/tests"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v3/contracts"
-	"github.com/tharsis/evmos/v3/x/erc20/types"
+	"github.com/reapchain/reapchain/contracts"
+	"github.com/reapchain/reapchain/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryERC20() {

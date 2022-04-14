@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"math/big"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
-	evm "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/reapchain/ethermint/tests"
+	evm "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v3/x/incentives/types"
+	"github.com/reapchain/reapchain/x/incentives/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the

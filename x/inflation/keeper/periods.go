@@ -1,8 +1,8 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tharsis/evmos/v3/x/inflation/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/reapchain/x/inflation/types"
 )
 
 // GetPeriod gets current period

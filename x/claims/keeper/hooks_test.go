@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/v3/x/claims/types"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/x/claims/types"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestAfterProposalVote() {

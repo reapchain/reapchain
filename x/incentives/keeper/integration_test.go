@@ -4,12 +4,12 @@ import (
 	"math/big"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	types "github.com/tharsis/evmos/v3/x/incentives/types"
+	types "github.com/reapchain/reapchain/x/incentives/types"
 )
 
 var _ = Describe("Performing EVM transactions", Ordered, func() {

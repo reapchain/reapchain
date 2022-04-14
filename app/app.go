@@ -12,124 +12,128 @@ import (
 	"github.com/rakyll/statik/fs"
 	"github.com/spf13/cast"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
-	tmos "github.com/tendermint/tendermint/libs/os"
+	abci "github.com/reapchain/reapchain-core/abci/types"
+	"github.com/reapchain/reapchain-core/libs/log"
+	tmos "github.com/reapchain/reapchain-core/libs/os"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/grpc/tmservice"
-	"github.com/cosmos/cosmos-sdk/client/rpc"
-	"github.com/cosmos/cosmos-sdk/codec"
-	"github.com/cosmos/cosmos-sdk/codec/types"
-	"github.com/cosmos/cosmos-sdk/server/api"
-	"github.com/cosmos/cosmos-sdk/server/config"
-	servertypes "github.com/cosmos/cosmos-sdk/server/types"
-	"github.com/cosmos/cosmos-sdk/simapp"
-	simappparams "github.com/cosmos/cosmos-sdk/simapp/params"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/cosmos/cosmos-sdk/version"
-	"github.com/cosmos/cosmos-sdk/x/auth"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
-	authsims "github.com/cosmos/cosmos-sdk/x/auth/simulation"
-	authtx "github.com/cosmos/cosmos-sdk/x/auth/tx"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	"github.com/cosmos/cosmos-sdk/x/authz"
-	authzkeeper "github.com/cosmos/cosmos-sdk/x/authz/keeper"
-	authzmodule "github.com/cosmos/cosmos-sdk/x/authz/module"
-	"github.com/cosmos/cosmos-sdk/x/bank"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/cosmos/cosmos-sdk/x/capability"
-	capabilitykeeper "github.com/cosmos/cosmos-sdk/x/capability/keeper"
-	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
-	"github.com/cosmos/cosmos-sdk/x/crisis"
-	crisiskeeper "github.com/cosmos/cosmos-sdk/x/crisis/keeper"
-	crisistypes "github.com/cosmos/cosmos-sdk/x/crisis/types"
-	distr "github.com/cosmos/cosmos-sdk/x/distribution"
-	distrclient "github.com/cosmos/cosmos-sdk/x/distribution/client"
-	distrkeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
-	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	"github.com/cosmos/cosmos-sdk/x/evidence"
-	evidencekeeper "github.com/cosmos/cosmos-sdk/x/evidence/keeper"
-	evidencetypes "github.com/cosmos/cosmos-sdk/x/evidence/types"
-	"github.com/cosmos/cosmos-sdk/x/feegrant"
-	feegrantkeeper "github.com/cosmos/cosmos-sdk/x/feegrant/keeper"
-	feegrantmodule "github.com/cosmos/cosmos-sdk/x/feegrant/module"
-	"github.com/cosmos/cosmos-sdk/x/genutil"
-	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
-	"github.com/cosmos/cosmos-sdk/x/gov"
-	govkeeper "github.com/cosmos/cosmos-sdk/x/gov/keeper"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	"github.com/cosmos/cosmos-sdk/x/params"
-	paramsclient "github.com/cosmos/cosmos-sdk/x/params/client"
-	paramskeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
-	paramstypes "github.com/cosmos/cosmos-sdk/x/params/types"
-	paramproposal "github.com/cosmos/cosmos-sdk/x/params/types/proposal"
-	"github.com/cosmos/cosmos-sdk/x/slashing"
-	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
-	slashingtypes "github.com/cosmos/cosmos-sdk/x/slashing/types"
-	"github.com/cosmos/cosmos-sdk/x/staking"
-	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/cosmos/cosmos-sdk/x/upgrade"
-	upgradeclient "github.com/cosmos/cosmos-sdk/x/upgrade/client"
-	upgradekeeper "github.com/cosmos/cosmos-sdk/x/upgrade/keeper"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/grpc/tmservice"
+	"github.com/reapchain/cosmos-sdk/client/rpc"
+	"github.com/reapchain/cosmos-sdk/codec"
+	"github.com/reapchain/cosmos-sdk/codec/types"
+	"github.com/reapchain/cosmos-sdk/server/api"
+	"github.com/reapchain/cosmos-sdk/server/config"
+	servertypes "github.com/reapchain/cosmos-sdk/server/types"
+	"github.com/reapchain/cosmos-sdk/simapp"
+	simappparams "github.com/reapchain/cosmos-sdk/simapp/params"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	"github.com/reapchain/cosmos-sdk/version"
+	"github.com/reapchain/cosmos-sdk/x/auth"
+	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
+	authsims "github.com/reapchain/cosmos-sdk/x/auth/simulation"
+	authtx "github.com/reapchain/cosmos-sdk/x/auth/tx"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	"github.com/reapchain/cosmos-sdk/x/authz"
+	authzkeeper "github.com/reapchain/cosmos-sdk/x/authz/keeper"
+	authzmodule "github.com/reapchain/cosmos-sdk/x/authz/module"
+	"github.com/reapchain/cosmos-sdk/x/bank"
+	bankkeeper "github.com/reapchain/cosmos-sdk/x/bank/keeper"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	"github.com/reapchain/cosmos-sdk/x/capability"
+	capabilitykeeper "github.com/reapchain/cosmos-sdk/x/capability/keeper"
+	capabilitytypes "github.com/reapchain/cosmos-sdk/x/capability/types"
+	"github.com/reapchain/cosmos-sdk/x/crisis"
+	crisiskeeper "github.com/reapchain/cosmos-sdk/x/crisis/keeper"
+	crisistypes "github.com/reapchain/cosmos-sdk/x/crisis/types"
+	distr "github.com/reapchain/cosmos-sdk/x/distribution"
+	distrclient "github.com/reapchain/cosmos-sdk/x/distribution/client"
+	distrkeeper "github.com/reapchain/cosmos-sdk/x/distribution/keeper"
+	distrtypes "github.com/reapchain/cosmos-sdk/x/distribution/types"
+	"github.com/reapchain/cosmos-sdk/x/evidence"
+	evidencekeeper "github.com/reapchain/cosmos-sdk/x/evidence/keeper"
+	evidencetypes "github.com/reapchain/cosmos-sdk/x/evidence/types"
+	"github.com/reapchain/cosmos-sdk/x/feegrant"
+	feegrantkeeper "github.com/reapchain/cosmos-sdk/x/feegrant/keeper"
+	feegrantmodule "github.com/reapchain/cosmos-sdk/x/feegrant/module"
+	"github.com/reapchain/cosmos-sdk/x/genutil"
+	genutiltypes "github.com/reapchain/cosmos-sdk/x/genutil/types"
+	"github.com/reapchain/cosmos-sdk/x/gov"
+	govkeeper "github.com/reapchain/cosmos-sdk/x/gov/keeper"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	"github.com/reapchain/cosmos-sdk/x/params"
+	paramsclient "github.com/reapchain/cosmos-sdk/x/params/client"
+	paramskeeper "github.com/reapchain/cosmos-sdk/x/params/keeper"
+	paramstypes "github.com/reapchain/cosmos-sdk/x/params/types"
+	paramproposal "github.com/reapchain/cosmos-sdk/x/params/types/proposal"
+	"github.com/reapchain/cosmos-sdk/x/slashing"
+	slashingkeeper "github.com/reapchain/cosmos-sdk/x/slashing/keeper"
+	slashingtypes "github.com/reapchain/cosmos-sdk/x/slashing/types"
+	"github.com/reapchain/cosmos-sdk/x/staking"
+	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
+	"github.com/reapchain/cosmos-sdk/x/upgrade"
+	upgradeclient "github.com/reapchain/cosmos-sdk/x/upgrade/client"
+	upgradekeeper "github.com/reapchain/cosmos-sdk/x/upgrade/keeper"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 
-	"github.com/cosmos/ibc-go/v3/modules/apps/transfer"
-	ibctransferkeeper "github.com/cosmos/ibc-go/v3/modules/apps/transfer/keeper"
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	ibc "github.com/cosmos/ibc-go/v3/modules/core"
-	ibcclient "github.com/cosmos/ibc-go/v3/modules/core/02-client"
-	ibcclientclient "github.com/cosmos/ibc-go/v3/modules/core/02-client/client"
-	porttypes "github.com/cosmos/ibc-go/v3/modules/core/05-port/types"
-	ibchost "github.com/cosmos/ibc-go/v3/modules/core/24-host"
-	ibckeeper "github.com/cosmos/ibc-go/v3/modules/core/keeper"
-	ibctesting "github.com/cosmos/ibc-go/v3/testing"
+	"github.com/reapchain/ibc-go/modules/apps/transfer"
+	ibctransferkeeper "github.com/reapchain/ibc-go/modules/apps/transfer/keeper"
+	ibctransfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	ibc "github.com/reapchain/ibc-go/modules/core"
+	ibcclient "github.com/reapchain/ibc-go/modules/core/02-client"
+	ibcclientclient "github.com/reapchain/ibc-go/modules/core/02-client/client"
+	porttypes "github.com/reapchain/ibc-go/modules/core/05-port/types"
+	ibchost "github.com/reapchain/ibc-go/modules/core/24-host"
+	ibckeeper "github.com/reapchain/ibc-go/modules/core/keeper"
+	ibctesting "github.com/reapchain/ibc-go/testing"
 
 	// unnamed import of statik for swagger UI support
-	_ "github.com/tharsis/ethermint/client/docs/statik"
-	"github.com/tharsis/ethermint/encoding"
+	_ "github.com/reapchain/ethermint/client/docs/statik"
+	"github.com/reapchain/ethermint/encoding"
 
-	srvflags "github.com/tharsis/ethermint/server/flags"
-	ethermint "github.com/tharsis/ethermint/types"
-	"github.com/tharsis/ethermint/x/evm"
-	evmrest "github.com/tharsis/ethermint/x/evm/client/rest"
-	evmkeeper "github.com/tharsis/ethermint/x/evm/keeper"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	srvflags "github.com/reapchain/ethermint/server/flags"
+	ethermint "github.com/reapchain/ethermint/types"
+	"github.com/reapchain/ethermint/x/evm"
+	evmrest "github.com/reapchain/ethermint/x/evm/client/rest"
+	evmkeeper "github.com/reapchain/ethermint/x/evm/keeper"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/ethermint/x/feemarket"
-	feemarketkeeper "github.com/tharsis/ethermint/x/feemarket/keeper"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/reapchain/ethermint/x/feemarket"
+	feemarketkeeper "github.com/reapchain/ethermint/x/feemarket/keeper"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	"github.com/tharsis/evmos/v3/app/ante"
-	v2 "github.com/tharsis/evmos/v3/app/upgrades/v2"
-	"github.com/tharsis/evmos/v3/x/claims"
-	claimskeeper "github.com/tharsis/evmos/v3/x/claims/keeper"
-	claimstypes "github.com/tharsis/evmos/v3/x/claims/types"
-	"github.com/tharsis/evmos/v3/x/epochs"
-	epochskeeper "github.com/tharsis/evmos/v3/x/epochs/keeper"
-	epochstypes "github.com/tharsis/evmos/v3/x/epochs/types"
-	"github.com/tharsis/evmos/v3/x/erc20"
-	erc20client "github.com/tharsis/evmos/v3/x/erc20/client"
-	erc20keeper "github.com/tharsis/evmos/v3/x/erc20/keeper"
-	erc20types "github.com/tharsis/evmos/v3/x/erc20/types"
-	"github.com/tharsis/evmos/v3/x/incentives"
-	incentivesclient "github.com/tharsis/evmos/v3/x/incentives/client"
-	incentiveskeeper "github.com/tharsis/evmos/v3/x/incentives/keeper"
-	incentivestypes "github.com/tharsis/evmos/v3/x/incentives/types"
-	"github.com/tharsis/evmos/v3/x/inflation"
-	inflationkeeper "github.com/tharsis/evmos/v3/x/inflation/keeper"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
-	"github.com/tharsis/evmos/v3/x/recovery"
-	recoverykeeper "github.com/tharsis/evmos/v3/x/recovery/keeper"
-	recoverytypes "github.com/tharsis/evmos/v3/x/recovery/types"
-	"github.com/tharsis/evmos/v3/x/vesting"
-	vestingkeeper "github.com/tharsis/evmos/v3/x/vesting/keeper"
-	vestingtypes "github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/reapchain/app/ante"
+	v2 "github.com/reapchain/reapchain/app/upgrades/v2"
+	"github.com/reapchain/reapchain/x/claims"
+	claimskeeper "github.com/reapchain/reapchain/x/claims/keeper"
+	claimstypes "github.com/reapchain/reapchain/x/claims/types"
+	"github.com/reapchain/reapchain/x/epochs"
+	epochskeeper "github.com/reapchain/reapchain/x/epochs/keeper"
+	epochstypes "github.com/reapchain/reapchain/x/epochs/types"
+	"github.com/reapchain/reapchain/x/erc20"
+	erc20client "github.com/reapchain/reapchain/x/erc20/client"
+	erc20keeper "github.com/reapchain/reapchain/x/erc20/keeper"
+	erc20types "github.com/reapchain/reapchain/x/erc20/types"
+	"github.com/reapchain/reapchain/x/incentives"
+	incentivesclient "github.com/reapchain/reapchain/x/incentives/client"
+	incentiveskeeper "github.com/reapchain/reapchain/x/incentives/keeper"
+	incentivestypes "github.com/reapchain/reapchain/x/incentives/types"
+	"github.com/reapchain/reapchain/x/inflation"
+	inflationkeeper "github.com/reapchain/reapchain/x/inflation/keeper"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
+	"github.com/reapchain/reapchain/x/recovery"
+	recoverykeeper "github.com/reapchain/reapchain/x/recovery/keeper"
+	recoverytypes "github.com/reapchain/reapchain/x/recovery/types"
+	"github.com/reapchain/reapchain/x/vesting"
+	vestingkeeper "github.com/reapchain/reapchain/x/vesting/keeper"
+	vestingtypes "github.com/reapchain/reapchain/x/vesting/types"
+
+	"github.com/reapchain/reapchain/x/reap"
+	reapkeeper "github.com/reapchain/reapchain/x/reap/keeper"
+	reaptypes "github.com/reapchain/reapchain/x/reap/types"
 )
 
 func init() {
@@ -138,7 +142,7 @@ func init() {
 		panic(err)
 	}
 
-	DefaultNodeHome = filepath.Join(userHomeDir, ".evmosd")
+	DefaultNodeHome = filepath.Join(userHomeDir, ".reapchaind")
 
 	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
 	sdk.DefaultPowerReduction = ethermint.PowerReduction
@@ -146,7 +150,7 @@ func init() {
 
 const (
 	// Name defines the application binary name
-	Name = "evmosd"
+	Name = "reapchaind"
 )
 
 var (
@@ -189,6 +193,7 @@ var (
 		epochs.AppModuleBasic{},
 		claims.AppModuleBasic{},
 		recovery.AppModuleBasic{},
+		reap.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -204,6 +209,7 @@ var (
 		erc20types.ModuleName:          {authtypes.Minter, authtypes.Burner},
 		claimstypes.ModuleName:         nil,
 		incentivestypes.ModuleName:     {authtypes.Minter, authtypes.Burner},
+		reaptypes.ModuleName:           {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -281,6 +287,9 @@ type Evmos struct {
 	configurator module.Configurator
 
 	tpsCounter *tpsCounter
+
+	ReapKeeper reapkeeper.Keeper
+
 }
 
 // NewEvmos returns a reference to a new initialized Ethermint application.
@@ -326,6 +335,7 @@ func NewEvmos(
 		// evmos keys
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
+		reaptypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -416,6 +426,11 @@ func NewEvmos(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
 		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter,
 	)
+
+	app.ReapKeeper = *reapkeeper.NewKeeper(
+		appCodec, keys[reaptypes.StoreKey], keys[reaptypes.MemStoreKey], app.GetSubspace(govtypes.ModuleName), app.AccountKeeper, app.BankKeeper,
+	)
+	reapModule := reap.NewAppModule(appCodec, app.ReapKeeper, app.AccountKeeper, app.BankKeeper)
 
 	// Evmos Keeper
 	app.InflationKeeper = inflationkeeper.NewKeeper(
@@ -575,6 +590,7 @@ func NewEvmos(
 		claims.NewAppModule(appCodec, *app.ClaimsKeeper),
 		vesting.NewAppModule(app.VestingKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
 		recovery.NewAppModule(*app.RecoveryKeeper),
+		reapModule,
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -611,6 +627,8 @@ func NewEvmos(
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
+		reaptypes.ModuleName,
+
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -643,6 +661,7 @@ func NewEvmos(
 		erc20types.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
+		reaptypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -680,6 +699,7 @@ func NewEvmos(
 		recoverytypes.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
 		crisistypes.ModuleName,
+		reaptypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -993,6 +1013,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(claimstypes.ModuleName)
 	paramsKeeper.Subspace(incentivestypes.ModuleName)
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
+	paramsKeeper.Subspace(reaptypes.ModuleName)
 	return paramsKeeper
 }
 

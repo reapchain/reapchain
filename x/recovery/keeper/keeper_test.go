@@ -7,23 +7,23 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain/version"
+	"github.com/reapchain/reapchain-core/version"
 
-	"github.com/tharsis/ethermint/tests"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/reapchain/ethermint/tests"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
 
-	"github.com/tharsis/evmos/v3/app"
-	claimstypes "github.com/tharsis/evmos/v3/x/claims/types"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
+	"github.com/reapchain/reapchain/app"
+	claimstypes "github.com/reapchain/reapchain/x/claims/types"
+	"github.com/reapchain/reapchain/x/recovery/types"
 )
 
 var (

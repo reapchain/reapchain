@@ -3,13 +3,13 @@ package types
 import (
 	"strings"
 
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
-	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
-	"github.com/cosmos/cosmos-sdk/crypto/types/multisig"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/ed25519"
+	cryptotypes "github.com/reapchain/cosmos-sdk/crypto/types"
+	"github.com/reapchain/cosmos-sdk/crypto/types/multisig"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 )
 
 // IsSupportedKey returns true if the pubkey type is supported by the chain

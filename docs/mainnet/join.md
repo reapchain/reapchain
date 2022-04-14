@@ -15,7 +15,7 @@ You need to set the **genesis file** and **seeds**. If you need more information
 | `evmos_9001-2` | Evmos Mainnet 2 | [Evmos](https://github.com/tharsis/mainnet/tree/main/evmos_9001-2) | [`≥v2.0.1`](https://github.com/tharsis/evmos/releases) | `Not Live` |
 | `evmos_9001-1` | Evmos Mainnet 1 | [Evmos](https://github.com/tharsis/mainnet/tree/main/evmos_9001-1) | [`v2.0.1`](https://github.com/tharsis/evmos/releases/v2.0.1) | `Stale` |
 
-## Install `evmosd`
+## Install `reapchaind`
 
 Follow the [installation](./../quickstart/installation) document to install the {{ $themeConfig.project.name }} binary `{{ $themeConfig.project.binary }}`.
 
@@ -32,7 +32,7 @@ See the Official [Chain IDs](./../basics/chain_id.md#official-chain-ids) for ref
 :::
 
 ```bash
-evmosd config chain-id evmos_9001-2
+reapchaind config chain-id evmos_9001-2
 ```
 
 ## Initialize Node
@@ -40,38 +40,38 @@ evmosd config chain-id evmos_9001-2
 We need to initialize the node to create all the necessary validator and node configuration files:
 
 ```bash
-evmosd init <your_custom_moniker> --chain-id evmos_9001-2
+reapchaind init <your_custom_moniker> --chain-id evmos_9001-2
 ```
 
 ::: danger
 Monikers can contain only ASCII characters. Using Unicode characters will render your node unreachable.
 :::
 
-By default, the `init` command creates your `~/.evmosd` (i.e `$HOME`) directory with subfolders `config/` and `data/`.
+By default, the `init` command creates your `~/.reapchaind` (i.e `$HOME`) directory with subfolders `config/` and `data/`.
 In the `config` directory, the most important files for configuration are `app.toml` and `config.toml`.
 
 ## Genesis & Seeds
 
 ### Copy the Genesis File
 
-Download the `genesis.json` file from the [`archive`](https://archive.evmos.dev/genesis/genesis.json) and copy it over to the `config` directory: `~/.evmosd/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
+Download the `genesis.json` file from the [`archive`](https://archive.evmos.dev/genesis/genesis.json) and copy it over to the `config` directory: `~/.reapchaind/config/genesis.json`. This is a genesis file with the chain-id and genesis accounts balances.
 
 ```bash
 wget https://archive.evmos.dev/genesis/genesis.json
-mv genesis.json ~/.evmosd/config/
+mv genesis.json ~/.reapchaind/config/
 ```
 
 Then verify the correctness of the genesis configuration file:
 
 ```bash
-evmosd validate-genesis
+reapchaind validate-genesis
 ```
 
 ### Add Seed Nodes
 
-Your node needs to know how to find [peers](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#peers). You'll need to add healthy [seed nodes](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#seed) to `$HOME/.evmosd/config/config.toml`. The [`mainnet`](https://github.com/tharsis/mainnet) repo contains links to some seed nodes.
+Your node needs to know how to find [peers](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#peers). You'll need to add healthy [seed nodes](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#seed) to `$HOME/.reapchaind/config/config.toml`. The [`mainnet`](https://github.com/tharsis/mainnet) repo contains links to some seed nodes.
 
-Edit the file located in `~/.evmosd/config/config.toml` and the `seeds` to the following:
+Edit the file located in `~/.reapchaind/config/config.toml` and the `seeds` to the following:
 
 ```toml
 #######################################################
@@ -89,7 +89,7 @@ You can use the following code to get seeds from the repo and add it to your con
 
 ```bash
 SEEDS=`curl -sL https://raw.githubusercontent.com/tharsis/mainnet/main/evmos_9001-2/seeds.txt | awk '{print $1}' | paste -s -d, -`
-sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.evmosd/config/config.toml
+sed -i.bak -e "s/^seeds =.*/seeds = \"$SEEDS\"/" ~/.reapchaind/config/config.toml
 ```
 
 :::tip
@@ -98,7 +98,7 @@ For more information on seeds and peers, you can the Tendermint [P2P documentati
 
 ### Add Persistent Peers
 
-We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.evmosd/config/config.toml` to specify peers that your node will maintain persistent connections with. You can retrieve them from the list of
+We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.reapchaind/config/config.toml` to specify peers that your node will maintain persistent connections with. You can retrieve them from the list of
 available peers on the [`mainnet`](https://github.com/tharsis/mainnet) repo.
 
 A list of available persistent peers is also available in the `#find-peers` channel in the [Evmos Discord](https://discord.gg/evmos). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
@@ -110,7 +110,7 @@ PEERS=`curl -sL https://raw.githubusercontent.com/tharsis/mainnet/main/evmos_900
 Use `sed` to include them into the configuration. You can also add them manually:
 
 ```bash
-sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.evmosd/config/config.toml
+sed -i.bak -e "s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" ~/.reapchaind/config/config.toml
 ```
 
 ## Run a Mainnet Validator
@@ -120,9 +120,9 @@ For more details on how to configure your validator, follow the validator [setup
 :::
 
 ```bash
-evmosd tx staking create-validator \
+reapchaind tx staking create-validator \
   --amount=1000000000000aevmos \
-  --pubkey=$(evmosd tendermint show-validator) \
+  --pubkey=$(reapchaind tendermint show-validator) \
   --moniker="EvmosWhale" \
   --chain-id=<chain_id> \
   --commission-rate="0.05" \
@@ -139,7 +139,7 @@ evmosd tx staking create-validator \
 The final step is to [start the nodes](./../quickstart/run_node#start-node). Once enough voting power (+2/3) from the genesis validators is up-and-running, the node will start producing blocks.
 
 ```bash
-evmosd start
+reapchaind start
 ```
 
 ## Upgrading Your Node
@@ -157,8 +157,8 @@ If the version <new_version> you are upgrading to is not breaking from the previ
 First, remove the outdated files and reset the data.
 
 ```bash
-rm $HOME/.evmosd/config/addrbook.json $HOME/.evmosd/config/genesis.json
-evmosd unsafe-reset-all
+rm $HOME/.reapchaind/config/addrbook.json $HOME/.reapchaind/config/genesis.json
+reapchaind unsafe-reset-all
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before,
@@ -174,7 +174,7 @@ Make sure that every node has a unique `priv_validator.json`. Do not copy the `p
 To restart your node, just type:
 
 ```bash
-evmosd start
+reapchaind start
 ```
 
 ## Share your Peer
@@ -185,7 +185,7 @@ You can share your peer to posting it in the `#find-peers` channel in the [Evmos
 To get your Node ID use
 
 ```bash
-evmosd tendermint show-node-id
+reapchaind tendermint show-node-id
 ```
 
 :::

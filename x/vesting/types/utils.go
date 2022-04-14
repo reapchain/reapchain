@@ -1,6 +1,6 @@
 package types
 
-import sdk "github.com/cosmos/cosmos-sdk/types"
+import sdk "github.com/reapchain/cosmos-sdk/types"
 
 // ScaleCoins scales the given coins, rounding down.
 func ScaleCoins(coins sdk.Coins, scale sdk.Dec) sdk.Coins {

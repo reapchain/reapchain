@@ -5,11 +5,11 @@ PACKAGES_SIMTEST=$(shell go list ./... | grep '/simulation')
 DIFF_TAG=$(shell git rev-list --tags="v*" --max-count=1 --not $(shell git rev-list --tags="v*" "HEAD..origin"))
 DEFAULT_TAG=$(shell git rev-list --tags="v*" --max-count=1)
 VERSION ?= $(shell echo $(shell git describe --tags $(or $(DIFF_TAG), $(DEFAULT_TAG))) | sed 's/^v//')
-TMVERSION := $(shell go list -m github.com/tendermint/tendermint | sed 's:.* ::')
+TMVERSION := $(shell go list -m github.com/reapchain/reapchain-core | sed 's:.* ::')
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-EVMOS_BINARY = evmosd
+EVMOS_BINARY = reapchaind
 EVMOS_DIR = evmos
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
@@ -43,7 +43,7 @@ ifeq ($(LEDGER_ENABLED),true)
   else
     UNAME_S = $(shell uname -s)
     ifeq ($(UNAME_S),OpenBSD)
-      $(warning OpenBSD detected, disabling ledger support (https://github.com/cosmos/cosmos-sdk/issues/1988))
+      $(warning OpenBSD detected, disabling ledger support (https://github.com/reapchain/cosmos-sdk/issues/1988))
     else
       GCC = $(shell command -v gcc 2> /dev/null)
       ifeq ($(GCC),)
@@ -68,30 +68,30 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/cosmos/cosmos-sdk/version.Name=evmos \
-          -X github.com/cosmos/cosmos-sdk/version.AppName=$(EVMOS_BINARY) \
-          -X github.com/cosmos/cosmos-sdk/version.Version=$(VERSION) \
-          -X github.com/cosmos/cosmos-sdk/version.Commit=$(COMMIT) \
-          -X "github.com/cosmos/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
-          -X github.com/tendermint/tendermint/version.TMCoreSemVer=$(TMVERSION)
+ldflags = -X github.com/reapchain/cosmos-sdk/version.Name=evmos \
+          -X github.com/reapchain/cosmos-sdk/version.AppName=$(EVMOS_BINARY) \
+          -X github.com/reapchain/cosmos-sdk/version.Version=$(VERSION) \
+          -X github.com/reapchain/cosmos-sdk/version.Commit=$(COMMIT) \
+          -X "github.com/reapchain/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
+          -X github.com/reapchain/reapchain-core/version.TMCoreSemVer=$(TMVERSION)
 
 # DB backend selection
 ifeq (cleveldb,$(findstring cleveldb,$(COSMOS_BUILD_OPTIONS)))
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=cleveldb
+  ldflags += -X github.com/reapchain/cosmos-sdk/types.DBBackend=cleveldb
 endif
 ifeq (badgerdb,$(findstring badgerdb,$(COSMOS_BUILD_OPTIONS)))
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=badgerdb
+  ldflags += -X github.com/reapchain/cosmos-sdk/types.DBBackend=badgerdb
 endif
 # handle rocksdb
 ifeq (rocksdb,$(findstring rocksdb,$(COSMOS_BUILD_OPTIONS)))
   CGO_ENABLED=1
   BUILD_TAGS += rocksdb
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb
+  ldflags += -X github.com/reapchain/cosmos-sdk/types.DBBackend=rocksdb
 endif
 # handle boltdb
 ifeq (boltdb,$(findstring boltdb,$(COSMOS_BUILD_OPTIONS)))
   BUILD_TAGS += boltdb
-  ldflags += -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb
+  ldflags += -X github.com/reapchain/cosmos-sdk/types.DBBackend=boltdb
 endif
 
 ifeq (,$(findstring nostrip,$(COSMOS_BUILD_OPTIONS)))
@@ -129,7 +129,7 @@ build-reproducible: go.sum
 	$(DOCKER) rm latest-build || true
 	$(DOCKER) run --volume=$(CURDIR):/sources:ro \
         --env TARGET_PLATFORMS='linux/amd64' \
-        --env APP=evmosd \
+        --env APP=reapchaind \
         --env VERSION=$(VERSION) \
         --env COMMIT=$(COMMIT) \
         --env CGO_ENABLED=1 \
@@ -149,7 +149,7 @@ build-docker:
 	$(DOCKER) create --name evmos -t -i ${DOCKER_IMAGE}:latest evmos
 	# move the binaries to the ./build directory
 	mkdir -p ./build/
-	$(DOCKER) cp evmos:/usr/bin/evmosd ./build/
+	$(DOCKER) cp evmos:/usr/bin/reapchaind ./build/
 
 push-docker: build-docker
 	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
@@ -471,16 +471,16 @@ proto-check-breaking:
 	@$(DOCKER_BUF) breaking --against $(HTTPS_GIT)#branch=main
 
 
-TM_URL              = https://raw.githubusercontent.com/tendermint/tendermint/v0.34.15/proto/tendermint
+TM_URL              = https://raw.githubusercontent.com/tendermint/tendermint/v0.34.15/proto/reapchain
 GOGO_PROTO_URL      = https://raw.githubusercontent.com/regen-network/protobuf/cosmos
 COSMOS_SDK_URL      = https://raw.githubusercontent.com/cosmos/cosmos-sdk/v0.45.1
 ETHERMINT_URL      	= https://raw.githubusercontent.com/tharsis/ethermint/v0.10.0
 IBC_GO_URL      		= https://raw.githubusercontent.com/cosmos/ibc-go/v3.0.0-rc0
 COSMOS_PROTO_URL    = https://raw.githubusercontent.com/regen-network/cosmos-proto/master
 
-TM_CRYPTO_TYPES     = third_party/proto/tendermint/crypto
-TM_ABCI_TYPES       = third_party/proto/tendermint/abci
-TM_TYPES            = third_party/proto/tendermint/types
+TM_CRYPTO_TYPES     = third_party/proto/reapchain/crypto
+TM_ABCI_TYPES       = third_party/proto/reapchain/abci
+TM_TYPES            = third_party/proto/reapchain/types
 
 GOGO_PROTO_TYPES    = third_party/proto/gogoproto
 
@@ -496,7 +496,7 @@ proto-update-deps:
 ## Importing of tendermint protobuf definitions currently requires the
 ## use of `sed` in order to build properly with cosmos-sdk's proto file layout
 ## (which is the standard Buf.build FILE_LAYOUT)
-## Issue link: https://github.com/tendermint/tendermint/issues/5021
+## Issue link: https://github.com/reapchain/reapchain-core/issues/5021
 	@mkdir -p $(TM_ABCI_TYPES)
 	@curl -sSL $(TM_URL)/abci/types.proto > $(TM_ABCI_TYPES)/types.proto
 
@@ -525,13 +525,13 @@ ifeq ($(OS),Windows_NT)
 	mkdir localnet-setup &
 	@$(MAKE) localnet-build
 
-	IF not exist "build/node0/$(EVMOS_BINARY)/config/genesis.json" docker run --rm -v $(CURDIR)/build\evmos\Z evmosd/node "./evmosd testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses evmosdnode0,evmosdnode1,evmosdnode2,evmosdnode3"
+	IF not exist "build/node0/$(EVMOS_BINARY)/config/genesis.json" docker run --rm -v $(CURDIR)/build\evmos\Z reapchaind/node "./reapchaind testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"
 	docker-compose up -d
 else
 	mkdir -p localnet-setup
 	@$(MAKE) localnet-build
 
-	if ! [ -f localnet-setup/node0/$(EVMOS_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/localnet-setup:/evmos:Z evmosd/node "./evmosd testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses evmosdnode0,evmosdnode1,evmosdnode2,evmosdnode3"; fi
+	if ! [ -f localnet-setup/node0/$(EVMOS_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/localnet-setup:/evmos:Z reapchaind/node "./reapchaind testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"; fi
 	docker-compose up -d
 endif
 
@@ -548,15 +548,15 @@ localnet-clean:
 localnet-unsafe-reset:
 	docker-compose down
 ifeq ($(OS),Windows_NT)
-	@docker run --rm -v $(CURDIR)\localnet-setup\node0\evmosd:evmos\Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node1\evmosd:evmos\Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node2\evmosd:evmos\Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node3\evmosd:evmos\Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node0\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node1\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node2\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node3\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
 else
-	@docker run --rm -v $(CURDIR)/localnet-setup/node0/evmosd:/evmos:Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node1/evmosd:/evmos:Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node2/evmosd:/evmos:Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node3/evmosd:/evmos:Z evmosd/node "./evmosd unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node0/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node1/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node2/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node3/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
 endif
 
 # Clean testnet

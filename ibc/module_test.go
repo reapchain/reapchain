@@ -6,13 +6,13 @@ import (
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	capabilitytypes "github.com/reapchain/cosmos-sdk/x/capability/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	porttypes "github.com/cosmos/ibc-go/v3/modules/core/05-port/types"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
+	porttypes "github.com/reapchain/ibc-go/modules/core/05-port/types"
+	"github.com/reapchain/ibc-go/modules/core/exported"
 )
 
 var _ porttypes.IBCModule = &MockIBCModule{}

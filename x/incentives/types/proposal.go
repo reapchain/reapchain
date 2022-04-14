@@ -4,9 +4,9 @@ import (
 	"errors"
 	fmt "fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	ethermint "github.com/tharsis/ethermint/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	ethermint "github.com/reapchain/ethermint/types"
 )
 
 // constants

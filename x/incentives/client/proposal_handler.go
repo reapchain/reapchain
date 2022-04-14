@@ -1,10 +1,10 @@
 package client
 
 import (
-	govclient "github.com/cosmos/cosmos-sdk/x/gov/client"
+	govclient "github.com/reapchain/cosmos-sdk/x/gov/client"
 
-	"github.com/tharsis/evmos/v3/x/incentives/client/cli"
-	"github.com/tharsis/evmos/v3/x/incentives/client/rest"
+	"github.com/reapchain/reapchain/x/incentives/client/cli"
+	"github.com/reapchain/reapchain/x/incentives/client/rest"
 )
 
 var (

@@ -7,22 +7,22 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	"github.com/tharsis/ethermint/encoding"
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/v3/app"
-	"github.com/tharsis/evmos/v3/app/ante"
-	"github.com/tharsis/evmos/v3/testutil"
+	"github.com/reapchain/ethermint/encoding"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/app"
+	"github.com/reapchain/reapchain/app/ante"
+	"github.com/reapchain/reapchain/testutil"
 
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/reapchain/x/vesting/types"
 )
 
 // Clawback vesting with Cliff and Lock. In this case the cliff is reached

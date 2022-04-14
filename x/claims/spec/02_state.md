@@ -20,7 +20,7 @@ A `ClaimRecord` defines the initial claimable airdrop amount and the list of com
 message ClaimsRecord {
   // total initial claimable amount for the user
   string initial_claimable_amount = 1 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
   // slice of the available actions completed

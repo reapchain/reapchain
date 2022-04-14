@@ -10,18 +10,18 @@ import (
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/spf13/cobra"
 
-	abci "github.com/tendermint/tendermint/abci/types"
+	abci "github.com/reapchain/reapchain-core/abci/types"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/codec"
-	codectypes "github.com/cosmos/cosmos-sdk/codec/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	simtypes "github.com/cosmos/cosmos-sdk/types/simulation"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/codec"
+	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	simtypes "github.com/reapchain/cosmos-sdk/types/simulation"
 
-	"github.com/tharsis/evmos/v3/x/recovery/client/cli"
-	"github.com/tharsis/evmos/v3/x/recovery/keeper"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
+	"github.com/reapchain/reapchain/x/recovery/client/cli"
+	"github.com/reapchain/reapchain/x/recovery/keeper"
+	"github.com/reapchain/reapchain/x/recovery/types"
 )
 
 // type check to ensure the interface is properly implemented

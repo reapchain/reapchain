@@ -1,10 +1,10 @@
 package recovery
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v3/x/recovery/keeper"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
+	"github.com/reapchain/reapchain/x/recovery/keeper"
+	"github.com/reapchain/reapchain/x/recovery/types"
 )
 
 // InitGenesis import module genesis

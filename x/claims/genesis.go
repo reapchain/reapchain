@@ -3,10 +3,10 @@ package claims
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v3/x/claims/keeper"
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/keeper"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 // InitGenesis initializes the claim module's state from a provided genesis

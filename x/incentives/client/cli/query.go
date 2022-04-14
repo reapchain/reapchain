@@ -4,12 +4,12 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v3/x/incentives/types"
+	"github.com/reapchain/reapchain/x/incentives/types"
 )
 
 // GetQueryCmd returns the parent command for all incentives CLI query commands.

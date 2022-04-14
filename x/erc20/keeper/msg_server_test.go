@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"math/big"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/tharsis/evmos/v3/x/erc20/types"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
+	"github.com/reapchain/reapchain/x/erc20/types"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestConvertCoinNativeCoin() {

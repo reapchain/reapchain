@@ -1,16 +1,16 @@
 package types
 
 import (
-	tmbytes "github.com/tendermint/tendermint/libs/bytes"
+	tmbytes "github.com/reapchain/reapchain-core/libs/bytes"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
 
-	claimstypes "github.com/tharsis/evmos/v3/x/claims/types"
+	claimstypes "github.com/reapchain/reapchain/x/claims/types"
 )
 
 // BankKeeper defines the banking keeper that must be fulfilled when

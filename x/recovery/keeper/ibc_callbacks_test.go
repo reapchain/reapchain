@@ -3,24 +3,24 @@ package keeper_test
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/secp256k1"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 	"github.com/stretchr/testify/mock"
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
-	"github.com/tharsis/evmos/v3/testutil"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/reapchain/testutil"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
-	ibcmock "github.com/cosmos/ibc-go/v3/testing/mock"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/testing"
+	ibcmock "github.com/reapchain/ibc-go/testing/mock"
 
-	claimstypes "github.com/tharsis/evmos/v3/x/claims/types"
-	incentivestypes "github.com/tharsis/evmos/v3/x/incentives/types"
-	"github.com/tharsis/evmos/v3/x/recovery/keeper"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
-	vestingtypes "github.com/tharsis/evmos/v3/x/vesting/types"
+	claimstypes "github.com/reapchain/reapchain/x/claims/types"
+	incentivestypes "github.com/reapchain/reapchain/x/incentives/types"
+	"github.com/reapchain/reapchain/x/recovery/keeper"
+	"github.com/reapchain/reapchain/x/recovery/types"
+	vestingtypes "github.com/reapchain/reapchain/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestOnRecvPacket() {

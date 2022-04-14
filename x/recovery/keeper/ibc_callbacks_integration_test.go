@@ -8,20 +8,20 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/testing"
 
-	ibctesting "github.com/tharsis/evmos/v3/ibc/testing"
-	"github.com/tharsis/evmos/v3/testutil"
+	ibctesting "github.com/reapchain/reapchain/ibc/testing"
+	"github.com/reapchain/reapchain/testutil"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
-	"github.com/tharsis/evmos/v3/app"
-	claimtypes "github.com/tharsis/evmos/v3/x/claims/types"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
+	minttypes "github.com/reapchain/cosmos-sdk/x/mint/types"
+	"github.com/reapchain/reapchain/app"
+	claimtypes "github.com/reapchain/reapchain/x/claims/types"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
+	"github.com/reapchain/reapchain/x/recovery/types"
 )
 
 type IBCTestingSuite struct {
@@ -107,11 +107,11 @@ var (
 	}
 	uatomIbcdenom = uatomDenomtrace.IBCDenom()
 
-	aevmosDenomtrace = transfertypes.DenomTrace{
+	areapchaindenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0",
 		BaseDenom: "aevmos",
 	}
-	aevmosIbcdenom = aevmosDenomtrace.IBCDenom()
+	aevmosIbcdenom = areapchaindenomtrace.IBCDenom()
 
 	uatomOsmoDenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0/transfer/channel-1",

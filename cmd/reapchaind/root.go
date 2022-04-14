@@ -7,47 +7,47 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cosmos/cosmos-sdk/simapp/params"
-	"github.com/cosmos/cosmos-sdk/snapshots"
+	"github.com/reapchain/cosmos-sdk/simapp/params"
+	"github.com/reapchain/cosmos-sdk/snapshots"
 
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
 
-	tmcli "github.com/tendermint/tendermint/libs/cli"
-	"github.com/tendermint/tendermint/libs/log"
+	tmcli "github.com/reapchain/reapchain-core/libs/cli"
+	"github.com/reapchain/reapchain-core/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/config"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/client/rpc"
-	sdkserver "github.com/cosmos/cosmos-sdk/server"
-	servertypes "github.com/cosmos/cosmos-sdk/server/types"
-	"github.com/cosmos/cosmos-sdk/store"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authcmd "github.com/cosmos/cosmos-sdk/x/auth/client/cli"
-	"github.com/cosmos/cosmos-sdk/x/auth/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/cosmos/cosmos-sdk/x/crisis"
-	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
-	ethermintclient "github.com/tharsis/ethermint/client"
-	"github.com/tharsis/ethermint/client/debug"
-	"github.com/tharsis/ethermint/encoding"
-	ethermintserver "github.com/tharsis/ethermint/server"
-	servercfg "github.com/tharsis/ethermint/server/config"
-	srvflags "github.com/tharsis/ethermint/server/flags"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/config"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client/rpc"
+	sdkserver "github.com/reapchain/cosmos-sdk/server"
+	servertypes "github.com/reapchain/cosmos-sdk/server/types"
+	"github.com/reapchain/cosmos-sdk/store"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authcmd "github.com/reapchain/cosmos-sdk/x/auth/client/cli"
+	"github.com/reapchain/cosmos-sdk/x/auth/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	"github.com/reapchain/cosmos-sdk/x/crisis"
+	genutilcli "github.com/reapchain/cosmos-sdk/x/genutil/client/cli"
+	ethermintclient "github.com/reapchain/ethermint/client"
+	"github.com/reapchain/ethermint/client/debug"
+	"github.com/reapchain/ethermint/encoding"
+	ethermintserver "github.com/reapchain/ethermint/server"
+	servercfg "github.com/reapchain/ethermint/server/config"
+	srvflags "github.com/reapchain/ethermint/server/flags"
 
-	"github.com/tharsis/evmos/v3/app"
-	cmdcfg "github.com/tharsis/evmos/v3/cmd/config"
-	evmoskr "github.com/tharsis/evmos/v3/crypto/keyring"
+	"github.com/reapchain/reapchain/app"
+	cmdcfg "github.com/reapchain/reapchain/cmd/config"
+	evmoskr "github.com/reapchain/reapchain/crypto/keyring"
 )
 
 const (
-	EnvPrefix = "EVMOS"
+	EnvPrefix = "REAPCHAIN"
 )
 
-// NewRootCmd creates a new root command for evmosd. It is called once in the
+// NewRootCmd creates a new root command for reapchaind. It is called once in the
 // main function.
 func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 	encodingConfig := encoding.MakeConfig(app.ModuleBasics)
@@ -65,7 +65,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 
 	rootCmd := &cobra.Command{
 		Use:   app.Name,
-		Short: "Evmos Daemon",
+		Short: "Reapchain Daemon",
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			// set the default command outputs
 			cmd.SetOut(cmd.OutOrStdout())

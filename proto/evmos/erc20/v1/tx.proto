@@ -5,7 +5,7 @@ import "google/api/annotations.proto";
 import "gogoproto/gogo.proto";
 import "cosmos/base/v1beta1/coin.proto";
 
-option go_package = "github.com/tharsis/evmos/v3/x/erc20/types";
+option go_package = "github.com/reapchain/reapchain/x/erc20/types";
 
 // Msg defines the erc20 Msg service.
 service Msg {
@@ -41,7 +41,7 @@ message MsgConvertERC20 {
   string contract_address = 1;
   // amount of ERC20 tokens to mint
   string amount = 2 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
   // bech32 address to receive SDK coins.

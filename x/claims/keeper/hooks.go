@@ -1,19 +1,19 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	capabilitytypes "github.com/reapchain/cosmos-sdk/x/capability/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	"github.com/reapchain/ibc-go/modules/core/exported"
 
 	"github.com/ethereum/go-ethereum/common"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
 
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 var (

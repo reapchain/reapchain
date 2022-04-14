@@ -3,19 +3,19 @@ package keeper
 import (
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
+	"github.com/reapchain/ibc-go/modules/core/exported"
 
-	"github.com/tharsis/evmos/v3/ibc"
-	evmos "github.com/tharsis/evmos/v3/types"
-	"github.com/tharsis/evmos/v3/x/recovery/types"
+	"github.com/reapchain/reapchain/ibc"
+	evmos "github.com/reapchain/reapchain/types"
+	"github.com/reapchain/reapchain/x/recovery/types"
 )
 
 // OnRecvPacket performs an IBC receive callback. It returns the tokens that

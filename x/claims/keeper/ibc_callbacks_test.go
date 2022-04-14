@@ -6,22 +6,22 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/secp256k1"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
-	ibcmock "github.com/cosmos/ibc-go/v3/testing/mock"
+	transfertypes "github.com/reapchain/ibc-go/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/testing"
+	ibcmock "github.com/reapchain/ibc-go/testing/mock"
 
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/v3/app"
-	ibctesting "github.com/tharsis/evmos/v3/ibc/testing"
-	"github.com/tharsis/evmos/v3/testutil"
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/app"
+	ibctesting "github.com/reapchain/reapchain/ibc/testing"
+	"github.com/reapchain/reapchain/testutil"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 type IBCTestingSuite struct {

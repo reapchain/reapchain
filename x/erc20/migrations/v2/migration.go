@@ -1,10 +1,10 @@
 package v2
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	"github.com/tharsis/evmos/v3/x/erc20/types"
+	"github.com/reapchain/reapchain/x/erc20/types"
 )
 
 // UpdateParams updates the module parameters EnableERC20 and EnableEMVHook

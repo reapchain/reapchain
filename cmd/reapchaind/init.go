@@ -11,22 +11,24 @@ import (
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 
-	cfg "github.com/tendermint/tendermint/config"
-	"github.com/tendermint/tendermint/libs/cli"
-	tmos "github.com/tendermint/tendermint/libs/os"
-	tmrand "github.com/tendermint/tendermint/libs/rand"
-	"github.com/tendermint/tendermint/types"
+	cfg "github.com/reapchain/reapchain-core/config"
+	"github.com/reapchain/reapchain-core/libs/cli"
+	tmos "github.com/reapchain/reapchain-core/libs/os"
+	tmrand "github.com/reapchain/reapchain-core/libs/rand"
+	"github.com/reapchain/reapchain-core/types"
 
 	"github.com/cosmos/go-bip39"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/client/input"
-	"github.com/cosmos/cosmos-sdk/server"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/cosmos/cosmos-sdk/x/genutil"
-	genutilcli "github.com/cosmos/cosmos-sdk/x/genutil/client/cli"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client/input"
+	"github.com/reapchain/cosmos-sdk/server"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	"github.com/reapchain/cosmos-sdk/x/genutil"
+	genutilcli "github.com/reapchain/cosmos-sdk/x/genutil/client/cli"
+	"github.com/reapchain/reapchain-core/privval"
+
 )
 
 type printInfo struct {
@@ -105,6 +107,10 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			}
 
 			nodeID, _, err := genutil.InitializeNodeValidatorFilesFromMnemonic(config, mnemonic)
+			privValKeyFile := config.PrivValidatorKeyFile()
+			privValStateFile := config.PrivValidatorStateFile()
+			privValidator := privval.LoadOrGenFilePV(privValKeyFile, privValStateFile)
+			corePubKey, _ := privValidator.GetPubKey()
 			if err != nil {
 				return err
 			}
@@ -136,10 +142,47 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			}
 
 			genDoc.ChainID = chainID
-			genDoc.Validators = nil
 			genDoc.AppState = appState
 
-			if err := genutil.ExportGenesisFile(genDoc, genFile); err != nil {
+			genDoc.Validators = []types.GenesisValidator{{
+				Name: args[0],
+				Address: corePubKey.Address(),
+				PubKey:  corePubKey,
+				Power:   10,
+			}}
+
+			genDoc.StandingMembers = []types.GenesisMember{{
+				Address: corePubKey.Address(),
+				PubKey:  corePubKey,
+				Name: args[0],
+			}}
+
+			qrnValue := tmrand.Uint64()
+			qrn := types.NewQrn(1, corePubKey, qrnValue)
+			qrn.Timestamp = genDoc.GenesisTime
+
+			err = privValidator.SignQrn(qrn)
+			if err != nil {
+				fmt.Println("Can't sign qrn", "err", err)
+			}
+
+			if qrn.VerifySign() == false {
+				fmt.Println("Is invalid sign of qrn")
+			}
+
+			genDoc.Qrns = []types.Qrn{*qrn}
+
+			if err := genDoc.SaveAs(genFile); err != nil {
+				return err
+			}
+
+			genDoc.SteeringMemberCandidates = []types.GenesisMember{}
+
+			genDoc.Vrfs = []types.Vrf{}
+
+			genDoc.ConsensusRound = types.NewConsensusRound(1, 4, 4, 4)
+
+			if err = genutil.ExportGenesisFile(genDoc, genFile); err != nil {
 				return errors.Wrap(err, "Failed to export gensis file")
 			}
 
@@ -147,6 +190,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			cfg.WriteConfigFile(filepath.Join(config.RootDir, "config", "config.toml"), config)
 			return displayInfo(toPrint)
+
 		},
 	}
 

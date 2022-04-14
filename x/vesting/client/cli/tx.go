@@ -10,13 +10,13 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/client/tx"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client/tx"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/reapchain/x/vesting/types"
 )
 
 // Transaction command flags

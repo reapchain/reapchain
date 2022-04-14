@@ -3,10 +3,10 @@ package epochs
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v3/x/epochs/keeper"
-	"github.com/tharsis/evmos/v3/x/epochs/types"
+	"github.com/reapchain/reapchain/x/epochs/keeper"
+	"github.com/reapchain/reapchain/x/epochs/types"
 )
 
 // InitGenesis initializes the epochs module's state from a provided genesis

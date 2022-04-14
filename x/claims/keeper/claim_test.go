@@ -4,20 +4,20 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	distrtypes "github.com/reapchain/cosmos-sdk/x/distribution/types"
+	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
-	"github.com/tharsis/ethermint/tests"
-	ethermint "github.com/tharsis/ethermint/types"
-	"github.com/tharsis/evmos/v3/testutil"
-	inflationtypes "github.com/tharsis/evmos/v3/x/inflation/types"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/ethermint/tests"
+	ethermint "github.com/reapchain/ethermint/types"
+	"github.com/reapchain/reapchain/testutil"
+	inflationtypes "github.com/reapchain/reapchain/x/inflation/types"
 
-	"github.com/tharsis/evmos/v3/x/claims/types"
+	"github.com/reapchain/reapchain/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) SetupClaimTest() {

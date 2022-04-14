@@ -5,14 +5,14 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/suite"
-	tmtime "github.com/tendermint/tendermint/types/time"
+	tmtime "github.com/reapchain/reapchain-core/types/time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/tharsis/ethermint/tests"
-	"github.com/tharsis/evmos/v3/x/vesting/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/x/vesting/types"
 )
 
 var (

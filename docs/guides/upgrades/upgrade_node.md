@@ -10,11 +10,11 @@ With every new software release, we strongly recommend validators to perform a s
 
 You can upgrade your node by 1) upgrading your software version and 2) upgrading your node to that version. In this guide, you can find out how to automatically upgrade your node with Cosmovisor or perform the update manually.
 
-## Updating the `evmosd` binary
+## Updating the `reapchaind` binary
 
 These instructions are for full nodes that have ran on previous versions of and would like to upgrade to the latest testnet.
 
-First, stop your instance of `evmosd`. Next, upgrade the software:
+First, stop your instance of `reapchaind`. Next, upgrade the software:
 
 ```bash
 cd evmos
@@ -31,10 +31,10 @@ You will need to ensure that the version installed matches the one needed for th
 Verify that everything is OK. If you get something like the following, you've successfully installed Evmos on your system.
 
 ```bash
-$ evmosd version --long
+$ reapchaind version --long
 
 name: evmos
-server_name: evmosd
+server_name: reapchaind
 version: 0.4.0
 commit: 070b668f2cbbf52548c46e96b236e09884483dd4
 build_tags: netgo,ledger
@@ -42,7 +42,7 @@ go: go version go1.17 darwin/amd64
 ...
 ```
 
-If the software version does not match, then please check your $PATH to ensure the correct evmosd is running.
+If the software version does not match, then please check your $PATH to ensure the correct reapchaind is running.
 
 ## Upgrading your Validator
 
@@ -58,37 +58,37 @@ If you choose to use Cosmovisor, please continue with these instructions. If you
 
 #### Install and Setup
 
-To get started with [Cosmovisor](https://github.com/cosmos/cosmos-sdk/tree/master/cosmovisor) first download it
+To get started with [Cosmovisor](https://github.com/reapchain/cosmos-sdk/tree/master/cosmovisor) first download it
 
 ```bash
-go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
+go install github.com/reapchain/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 ```
 
 Set up the Cosmovisor environment variables. We recommend setting these in your `.profile` so it is automatically set in every session.
 
 ```bash
 echo "# Setup Cosmovisor" >> ~/.profile
-echo "export DAEMON_NAME=evmosd" >> ~/.profile
-echo "export DAEMON_HOME=$HOME/.evmosd" >> ~/.profile
+echo "export DAEMON_NAME=reapchaind" >> ~/.profile
+echo "export DAEMON_HOME=$HOME/.reapchaind" >> ~/.profile
 source ~/.profile
 ```
 
-After this, you must make the necessary folders for cosmosvisor in your daemon home directory (~/.evmosd) and copy over the current binary.
+After this, you must make the necessary folders for cosmosvisor in your daemon home directory (~/.reapchaind) and copy over the current binary.
 
 ```bash
-mkdir -p ~/.evmosd/cosmovisor
-mkdir -p ~/.evmosd/cosmovisor/genesis
-mkdir -p ~/.evmosd/cosmovisor/genesis/bin
-mkdir -p ~/.evmosd/cosmovisor/upgrades
+mkdir -p ~/.reapchaind/cosmovisor
+mkdir -p ~/.reapchaind/cosmovisor/genesis
+mkdir -p ~/.reapchaind/cosmovisor/genesis/bin
+mkdir -p ~/.reapchaind/cosmovisor/upgrades
 
-cp $GOPATH/bin/evmosd ~/.evmosd/cosmovisor/genesis/bin
+cp $GOPATH/bin/reapchaind ~/.reapchaind/cosmovisor/genesis/bin
 ```
 
-To check that you did this correctly, ensure your versions of cosmovisor and evmosd are the same:
+To check that you did this correctly, ensure your versions of cosmovisor and reapchaind are the same:
 
 ```
 cosmovisor version
-evmosd version
+reapchaind version
 ```
 
 #### Generally Preparing an Upgrade
@@ -106,27 +106,27 @@ echo "export DAEMON_ALLOW_DOWNLOAD_BINARIES=true" >> ~/.profile
 You can now download the "genesis" file for the chain. It is pre-filled with the entire genesis state and gentxs.
 
 ```bash
-curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.evmosd/config/genesis.json
+curl https://raw.githubusercontent.com/tharsis/testnets/main/olympus_mons/genesis.json > ~/.reapchaind/config/genesis.json
 ```
 
 We recommend using `sha256sum` to check the hash of the genesis.
 
 ```bash
-cd ~/.evmosd/config
+cd ~/.reapchaind/config
 echo "2b5164f4bab00263cb424c3d0aa5c47a707184c6ff288322acc4c7e0c5f6f36f  genesis.json" | sha256sum -c
 ```
 
 #### Reset Chain Database
 
-There shouldn't be any chain database yet, but in case there is for some reason, you should reset it. This is a good idea especially if you ran `evmosd start` on an old, broken genesis file.
+There shouldn't be any chain database yet, but in case there is for some reason, you should reset it. This is a good idea especially if you ran `reapchaind start` on an old, broken genesis file.
 
 ```bash
-evmosd unsafe-reset-all
+reapchaind unsafe-reset-all
 ```
 
 #### Ensure that you have set peers
 
-In `~/.evmosd/config/config.toml` you can set your peers. See the [peers.txt](https://github.com/tharsis/testnets/blob/main/olympus_mons/peers.txt) file for a list of up to date peers.
+In `~/.reapchaind/config/config.toml` you can set your peers. See the [peers.txt](https://github.com/tharsis/testnets/blob/main/olympus_mons/peers.txt) file for a list of up to date peers.
 
 See the [Add persistent peers section](https://evmos.dev/testnet/join.html#add-persistent-peers) in our docs for an automated method, but field should look something like a comma separated string of peers (do not copy this, just an example):
 
@@ -137,7 +137,7 @@ persistent_peers = "5576b0160761fe81ccdf88e06031a01bc8643d51@195.201.108.97:2465
 You can share your peer with
 
 ```bash
-evmosd tendermint show-node-id
+reapchaind tendermint show-node-id
 ```
 
 **Peer Format**: `node-id@ip:port`
@@ -165,9 +165,9 @@ cosmovisor start
 You will need some way to keep the process always running. If you're on linux, you can do this by creating a service.
 
 ```bash
-sudo tee /etc/systemd/system/evmosd.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/reapchaind.service > /dev/null <<EOF
 [Unit]
-Description=Evmos Daemon
+Description=Reapchain Daemon
 After=network-online.target
 
 [Service]
@@ -177,8 +177,8 @@ Restart=always
 RestartSec=3
 LimitNOFILE=infinity
 
-Environment="DAEMON_HOME=$HOME/.evmosd"
-Environment="DAEMON_NAME=evmosd"
+Environment="DAEMON_HOME=$HOME/.reapchaind"
+Environment="DAEMON_NAME=reapchaind"
 Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=false"
 Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
@@ -191,14 +191,14 @@ Then update and start the node
 
 ```bash
 sudo -S systemctl daemon-reload
-sudo -S systemctl enable evmosd
-sudo -S systemctl start evmosd
+sudo -S systemctl enable reapchaind
+sudo -S systemctl start reapchaind
 ```
 
 You can check the status with:
 
 ```bash
-systemctl status evmosd
+systemctl status reapchaind
 ```
 
 #### Update Cosmosvisor to V2
@@ -210,23 +210,23 @@ cd $HOME/evmos
 git pull
 git checkout v1.1.2
 make build
-systemctl stop evmosd.service
-cp build/evmosd ~/.evmosd/cosmovisor/genesis/bin
-systemctl start evmosd.service
+systemctl stop reapchaind.service
+cp build/reapchaind ~/.reapchaind/cosmovisor/genesis/bin
+systemctl start reapchaind.service
 cd $HOME
 ```
 
-If you are on the latest V1 release (`v1.1.2`) and you want evmosd to upgrade automatically from V1 to V2, do the following steps prior to the upgrade height:
+If you are on the latest V1 release (`v1.1.2`) and you want reapchaind to upgrade automatically from V1 to V2, do the following steps prior to the upgrade height:
 
 ```bash
-mkdir -p ~/.evmosd/cosmovisor/upgrades/v2/bin
+mkdir -p ~/.reapchaind/cosmovisor/upgrades/v2/bin
 cd $HOME/evmos
 git pull
 git checkout v2.0.0
 make build
-systemctl stop evmosd.service
-cp build/evmosd ~/.evmosd/cosmovisor/upgrades/v2/bin
-systemctl start evmosd.service
+systemctl stop reapchaind.service
+cp build/reapchaind ~/.reapchaind/cosmovisor/upgrades/v2/bin
+systemctl start reapchaind.service
 cd $HOME
 ```
 
@@ -240,7 +240,7 @@ If the new version you are upgrading to has breaking changes, you will have to [
 If it is **not** breaking (eg. from `v0.1.x` to `v0.1.<x+1>`), you can skip to [Restart](#restart-node) after installing the new version.
 :::
 
-To upgrade the genesis file, you can either fetch it from a trusted source or export it locally using the `evmosd export` command.
+To upgrade the genesis file, you can either fetch it from a trusted source or export it locally using the `reapchaind export` command.
 
 #### Fetch from a Trusted Source
 
@@ -249,7 +249,7 @@ If you are joining an existing testnet, you can fetch the genesis from the appro
 Save the new genesis as `new_genesis.json`. Then, replace the old `genesis.json` with `new_genesis.json`.
 
 ```bash
-cd $HOME/.evmosd/config
+cd $HOME/.reapchaind/config
 cp -f genesis.json new_genesis.json
 mv new_genesis.json genesis.json
 ```
@@ -262,19 +262,19 @@ useful for manual analysis of the state at a given height.
 Export state with:
 
 ```bash
-evmosd export > new_genesis.json
+reapchaind export > new_genesis.json
 ```
 
 You can also export state from a particular height (at the end of processing the block of that height):
 
 ```bash
-evmosd export --height [height] > new_genesis.json
+reapchaind export --height [height] > new_genesis.json
 ```
 
 If you plan to start a new network for 0 height (i.e genesis) from the exported state, export with the `--for-zero-height` flag:
 
 ```bash
-evmosd export --height [height] --for-zero-height > new_genesis.json
+reapchaind export --height [height] --for-zero-height > new_genesis.json
 ```
 
 Then, replace the old `genesis.json` with `new_genesis.json`.
@@ -289,7 +289,7 @@ At this point, you might want to run a script to update the exported genesis int
 You can use the `migrate` command to migrate from a given version to the next one (eg: `v0.X.X` to `v1.X.X`):
 
 ```bash
-evmosd migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id> --genesis-time=<yyyy-mm-ddThh:mm:ssZ>
+reapchaind migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id> --genesis-time=<yyyy-mm-ddThh:mm:ssZ>
 ```
 
 #### Restart Node
@@ -297,5 +297,5 @@ evmosd migrate [target-version] [/path/to/genesis.json] --chain-id=<new_chain_id
 To restart your node once the new genesis has been updated, use the `start` command:
 
 ```bash
-evmosd start
+reapchaind start
 ```

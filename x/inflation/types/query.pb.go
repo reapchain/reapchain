@@ -6,8 +6,8 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
-	types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -156,7 +156,7 @@ var xxx_messageInfo_QueryEpochMintProvisionRequest proto.InternalMessageInfo
 // Query/EpochMintProvision RPC method.
 type QueryEpochMintProvisionResponse struct {
 	// epoch_mint_provision is the current minting per epoch provision value.
-	EpochMintProvision types.DecCoin `protobuf:"bytes,1,opt,name=epoch_mint_provision,json=epochMintProvision,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.DecCoins" json:"epoch_mint_provision"`
+	EpochMintProvision types.DecCoin `protobuf:"bytes,1,opt,name=epoch_mint_provision,json=epochMintProvision,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"epoch_mint_provision"`
 }
 
 func (m *QueryEpochMintProvisionResponse) Reset()         { *m = QueryEpochMintProvisionResponse{} }
@@ -322,7 +322,7 @@ var xxx_messageInfo_QueryTotalSupplyRequest proto.InternalMessageInfo
 // QueryTotalSupplyResponse is the response type for the Query/TotalSupply RPC method.
 type QueryTotalSupplyResponse struct {
 	// total amount of coins in circulation
-	TotalSupply types.DecCoin `protobuf:"bytes,1,opt,name=total_supply,json=totalSupply,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.DecCoins" json:"total_supply"`
+	TotalSupply types.DecCoin `protobuf:"bytes,1,opt,name=total_supply,json=totalSupply,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"total_supply"`
 }
 
 func (m *QueryTotalSupplyResponse) Reset()         { *m = QueryTotalSupplyResponse{} }
@@ -405,7 +405,7 @@ var xxx_messageInfo_QueryInflationRateRequest proto.InternalMessageInfo
 // QueryInflationRateResponse is the response type for the Query/InflationRate RPC method.
 type QueryInflationRateResponse struct {
 	// rate by which the total supply increases within one period
-	InflationRate github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"inflation_rate"`
+	InflationRate github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"inflation_rate"`
 }
 
 func (m *QueryInflationRateResponse) Reset()         { *m = QueryInflationRateResponse{} }
