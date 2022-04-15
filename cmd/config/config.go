@@ -2,7 +2,7 @@ package config
 
 import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
-
+	"github.com/reapchain/reapchain/types"
 	ethermint "github.com/reapchain/ethermint/types"
 )
 
@@ -28,7 +28,7 @@ const (
 	// DisplayDenom defines the denomination displayed to users in client applications.
 	DisplayDenom = "reap"
 	// BaseDenom defines to the default denomination used in Evmos (staking, EVM, governance, etc.)
-	BaseDenom = "ureap"
+	BaseDenom = "areap"
 )
 
 // SetBech32Prefixes sets the global prefixes to be used when serializing addresses and public keys to Bech32 strings.
@@ -51,7 +51,7 @@ func RegisterDenoms() {
 		panic(err)
 	}
 
-	if err := sdk.RegisterDenom(BaseDenom, sdk.NewDecWithPrec(1, ethermint.BaseDenomUnit)); err != nil {
+	if err := sdk.RegisterDenom(types.AttoReap, sdk.NewDecWithPrec(1, types.BaseDenomUnit)); err != nil {
 		panic(err)
 	}
 }
