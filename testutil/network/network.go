@@ -17,13 +17,13 @@ import (
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/spf13/cobra"
 	tmcfg "github.com/reapchain/reapchain-core/config"
 	tmflags "github.com/reapchain/reapchain-core/libs/cli/flags"
 	"github.com/reapchain/reapchain-core/libs/log"
 	tmrand "github.com/reapchain/reapchain-core/libs/rand"
 	"github.com/reapchain/reapchain-core/node"
 	tmclient "github.com/reapchain/reapchain-core/rpc/client"
+	"github.com/spf13/cobra"
 	dbm "github.com/tendermint/tm-db"
 	"google.golang.org/grpc"
 
@@ -427,6 +427,7 @@ func New(l Logger, baseDir string, cfg Config) (*Network, error) {
 			stakingtypes.NewDescription(nodeDirName, "", "", "", ""),
 			stakingtypes.NewCommissionRates(commission, sdk.OneDec(), sdk.OneDec()),
 			sdk.OneInt(),
+			"standing",
 		)
 		if err != nil {
 			return nil, err
