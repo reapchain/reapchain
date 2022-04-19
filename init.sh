@@ -31,11 +31,11 @@ reapchaind keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 reapchaind init $MONIKER --chain-id $CHAINID
 
 # Change parameter token denominations to aevmos
-cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="aevmos"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
-cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="aevmos"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
-cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="aevmos"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
-cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="aevmos"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
-cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="aevmos"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["evm"]["params"]["evm_denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["inflation"]["params"]["mint_denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 
 # Set gas limit in genesis
 cat $HOME/.reapchaind/config/genesis.json | jq '.consensus_params["block"]["max_gas"]="10000000"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
@@ -89,7 +89,7 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
-reapchaind add-genesis-account $KEY 100000000000000000000000000aevmos --keyring-backend $KEYRING
+reapchaind add-genesis-account $KEY 100000000000000000000010000areap --keyring-backend $KEYRING
 
 # Update total supply with claim values
 validators_supply=$(cat $HOME/.reapchaind/config/genesis.json | jq -r '.app_state["bank"]["supply"][0]["amount"]')
@@ -99,7 +99,7 @@ total_supply=100000000000000000000010000
 cat $HOME/.reapchaind/config/genesis.json | jq -r --arg total_supply "$total_supply" '.app_state["bank"]["supply"][0]["amount"]=$total_supply' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 
 # Sign genesis transaction
-reapchaind gentx $KEY 1000000000000000000000aevmos --keyring-backend $KEYRING --chain-id $CHAINID
+reapchaind gentx $KEY 1000000000000000000000areap --keyring-backend $KEYRING --chain-id $CHAINID
 ## In case you want to create multiple validators at genesis
 ## 1. Back to `reapchaind keys add` step, init more keys
 ## 2. Back to `reapchaind add-genesis-account` step, add balance for those
@@ -118,4 +118,4 @@ if [[ $1 == "pending" ]]; then
 fi
 
 # Start the node (remove the --pruning=nothing flag if historical queries are not needed)
-reapchaind start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001aevmos --json-rpc.api eth,txpool,personal,net,debug,web3
+reapchaind start --pruning=nothing $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0.0001areap --json-rpc.api eth,txpool,personal,net,debug,web3
