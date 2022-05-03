@@ -14,10 +14,10 @@ require (
 	github.com/onsi/gomega v1.18.1
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.1
-	github.com/reapchain/ethermint v0.12.0
-	github.com/reapchain/ibc-go v0.3.0
-	github.com/reapchain/reapchain-core v0.1.3
+	github.com/reapchain/cosmos-sdk v0.45.1-reapsdkv1
+	github.com/reapchain/ethermint v0.12.0-reapethermintv1
+	github.com/reapchain/ibc-go v0.3.0-reapibcv1
+	github.com/reapchain/reapchain-core v0.1.4
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.1
@@ -155,3 +155,11 @@ replace (
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )
+
+//replace github.com/reapchain/cosmos-sdk => ../cosmos-sdk
+
+//replace github.com/reapchain/ethermint => ../ethermint
+
+//replace github.com/reapchain/reapchain-core => ../reapchain-core
+
+//replace github.com/reapchain/ibc-go => ../ibc-go
