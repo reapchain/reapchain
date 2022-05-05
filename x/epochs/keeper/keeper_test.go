@@ -9,13 +9,13 @@ import (
 
 	"github.com/reapchain/cosmos-sdk/baseapp"
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	"github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/suite"
 	abci "github.com/reapchain/reapchain-core/abci/types"
 	"github.com/reapchain/reapchain-core/crypto/tmhash"
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
-	tmversion "github.com/reapchain/reapchain-core/proto/reapchain/version"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
 	"github.com/reapchain/reapchain-core/version"
+	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/suite"
 
 	evm "github.com/reapchain/ethermint/x/evm/types"
 

@@ -6,11 +6,11 @@ import (
 	"time"
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	"github.com/stretchr/testify/suite"
 	"github.com/reapchain/reapchain-core/crypto/tmhash"
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
-	tmversion "github.com/reapchain/reapchain-core/proto/reapchain/version"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
 	"github.com/reapchain/reapchain-core/version"
+	"github.com/stretchr/testify/suite"
 
 	"github.com/reapchain/ethermint/tests"
 	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"

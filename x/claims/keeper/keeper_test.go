@@ -12,22 +12,22 @@ import (
 	"github.com/reapchain/ethermint/tests"
 	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
+	ethtypes "github.com/ethereum/go-ethereum/core/types"
 	"github.com/reapchain/cosmos-sdk/baseapp"
 	"github.com/reapchain/cosmos-sdk/crypto/keyring"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
-	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/stretchr/testify/require"
-	"github.com/stretchr/testify/suite"
+	evm "github.com/reapchain/ethermint/x/evm/types"
 	abci "github.com/reapchain/reapchain-core/abci/types"
 	"github.com/reapchain/reapchain-core/crypto/tmhash"
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
-	tmversion "github.com/reapchain/reapchain-core/proto/reapchain/version"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
 	"github.com/reapchain/reapchain-core/version"
-	evm "github.com/reapchain/ethermint/x/evm/types"
 	"github.com/reapchain/reapchain/app"
 	"github.com/reapchain/reapchain/x/claims/types"
+	"github.com/stretchr/testify/require"
+	"github.com/stretchr/testify/suite"
 )
 
 type KeeperTestSuite struct {

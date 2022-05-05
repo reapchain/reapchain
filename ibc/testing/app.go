@@ -6,7 +6,7 @@ import (
 	"time"
 
 	abci "github.com/reapchain/reapchain-core/abci/types"
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
 	tmtypes "github.com/reapchain/reapchain-core/types"
 
 	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
