@@ -17,7 +17,7 @@ Please find the following resources for in-depth information:
 - **Localnet**: Instructions on how to configure a local instance of the Evmos blockchain.
     - **[Single Node](./localnet/single_node.md)**: Run a single local node.
     - **[Multi Node](./localnet/multi_node.md)**: Run a local testnet with multiple nodes.
-    - **[Testnet](./localnet/testnet_cmd.md)**: Use the testnet command of the Evmos daemon.
+    - **[Testnet](./localnet/testnet_cmd.md)**: Use the testnet command of the Reapchain Daemon.
 - **Libraries**:
     - **[EvmosJS](./libraries/evmosjs.md)**: Javascript library for Evmos.
 - **Guides**:
