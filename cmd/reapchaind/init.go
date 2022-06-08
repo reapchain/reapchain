@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
+	"github.com/cosmos/go-bip39"
 	"os"
 	"path/filepath"
 	"strings"
