@@ -8,10 +8,10 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"github.com/reapchain/ethermint/encoding"
+	"github.com/reapchain/reapchain/v4/app"
+	v2 "github.com/reapchain/reapchain/v4/x/claims/migrations/v2"
+	claims "github.com/reapchain/reapchain/v4/x/claims/types"
 	"github.com/stretchr/testify/require"
-	"github.com/tharsis/evmos/v4/app"
-	v2 "github.com/tharsis/evmos/v4/x/claims/migrations/v2"
-	claims "github.com/tharsis/evmos/v4/x/claims/types"
 )
 
 func TestStoreMigration(t *testing.T) {

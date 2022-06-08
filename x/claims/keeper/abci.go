@@ -7,7 +7,7 @@ import (
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
 
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 // EndBlocker checks if the airdrop claiming period has ended in order to

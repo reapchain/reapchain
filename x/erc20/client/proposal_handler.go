@@ -3,8 +3,8 @@ package client
 import (
 	govclient "github.com/reapchain/cosmos-sdk/x/gov/client"
 
-	"github.com/tharsis/evmos/v4/x/erc20/client/cli"
-	"github.com/tharsis/evmos/v4/x/erc20/client/rest"
+	"github.com/reapchain/reapchain/v4/x/erc20/client/cli"
+	"github.com/reapchain/reapchain/v4/x/erc20/client/rest"
 )
 
 var (

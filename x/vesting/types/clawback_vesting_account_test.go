@@ -12,7 +12,7 @@ import (
 	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
 	"github.com/reapchain/ethermint/tests"
-	"github.com/tharsis/evmos/v4/x/vesting/types"
+	"github.com/reapchain/reapchain/v4/x/vesting/types"
 )
 
 var (

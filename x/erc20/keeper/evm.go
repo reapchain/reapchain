@@ -15,8 +15,8 @@ import (
 	"github.com/reapchain/ethermint/server/config"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/contracts"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/contracts"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // DeployERC20Contract creates and deploys an ERC20 contract on the EVM with the

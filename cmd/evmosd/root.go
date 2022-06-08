@@ -39,9 +39,9 @@ import (
 	servercfg "github.com/reapchain/ethermint/server/config"
 	srvflags "github.com/reapchain/ethermint/server/flags"
 
-	"github.com/tharsis/evmos/v4/app"
-	cmdcfg "github.com/tharsis/evmos/v4/cmd/config"
-	evmoskr "github.com/tharsis/evmos/v4/crypto/keyring"
+	"github.com/reapchain/reapchain/v4/app"
+	cmdcfg "github.com/reapchain/reapchain/v4/cmd/config"
+	evmoskr "github.com/reapchain/reapchain/v4/crypto/keyring"
 )
 
 const (

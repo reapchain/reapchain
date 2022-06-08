@@ -5,8 +5,8 @@ import (
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
-	incentivestypes "github.com/tharsis/evmos/v4/x/incentives/types"
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	incentivestypes "github.com/reapchain/reapchain/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 func (suite *KeeperTestSuite) TestMintAndAllocateInflation() {

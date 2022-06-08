@@ -11,7 +11,7 @@ import (
 	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	porttypes "github.com/reapchain/ibc-go/v3/modules/core/05-port/types"
 
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 // Keeper struct

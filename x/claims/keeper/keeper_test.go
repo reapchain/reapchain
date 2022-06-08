@@ -21,11 +21,11 @@ import (
 	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
 	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
 	"github.com/reapchain/reapchain-core/version"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/testutil"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/testutil"
-	"github.com/tharsis/evmos/v4/x/claims/types"
 )
 
 type KeeperTestSuite struct {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	epochstypes "github.com/reapchain/reapchain/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 // BeforeEpochStart: noop, We don't need to do anything here

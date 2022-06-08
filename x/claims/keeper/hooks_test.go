@@ -8,8 +8,8 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 	"github.com/reapchain/ethermint/tests"
-	"github.com/tharsis/evmos/v4/testutil"
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/testutil"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestAfterProposalVote() {

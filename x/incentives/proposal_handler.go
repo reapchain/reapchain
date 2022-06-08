@@ -8,8 +8,8 @@ import (
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
-	"github.com/tharsis/evmos/v4/x/incentives/keeper"
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/keeper"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // NewIncentivesProposalHandler creates a governance handler to manage new

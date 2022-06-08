@@ -14,8 +14,8 @@ import (
 	ethermint "github.com/reapchain/ethermint/types"
 	evm "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/testutil"
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/testutil"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the

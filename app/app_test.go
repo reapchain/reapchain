@@ -14,7 +14,7 @@ import (
 	dbm "github.com/tendermint/tm-db"
 
 	"github.com/reapchain/ethermint/encoding"
-	"github.com/tharsis/evmos/v4/types"
+	"github.com/reapchain/reapchain/v4/types"
 )
 
 func TestEvmosExport(t *testing.T) {

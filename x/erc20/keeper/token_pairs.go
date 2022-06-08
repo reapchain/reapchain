@@ -5,7 +5,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // GetAllTokenPairs - get all registered token tokenPairs

@@ -7,7 +7,7 @@ import (
 
 	"github.com/reapchain/reapchain-core/libs/log"
 
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 // Keeper of the inflation store

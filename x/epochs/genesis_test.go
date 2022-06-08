@@ -8,9 +8,9 @@ import (
 	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
 	"github.com/stretchr/testify/require"
 
-	simapp "github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/x/epochs"
-	"github.com/tharsis/evmos/v4/x/epochs/types"
+	simapp "github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/x/epochs"
+	"github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 func TestEpochsExportGenesis(t *testing.T) {

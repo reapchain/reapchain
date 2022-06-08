@@ -18,9 +18,9 @@ import (
 	abci "github.com/reapchain/reapchain-core/abci/types"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v4/x/erc20/client/cli"
-	"github.com/tharsis/evmos/v4/x/erc20/keeper"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/client/cli"
+	"github.com/reapchain/reapchain/v4/x/erc20/keeper"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // type check to ensure the interface is properly implemented

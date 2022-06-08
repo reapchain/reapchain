@@ -15,7 +15,7 @@ This documentation page is currently under work in progress.
 :::
 
 - Documentation (this site): [https://evmos.dev/](https://evmos.dev/)
-- Open Source Codebase: [https://github.com/tharsis/evmos](https://github.com/tharsis/evmos)
+- Open Source Codebase: [https://github.com/reapchain/reapchain](https://github.com/reapchain/reapchain)
 - Website: [https://evmos.org/](https://evmos.org/)
 - Blog: [https://evmos.blog/](https://evmos.blog/)
 - Ethermint: [https://github.com/reapchain/ethermint](https://github.com/reapchain/ethermint)

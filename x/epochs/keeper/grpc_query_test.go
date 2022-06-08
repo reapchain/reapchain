@@ -6,7 +6,7 @@ import (
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/reapchain/cosmos-sdk/types/query"
-	"github.com/tharsis/evmos/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 func (suite *KeeperTestSuite) TestEpochInfo() {

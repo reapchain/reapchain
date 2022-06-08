@@ -44,8 +44,8 @@ module.exports = {
     // ['link', { rel: "apple-touch-icon-precomposed", href: "/apple-touch-icon-precomposed.png" }],
   ],
   themeConfig: {
-    repo: 'tharsis/evmos',
-    docsRepo: 'tharsis/evmos',
+    repo: 'reapchain/reapchain',
+    docsRepo: 'reapchain/reapchain',
     docsBranch: 'main',
     docsDir: 'docs',
     editLinks: true,
@@ -190,7 +190,7 @@ module.exports = {
             },
             {
               title: 'Evmos Go API',
-              path: 'https://pkg.go.dev/github.com/tharsis/evmos'
+              path: 'https://pkg.go.dev/github.com/reapchain/reapchain'
             },
             {
               title: 'Ethermint Library Go API',
@@ -301,7 +301,7 @@ module.exports = {
       services: [
         {
           service: "github",
-          url: 'https://github.com/tharsis/evmos'
+          url: 'https://github.com/reapchain/reapchain'
         },
         {
           service: "twitter",

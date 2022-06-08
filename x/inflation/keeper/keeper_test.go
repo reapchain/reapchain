@@ -16,9 +16,9 @@ import (
 
 	evm "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/app"
-	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	"github.com/reapchain/reapchain/v4/app"
+	epochstypes "github.com/reapchain/reapchain/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 var denomMint = types.DefaultInflationDenom

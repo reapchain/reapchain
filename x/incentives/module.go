@@ -18,9 +18,9 @@ import (
 	abci "github.com/reapchain/reapchain-core/abci/types"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v4/x/incentives/client/cli"
-	"github.com/tharsis/evmos/v4/x/incentives/keeper"
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/client/cli"
+	"github.com/reapchain/reapchain/v4/x/incentives/keeper"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // type check to ensure the interface is properly implemented

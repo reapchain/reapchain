@@ -11,8 +11,8 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/contracts"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/contracts"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

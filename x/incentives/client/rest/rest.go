@@ -10,7 +10,7 @@ import (
 	govrest "github.com/reapchain/cosmos-sdk/x/gov/client/rest"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // RegisterIncentiveProposalRequest defines a request for a new register a

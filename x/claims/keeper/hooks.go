@@ -13,7 +13,7 @@ import (
 
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 var (

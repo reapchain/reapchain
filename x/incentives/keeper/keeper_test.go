@@ -33,10 +33,10 @@ import (
 	ethermint "github.com/reapchain/ethermint/types"
 	evm "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/contracts"
-	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/contracts"
+	epochstypes "github.com/reapchain/reapchain/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 var (

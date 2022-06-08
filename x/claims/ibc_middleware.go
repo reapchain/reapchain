@@ -7,8 +7,8 @@ import (
 	porttypes "github.com/reapchain/ibc-go/v3/modules/core/05-port/types"
 	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
-	"github.com/tharsis/evmos/v4/ibc"
-	"github.com/tharsis/evmos/v4/x/claims/keeper"
+	"github.com/reapchain/reapchain/v4/ibc"
+	"github.com/reapchain/reapchain/v4/x/claims/keeper"
 )
 
 var _ porttypes.Middleware = &IBCMiddleware{}

@@ -7,8 +7,8 @@ import (
 	svrcmd "github.com/reapchain/cosmos-sdk/server/cmd"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v4/app"
-	cmdcfg "github.com/tharsis/evmos/v4/cmd/config"
+	"github.com/reapchain/reapchain/v4/app"
+	cmdcfg "github.com/reapchain/reapchain/v4/cmd/config"
 )
 
 func main() {

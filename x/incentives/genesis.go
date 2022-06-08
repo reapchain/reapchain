@@ -4,8 +4,8 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
 
-	"github.com/tharsis/evmos/v4/x/incentives/keeper"
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/keeper"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // InitGenesis import module genesis

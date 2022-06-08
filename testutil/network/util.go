@@ -26,7 +26,7 @@ import (
 	genutiltypes "github.com/reapchain/cosmos-sdk/x/genutil/types"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
-	inflationtypes "github.com/tharsis/evmos/v4/x/inflation/types"
+	inflationtypes "github.com/reapchain/reapchain/v4/x/inflation/types"
 
 	"github.com/reapchain/ethermint/server"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"

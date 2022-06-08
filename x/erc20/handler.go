@@ -4,7 +4,7 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // NewHandler defines the erc20 module handler instance

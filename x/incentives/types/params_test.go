@@ -9,7 +9,7 @@ import (
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
+	epochstypes "github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 type ParamsTestSuite struct {

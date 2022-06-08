@@ -7,7 +7,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // GetQueryCmd returns the parent command for all erc20 CLI query commands.

@@ -8,7 +8,7 @@ import (
 
 	"github.com/reapchain/cosmos-sdk/client"
 	"github.com/reapchain/cosmos-sdk/client/flags"
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 // GetQueryCmd returns the cli query commands for the inflation module.

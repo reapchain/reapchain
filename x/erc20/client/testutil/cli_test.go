@@ -16,8 +16,8 @@ import (
 
 	"github.com/reapchain/ethermint/testutil/network"
 
-	evmosnetwork "github.com/tharsis/evmos/v4/testutil/network"
-	"github.com/tharsis/evmos/v4/x/erc20/client/cli"
+	evmosnetwork "github.com/reapchain/reapchain/v4/testutil/network"
+	"github.com/reapchain/reapchain/v4/x/erc20/client/cli"
 )
 
 type IntegrationTestSuite struct {

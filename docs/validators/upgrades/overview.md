@@ -28,7 +28,7 @@ If there are breaking changes during an unplanned upgrade (see below), validator
 
 ### Breaking and Non-Breaking Upgrades
 
-Upgrades can be categorized as breaking or non-breaking according to the Semantic versioning ([Semver](https://semver.org/)) of the corresponding software [release version](https://github.com/tharsis/evmos/releases) (*i.e* `vX.Y.Z`):
+Upgrades can be categorized as breaking or non-breaking according to the Semantic versioning ([Semver](https://semver.org/)) of the corresponding software [release version](https://github.com/reapchain/reapchain/releases) (*i.e* `vX.Y.Z`):
 
 - **Major version (`X`)**: backward incompatible API and state machine breaking changes.
 - **Minor version (`Y`)**: new backward compatible features. These can be also be state machine breaking.

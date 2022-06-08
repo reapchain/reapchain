@@ -12,7 +12,7 @@ import (
 	ethermint "github.com/reapchain/ethermint/types"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 var _ = Describe("Performing EVM transactions", Ordered, func() {

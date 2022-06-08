@@ -20,9 +20,9 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/reapchain/cosmos-sdk/types/module"
 
-	"github.com/tharsis/evmos/v4/x/epochs/client/cli"
-	"github.com/tharsis/evmos/v4/x/epochs/keeper"
-	"github.com/tharsis/evmos/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/epochs/client/cli"
+	"github.com/reapchain/reapchain/v4/x/epochs/keeper"
+	"github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 var (

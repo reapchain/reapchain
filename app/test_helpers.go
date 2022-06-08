@@ -16,8 +16,8 @@ import (
 	"github.com/reapchain/ethermint/encoding"
 	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	"github.com/tharsis/evmos/v4/cmd/config"
-	"github.com/tharsis/evmos/v4/types"
+	"github.com/reapchain/reapchain/v4/cmd/config"
+	"github.com/reapchain/reapchain/v4/types"
 )
 
 func init() {

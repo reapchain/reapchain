@@ -21,7 +21,7 @@ import (
 	"github.com/reapchain/ibc-go/v3/testing/simapp"
 
 	ethermint "github.com/reapchain/ethermint/types"
-	evmosapp "github.com/tharsis/evmos/v4/app"
+	evmosapp "github.com/reapchain/reapchain/v4/app"
 )
 
 var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = evmosapp.SetupTestingApp

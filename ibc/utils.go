@@ -7,7 +7,7 @@ import (
 	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
 
-	evmos "github.com/tharsis/evmos/v4/types"
+	evmos "github.com/reapchain/reapchain/v4/types"
 )
 
 // GetTransferSenderRecipient returns the sender and recipient sdk.AccAddresses

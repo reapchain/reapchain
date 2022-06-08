@@ -3,7 +3,7 @@ package keeper_test
 import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v4/x/recovery/types"
+	"github.com/reapchain/reapchain/v4/x/recovery/types"
 )
 
 func (suite *KeeperTestSuite) TestQueryParams() {

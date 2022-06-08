@@ -19,9 +19,9 @@ import (
 	"github.com/reapchain/cosmos-sdk/types/module"
 	simtypes "github.com/reapchain/cosmos-sdk/types/simulation"
 
-	"github.com/tharsis/evmos/v4/x/recovery/client/cli"
-	"github.com/tharsis/evmos/v4/x/recovery/keeper"
-	"github.com/tharsis/evmos/v4/x/recovery/types"
+	"github.com/reapchain/reapchain/v4/x/recovery/client/cli"
+	"github.com/reapchain/reapchain/v4/x/recovery/keeper"
+	"github.com/reapchain/reapchain/v4/x/recovery/types"
 )
 
 // type check to ensure the interface is properly implemented

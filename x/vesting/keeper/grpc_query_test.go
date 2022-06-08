@@ -7,8 +7,8 @@ import (
 	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 
 	"github.com/reapchain/ethermint/tests"
-	"github.com/tharsis/evmos/v4/testutil"
-	"github.com/tharsis/evmos/v4/x/vesting/types"
+	"github.com/reapchain/reapchain/v4/testutil"
+	"github.com/reapchain/reapchain/v4/x/vesting/types"
 )
 
 func (suite *KeeperTestSuite) TestBalances() {

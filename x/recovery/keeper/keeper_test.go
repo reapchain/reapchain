@@ -17,9 +17,9 @@ import (
 	"github.com/reapchain/cosmos-sdk/baseapp"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v4/app"
-	claimstypes "github.com/tharsis/evmos/v4/x/claims/types"
-	"github.com/tharsis/evmos/v4/x/recovery/types"
+	"github.com/reapchain/reapchain/v4/app"
+	claimstypes "github.com/reapchain/reapchain/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/recovery/types"
 )
 
 var (

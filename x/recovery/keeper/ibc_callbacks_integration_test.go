@@ -6,10 +6,10 @@ import (
 	. "github.com/onsi/ginkgo/v2"
 	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/testutil"
-	claimtypes "github.com/tharsis/evmos/v4/x/claims/types"
-	"github.com/tharsis/evmos/v4/x/recovery/types"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/testutil"
+	claimtypes "github.com/reapchain/reapchain/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/recovery/types"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {

@@ -43,9 +43,9 @@ import (
 	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 	tmjson "github.com/reapchain/reapchain-core/libs/json"
 
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/contracts"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/contracts"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 type KeeperTestSuite struct {

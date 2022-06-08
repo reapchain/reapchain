@@ -8,7 +8,7 @@ import (
 	ibcclientkeeper "github.com/reapchain/ibc-go/v3/modules/core/02-client/keeper"
 	ibcclienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
 
-	"github.com/tharsis/evmos/v4/types"
+	"github.com/reapchain/reapchain/v4/types"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v4

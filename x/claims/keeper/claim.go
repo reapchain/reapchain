@@ -4,7 +4,7 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 // ClaimCoinsForAction removes the claimable amount entry from a claims record

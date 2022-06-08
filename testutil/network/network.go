@@ -48,7 +48,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/x/genutil"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	"github.com/reapchain/ethermint/crypto/hd"
-	"github.com/tharsis/evmos/v4/app"
+	"github.com/reapchain/reapchain/v4/app"
 
 	"github.com/reapchain/ethermint/encoding"
 	"github.com/reapchain/ethermint/server/config"

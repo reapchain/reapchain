@@ -9,9 +9,9 @@ import (
 	"github.com/reapchain/cosmos-sdk/types/tx/signing"
 	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
 	"github.com/reapchain/ethermint/encoding"
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/testutil"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/testutil"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 
 	authsigning "github.com/reapchain/cosmos-sdk/x/auth/signing"
 	abci "github.com/reapchain/reapchain-core/abci/types"

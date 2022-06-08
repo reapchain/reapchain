@@ -4,7 +4,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/evmos/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 // GetEpochInfo returns epoch info by identifier

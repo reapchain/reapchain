@@ -9,8 +9,8 @@ import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	"github.com/reapchain/ethermint/tests"
-	"github.com/tharsis/evmos/v4/contracts"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/contracts"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // ensureHooksSet tries to set the hooks on EVMKeeper, this will fail if the erc20 hook is already set

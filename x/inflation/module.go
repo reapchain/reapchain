@@ -19,9 +19,9 @@ import (
 	abci "github.com/reapchain/reapchain-core/abci/types"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v4/x/inflation/client/cli"
-	"github.com/tharsis/evmos/v4/x/inflation/keeper"
-	"github.com/tharsis/evmos/v4/x/inflation/types"
+	"github.com/reapchain/reapchain/v4/x/inflation/client/cli"
+	"github.com/reapchain/reapchain/v4/x/inflation/keeper"
+	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
 
 // type check to ensure the interface is properly implemented

@@ -12,7 +12,7 @@ import (
 	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/tharsis/evmos/v4/x/vesting/types"
+	"github.com/reapchain/reapchain/v4/x/vesting/types"
 )
 
 var _ types.MsgServer = &Keeper{}

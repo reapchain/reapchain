@@ -14,7 +14,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/x/gov/client/cli"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
-	"github.com/tharsis/evmos/v4/x/incentives/types"
+	"github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 // NewRegisterIncentiveProposalCmd implements the command to submit a register

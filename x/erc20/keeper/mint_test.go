@@ -7,7 +7,7 @@ import (
 	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 	"github.com/reapchain/ethermint/tests"
 
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 func (suite *KeeperTestSuite) TestMintingEnabled() {

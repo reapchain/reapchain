@@ -7,9 +7,9 @@ import (
 	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
 	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
-	"github.com/tharsis/evmos/v4/ibc"
-	evmos "github.com/tharsis/evmos/v4/types"
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/ibc"
+	evmos "github.com/reapchain/reapchain/v4/types"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 // OnAcknowledgementPacket performs an IBC send callback. Once a user submits an

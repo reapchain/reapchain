@@ -8,7 +8,7 @@ import (
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // RegisterCoin deploys an erc20 contract and creates the token pair for the

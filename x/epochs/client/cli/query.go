@@ -9,7 +9,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/version"
 	"github.com/spf13/cobra"
 
-	"github.com/tharsis/evmos/v4/x/epochs/types"
+	"github.com/reapchain/reapchain/v4/x/epochs/types"
 )
 
 // GetQueryCmd returns the cli query commands for this module

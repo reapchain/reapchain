@@ -20,10 +20,10 @@ import (
 	"github.com/reapchain/ethermint/encoding"
 	"github.com/reapchain/ethermint/tests"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
-	"github.com/tharsis/evmos/v4/app"
-	"github.com/tharsis/evmos/v4/testutil"
-	incentivestypes "github.com/tharsis/evmos/v4/x/incentives/types"
-	inflationtypes "github.com/tharsis/evmos/v4/x/inflation/types"
+	"github.com/reapchain/reapchain/v4/app"
+	"github.com/reapchain/reapchain/v4/testutil"
+	incentivestypes "github.com/reapchain/reapchain/v4/x/incentives/types"
+	inflationtypes "github.com/reapchain/reapchain/v4/x/inflation/types"
 
 	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
 	authsigning "github.com/reapchain/cosmos-sdk/x/auth/signing"
@@ -32,8 +32,8 @@ import (
 	"github.com/reapchain/ethermint/server/config"
 	evm "github.com/reapchain/ethermint/x/evm/types"
 	abci "github.com/reapchain/reapchain-core/abci/types"
-	"github.com/tharsis/evmos/v4/contracts"
-	"github.com/tharsis/evmos/v4/x/claims/types"
+	"github.com/reapchain/reapchain/v4/contracts"
+	"github.com/reapchain/reapchain/v4/x/claims/types"
 )
 
 var _ = Describe("Claiming", Ordered, func() {

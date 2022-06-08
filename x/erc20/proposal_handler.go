@@ -6,8 +6,8 @@ import (
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
-	"github.com/tharsis/evmos/v4/x/erc20/keeper"
-	"github.com/tharsis/evmos/v4/x/erc20/types"
+	"github.com/reapchain/reapchain/v4/x/erc20/keeper"
+	"github.com/reapchain/reapchain/v4/x/erc20/types"
 )
 
 // NewErc20ProposalHandler creates a governance handler to manage new proposal types.

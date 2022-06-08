@@ -11,7 +11,7 @@ import (
 	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
 
-	"github.com/tharsis/evmos/v4/x/recovery/types"
+	"github.com/reapchain/reapchain/v4/x/recovery/types"
 )
 
 var _ types.TransferKeeper = &MockTransferKeeper{}

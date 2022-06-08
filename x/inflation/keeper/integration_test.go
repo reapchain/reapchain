@@ -5,8 +5,8 @@ import (
 	"time"
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
-	incentivestypes "github.com/tharsis/evmos/v4/x/incentives/types"
+	epochstypes "github.com/reapchain/reapchain/v4/x/epochs/types"
+	incentivestypes "github.com/reapchain/reapchain/v4/x/incentives/types"
 )
 
 var (
