@@ -965,9 +965,9 @@ github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqn
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 h1:N/ElC8H3+5XpJzTSTfLsJV/mx9Q9g7kxmchpfZyxgzM=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/reapchain/cosmos-sdk v0.45.1-reapsdkv2/go.mod h1:iz6bYOPaaaDYwlDM4nrE2XgZVenuErz6ty9iVAiedf8=
-github.com/reapchain/cosmos-sdk v0.45.4-reapsdkv1 h1:Yb0h0iGpvnc3euFaUr4m/f/6eTTnOeHlOUZfRmw6QME=
+github.com/reapchain/cosmos-sdk v0.45.4-reapsdkv1 h1:+RnEJed+VsLw3eb/h3uHRKf/HUb/AA++SKW3LLUOYWs=
 github.com/reapchain/cosmos-sdk v0.45.4-reapsdkv1/go.mod h1:iyt5nE1ncpwMrPFd1Re6PkhjH4OWbwbU8AkgJzAYrXw=
-github.com/reapchain/ethermint v0.15.0-reapethermintv1 h1:ScDMstRQ5l5Dlek9oqxd3VHU+FHj67muRghHxDHLELI=
+github.com/reapchain/ethermint v0.15.0-reapethermintv1 h1:Wej+x0l6LfnW0pGOtqC7bSgauCIGVazNCrvFgE13dXM=
 github.com/reapchain/ethermint v0.15.0-reapethermintv1/go.mod h1:BR6F4d6G9VyYuwBKNUja40eco+r/zlN2xVzbTfspmNU=
 github.com/reapchain/iavl v0.17.3/go.mod h1:tFN6mULABZI/VDXeg9pcNbkA8YRmZ2pXmr7sSnN1UHU=
 github.com/reapchain/iavl v1.17.3/go.mod h1:SSbdRBxcZInJnwX03kqSBFeZqSo4d4DGYdeaFIKDeco=
