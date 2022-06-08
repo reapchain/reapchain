@@ -115,7 +115,7 @@ You will need some way to keep the process always running. If you're on linux, y
 ```bash
 sudo tee /etc/systemd/system/reapchaind.service > /dev/null <<EOF
 [Unit]
-Description=Evmos Daemon
+Description=Reapchain Daemon
 After=network-online.target
 
 [Service]
