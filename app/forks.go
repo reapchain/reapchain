@@ -3,8 +3,8 @@ package app
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 
 	v2 "github.com/tharsis/evmos/v4/app/upgrades/v2"
 	v4 "github.com/tharsis/evmos/v4/app/upgrades/v4"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 )
 
 // Parameter store key

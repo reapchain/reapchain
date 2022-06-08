@@ -4,10 +4,10 @@ import (
 	"errors"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 )
 
 var (

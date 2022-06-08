@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
 	"github.com/stretchr/testify/suite"
-	"github.com/tendermint/tendermint/crypto/tmhash"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 )
 
 type TokenPairTestSuite struct {

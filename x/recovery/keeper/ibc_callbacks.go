@@ -3,16 +3,16 @@ package keeper
 import (
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	host "github.com/cosmos/ibc-go/v3/modules/core/24-host"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	host "github.com/reapchain/ibc-go/v3/modules/core/24-host"
+	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
 	"github.com/tharsis/evmos/v4/ibc"
 	evmos "github.com/tharsis/evmos/v4/types"

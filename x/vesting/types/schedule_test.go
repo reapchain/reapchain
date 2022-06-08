@@ -3,8 +3,8 @@ package types
 import (
 	"testing"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 	"github.com/stretchr/testify/suite"
 )
 

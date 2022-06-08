@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 )
 
 // SanitizeERC20Name enforces snake_case and removes all "coin" and "token"

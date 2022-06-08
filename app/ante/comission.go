@@ -1,12 +1,12 @@
 package ante
 
 import (
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/codec"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/x/authz"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	"github.com/reapchain/cosmos-sdk/x/authz"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 )
 
 var minCommission = sdk.NewDecWithPrec(5, 2) // 5%

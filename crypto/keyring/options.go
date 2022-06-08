@@ -1,9 +1,9 @@
 package keyring
 
 import (
-	"github.com/cosmos/cosmos-sdk/crypto/keyring"
+	"github.com/reapchain/cosmos-sdk/crypto/keyring"
 
-	"github.com/tharsis/ethermint/crypto/hd"
+	"github.com/reapchain/ethermint/crypto/hd"
 )
 
 var (

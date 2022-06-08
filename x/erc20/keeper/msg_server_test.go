@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"math/big"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/stretchr/testify/mock"
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/tharsis/ethermint/x/evm/statedb"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/reapchain/ethermint/x/evm/statedb"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 	"github.com/tharsis/evmos/v4/x/erc20/keeper"
 	"github.com/tharsis/evmos/v4/x/erc20/types"
 )

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	"github.com/tharsis/ethermint/tests"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	"github.com/reapchain/ethermint/tests"
 	"github.com/tharsis/evmos/v4/testutil"
 	"github.com/tharsis/evmos/v4/x/claims/types"
 )

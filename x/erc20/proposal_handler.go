@@ -1,10 +1,10 @@
 package erc20
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/ethereum/go-ethereum/common"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
 	"github.com/tharsis/evmos/v4/x/erc20/keeper"
 	"github.com/tharsis/evmos/v4/x/erc20/types"

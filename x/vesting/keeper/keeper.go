@@ -3,9 +3,9 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/codec"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/tendermint/tendermint/libs/log"
+	"github.com/reapchain/cosmos-sdk/codec"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/reapchain-core/libs/log"
 
 	"github.com/tharsis/evmos/v4/x/vesting/types"
 )

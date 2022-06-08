@@ -3,8 +3,8 @@ package keeper
 import (
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/store/prefix"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/store/prefix"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	"github.com/tharsis/evmos/v4/x/incentives/types"
 )

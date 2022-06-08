@@ -3,7 +3,7 @@ package ethermint.feemarket.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/tharsis/ethermint/x/feemarket/types";
+option go_package = "github.com/reapchain/ethermint/x/feemarket/types";
 
 // Params defines the EVM module parameters
 message Params {
@@ -22,7 +22,7 @@ message Params {
   int64 enable_height = 5;
   // base fee for EIP-1559 blocks.
   string base_fee = 6 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
 }

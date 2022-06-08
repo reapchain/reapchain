@@ -5,19 +5,19 @@ import (
 	"testing"
 	"time"
 
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
+	"github.com/reapchain/reapchain-core/version"
 	"github.com/stretchr/testify/suite"
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	tmclient "github.com/cosmos/ibc-go/v3/modules/light-clients/07-tendermint/types"
+	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
+	tmclient "github.com/reapchain/ibc-go/v3/modules/light-clients/07-tendermint/types"
 
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
 	"github.com/tharsis/evmos/v4/app"
 	v4 "github.com/tharsis/evmos/v4/app/upgrades/v4"

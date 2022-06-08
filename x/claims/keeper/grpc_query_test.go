@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 	"github.com/tharsis/evmos/v4/testutil"
 	"github.com/tharsis/evmos/v4/x/claims/types"
 )

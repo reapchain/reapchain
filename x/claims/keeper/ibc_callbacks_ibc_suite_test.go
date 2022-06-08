@@ -6,13 +6,13 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/v3/testing"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 	"github.com/tharsis/evmos/v4/app"
 	ibctesting "github.com/tharsis/evmos/v4/ibc/testing"
 	"github.com/tharsis/evmos/v4/testutil"

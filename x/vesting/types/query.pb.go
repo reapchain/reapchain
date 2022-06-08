@@ -6,8 +6,8 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
-	types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -81,11 +81,11 @@ func (m *QueryBalancesRequest) GetAddress() string {
 // method.
 type QueryBalancesResponse struct {
 	// current amount of locked tokens
-	Locked github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=locked,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.Coins" json:"locked"`
+	Locked github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=locked,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"locked"`
 	// current amount of unvested tokens
-	Unvested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,2,rep,name=unvested,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.Coins" json:"unvested"`
+	Unvested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,2,rep,name=unvested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"unvested"`
 	// current amount of vested tokens
-	Vested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,3,rep,name=vested,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.Coins" json:"vested"`
+	Vested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,3,rep,name=vested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"vested"`
 }
 
 func (m *QueryBalancesResponse) Reset()         { *m = QueryBalancesResponse{} }

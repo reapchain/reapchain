@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
-	evmtypes "github.com/tharsis/ethermint/x/evm/types"
+	"github.com/reapchain/ethermint/tests"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
 	"github.com/tharsis/evmos/v4/x/erc20/types"
 )

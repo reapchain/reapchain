@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/tharsis/ethermint/tests"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	"github.com/reapchain/ethermint/tests"
 
 	"github.com/tharsis/evmos/v4/x/erc20/types"
 )

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
 	epochstypes "github.com/tharsis/evmos/v4/x/epochs/types"
 )

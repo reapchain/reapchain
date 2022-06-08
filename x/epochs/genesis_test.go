@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
 	"github.com/stretchr/testify/require"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
 
 	simapp "github.com/tharsis/evmos/v4/app"
 	"github.com/tharsis/evmos/v4/x/epochs"

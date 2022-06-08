@@ -14,7 +14,7 @@ message Incentive {
   // denoms and percentage of rewards to be allocated
   repeated cosmos.base.v1beta1.DecCoin allocations = 2 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
   // number of remaining epochs
   uint32 epochs = 3;
@@ -48,7 +48,7 @@ message RegisterIncentiveProposal {
   // denoms and percentage of rewards to be allocated
   repeated cosmos.base.v1beta1.DecCoin allocations = 4 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
   // number of remaining epochs
   uint32 epochs = 5;

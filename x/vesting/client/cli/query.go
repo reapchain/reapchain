@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
 	"github.com/tharsis/evmos/v4/x/vesting/types"

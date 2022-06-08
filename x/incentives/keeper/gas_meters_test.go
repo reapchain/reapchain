@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 
 	"github.com/tharsis/evmos/v4/x/incentives/types"
 )

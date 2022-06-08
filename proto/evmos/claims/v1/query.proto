@@ -39,7 +39,7 @@ message QueryTotalUnclaimedRequest {}
 message QueryTotalUnclaimedResponse {
   // coins defines the unclaimed coins
   repeated cosmos.base.v1beta1.Coin coins = 1 [
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins",
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins",
     (gogoproto.nullable) = false
   ];
 }
@@ -81,7 +81,7 @@ message QueryClaimsRecordRequest {
 message QueryClaimsRecordResponse {
   // total initial claimable amount for the user
   string initial_claimable_amount = 1 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
   // the claims of the user

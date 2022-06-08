@@ -4,7 +4,7 @@ order: 5
 
 # AnteHandlers
 
-The `x/vesting` module provides `AnteDecorator`s that are recursively chained together into a single [`Antehandler`](https://github.com/cosmos/cosmos-sdk/blob/v0.43.0-alpha1/docs/architecture/adr-010-modular-antehandler.md). These decorators perform basic validity checks on an Ethereum or SDK transaction, such that it could be thrown out of the transaction Mempool.
+The `x/vesting` module provides `AnteDecorator`s that are recursively chained together into a single [`Antehandler`](https://github.com/reapchain/cosmos-sdk/blob/v0.43.0-alpha1/docs/architecture/adr-010-modular-antehandler.md). These decorators perform basic validity checks on an Ethereum or SDK transaction, such that it could be thrown out of the transaction Mempool.
 
 Note that the `AnteHandler` is called on both `CheckTx` and `DeliverTx`, as Tendermint proposers presently have the ability to include in their proposed block transactions that fail `CheckTx`.
 

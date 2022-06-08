@@ -6,11 +6,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/testutil"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/reapchain/cosmos-sdk/testutil"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	"github.com/tharsis/ethermint/encoding"
+	"github.com/reapchain/ethermint/encoding"
 
 	"github.com/tharsis/evmos/v4/app"
 	v2 "github.com/tharsis/evmos/v4/x/erc20/migrations/v2"

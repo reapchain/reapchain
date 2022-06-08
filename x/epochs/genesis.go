@@ -3,7 +3,7 @@ package epochs
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	"github.com/tharsis/evmos/v4/x/epochs/keeper"
 	"github.com/tharsis/evmos/v4/x/epochs/types"

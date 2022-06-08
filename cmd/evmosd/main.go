@@ -3,9 +3,9 @@ package main
 import (
 	"os"
 
-	"github.com/cosmos/cosmos-sdk/server"
-	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/server"
+	svrcmd "github.com/reapchain/cosmos-sdk/server/cmd"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	"github.com/tharsis/evmos/v4/app"
 	cmdcfg "github.com/tharsis/evmos/v4/cmd/config"

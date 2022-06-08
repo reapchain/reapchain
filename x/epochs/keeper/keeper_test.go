@@ -4,20 +4,17 @@ import (
 	"testing"
 	"time"
 
-	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
-
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	abci "github.com/reapchain/reapchain-core/abci/types"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
+	"github.com/reapchain/reapchain-core/version"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
 
-	evm "github.com/tharsis/ethermint/x/evm/types"
+	evm "github.com/reapchain/ethermint/x/evm/types"
 
 	"github.com/tharsis/evmos/v4/app"
 	"github.com/tharsis/evmos/v4/x/epochs/types"

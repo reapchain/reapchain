@@ -8,13 +8,13 @@ import (
 	"strings"
 	"testing"
 
-	tmcli "github.com/tendermint/tendermint/libs/cli"
+	tmcli "github.com/reapchain/reapchain-core/libs/cli"
 
 	"github.com/stretchr/testify/suite"
 
-	clitestutil "github.com/cosmos/cosmos-sdk/testutil/cli"
+	clitestutil "github.com/reapchain/cosmos-sdk/testutil/cli"
 
-	"github.com/tharsis/ethermint/testutil/network"
+	"github.com/reapchain/ethermint/testutil/network"
 
 	evmosnetwork "github.com/tharsis/evmos/v4/testutil/network"
 	"github.com/tharsis/evmos/v4/x/erc20/client/cli"

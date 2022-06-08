@@ -6,15 +6,15 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
+	"github.com/reapchain/reapchain-core/version"
 
-	"github.com/tharsis/ethermint/tests"
-	feemarkettypes "github.com/tharsis/ethermint/x/feemarket/types"
+	"github.com/reapchain/ethermint/tests"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
 	"github.com/tharsis/evmos/v4/app"
 	"github.com/tharsis/evmos/v4/x/erc20"

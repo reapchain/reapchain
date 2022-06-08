@@ -9,15 +9,15 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/v3/testing"
 
 	ibctesting "github.com/tharsis/evmos/v4/ibc/testing"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+	minttypes "github.com/reapchain/cosmos-sdk/x/mint/types"
 	"github.com/tharsis/evmos/v4/app"
 	claimtypes "github.com/tharsis/evmos/v4/x/claims/types"
 	inflationtypes "github.com/tharsis/evmos/v4/x/inflation/types"

@@ -9,12 +9,12 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	"github.com/cosmos/cosmos-sdk/client/tx"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkvestcli "github.com/cosmos/cosmos-sdk/x/auth/vesting/client/cli"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client/tx"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkvestcli "github.com/reapchain/cosmos-sdk/x/auth/vesting/client/cli"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
 	"github.com/tharsis/evmos/v4/x/vesting/types"
 )

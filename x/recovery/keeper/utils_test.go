@@ -3,13 +3,13 @@ package keeper_test
 import (
 	"github.com/stretchr/testify/mock"
 
-	tmbytes "github.com/tendermint/tendermint/libs/bytes"
+	tmbytes "github.com/reapchain/reapchain-core/libs/bytes"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	bankkeeper "github.com/reapchain/cosmos-sdk/x/bank/keeper"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
 
 	"github.com/tharsis/evmos/v4/x/recovery/types"
 )

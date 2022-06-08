@@ -6,8 +6,8 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
-	types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -156,7 +156,7 @@ var xxx_messageInfo_QueryEpochMintProvisionRequest proto.InternalMessageInfo
 // Query/EpochMintProvision RPC method.
 type QueryEpochMintProvisionResponse struct {
 	// epoch_mint_provision is the current minting per epoch provision value.
-	EpochMintProvision types.DecCoin `protobuf:"bytes,1,opt,name=epoch_mint_provision,json=epochMintProvision,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.DecCoins" json:"epoch_mint_provision"`
+	EpochMintProvision types.DecCoin `protobuf:"bytes,1,opt,name=epoch_mint_provision,json=epochMintProvision,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"epoch_mint_provision"`
 }
 
 func (m *QueryEpochMintProvisionResponse) Reset()         { *m = QueryEpochMintProvisionResponse{} }
@@ -326,7 +326,7 @@ var xxx_messageInfo_QueryCirculatingSupplyRequest proto.InternalMessageInfo
 // Query/CirculatingSupply RPC method.
 type QueryCirculatingSupplyResponse struct {
 	// total amount of coins in circulation
-	CirculatingSupply types.DecCoin `protobuf:"bytes,1,opt,name=circulating_supply,json=circulatingSupply,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.DecCoins" json:"circulating_supply"`
+	CirculatingSupply types.DecCoin `protobuf:"bytes,1,opt,name=circulating_supply,json=circulatingSupply,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"circulating_supply"`
 }
 
 func (m *QueryCirculatingSupplyResponse) Reset()         { *m = QueryCirculatingSupplyResponse{} }
@@ -411,7 +411,7 @@ var xxx_messageInfo_QueryInflationRateRequest proto.InternalMessageInfo
 // RPC method.
 type QueryInflationRateResponse struct {
 	// rate by which the total supply increases within one period
-	InflationRate github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"inflation_rate"`
+	InflationRate github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"inflation_rate"`
 }
 
 func (m *QueryInflationRateResponse) Reset()         { *m = QueryInflationRateResponse{} }

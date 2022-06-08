@@ -34,7 +34,7 @@ message Claim {
 	bool completed = 2;
 	// claimable token amount for the action. Zero if completed
 	string claimable_amount = 3 [
-		(gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+		(gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
 		(gogoproto.nullable) = false
 	];
 }
@@ -45,7 +45,7 @@ message ClaimsRecordAddress {
 	string address = 1;
 	// total initial claimable amount for the user
 	string initial_claimable_amount = 2 [
-		(gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+		(gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
 		(gogoproto.nullable) = false
 	];
 	// slice of the available actions completed
@@ -57,7 +57,7 @@ message ClaimsRecordAddress {
 message ClaimsRecord {
 	// total initial claimable amount for the user
 	string initial_claimable_amount = 1 [
-		(gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+		(gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
 		(gogoproto.nullable) = false
 	];
 	// slice of the available actions completed

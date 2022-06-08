@@ -3,10 +3,10 @@ package types
 import (
 	"testing"
 
+	"github.com/reapchain/ethermint/tests"
 	"github.com/stretchr/testify/require"
-	"github.com/tharsis/ethermint/tests"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 )
 
 func TestClaimsRecordValidate(t *testing.T) {

@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	ethermint "github.com/tharsis/ethermint/types"
+	ethermint "github.com/reapchain/ethermint/types"
 
 	evmos "github.com/tharsis/evmos/v4/types"
 	incentivestypes "github.com/tharsis/evmos/v4/x/incentives/types"

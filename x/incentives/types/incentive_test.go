@@ -4,11 +4,11 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/stretchr/testify/suite"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 )
 
 type IncentiveTestSuite struct {

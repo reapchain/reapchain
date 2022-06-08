@@ -6,10 +6,10 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/tharsis/ethermint/tests"
+	"github.com/reapchain/ethermint/tests"
 
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	length "github.com/cosmos/cosmos-sdk/x/gov/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	length "github.com/reapchain/cosmos-sdk/x/gov/types"
 )
 
 type ProposalTestSuite struct {

@@ -5,13 +5,13 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/multisig"
-	"github.com/cosmos/cosmos-sdk/crypto/keys/secp256k1"
-	cryptotypes "github.com/cosmos/cosmos-sdk/crypto/types"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/ed25519"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/multisig"
+	"github.com/reapchain/cosmos-sdk/crypto/keys/secp256k1"
+	cryptotypes "github.com/reapchain/cosmos-sdk/crypto/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/tharsis/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
 )
 
 func init() {

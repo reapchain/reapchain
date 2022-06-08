@@ -3,10 +3,10 @@ package keeper
 import (
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	"github.com/ethereum/go-ethereum/common"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 
 	"github.com/tharsis/evmos/v4/x/erc20/types"
 )
