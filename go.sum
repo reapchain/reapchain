@@ -960,15 +960,13 @@ github.com/rakyll/statik v0.1.7/go.mod h1:AlZONWzMtEnMs7W4e/1LURLiI49pIMmp6V9Ung
 github.com/rcrowley/go-metrics v0.0.0-20181016184325-3113b8401b8a/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 h1:N/ElC8H3+5XpJzTSTfLsJV/mx9Q9g7kxmchpfZyxgzM=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
-github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v1/go.mod h1:iyt5nE1ncpwMrPFd1Re6PkhjH4OWbwbU8AkgJzAYrXw=
 github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v3 h1:Y+sWMuUu487GLZuaMvsKLC90EVwzAHTudTEnFgCfziE=
 github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v3/go.mod h1:eYqYP1ajnxl3AbCZnud1wBSMpIR0J+rhQO48cmVYPBc=
-github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2 h1:IuNTntDmOPu3z0tKNHXGsVuRGb39sCgbIcj23ekrHA4=
-github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2/go.mod h1:U9JomJ7hvOxRAzTIArMMxhCqzz/SXav5D7Gq7jNdWaw=
+github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2 h1:Fs7lgOUen9Hc/eIDLwynUkeh4iCuPRldpCB3JZtlTb4=
+github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2/go.mod h1:zjIL15mbB8Uwwb03cBuRgR9oxloh+A2q0SMxR3ca0yQ=
 github.com/reapchain/iavl v0.17.3-reap.iavl.v2/go.mod h1:X1HIIQTuixfXhW3NX03oQylavoX5W7pABD/W5mrXBd4=
 github.com/reapchain/iavl v0.17.3 h1:dkMyL+TF4qh3mwT1MTZKQZeNbYd6AgNnrdl1XuXqRpY=
 github.com/reapchain/iavl v0.17.3/go.mod h1:tFN6mULABZI/VDXeg9pcNbkA8YRmZ2pXmr7sSnN1UHU=
-github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v1/go.mod h1:s2DLDXjE2/rWbOazmpp+30ukck+otPqorye/SqR1Q2I=
 github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v3 h1:3oU8H4P1zKitP/aubRsfe2TmcHyFrVB50yiY2+OTVGE=
 github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v3/go.mod h1:BBp9S9DYL64yyuZnCGpbtN87xQ8l3w4NxwGza4VOuLE=
 github.com/reapchain/reapchain-core v0.1.5/go.mod h1:fKjIK/iIkkzuYLsqVqeeN292s5KKOyZZQ+l4/Qh0QQk=
