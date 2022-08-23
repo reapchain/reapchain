@@ -14,10 +14,10 @@ require (
 	github.com/onsi/gomega v1.19.0
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v2
-	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v1
-	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v1
-	github.com/reapchain/reapchain-core v0.1.6
+	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v3
+	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2
+	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v3
+	github.com/reapchain/reapchain-core v0.1.8
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.1
