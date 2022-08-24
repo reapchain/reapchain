@@ -6,11 +6,11 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
-	types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
+	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -81,11 +81,11 @@ func (m *QueryBalancesRequest) GetAddress() string {
 // method.
 type QueryBalancesResponse struct {
 	// current amount of locked tokens
-	Locked github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=locked,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"locked"`
+	Locked github_com_reapchain_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=locked,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"locked"`
 	// current amount of unvested tokens
-	Unvested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,2,rep,name=unvested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"unvested"`
+	Unvested github_com_reapchain_cosmos_sdk_types.Coins `protobuf:"bytes,2,rep,name=unvested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"unvested"`
 	// current amount of vested tokens
-	Vested github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,3,rep,name=vested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"vested"`
+	Vested github_com_reapchain_cosmos_sdk_types.Coins `protobuf:"bytes,3,rep,name=vested,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"vested"`
 }
 
 func (m *QueryBalancesResponse) Reset()         { *m = QueryBalancesResponse{} }
@@ -121,21 +121,21 @@ func (m *QueryBalancesResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryBalancesResponse proto.InternalMessageInfo
 
-func (m *QueryBalancesResponse) GetLocked() github_com_cosmos_cosmos_sdk_types.Coins {
+func (m *QueryBalancesResponse) GetLocked() github_com_reapchain_cosmos_sdk_types.Coins {
 	if m != nil {
 		return m.Locked
 	}
 	return nil
 }
 
-func (m *QueryBalancesResponse) GetUnvested() github_com_cosmos_cosmos_sdk_types.Coins {
+func (m *QueryBalancesResponse) GetUnvested() github_com_reapchain_cosmos_sdk_types.Coins {
 	if m != nil {
 		return m.Unvested
 	}
 	return nil
 }
 
-func (m *QueryBalancesResponse) GetVested() github_com_cosmos_cosmos_sdk_types.Coins {
+func (m *QueryBalancesResponse) GetVested() github_com_reapchain_cosmos_sdk_types.Coins {
 	if m != nil {
 		return m.Vested
 	}

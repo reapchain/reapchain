@@ -35,6 +35,10 @@ type GenesisState struct {
 	EpochsPerPeriod int64 `protobuf:"varint,4,opt,name=epochs_per_period,json=epochsPerPeriod,proto3" json:"epochs_per_period,omitempty"`
 	// number of epochs that have passed while inflation is disabled
 	SkippedEpochs uint64 `protobuf:"varint,5,opt,name=skipped_epochs,json=skippedEpochs,proto3" json:"skipped_epochs,omitempty"`
+	// number of max coins
+	MaxCoins string `protobuf:"bytes,6,opt,name=max_coins,json=maxCoins,proto3" json:"max_coins,omitempty"`
+	// init of current inflation coins
+	CurrentInflation string `protobuf:"bytes,7,opt,name=current_inflation,json=currentInflation,proto3" json:"current_inflation,omitempty"`
 }
 
 func (m *GenesisState) Reset()         { *m = GenesisState{} }
@@ -103,6 +107,20 @@ func (m *GenesisState) GetSkippedEpochs() uint64 {
 		return m.SkippedEpochs
 	}
 	return 0
+}
+
+func (m *GenesisState) GetMaxCoins() string {
+	if m != nil {
+		return m.MaxCoins
+	}
+	return ""
+}
+
+func (m *GenesisState) GetCurrentInflation() string {
+	if m != nil {
+		return m.CurrentInflation
+	}
+	return ""
 }
 
 // Params holds parameters for the inflation module.
@@ -235,6 +253,20 @@ func (m *GenesisState) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.CurrentInflation) > 0 {
+		i -= len(m.CurrentInflation)
+		copy(dAtA[i:], m.CurrentInflation)
+		i = encodeVarintGenesis(dAtA, i, uint64(len(m.CurrentInflation)))
+		i--
+		dAtA[i] = 0x3a
+	}
+	if len(m.MaxCoins) > 0 {
+		i -= len(m.MaxCoins)
+		copy(dAtA[i:], m.MaxCoins)
+		i = encodeVarintGenesis(dAtA, i, uint64(len(m.MaxCoins)))
+		i--
+		dAtA[i] = 0x32
+	}
 	if m.SkippedEpochs != 0 {
 		i = encodeVarintGenesis(dAtA, i, uint64(m.SkippedEpochs))
 		i--
@@ -361,6 +393,14 @@ func (m *GenesisState) Size() (n int) {
 	}
 	if m.SkippedEpochs != 0 {
 		n += 1 + sovGenesis(uint64(m.SkippedEpochs))
+	}
+	l = len(m.MaxCoins)
+	if l > 0 {
+		n += 1 + l + sovGenesis(uint64(l))
+	}
+	l = len(m.CurrentInflation)
+	if l > 0 {
+		n += 1 + l + sovGenesis(uint64(l))
 	}
 	return n
 }
@@ -542,6 +582,70 @@ func (m *GenesisState) Unmarshal(dAtA []byte) error {
 					break
 				}
 			}
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field MaxCoins", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.MaxCoins = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 7:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CurrentInflation", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowGenesis
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthGenesis
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.CurrentInflation = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipGenesis(dAtA[iNdEx:])

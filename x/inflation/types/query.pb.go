@@ -6,11 +6,11 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
-	types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
+	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -411,7 +411,7 @@ var xxx_messageInfo_QueryInflationRateRequest proto.InternalMessageInfo
 // RPC method.
 type QueryInflationRateResponse struct {
 	// rate by which the total supply increases within one period
-	InflationRate github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"inflation_rate"`
+	InflationRate github_com_reapchain_cosmos_sdk_types.Dec `protobuf:"bytes,1,opt,name=inflation_rate,json=inflationRate,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"inflation_rate"`
 }
 
 func (m *QueryInflationRateResponse) Reset()         { *m = QueryInflationRateResponse{} }

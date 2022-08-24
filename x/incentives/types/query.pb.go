@@ -6,12 +6,12 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
-	types "github.com/reapchain/cosmos-sdk/types"
-	query "github.com/reapchain/cosmos-sdk/types/query"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
+	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
+	query "github.com/reapchain/cosmos-sdk/types/query"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -488,7 +488,7 @@ func (m *QueryAllocationMetersRequest) GetPagination() *query.PageRequest {
 // QueryAllocationMetersResponse is the response type for the
 // Query/AllocationMeters RPC method.
 type QueryAllocationMetersResponse struct {
-	AllocationMeters github_com_cosmos_cosmos_sdk_types.DecCoins `protobuf:"bytes,1,rep,name=allocation_meters,json=allocationMeters,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"allocation_meters"`
+	AllocationMeters github_com_reapchain_cosmos_sdk_types.DecCoins `protobuf:"bytes,1,rep,name=allocation_meters,json=allocationMeters,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"allocation_meters"`
 	// pagination defines the pagination in the response.
 	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
 }
@@ -526,7 +526,7 @@ func (m *QueryAllocationMetersResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_QueryAllocationMetersResponse proto.InternalMessageInfo
 
-func (m *QueryAllocationMetersResponse) GetAllocationMeters() github_com_cosmos_cosmos_sdk_types.DecCoins {
+func (m *QueryAllocationMetersResponse) GetAllocationMeters() github_com_reapchain_cosmos_sdk_types.DecCoins {
 	if m != nil {
 		return m.AllocationMeters
 	}

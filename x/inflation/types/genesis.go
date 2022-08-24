@@ -13,6 +13,7 @@ func NewGenesisState(
 	epochIdentifier string,
 	epochsPerPeriod int64,
 	skippedEpochs uint64,
+	maxCoins string,
 ) GenesisState {
 	return GenesisState{
 		Params:          params,
@@ -20,6 +21,7 @@ func NewGenesisState(
 		EpochIdentifier: epochIdentifier,
 		EpochsPerPeriod: epochsPerPeriod,
 		SkippedEpochs:   skippedEpochs,
+		MaxCoins: 			 maxCoins,
 	}
 }
 
@@ -31,6 +33,7 @@ func DefaultGenesisState() *GenesisState {
 		EpochIdentifier: epochstypes.DayEpochID,
 		EpochsPerPeriod: 365,
 		SkippedEpochs:   0,
+		MaxCoins:   "100000000000005000000000000000000000000000",
 	}
 }
 
@@ -46,6 +49,14 @@ func (gs GenesisState) Validate() error {
 	}
 
 	if err := validateSkippedEpochs(gs.SkippedEpochs); err != nil {
+		return err
+	}
+
+	if err := validateMaxCoins(gs.MaxCoins); err != nil {
+		return err
+	}
+
+	if err := validateCurrentInflation(gs.CurrentInflation); err != nil {
 		return err
 	}
 
@@ -70,5 +81,24 @@ func validateSkippedEpochs(i interface{}) error {
 	if !ok {
 		return fmt.Errorf("invalid genesis state type: %T", i)
 	}
+	return nil
+}
+
+
+func validateMaxCoins(i interface{}) error {
+	_, ok := i.(string)
+	if !ok {
+		return fmt.Errorf("invalid max coins type: %T", i)
+	}
+
+	return nil
+}
+
+func validateCurrentInflation(i interface{}) error {
+	_, ok := i.(string)
+	if !ok {
+		return fmt.Errorf("invalid max coins type: %T", i)
+	}
+
 	return nil
 }

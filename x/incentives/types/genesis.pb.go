@@ -5,9 +5,9 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
+	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -93,11 +93,11 @@ type Params struct {
 	// parameter to enable incentives
 	EnableIncentives bool `protobuf:"varint,1,opt,name=enable_incentives,json=enableIncentives,proto3" json:"enable_incentives,omitempty"`
 	// maximum percentage an incentive can allocate per denomination
-	AllocationLimit github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=allocation_limit,json=allocationLimit,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"allocation_limit"`
+	AllocationLimit github_com_reapchain_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=allocation_limit,json=allocationLimit,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"allocation_limit"`
 	// identifier for the epochs module hooks
 	IncentivesEpochIdentifier string `protobuf:"bytes,3,opt,name=incentives_epoch_identifier,json=incentivesEpochIdentifier,proto3" json:"incentives_epoch_identifier,omitempty"`
 	// scaling factor for capping rewards
-	RewardScaler github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,4,opt,name=reward_scaler,json=rewardScaler,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"reward_scaler"`
+	RewardScaler github_com_reapchain_cosmos_sdk_types.Dec `protobuf:"bytes,4,opt,name=reward_scaler,json=rewardScaler,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"reward_scaler"`
 }
 
 func (m *Params) Reset()         { *m = Params{} }
