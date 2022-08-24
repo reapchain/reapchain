@@ -19,6 +19,10 @@ message GenesisState {
   int64 epochs_per_period = 4;
   // number of epochs that have passed while inflation is disabled
   uint64 skipped_epochs = 5;
+  // number of max coins
+  string max_coins = 6;
+  // init of current inflation coins
+  string current_inflation = 7;
 }
 
 // Params holds parameters for the inflation module.

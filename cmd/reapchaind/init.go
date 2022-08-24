@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/cosmos/go-bip39"
-	"github.com/reapchain/reapchain-core/privval"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/cosmos/go-bip39"
+	"github.com/reapchain/reapchain-core/privval"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
@@ -159,12 +160,14 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 				Address: corePubKey.Address(),
 				PubKey:  corePubKey,
 				Power:   10,
+				Type: "standing",
 			}}
 
 			genDoc.StandingMembers = []types.GenesisMember{{
 				Address: corePubKey.Address(),
 				PubKey:  corePubKey,
 				Name:    args[0],
+				Power: 10,
 			}}
 
 			qrnValue := tmrand.Uint64()

@@ -15,6 +15,25 @@ var teamAlloc = sdk.NewInt(200_000_000).Mul(ethermint.PowerReduction)
 
 // MintAndAllocateInflation performs inflation minting and allocation
 func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
+	currentInflation, err := sdk.NewIntFromString(k.GetCurrentInflation(ctx))
+	if err == false {
+		return nil
+	}
+
+	maxCoins, err := sdk.NewIntFromString(k.GetMaxCoins(ctx))
+	if err == false {
+		return nil
+	}
+	
+
+	if currentInflation.Equal(maxCoins) {
+		return nil
+	}
+
+	if (coin.Amount.Add(currentInflation).GT(maxCoins)) {
+		coin.Amount = maxCoins.Sub(currentInflation) 
+	}
+
 	// Mint coins for distribution
 	if err := k.MintCoins(ctx, coin); err != nil {
 		return err
@@ -22,7 +41,12 @@ func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
 
 	// Allocate minted coins according to allocation proportions (staking, usage
 	// incentives, community pool)
-	return k.AllocateExponentialInflation(ctx, coin)
+	if err := k.AllocateExponentialInflation(ctx, coin); err != nil {
+		return err
+	}
+
+	k.SetCurrentInflation(ctx, currentInflation.Add(coin.Amount).String())
+	return  nil
 }
 
 // MintCoins implements an alias call to the underlying supply keeper's
@@ -36,6 +60,10 @@ func (k Keeper) MintCoins(ctx sdk.Context, newCoin sdk.Coin) error {
 	}
 
 	return k.bankKeeper.MintCoins(ctx, types.ModuleName, newCoins)
+}
+
+func NewInt(u uint64) {
+	panic("unimplemented")
 }
 
 // AllocateExponentialInflation allocates coins from the inflation to external

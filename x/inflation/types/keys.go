@@ -15,6 +15,8 @@ const (
 // prefix bytes for the inflation persistent store
 const (
 	prefixPeriod = iota + 1
+	prefixMaxCoins
+	prefixCurrentInflation
 	prefixEpochMintProvision
 	prefixEpochIdentifier
 	prefixEpochsPerPeriod
@@ -24,6 +26,8 @@ const (
 // KVStore key prefixes
 var (
 	KeyPrefixPeriod             = []byte{prefixPeriod}
+	KeyPrefixMaxCoins           = []byte{prefixMaxCoins}
+	KeyPrefixCurrentInflation   = []byte{prefixCurrentInflation}
 	KeyPrefixEpochMintProvision = []byte{prefixEpochMintProvision}
 	KeyPrefixEpochIdentifier    = []byte{prefixEpochIdentifier}
 	KeyPrefixEpochsPerPeriod    = []byte{prefixEpochsPerPeriod}
