@@ -52,14 +52,14 @@ done
 
 set -euxo pipefail
 
-DATA_DIR=$(mktemp -d -t evmos-datadir.XXXXX)
+DATA_DIR=$(mktemp -d -t reapchain-datadir.XXXXX)
 
 if [[ ! "$DATA_DIR" ]]; then
     echo "Could not create $DATA_DIR"
     exit 1
 fi
 
-# Compile evmos
+# Compile reapchain
 echo "compiling evmos"
 make build
 
@@ -159,7 +159,7 @@ stop_func() {
     EVMOS_PID=$i
     echo "shutting down node, pid=$EVMOS_PID ..."
 
-    # Shutdown evmos node
+    # Shutdown reapchain node
     kill -9 "$EVMOS_PID"
     wait "$EVMOS_PID"
 

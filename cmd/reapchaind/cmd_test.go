@@ -16,8 +16,8 @@ import (
 func TestInitCmd(t *testing.T) {
 	rootCmd, _ := reapchaind.NewRootCmd()
 	rootCmd.SetArgs([]string{
-		"init",       // Test the init cmd
-		"evmos-test", // Moniker
+		"init",           // Test the init cmd
+		"reapchain-test", // Moniker
 		fmt.Sprintf("--%s=%s", cli.FlagOverwrite, "true"), // Overwrite genesis.json, in case it already exists
 		fmt.Sprintf("--%s=%s", flags.FlagChainID, "evmos_9000-1"),
 	})

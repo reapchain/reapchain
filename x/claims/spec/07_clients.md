@@ -56,7 +56,7 @@ reapchaind query claims params [flags]
 | `gRPC` | `evmos.claims.v1.Query/ClaimsRecords`      | Gets all registered claims records               |
 | `gRPC` | `evmos.claims.v1.Query/ClaimsRecord`       | Get the claims record for a given user            |
 | `gRPC` | `evmos.claims.v1.Query/Params`             | Gets claims params                               |
-| `GET`  | `/evmos/claims/v1/total_unclaimed`         | Gets the total unclaimed tokens from the airdrop |
-| `GET`  | `/evmos/claims/v1/claims_records`          | Gets all registered claims records               |
-| `GET`  | `/evmos/claims/v1/claims_record/{address}` | Gets a claims record for a given user            |
-| `GET`  | `/evmos/claims/v1/params`                  | Gets claims params                               |
+| `GET`  | `/reapchain/claims/v1/total_unclaimed`         | Gets the total unclaimed tokens from the airdrop |
+| `GET`  | `/reapchain/claims/v1/claims_records`          | Gets all registered claims records               |
+| `GET`  | `/reapchain/claims/v1/claims_record/{address}` | Gets a claims record for a given user            |
+| `GET`  | `/reapchain/claims/v1/params`                  | Gets claims params                               |

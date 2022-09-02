@@ -59,7 +59,7 @@ func (suite *IBCTestingSuite) SetupTest() {
 	suite.coordinator.CommitNBlocks(suite.IBCOsmosisChain, 2)
 	suite.coordinator.CommitNBlocks(suite.IBCCosmosChain, 2)
 
-	// Mint coins locked on the evmos account generated with secp.
+	// Mint coins locked on the reapchain account generated with secp.
 	coinEvmos := sdk.NewCoin("aevmos", sdk.NewInt(10000))
 	coins := sdk.NewCoins(coinEvmos)
 	err := suite.EvmosChain.App.(*app.Evmos).BankKeeper.MintCoins(suite.EvmosChain.GetContext(), inflationtypes.ModuleName, coins)

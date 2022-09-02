@@ -384,10 +384,10 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `TotalUnclaimed` | [QueryTotalUnclaimedRequest](#evmos.claims.v1.QueryTotalUnclaimedRequest) | [QueryTotalUnclaimedResponse](#evmos.claims.v1.QueryTotalUnclaimedResponse) | TotalUnclaimed queries the total unclaimed tokens from the airdrop | GET|/evmos/claims/v1/total_unclaimed|
-| `Params` | [QueryParamsRequest](#evmos.claims.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.claims.v1.QueryParamsResponse) | Params returns the claims module parameters | GET|/evmos/claims/v1/params|
-| `ClaimsRecords` | [QueryClaimsRecordsRequest](#evmos.claims.v1.QueryClaimsRecordsRequest) | [QueryClaimsRecordsResponse](#evmos.claims.v1.QueryClaimsRecordsResponse) | ClaimsRecords returns all claims records | GET|/evmos/claims/v1/claims_records|
-| `ClaimsRecord` | [QueryClaimsRecordRequest](#evmos.claims.v1.QueryClaimsRecordRequest) | [QueryClaimsRecordResponse](#evmos.claims.v1.QueryClaimsRecordResponse) | ClaimsRecord returns the claims record for a given address | GET|/evmos/claims/v1/claims_records/{address}|
+| `TotalUnclaimed` | [QueryTotalUnclaimedRequest](#evmos.claims.v1.QueryTotalUnclaimedRequest) | [QueryTotalUnclaimedResponse](#evmos.claims.v1.QueryTotalUnclaimedResponse) | TotalUnclaimed queries the total unclaimed tokens from the airdrop | GET|/reapchain/claims/v1/total_unclaimed|
+| `Params` | [QueryParamsRequest](#evmos.claims.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.claims.v1.QueryParamsResponse) | Params returns the claims module parameters | GET|/reapchain/claims/v1/params|
+| `ClaimsRecords` | [QueryClaimsRecordsRequest](#evmos.claims.v1.QueryClaimsRecordsRequest) | [QueryClaimsRecordsResponse](#evmos.claims.v1.QueryClaimsRecordsResponse) | ClaimsRecords returns all claims records | GET|/reapchain/claims/v1/claims_records|
+| `ClaimsRecord` | [QueryClaimsRecordRequest](#evmos.claims.v1.QueryClaimsRecordRequest) | [QueryClaimsRecordResponse](#evmos.claims.v1.QueryClaimsRecordResponse) | ClaimsRecord returns the claims record for a given address | GET|/reapchain/claims/v1/claims_records/{address}|
 
  <!-- end services -->
 
@@ -480,8 +480,8 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `EpochInfos` | [QueryEpochsInfoRequest](#evmos.epochs.v1.QueryEpochsInfoRequest) | [QueryEpochsInfoResponse](#evmos.epochs.v1.QueryEpochsInfoResponse) | EpochInfos provide running epochInfos | GET|/evmos/epochs/v1/epochs|
-| `CurrentEpoch` | [QueryCurrentEpochRequest](#evmos.epochs.v1.QueryCurrentEpochRequest) | [QueryCurrentEpochResponse](#evmos.epochs.v1.QueryCurrentEpochResponse) | CurrentEpoch provide current epoch of specified identifier | GET|/evmos/epochs/v1/current_epoch|
+| `EpochInfos` | [QueryEpochsInfoRequest](#evmos.epochs.v1.QueryEpochsInfoRequest) | [QueryEpochsInfoResponse](#evmos.epochs.v1.QueryEpochsInfoResponse) | EpochInfos provide running epochInfos | GET|/reapchain/epochs/v1/epochs|
+| `CurrentEpoch` | [QueryCurrentEpochRequest](#evmos.epochs.v1.QueryCurrentEpochRequest) | [QueryCurrentEpochResponse](#evmos.epochs.v1.QueryCurrentEpochResponse) | CurrentEpoch provide current epoch of specified identifier | GET|/reapchain/epochs/v1/current_epoch|
 
  <!-- end services -->
 
@@ -678,9 +678,9 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `TokenPairs` | [QueryTokenPairsRequest](#evmos.erc20.v1.QueryTokenPairsRequest) | [QueryTokenPairsResponse](#evmos.erc20.v1.QueryTokenPairsResponse) | TokenPairs retrieves registered token pairs | GET|/evmos/erc20/v1/token_pairs|
-| `TokenPair` | [QueryTokenPairRequest](#evmos.erc20.v1.QueryTokenPairRequest) | [QueryTokenPairResponse](#evmos.erc20.v1.QueryTokenPairResponse) | TokenPair retrieves a registered token pair | GET|/evmos/erc20/v1/token_pairs/{token}|
-| `Params` | [QueryParamsRequest](#evmos.erc20.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.erc20.v1.QueryParamsResponse) | Params retrieves the erc20 module params | GET|/evmos/erc20/v1/params|
+| `TokenPairs` | [QueryTokenPairsRequest](#evmos.erc20.v1.QueryTokenPairsRequest) | [QueryTokenPairsResponse](#evmos.erc20.v1.QueryTokenPairsResponse) | TokenPairs retrieves registered token pairs | GET|/reapchain/erc20/v1/token_pairs|
+| `TokenPair` | [QueryTokenPairRequest](#evmos.erc20.v1.QueryTokenPairRequest) | [QueryTokenPairResponse](#evmos.erc20.v1.QueryTokenPairResponse) | TokenPair retrieves a registered token pair | GET|/reapchain/erc20/v1/token_pairs/{token}|
+| `Params` | [QueryParamsRequest](#evmos.erc20.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.erc20.v1.QueryParamsResponse) | Params retrieves the erc20 module params | GET|/reapchain/erc20/v1/params|
 
  <!-- end services -->
 
@@ -741,8 +741,8 @@ Msg defines the erc20 Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `ConvertCoin` | [MsgConvertCoin](#evmos.erc20.v1.MsgConvertCoin) | [MsgConvertCoinResponse](#evmos.erc20.v1.MsgConvertCoinResponse) | ConvertCoin mints a ERC20 representation of the native Cosmos coin denom that is registered on the token mapping. | GET|/evmos/erc20/v1/tx/convert_coin|
-| `ConvertERC20` | [MsgConvertERC20](#evmos.erc20.v1.MsgConvertERC20) | [MsgConvertERC20Response](#evmos.erc20.v1.MsgConvertERC20Response) | ConvertERC20 mints a native Cosmos coin representation of the ERC20 token contract that is registered on the token mapping. | GET|/evmos/erc20/v1/tx/convert_erc20|
+| `ConvertCoin` | [MsgConvertCoin](#evmos.erc20.v1.MsgConvertCoin) | [MsgConvertCoinResponse](#evmos.erc20.v1.MsgConvertCoinResponse) | ConvertCoin mints a ERC20 representation of the native Cosmos coin denom that is registered on the token mapping. | GET|/reapchain/erc20/v1/tx/convert_coin|
+| `ConvertERC20` | [MsgConvertERC20](#evmos.erc20.v1.MsgConvertERC20) | [MsgConvertERC20Response](#evmos.erc20.v1.MsgConvertERC20Response) | ConvertERC20 mints a native Cosmos coin representation of the ERC20 token contract that is registered on the token mapping. | GET|/reapchain/erc20/v1/tx/convert_erc20|
 
  <!-- end services -->
 
@@ -925,10 +925,10 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `DevFeeInfos` | [QueryDevFeeInfosRequest](#evmos.fees.v1.QueryDevFeeInfosRequest) | [QueryDevFeeInfosResponse](#evmos.fees.v1.QueryDevFeeInfosResponse) | DevFeeInfos retrieves all registered contracts for fee distribution | GET|/evmos/fees/v1/fees|
-| `DevFeeInfo` | [QueryDevFeeInfoRequest](#evmos.fees.v1.QueryDevFeeInfoRequest) | [QueryDevFeeInfoResponse](#evmos.fees.v1.QueryDevFeeInfoResponse) | DevFeeInfo retrieves a registered contract for fee distribution | GET|/evmos/fees/v1/fees/{contract_address}|
-| `Params` | [QueryParamsRequest](#evmos.fees.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.fees.v1.QueryParamsResponse) | Params retrieves the fees module params | GET|/evmos/fees/v1/params|
-| `DevFeeInfosPerDeployer` | [QueryDevFeeInfosPerDeployerRequest](#evmos.fees.v1.QueryDevFeeInfosPerDeployerRequest) | [QueryDevFeeInfosPerDeployerResponse](#evmos.fees.v1.QueryDevFeeInfosPerDeployerResponse) | DevFeeInfosPerDeployer retrieves all contracts that a deployer has registered for fee distribution | GET|/evmos/fees/v1/fees/{deployer_address}|
+| `DevFeeInfos` | [QueryDevFeeInfosRequest](#evmos.fees.v1.QueryDevFeeInfosRequest) | [QueryDevFeeInfosResponse](#evmos.fees.v1.QueryDevFeeInfosResponse) | DevFeeInfos retrieves all registered contracts for fee distribution | GET|/reapchain/fees/v1/fees|
+| `DevFeeInfo` | [QueryDevFeeInfoRequest](#evmos.fees.v1.QueryDevFeeInfoRequest) | [QueryDevFeeInfoResponse](#evmos.fees.v1.QueryDevFeeInfoResponse) | DevFeeInfo retrieves a registered contract for fee distribution | GET|/reapchain/fees/v1/fees/{contract_address}|
+| `Params` | [QueryParamsRequest](#evmos.fees.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.fees.v1.QueryParamsResponse) | Params retrieves the fees module params | GET|/reapchain/fees/v1/params|
+| `DevFeeInfosPerDeployer` | [QueryDevFeeInfosPerDeployerRequest](#evmos.fees.v1.QueryDevFeeInfosPerDeployerRequest) | [QueryDevFeeInfosPerDeployerResponse](#evmos.fees.v1.QueryDevFeeInfosPerDeployerResponse) | DevFeeInfosPerDeployer retrieves all contracts that a deployer has registered for fee distribution | GET|/reapchain/fees/v1/fees/{deployer_address}|
 
  <!-- end services -->
 
@@ -1008,9 +1008,9 @@ Msg defines the fees Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `RegisterDevFeeInfo` | [MsgRegisterDevFeeInfo](#evmos.fees.v1.MsgRegisterDevFeeInfo) | [MsgRegisterDevFeeInfoResponse](#evmos.fees.v1.MsgRegisterDevFeeInfoResponse) | RegisterDevFeeInfo is used by a deployer to register a new contract for receiving transaction fees | POST|/evmos/fees/v1/tx/register_dev_fee_info|
-| `CancelDevFeeInfo` | [MsgCancelDevFeeInfo](#evmos.fees.v1.MsgCancelDevFeeInfo) | [MsgCancelDevFeeInfoResponse](#evmos.fees.v1.MsgCancelDevFeeInfoResponse) | CancelDevFeeInfo is used by a deployer to cancel a registered contract and stop receiving transaction fees | POST|/evmos/fees/v1/tx/cancel_dev_fee_info|
-| `UpdateDevFeeInfo` | [MsgUpdateDevFeeInfo](#evmos.fees.v1.MsgUpdateDevFeeInfo) | [MsgUpdateDevFeeInfoResponse](#evmos.fees.v1.MsgUpdateDevFeeInfoResponse) | UpdateDevFeeInfo is used by a deployer to update the withdraw address | POST|/evmos/fees/v1/tx/update_dev_fee_info|
+| `RegisterDevFeeInfo` | [MsgRegisterDevFeeInfo](#evmos.fees.v1.MsgRegisterDevFeeInfo) | [MsgRegisterDevFeeInfoResponse](#evmos.fees.v1.MsgRegisterDevFeeInfoResponse) | RegisterDevFeeInfo is used by a deployer to register a new contract for receiving transaction fees | POST|/reapchain/fees/v1/tx/register_dev_fee_info|
+| `CancelDevFeeInfo` | [MsgCancelDevFeeInfo](#evmos.fees.v1.MsgCancelDevFeeInfo) | [MsgCancelDevFeeInfoResponse](#evmos.fees.v1.MsgCancelDevFeeInfoResponse) | CancelDevFeeInfo is used by a deployer to cancel a registered contract and stop receiving transaction fees | POST|/reapchain/fees/v1/tx/cancel_dev_fee_info|
+| `UpdateDevFeeInfo` | [MsgUpdateDevFeeInfo](#evmos.fees.v1.MsgUpdateDevFeeInfo) | [MsgUpdateDevFeeInfoResponse](#evmos.fees.v1.MsgUpdateDevFeeInfoResponse) | UpdateDevFeeInfo is used by a deployer to update the withdraw address | POST|/reapchain/fees/v1/tx/update_dev_fee_info|
 
  <!-- end services -->
 
@@ -1289,13 +1289,13 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Incentives` | [QueryIncentivesRequest](#evmos.incentives.v1.QueryIncentivesRequest) | [QueryIncentivesResponse](#evmos.incentives.v1.QueryIncentivesResponse) | Incentives retrieves registered incentives | GET|/evmos/incentives/v1/incentives|
-| `Incentive` | [QueryIncentiveRequest](#evmos.incentives.v1.QueryIncentiveRequest) | [QueryIncentiveResponse](#evmos.incentives.v1.QueryIncentiveResponse) | Incentive retrieves a registered incentive | GET|/evmos/incentives/v1/incentives/{contract}|
-| `GasMeters` | [QueryGasMetersRequest](#evmos.incentives.v1.QueryGasMetersRequest) | [QueryGasMetersResponse](#evmos.incentives.v1.QueryGasMetersResponse) | GasMeters retrieves active gas meters for a given contract | GET|/evmos/incentives/v1/gas_meters/{contract}|
-| `GasMeter` | [QueryGasMeterRequest](#evmos.incentives.v1.QueryGasMeterRequest) | [QueryGasMeterResponse](#evmos.incentives.v1.QueryGasMeterResponse) | GasMeter Retrieves a active gas meter | GET|/evmos/incentives/v1/gas_meters/{contract}/{participant}|
-| `AllocationMeters` | [QueryAllocationMetersRequest](#evmos.incentives.v1.QueryAllocationMetersRequest) | [QueryAllocationMetersResponse](#evmos.incentives.v1.QueryAllocationMetersResponse) | AllocationMeters retrieves active allocation meters for a given denomination | GET|/evmos/incentives/v1/allocation_meters|
-| `AllocationMeter` | [QueryAllocationMeterRequest](#evmos.incentives.v1.QueryAllocationMeterRequest) | [QueryAllocationMeterResponse](#evmos.incentives.v1.QueryAllocationMeterResponse) | AllocationMeter Retrieves a active gas meter | GET|/evmos/incentives/v1/allocation_meters/{denom}|
-| `Params` | [QueryParamsRequest](#evmos.incentives.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.incentives.v1.QueryParamsResponse) | Params retrieves the incentives module params | GET|/evmos/incentives/v1/params|
+| `Incentives` | [QueryIncentivesRequest](#evmos.incentives.v1.QueryIncentivesRequest) | [QueryIncentivesResponse](#evmos.incentives.v1.QueryIncentivesResponse) | Incentives retrieves registered incentives | GET|/reapchain/incentives/v1/incentives|
+| `Incentive` | [QueryIncentiveRequest](#evmos.incentives.v1.QueryIncentiveRequest) | [QueryIncentiveResponse](#evmos.incentives.v1.QueryIncentiveResponse) | Incentive retrieves a registered incentive | GET|/reapchain/incentives/v1/incentives/{contract}|
+| `GasMeters` | [QueryGasMetersRequest](#evmos.incentives.v1.QueryGasMetersRequest) | [QueryGasMetersResponse](#evmos.incentives.v1.QueryGasMetersResponse) | GasMeters retrieves active gas meters for a given contract | GET|/reapchain/incentives/v1/gas_meters/{contract}|
+| `GasMeter` | [QueryGasMeterRequest](#evmos.incentives.v1.QueryGasMeterRequest) | [QueryGasMeterResponse](#evmos.incentives.v1.QueryGasMeterResponse) | GasMeter Retrieves a active gas meter | GET|/reapchain/incentives/v1/gas_meters/{contract}/{participant}|
+| `AllocationMeters` | [QueryAllocationMetersRequest](#evmos.incentives.v1.QueryAllocationMetersRequest) | [QueryAllocationMetersResponse](#evmos.incentives.v1.QueryAllocationMetersResponse) | AllocationMeters retrieves active allocation meters for a given denomination | GET|/reapchain/incentives/v1/allocation_meters|
+| `AllocationMeter` | [QueryAllocationMeterRequest](#evmos.incentives.v1.QueryAllocationMeterRequest) | [QueryAllocationMeterResponse](#evmos.incentives.v1.QueryAllocationMeterResponse) | AllocationMeter Retrieves a active gas meter | GET|/reapchain/incentives/v1/allocation_meters/{denom}|
+| `Params` | [QueryParamsRequest](#evmos.incentives.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.incentives.v1.QueryParamsResponse) | Params retrieves the incentives module params | GET|/reapchain/incentives/v1/params|
 
  <!-- end services -->
 
@@ -1511,12 +1511,12 @@ Query provides defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Period` | [QueryPeriodRequest](#evmos.inflation.v1.QueryPeriodRequest) | [QueryPeriodResponse](#evmos.inflation.v1.QueryPeriodResponse) | Period retrieves current period. | GET|/evmos/inflation/v1/period|
-| `EpochMintProvision` | [QueryEpochMintProvisionRequest](#evmos.inflation.v1.QueryEpochMintProvisionRequest) | [QueryEpochMintProvisionResponse](#evmos.inflation.v1.QueryEpochMintProvisionResponse) | EpochMintProvision retrieves current minting epoch provision value. | GET|/evmos/inflation/v1/epoch_mint_provision|
-| `SkippedEpochs` | [QuerySkippedEpochsRequest](#evmos.inflation.v1.QuerySkippedEpochsRequest) | [QuerySkippedEpochsResponse](#evmos.inflation.v1.QuerySkippedEpochsResponse) | SkippedEpochs retrieves the total number of skipped epochs. | GET|/evmos/inflation/v1/skipped_epochs|
-| `CirculatingSupply` | [QueryCirculatingSupplyRequest](#evmos.inflation.v1.QueryCirculatingSupplyRequest) | [QueryCirculatingSupplyResponse](#evmos.inflation.v1.QueryCirculatingSupplyResponse) | CirculatingSupply retrieves the total number of tokens that are in circulation (i.e. excluding unvested tokens). | GET|/evmos/inflation/v1/circulating_supply|
-| `InflationRate` | [QueryInflationRateRequest](#evmos.inflation.v1.QueryInflationRateRequest) | [QueryInflationRateResponse](#evmos.inflation.v1.QueryInflationRateResponse) | InflationRate retrieves the inflation rate of the current period. | GET|/evmos/inflation/v1/inflation_rate|
-| `Params` | [QueryParamsRequest](#evmos.inflation.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.inflation.v1.QueryParamsResponse) | Params retrieves the total set of minting parameters. | GET|/evmos/inflation/v1/params|
+| `Period` | [QueryPeriodRequest](#evmos.inflation.v1.QueryPeriodRequest) | [QueryPeriodResponse](#evmos.inflation.v1.QueryPeriodResponse) | Period retrieves current period. | GET|/reapchain/inflation/v1/period|
+| `EpochMintProvision` | [QueryEpochMintProvisionRequest](#evmos.inflation.v1.QueryEpochMintProvisionRequest) | [QueryEpochMintProvisionResponse](#evmos.inflation.v1.QueryEpochMintProvisionResponse) | EpochMintProvision retrieves current minting epoch provision value. | GET|/reapchain/inflation/v1/epoch_mint_provision|
+| `SkippedEpochs` | [QuerySkippedEpochsRequest](#evmos.inflation.v1.QuerySkippedEpochsRequest) | [QuerySkippedEpochsResponse](#evmos.inflation.v1.QuerySkippedEpochsResponse) | SkippedEpochs retrieves the total number of skipped epochs. | GET|/reapchain/inflation/v1/skipped_epochs|
+| `CirculatingSupply` | [QueryCirculatingSupplyRequest](#evmos.inflation.v1.QueryCirculatingSupplyRequest) | [QueryCirculatingSupplyResponse](#evmos.inflation.v1.QueryCirculatingSupplyResponse) | CirculatingSupply retrieves the total number of tokens that are in circulation (i.e. excluding unvested tokens). | GET|/reapchain/inflation/v1/circulating_supply|
+| `InflationRate` | [QueryInflationRateRequest](#evmos.inflation.v1.QueryInflationRateRequest) | [QueryInflationRateResponse](#evmos.inflation.v1.QueryInflationRateResponse) | InflationRate retrieves the inflation rate of the current period. | GET|/reapchain/inflation/v1/inflation_rate|
+| `Params` | [QueryParamsRequest](#evmos.inflation.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.inflation.v1.QueryParamsResponse) | Params retrieves the total set of minting parameters. | GET|/reapchain/inflation/v1/params|
 
  <!-- end services -->
 
@@ -1589,7 +1589,7 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Params` | [QueryParamsRequest](#evmos.recovery.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.recovery.v1.QueryParamsResponse) | Params retrieves the total set of recovery parameters. | GET|/evmos/recovery/v1/params|
+| `Params` | [QueryParamsRequest](#evmos.recovery.v1.QueryParamsRequest) | [QueryParamsResponse](#evmos.recovery.v1.QueryParamsResponse) | Params retrieves the total set of recovery parameters. | GET|/reapchain/recovery/v1/params|
 
  <!-- end services -->
 
@@ -1635,7 +1635,7 @@ Query defines the gRPC querier service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `Balances` | [QueryBalancesRequest](#evmos.vesting.v1.QueryBalancesRequest) | [QueryBalancesResponse](#evmos.vesting.v1.QueryBalancesResponse) | Retrieves the unvested, vested and locked tokens for a vesting account | GET|/evmos/vesting/v1/balances/{address}|
+| `Balances` | [QueryBalancesRequest](#evmos.vesting.v1.QueryBalancesRequest) | [QueryBalancesResponse](#evmos.vesting.v1.QueryBalancesResponse) | Retrieves the unvested, vested and locked tokens for a vesting account | GET|/reapchain/vesting/v1/balances/{address}|
 
  <!-- end services -->
 
@@ -1699,8 +1699,8 @@ Msg defines the vesting Msg service.
 
 | Method Name | Request Type | Response Type | Description | HTTP Verb | Endpoint |
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
-| `CreateClawbackVestingAccount` | [MsgCreateClawbackVestingAccount](#evmos.vesting.v1.MsgCreateClawbackVestingAccount) | [MsgCreateClawbackVestingAccountResponse](#evmos.vesting.v1.MsgCreateClawbackVestingAccountResponse) | CreateClawbackVestingAccount creats a vesting account that is subject to clawback and the configuration of vesting and lockup schedules. | GET|/evmos/vesting/v1/tx/create_clawback_vesting_account|
-| `Clawback` | [MsgClawback](#evmos.vesting.v1.MsgClawback) | [MsgClawbackResponse](#evmos.vesting.v1.MsgClawbackResponse) | Clawback removes the unvested tokens from a ClawbackVestingAccount. | GET|/evmos/vesting/v1/tx/clawback|
+| `CreateClawbackVestingAccount` | [MsgCreateClawbackVestingAccount](#evmos.vesting.v1.MsgCreateClawbackVestingAccount) | [MsgCreateClawbackVestingAccountResponse](#evmos.vesting.v1.MsgCreateClawbackVestingAccountResponse) | CreateClawbackVestingAccount creats a vesting account that is subject to clawback and the configuration of vesting and lockup schedules. | GET|/reapchain/vesting/v1/tx/create_clawback_vesting_account|
+| `Clawback` | [MsgClawback](#evmos.vesting.v1.MsgClawback) | [MsgClawbackResponse](#evmos.vesting.v1.MsgClawbackResponse) | Clawback removes the unvested tokens from a ClawbackVestingAccount. | GET|/reapchain/vesting/v1/tx/clawback|
 
  <!-- end services -->
 

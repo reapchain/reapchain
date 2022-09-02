@@ -154,15 +154,15 @@ Where metadata.json contains (example):
 		{
 			"denom": "aevmos",
 			"exponent": 0,
-			"aliases": ["atto evmos"]
+			"aliases": ["atto reapchain"]
 		},
 		{
-			"denom": "evmos",
+			"denom": "reapchain",
 			"exponent": 18
 		}
 	],
 	"base": "aevmos",
-	"display: "evmos",
+	"display: "reapchain",
 	"name": "Evmos",
 	"symbol": "EVMOS"
 }`, version.AppName,

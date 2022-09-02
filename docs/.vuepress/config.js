@@ -71,12 +71,12 @@ module.exports = {
       cosmos_explorer_url: 'https://www.mintscan.io/evmos',
     },
     logo: {
-      src: '/evmos-black.svg',
+      src: '/reapchain-black.svg',
     },
     algolia: {
       id: 'BH4D9OD16A',
       key: 'a5d55fe5f540cc3bd28fa2c72f2b5bd8',
-      index: 'evmos'
+      index: 'reapchain'
     },
     topbar: {
       banner: false
@@ -293,9 +293,9 @@ module.exports = {
       }
     },
     footer: {
-      logo: '/evmos-black.svg',
+      logo: '/reapchain-black.svg',
       textLink: {
-        text: "evmos.org",
+        text: "reapchain.org",
         url: 'https://evmos.org'
       },
       services: [

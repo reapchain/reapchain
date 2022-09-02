@@ -22,7 +22,7 @@ Ensure that the version installed matches the one needed for the network you are
 :::
 
 ```bash
-cd evmos
+cd reapchain
 git fetch --all && git checkout <new_version>
 make install
 ```
@@ -36,7 +36,7 @@ Verify that you've successfully installed Evmos on your system by using the `ver
 ```bash
 $ reapchaind version --long
 
-name: evmos
+name: reapchain
 server_name: reapchaind
 version: 3.0.0
 commit: fe9df43332800a74a163c014c69e62765d8206e3

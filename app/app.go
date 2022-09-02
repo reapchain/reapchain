@@ -144,7 +144,7 @@ func init() {
 
 	DefaultNodeHome = filepath.Join(userHomeDir, ".reapchaind")
 
-	// manually update the power reduction by replacing micro (u) -> atto (a) evmos
+	// manually update the power reduction by replacing micro (u) -> atto (a) reapchain
 	//sdk.DefaultPowerReduction = ethermint.PowerReduction
 }
 
@@ -324,7 +324,7 @@ func NewEvmos(
 		ibchost.StoreKey, ibctransfertypes.StoreKey,
 		// ethermint keys
 		evmtypes.StoreKey, feemarkettypes.StoreKey,
-		// evmos keys
+		// reapchain keys
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 	)
@@ -993,7 +993,7 @@ func initParamsKeeper(
 	// ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName)
 	paramsKeeper.Subspace(feemarkettypes.ModuleName)
-	// evmos subspaces
+	// reapchain subspaces
 	paramsKeeper.Subspace(inflationtypes.ModuleName)
 	paramsKeeper.Subspace(erc20types.ModuleName)
 	paramsKeeper.Subspace(claimstypes.ModuleName)

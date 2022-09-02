@@ -67,7 +67,7 @@ reapchaind tx vesting clawback [address] [flags]
 | Verb   | Method                                 | Description                            |
 | ------ | -------------------------------------- | -------------------------------------- |
 | `gRPC` | `evmos.vesting.v1.Query/Balances`      | Gets locked, unvested and vested coins |
-| `GET`  | `/evmos/vesting/v1/balances/{address}` | Gets locked, unvested and vested coins |
+| `GET`  | `/reapchain/vesting/v1/balances/{address}` | Gets locked, unvested and vested coins |
 
 ### Transactions
 
@@ -75,5 +75,5 @@ reapchaind tx vesting clawback [address] [flags]
 | ------ | ------------------------------------------------------ | -------------------------------- |
 | `gRPC` | `evmos.vesting.v1.Msg/CreateClawbackVestingAccount`    | Creates clawback vesting account |
 | `gRPC` | `/evmos.vesting.v1.Msg/Clawback`                       | Performs clawback                |
-| `GET`  | `/evmos/vesting/v1/tx/create_clawback_vesting_account` | Creates clawback vesting account |
-| `GET`  | `/evmos/vesting/v1/tx/clawback`                        | Performs clawback                |
+| `GET`  | `/reapchain/vesting/v1/tx/create_clawback_vesting_account` | Creates clawback vesting account |
+| `GET`  | `/reapchain/vesting/v1/tx/clawback`                        | Performs clawback                |
