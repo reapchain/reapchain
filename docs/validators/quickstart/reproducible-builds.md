@@ -29,7 +29,7 @@ git clone git@github.com:tharsis/evmos.git
 Checkout the commit, branch, or release tag you want to build (eg `v0.4.0`):
 
 ```bash
-cd evmos/
+cd reapchain/
 git checkout v0.4.0
 ```
 

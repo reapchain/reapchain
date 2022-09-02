@@ -15,7 +15,7 @@ import (
 
 func init() {
 	cfg := sdk.GetConfig()
-	cfg.SetBech32PrefixForAccount("evmos", "evmospub")
+	cfg.SetBech32PrefixForAccount("reapchain", "evmospub")
 }
 
 func TestGetTransferSenderRecipient(t *testing.T) {
@@ -79,7 +79,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			true,
 		},
 		{
-			"valid - cosmos sender, evmos recipient",
+			"valid - cosmos sender, reapchain recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
@@ -94,7 +94,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			false,
 		},
 		{
-			"valid - evmos sender, cosmos recipient",
+			"valid - reapchain sender, cosmos recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
@@ -109,7 +109,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			false,
 		},
 		{
-			"valid - osmosis sender, evmos recipient",
+			"valid - osmosis sender, reapchain recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{

@@ -3,7 +3,7 @@
 KEY="mykey"
 CHAINID="evmos_9000-1"
 MONIKER="mymoniker"
-DATA_DIR=$(mktemp -d -t evmos-datadir.XXXXX)
+DATA_DIR=$(mktemp -d -t reapchain-datadir.XXXXX)
 
 echo "create and add new keys"
 ./reapchaind keys add $KEY --home $DATA_DIR --no-backup --chain-id $CHAINID --algo "eth_secp256k1" --keyring-backend test

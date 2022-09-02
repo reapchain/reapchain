@@ -4,7 +4,7 @@ package evmos.claims.v1;
 import "gogoproto/gogo.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";
-import "evmos/claims/v1/claims.proto";
+import "reapchain/claims/v1/claims.proto";
 
 option go_package = "github.com/reapchain/reapchain/v8/x/claims/types";
 

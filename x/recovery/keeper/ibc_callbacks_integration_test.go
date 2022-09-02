@@ -281,7 +281,7 @@ var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {
 						s.Require().NoError(err) // message committed
 						transfer := transfertypes.NewFungibleTokenPacketData("transfer/channel-1/uatom", "10", sender, receiver)
 						packet := channeltypes.NewPacket(transfer.GetBytes(), 1, s.pathOsmosisEvmos.EndpointA.ChannelConfig.PortID, s.pathOsmosisEvmos.EndpointA.ChannelID, s.pathOsmosisEvmos.EndpointB.ChannelConfig.PortID, s.pathOsmosisEvmos.EndpointB.ChannelID, timeoutHeight, 0)
-						// Receive message on the evmos side, and send ack
+						// Receive message on the reapchain side, and send ack
 						err = s.pathOsmosisEvmos.RelayPacket(packet)
 						s.Require().NoError(err)
 

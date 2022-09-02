@@ -28,4 +28,4 @@ reapchaind query recovery params [flags]
 | Verb   |              Method              |           Description |
 | :----- | :------------------------------- | :-------------------- |
 | `gRPC` | `evmos.recovery.v1.Query/Params` | `Get Recovery params` |
-| `GET`  |   `/evmos/recovery/v1/params`    | `Get Recovery params` |
+| `GET`  |   `/reapchain/recovery/v1/params`    | `Get Recovery params` |

@@ -157,14 +157,14 @@ Where metadata.json contains (example):
 				"aliases": ["ibcuosmo"]
 		},
 		{
-				"denom": "OSMO",
-				"exponent": 6
+			"denom": "reapchain",
+			"exponent": 18
 		}
 	],
 	"base": "ibc/<HASH>",
-	"display": "OSMO",
-	"name": "Osmo",
-	"symbol": "OSMO"
+	"display: "reapchain",
+	"name": "REAPCHAIN",
+	"symbol": "REAP"
 }`, version.AppName,
 		),
 		RunE: func(cmd *cobra.Command, args []string) error {

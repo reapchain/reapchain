@@ -110,7 +110,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 		{
 			"fail - invalid sender - missing '1' ",
 			func() {
-				transfer := transfertypes.NewFungibleTokenPacketData(denom, "100", "evmos", ethsecpAddrCosmos)
+				transfer := transfertypes.NewFungibleTokenPacketData(denom, "100", "reapchain", ethsecpAddrCosmos)
 				bz := transfertypes.ModuleCdc.MustMarshalJSON(&transfer)
 				packet = channeltypes.NewPacket(bz, 100, transfertypes.PortID, sourceChannel, transfertypes.PortID, evmosChannel, timeoutHeight, 0)
 			},
@@ -232,7 +232,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 			),
 		},
 		{
-			"recovery - send uatom from cosmos to evmos",
+			"recovery - send uatom from cosmos to reapchain",
 			func() {
 				transfer := transfertypes.NewFungibleTokenPacketData(denom, "100", secpAddrCosmos, secpAddrEvmos)
 				bz := transfertypes.ModuleCdc.MustMarshalJSON(&transfer)
@@ -243,7 +243,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 			nil,
 		},
 		{
-			"recovery - send ibc/uosmo from cosmos to evmos",
+			"recovery - send ibc/uosmo from cosmos to reapchain",
 			func() {
 				denom = ibcOsmoDenom
 
@@ -256,7 +256,7 @@ func (suite *KeeperTestSuite) TestOnRecvPacket() {
 			nil,
 		},
 		{
-			"recovery - send uosmo from osmosis to evmos",
+			"recovery - send uosmo from osmosis to reapchain",
 			func() {
 				// Setup Osmosis <=> Evmos IBC relayer
 				denom = "uosmo"

@@ -42,7 +42,7 @@ Clone and build {{ $themeConfig.project.name }} using `git`:
 
 ```bash
 git clone https://github.com/reapchain/reapchain.git
-cd evmos
+cd reapchain
 make install
 ```
 
@@ -63,13 +63,13 @@ make build-docker
 The command above will create a docker container: `tharsishq/evmos:latest`. Now you can run `reapchaind` in the container.
 
 ```bash
-docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/evmos:latest reapchaind version
+docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/reapchain:latest reapchaind version
 
 # To initialize
-# docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/evmos:latest reapchaind init test-chain --chain-id test_9000-2
+# docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/reapchain:latest reapchaind init test-chain --chain-id test_9000-2
 
 # To run
-# docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/evmos:latest reapchaind start
+# docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/reapchain:latest reapchaind start
 ```
 
 ### Releases

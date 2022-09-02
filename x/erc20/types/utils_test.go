@@ -60,7 +60,7 @@ func TestEqualMetadata(t *testing.T) {
 			"equal metadata",
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -68,17 +68,17 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 					{
-						Denom:    "evmos",
+						Denom:    "reapchain",
 						Exponent: 18,
 					},
 				},
 			},
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -86,10 +86,10 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 					{
-						Denom:    "evmos",
+						Denom:    "reapchain",
 						Exponent: 18,
 					},
 				},
@@ -110,7 +110,7 @@ func TestEqualMetadata(t *testing.T) {
 			"different denom units length",
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -118,17 +118,17 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 					{
-						Denom:    "evmos",
+						Denom:    "reapchain",
 						Exponent: 18,
 					},
 				},
 			},
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -136,7 +136,7 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 				},
 			},
@@ -146,7 +146,7 @@ func TestEqualMetadata(t *testing.T) {
 			"different denom units",
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -154,22 +154,22 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 					{
 						Denom:    "uevmos",
 						Exponent: 12,
-						Aliases:  []string{"micro evmos"},
+						Aliases:  []string{"micro reapchain"},
 					},
 					{
-						Denom:    "evmos",
+						Denom:    "reapchain",
 						Exponent: 18,
 					},
 				},
 			},
 			banktypes.Metadata{
 				Base:        "aevmos",
-				Display:     "evmos",
+				Display:     "reapchain",
 				Name:        "Evmos",
 				Symbol:      "EVMOS",
 				Description: "EVM, staking and governance denom of Evmos",
@@ -177,15 +177,15 @@ func TestEqualMetadata(t *testing.T) {
 					{
 						Denom:    "aevmos",
 						Exponent: 0,
-						Aliases:  []string{"atto evmos"},
+						Aliases:  []string{"atto reapchain"},
 					},
 					{
 						Denom:    "Uevmos",
 						Exponent: 12,
-						Aliases:  []string{"micro evmos"},
+						Aliases:  []string{"micro reapchain"},
 					},
 					{
-						Denom:    "evmos",
+						Denom:    "reapchain",
 						Exponent: 18,
 					},
 				},
@@ -220,25 +220,25 @@ func TestEqualAliases(t *testing.T) {
 		{
 			"different lengths",
 			[]string{},
-			[]string{"atto evmos"},
+			[]string{"atto reapchain"},
 			false,
 		},
 		{
 			"different values",
 			[]string{"attoevmos"},
-			[]string{"atto evmos"},
+			[]string{"atto reapchain"},
 			false,
 		},
 		{
 			"same values, unsorted",
-			[]string{"atto evmos", "aevmos"},
-			[]string{"aevmos", "atto evmos"},
+			[]string{"atto reapchain", "aevmos"},
+			[]string{"aevmos", "atto reapchain"},
 			false,
 		},
 		{
 			"same values, sorted",
-			[]string{"aevmos", "atto evmos"},
-			[]string{"aevmos", "atto evmos"},
+			[]string{"aevmos", "atto reapchain"},
+			[]string{"aevmos", "atto reapchain"},
 			true,
 		},
 	}

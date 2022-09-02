@@ -140,10 +140,10 @@ global:
   scrape_interval: 10s
 
   external_labels:
-    monitor: 'evmos'
+    monitor: 'reapchain'
 
 scrape_configs:
-  - job_name: 'evmos'
+  - job_name: 'reapchain'
 
     scrape_interval: 10s
 

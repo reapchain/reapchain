@@ -72,9 +72,9 @@ reapchaind tx gov submit-proposal param-change [proposal-file] [flags]
 | `gRPC` | `evmos.erc20.v1.Query/Params`     | Get erc20 params               |
 | `gRPC` | `evmos.erc20.v1.Query/TokenPair`  | Get registered token pair      |
 | `gRPC` | `evmos.erc20.v1.Query/TokenPairs` | Get all registered token pairs |
-| `GET`  | `/evmos/erc20/v1/params`          | Get erc20 params               |
-| `GET`  | `/evmos/erc20/v1/token_pair`      | Get registered token pair      |
-| `GET`  | `/evmos/erc20/v1/token_pairs`     | Get all registered token pairs |
+| `GET`  | `/reapchain/erc20/v1/params`          | Get erc20 params               |
+| `GET`  | `/reapchain/erc20/v1/token_pair`      | Get registered token pair      |
+| `GET`  | `/reapchain/erc20/v1/token_pairs`     | Get all registered token pairs |
 
 ### Transactions
 
@@ -82,5 +82,5 @@ reapchaind tx gov submit-proposal param-change [proposal-file] [flags]
 | ------ | ---------------------------------- | ------------------------------ |
 | `gRPC` | `evmos.erc20.v1.Msg/ConvertCoin`   | Convert a Cosmos Coin to ERC20 |
 | `gRPC` | `evmos.erc20.v1.Msg/ConvertERC20`  | Convert a ERC20 to Cosmos Coin |
-| `GET`  | `/evmos/erc20/v1/tx/convert_coin`  | Convert a Cosmos Coin to ERC20 |
-| `GET`  | `/evmos/erc20/v1/tx/convert_erc20` | Convert a ERC20 to Cosmos Coin |
+| `GET`  | `/reapchain/erc20/v1/tx/convert_coin`  | Convert a Cosmos Coin to ERC20 |
+| `GET`  | `/reapchain/erc20/v1/tx/convert_erc20` | Convert a ERC20 to Cosmos Coin |

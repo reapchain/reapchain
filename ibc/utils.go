@@ -28,14 +28,14 @@ func GetTransferSenderRecipient(packet channeltypes.Packet) (
 	}
 
 	// validate the sender bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the sender to `evmos`
+	// and change the bech32 human readable prefix (HRP) of the sender to `reapchain`
 	sender, err = evmos.GetEvmosAddressFromBech32(data.Sender)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid sender")
 	}
 
 	// validate the recipient bech32 address from the counterparty chain
-	// and change the bech32 human readable prefix (HRP) of the recipient to `evmos`
+	// and change the bech32 human readable prefix (HRP) of the recipient to `reapchain`
 	recipient, err = evmos.GetEvmosAddressFromBech32(data.Receiver)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid recipient")

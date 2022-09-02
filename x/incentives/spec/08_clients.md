@@ -95,10 +95,10 @@ reapchaind tx gov submit-proposal param-change [proposal-file] [flags]
 | `gRPC` | `evmos.incentives.v1.Query/AllocationMeters`               | Gets all allocation meters                    |
 | `gRPC` | `evmos.incentives.v1.Query/AllocationMeter`                | Gets allocation meter for a denom             |
 | `gRPC` | `evmos.incentives.v1.Query/Params`                         | Gets incentives params                        |
-| `GET`  | `/evmos/incentives/v1/incentives`                          | Gets all registered incentives                |
-| `GET`  | `/evmos/incentives/v1/incentives/{contract}`               | Gets incentive for a given contract           |
-| `GET`  | `/evmos/incentives/v1/gas_meters`                          | Gets gas meters for a given incentive         |
-| `GET`  | `/evmos/incentives/v1/gas_meters/{contract}/{participant}` | Gets gas meter for a given incentive and user |
-| `GET`  | `/evmos/incentives/v1/allocation_meters`                   | Gets all allocation meters                    |
-| `GET`  | `/evmos/incentives/v1/allocation_meters/{denom}`           | Gets allocation meter for a denom             |
-| `GET`  | `/evmos/incentives/v1/params`                              | Gets incentives params                        |
+| `GET`  | `/reapchain/incentives/v1/incentives`                          | Gets all registered incentives                |
+| `GET`  | `/reapchain/incentives/v1/incentives/{contract}`               | Gets incentive for a given contract           |
+| `GET`  | `/reapchain/incentives/v1/gas_meters`                          | Gets gas meters for a given incentive         |
+| `GET`  | `/reapchain/incentives/v1/gas_meters/{contract}/{participant}` | Gets gas meter for a given incentive and user |
+| `GET`  | `/reapchain/incentives/v1/allocation_meters`                   | Gets all allocation meters                    |
+| `GET`  | `/reapchain/incentives/v1/allocation_meters/{denom}`           | Gets allocation meter for a denom             |
+| `GET`  | `/reapchain/incentives/v1/params`                              | Gets incentives params                        |

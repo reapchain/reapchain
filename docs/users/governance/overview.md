@@ -18,7 +18,7 @@ text proposals, changing [chain parameters](./param_change.md), and spending [fu
 
 Governance practices and decisions are communicated through different types of documents and design artifacts:
 
-- On-chain governance [proposals](https://www.mintscan.io/evmos/proposals)
+- On-chain governance [proposals](https://www.mintscan.io/reapchain/proposals)
 - Architecture Decision records
 - Technical standards / specifications
 
@@ -33,7 +33,7 @@ Venues involve community members to different degrees and individuals often perf
     - `⏫│upgrades` channel for upcoming software upgrades.
 - **[Commonwealth](https://commonwealth.im/evmos)**
     - All-in-one platform to discuss, vote, and fund projects together
-    - Evmos [proposals](https://commonwealth.im/evmos/proposals) list
+    - Evmos [proposals](https://commonwealth.im/reapchain/proposals) list
 - **[Telegram (@EvmosOrg)](https://t.me/EvmosOrg)**
     - General Evmos Telegram group
 - **[Twitter (@EvmosOrg)](https://twitter.com/EvmosOrg)**
