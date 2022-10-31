@@ -14,10 +14,10 @@ require (
 	github.com/onsi/gomega v1.19.0
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v3
-	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v2
-	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v3
-	github.com/reapchain/reapchain-core v0.1.8
+	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v0.4.0
+	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v0.2.1
+	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v0.5.1
+	github.com/reapchain/reapchain-core v0.1.9
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
 	github.com/stretchr/testify v1.7.1
@@ -115,7 +115,7 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/reapchain/iavl v0.17.3 // indirect
+	github.com/reapchain/iavl v0.17.3-reap.iavl.v0.2.1 // indirect
 	github.com/regen-network/cosmos-proto v0.3.1 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rs/cors v1.8.2 // indirect
