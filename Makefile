@@ -9,15 +9,15 @@ TMVERSION := $(shell go list -m github.com/reapchain/reapchain-core | sed 's:.* 
 COMMIT := $(shell git log -1 --format='%H')
 LEDGER_ENABLED ?= true
 BINDIR ?= $(GOPATH)/bin
-EVMOS_BINARY = reapchaind
-EVMOS_DIR = evmos
+REAPCHAIN_BINARY = reapchaind
+REAPCHAIN_DIR = reapchain
 BUILDDIR ?= $(CURDIR)/build
 SIMAPP = ./app
 HTTPS_GIT := https://github.com/reapchain/reapchain.git
 DOCKER := $(shell which docker)
 DOCKER_BUF := $(DOCKER) run --rm -v $(CURDIR):/workspace --workdir /workspace bufbuild/buf
 NAMESPACE := tharsishq
-PROJECT := evmos
+PROJECT := reapchain
 DOCKER_IMAGE := $(NAMESPACE)/$(PROJECT)
 COMMIT_HASH := $(shell git rev-parse --short=7 HEAD)
 DOCKER_TAG := $(COMMIT_HASH)
@@ -68,8 +68,8 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 
 # process linker flags
 
-ldflags = -X github.com/reapchain/cosmos-sdk/version.Name=evmos \
-          -X github.com/reapchain/cosmos-sdk/version.AppName=$(EVMOS_BINARY) \
+ldflags = -X github.com/reapchain/cosmos-sdk/version.Name=reapchain \
+          -X github.com/reapchain/cosmos-sdk/version.AppName=$(REAPCHAIN_BINARY) \
           -X github.com/reapchain/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/reapchain/cosmos-sdk/version.Commit=$(COMMIT) \
           -X "github.com/reapchain/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
@@ -144,12 +144,12 @@ build-docker:
 	$(DOCKER) tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:latest
 	# docker tag ${DOCKER_IMAGE}:${DOCKER_TAG} ${DOCKER_IMAGE}:${COMMIT_HASH}
 	# update old container
-	$(DOCKER) rm evmos || true
+	$(DOCKER) rm reapchain || true
 	# create a new container from the latest image
-	$(DOCKER) create --name evmos -t -i ${DOCKER_IMAGE}:latest evmos
+	$(DOCKER) create --name reapchain -t -i ${DOCKER_IMAGE}:latest reapchain
 	# move the binaries to the ./build directory
 	mkdir -p ./build/
-	$(DOCKER) cp evmos:/usr/bin/reapchaind ./build/
+	$(DOCKER) cp reapchain:/usr/bin/reapchaind ./build/
 
 push-docker: build-docker
 	$(DOCKER) push ${DOCKER_IMAGE}:${DOCKER_TAG}
@@ -367,8 +367,8 @@ test-sim-nondeterminism:
 
 test-sim-custom-genesis-fast:
 	@echo "Running custom genesis simulation..."
-	@echo "By default, ${HOME}/.$(EVMOS_DIR)/config/genesis.json will be used."
-	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.$(EVMOS_DIR)/config/genesis.json \
+	@echo "By default, ${HOME}/.$(REAPCHAIN_DIR)/config/genesis.json will be used."
+	@go test -mod=readonly $(SIMAPP) -run TestFullAppSimulation -Genesis=${HOME}/.$(REAPCHAIN_DIR)/config/genesis.json \
 		-Enabled=true -NumBlocks=100 -BlockSize=200 -Commit=true -Seed=99 -Period=5 -v -timeout 24h
 
 test-sim-import-export: runsim
@@ -381,8 +381,8 @@ test-sim-after-import: runsim
 
 test-sim-custom-genesis-multi-seed: runsim
 	@echo "Running multi-seed custom genesis simulation..."
-	@echo "By default, ${HOME}/.$(EVMOS_DIR)/config/genesis.json will be used."
-	@$(BINDIR)/runsim -Genesis=${HOME}/.$(EVMOS_DIR)/config/genesis.json -SimAppPkg=$(SIMAPP) -ExitOnFail 400 5 TestFullAppSimulation
+	@echo "By default, ${HOME}/.$(REAPCHAIN_DIR)/config/genesis.json will be used."
+	@$(BINDIR)/runsim -Genesis=${HOME}/.$(REAPCHAIN_DIR)/config/genesis.json -SimAppPkg=$(SIMAPP) -ExitOnFail 400 5 TestFullAppSimulation
 
 test-sim-multi-seed-long: runsim
 	@echo "Running long multi-seed application simulation. This may take awhile!"
@@ -525,13 +525,13 @@ ifeq ($(OS),Windows_NT)
 	mkdir localnet-setup &
 	@$(MAKE) localnet-build
 
-	IF not exist "build/node0/$(EVMOS_BINARY)/config/genesis.json" docker run --rm -v $(CURDIR)/build\evmos\Z reapchaind/node "./reapchaind testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"
+	IF not exist "build/node0/$(REAPCHAIN_BINARY)/config/genesis.json" docker run --rm -v $(CURDIR)/build\reapchain\Z reapchaind/node "./reapchaind testnet --v 4 -o /reapchain --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"
 	docker-compose up -d
 else
 	mkdir -p localnet-setup
 	@$(MAKE) localnet-build
 
-	if ! [ -f localnet-setup/node0/$(EVMOS_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/localnet-setup:/evmos:Z reapchaind/node "./reapchaind testnet --v 4 -o /evmos --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"; fi
+	if ! [ -f localnet-setup/node0/$(REAPCHAIN_BINARY)/config/genesis.json ]; then docker run --rm -v $(CURDIR)/localnet-setup:/reapchain:Z reapchaind/node "./reapchaind testnet --v 4 -o /reapchain --keyring-backend=test --ip-addresses reapchaindnode0,reapchaindnode1,reapchaindnode2,reapchaindnode3"; fi
 	docker-compose up -d
 endif
 
@@ -548,22 +548,22 @@ localnet-clean:
 localnet-unsafe-reset:
 	docker-compose down
 ifeq ($(OS),Windows_NT)
-	@docker run --rm -v $(CURDIR)\localnet-setup\node0\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node1\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node2\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)\localnet-setup\node3\reapchaind:evmos\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node0\reapchaind:reapchain\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node1\reapchaind:reapchain\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node2\reapchaind:reapchain\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)\localnet-setup\node3\reapchaind:reapchain\Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
 else
-	@docker run --rm -v $(CURDIR)/localnet-setup/node0/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node1/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node2/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
-	@docker run --rm -v $(CURDIR)/localnet-setup/node3/reapchaind:/evmos:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/evmos"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node0/reapchaind:/reapchain:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node1/reapchaind:/reapchain:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node2/reapchaind:/reapchain:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
+	@docker run --rm -v $(CURDIR)/localnet-setup/node3/reapchaind:/reapchain:Z reapchaind/node "./reapchaind unsafe-reset-all --home=/reapchain"
 endif
 
 # Clean testnet
 localnet-show-logstream:
 	docker-compose logs --tail=1000 -f
 
-.PHONY: build-docker-local-evmos localnet-start localnet-stop
+.PHONY: build-docker-local-reapchain localnet-start localnet-stop
 
 ###############################################################################
 ###                                Releasing                                ###
