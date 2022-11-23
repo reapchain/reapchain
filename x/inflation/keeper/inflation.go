@@ -1,6 +1,8 @@
 package keeper
 
 import (
+ 	"fmt"
+
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	ethermint "github.com/reapchain/ethermint/types"
@@ -22,23 +24,27 @@ func (k Keeper) MintAndAllocateInflation(
 	err error,
 ) {
 
-	currentInflation, errors := sdk.NewIntFromString(k.GetCurrentInflation(ctx))
+	currentInflationAmount, errors := sdk.NewIntFromString(k.GetCurrentInflationAmount(ctx))
 	if !errors {
 		return nil, nil, nil, nil
 	}
 
-	maxCoins, errors := sdk.NewIntFromString(k.GetMaxCoins(ctx))
+	maxInflationAmount, errors := sdk.NewIntFromString(k.GetMaxInflationAmount(ctx))
 	if !errors {
 		return nil, nil, nil, nil
 	}
-
-	if currentInflation.Equal(maxCoins) {
+	fmt.Println("stompesi - currentInflationAmount", currentInflationAmount)
+	fmt.Println("stompesi - maxInflationAmount", maxInflationAmount)
+	if currentInflationAmount.Equal(maxInflationAmount) {
 		return nil, nil, nil, nil
 	}
 
-	if (coin.Amount.Add(currentInflation).GT(maxCoins)) {
-		coin.Amount = maxCoins.Sub(currentInflation)
+	if (coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount)) {
+		coin.Amount = maxInflationAmount.Sub(currentInflationAmount)
 	}
+
+	fmt.Println("stompesi - add amount", coin.Amount)
+
 	// Mint coins for distribution
 	if err := k.MintCoins(ctx, coin); err != nil {
 		return nil, nil, nil, err
@@ -50,7 +56,7 @@ func (k Keeper) MintAndAllocateInflation(
 		return nil, nil, nil, err
 	}
 
-	k.SetCurrentInflation(ctx, currentInflation.Add(coin.Amount).String())
+	k.SetCurrentInflation(ctx, currentInflationAmount.Add(coin.Amount).String())
 	return  nil, nil, nil, nil
 
 }
