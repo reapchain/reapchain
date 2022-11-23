@@ -38,6 +38,14 @@ func InitGenesis(
 	// Get bondedRatio
 	bondedRatio := k.BondedRatio(ctx)
 
+	// setMaxInflationAmount
+	maxInflationAmount := data.MaxInflationAmount
+	k.SetMaxInflationAmount(ctx, maxInflationAmount)
+
+	// setCurrentInflation
+	currentInflationAmount := data.CurrentInflationAmount
+	k.SetCurrentInflation(ctx, currentInflationAmount)
+
 	// Calculate epoch mint provision
 	epochMintProvision := types.CalculateEpochMintProvision(
 		params,
@@ -56,5 +64,7 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 		EpochIdentifier: k.GetEpochIdentifier(ctx),
 		EpochsPerPeriod: k.GetEpochsPerPeriod(ctx),
 		SkippedEpochs:   k.GetSkippedEpochs(ctx),
+		MaxInflationAmount:   		 k.GetMaxInflationAmount(ctx),
+		CurrentInflationAmount:   		 k.GetCurrentInflationAmount(ctx),
 	}
 }

@@ -1401,6 +1401,8 @@ GenesisState defines the inflation module's genesis state.
 | `epoch_identifier` | [string](#string) |  | inflation epoch identifier |
 | `epochs_per_period` | [int64](#int64) |  | number of epochs after which inflation is recalculated |
 | `skipped_epochs` | [uint64](#uint64) |  | number of epochs that have passed while inflation is disabled |
+| `max_inflation_amount` | [string](#string) |  | number of max inflation amount |
+| `current_inflation_amount` | [string](#string) |  | init of current supplied inflation amount |
 
 
 

@@ -1,6 +1,8 @@
 package keeper
 
 import (
+	"fmt"
+
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	ethermint "github.com/reapchain/ethermint/types"
@@ -15,6 +17,29 @@ var teamAlloc = sdk.NewInt(200_000_000).Mul(ethermint.PowerReduction)
 
 // MintAndAllocateInflation performs inflation minting and allocation
 func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
+	currentInflationAmount, err := sdk.NewIntFromString(k.GetCurrentInflationAmount(ctx))
+	if err == false {
+		return nil
+	}
+
+	maxInflationAmount, err := sdk.NewIntFromString(k.GetMaxInflationAmount(ctx))
+	if err == false {
+		return nil
+	}
+
+	fmt.Println("stompesi - currentInflationAmount", currentInflationAmount)
+	fmt.Println("stompesi - maxInflationAmount", maxInflationAmount)
+	
+	if currentInflationAmount.Equal(maxInflationAmount) {
+		return nil
+	}
+
+	if (coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount)) {
+		coin.Amount = maxInflationAmount.Sub(currentInflationAmount) 
+	}
+
+	fmt.Println("stompesi - add amount", coin.Amount)
+
 	// Mint coins for distribution
 	if err := k.MintCoins(ctx, coin); err != nil {
 		return err
@@ -22,7 +47,12 @@ func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
 
 	// Allocate minted coins according to allocation proportions (staking, usage
 	// incentives, community pool)
-	return k.AllocateExponentialInflation(ctx, coin)
+	if err := k.AllocateExponentialInflation(ctx, coin); err != nil {
+		return err
+	}
+
+	k.SetCurrentInflation(ctx, currentInflationAmount.Add(coin.Amount).String())
+	return  nil
 }
 
 // MintCoins implements an alias call to the underlying supply keeper's
@@ -36,6 +66,10 @@ func (k Keeper) MintCoins(ctx sdk.Context, newCoin sdk.Coin) error {
 	}
 
 	return k.bankKeeper.MintCoins(ctx, types.ModuleName, newCoins)
+}
+
+func NewInt(u uint64) {
+	panic("unimplemented")
 }
 
 // AllocateExponentialInflation allocates coins from the inflation to external

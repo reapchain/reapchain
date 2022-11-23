@@ -4,12 +4,13 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	"github.com/cosmos/go-bip39"
-	"github.com/reapchain/reapchain-core/privval"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/cosmos/go-bip39"
+	"github.com/reapchain/reapchain-core/privval"
 
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
