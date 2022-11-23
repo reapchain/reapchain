@@ -171,7 +171,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			}}
 
 			qrnValue := tmrand.Uint64()
-			qrn := types.NewQrn(13, corePubKey, qrnValue)
+			qrn := types.NewQrn(1, corePubKey, qrnValue)
 			qrn.Timestamp = genDoc.GenesisTime
 
 			err = privValidator.SignQrn(qrn)
