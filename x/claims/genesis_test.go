@@ -26,7 +26,7 @@ type GenesisTestSuite struct {
 
 	ctx sdk.Context
 
-	app     *app.Evmos
+	app     *app.Reapchain
 	genesis types.GenesisState
 }
 
@@ -37,7 +37,7 @@ func (suite *GenesisTestSuite) SetupTest() {
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9000-1",
+		ChainID:         "mercury_2022-3",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddress.Bytes(),
 
@@ -78,8 +78,8 @@ func TestGenesisTestSuite(t *testing.T) {
 
 var (
 	now     = time.Now().UTC()
-	acc1, _ = sdk.AccAddressFromBech32("evmos1qxx0fdsmruzuar2fay88lfw6sce6emamyu2s8h4d")
-	acc2, _ = sdk.AccAddressFromBech32("evmos1nsrs4t7dngkdltehkm3p6n8dp22sz3mct9uhc8")
+	acc1, _ = sdk.AccAddressFromBech32("reap10hz0qunf49j9rvn3twrtdu0cm8hnav47vawaxm")
+	acc2, _ = sdk.AccAddressFromBech32("reap1ktkajgqv25830rgve5qwhwfs6m4hjruaml33ff")
 )
 
 func (suite *GenesisTestSuite) TestClaimInitGenesis() {
@@ -113,7 +113,7 @@ func (suite *GenesisTestSuite) TestClaimInitGenesis() {
 				},
 			},
 			func() {
-				coins := sdk.NewCoins(sdk.NewCoin("aevmos", sdk.NewInt(2_800)))
+				coins := sdk.NewCoins(sdk.NewCoin("areap", sdk.NewInt(2_800)))
 				err := testutil.FundModuleAccount(suite.app.BankKeeper, suite.ctx, types.ModuleName, coins)
 				suite.Require().NoError(err)
 			},
@@ -137,7 +137,7 @@ func (suite *GenesisTestSuite) TestClaimInitGenesis() {
 				},
 			},
 			func() {
-				coins := sdk.NewCoins(sdk.NewCoin("aevmos", sdk.NewInt(400)))
+				coins := sdk.NewCoins(sdk.NewCoin("areap", sdk.NewInt(400)))
 				err := testutil.FundModuleAccount(suite.app.BankKeeper, suite.ctx, types.ModuleName, coins)
 				suite.Require().NoError(err)
 			},
@@ -184,7 +184,7 @@ func (suite *GenesisTestSuite) TestClaimExportGenesis() {
 		},
 	}
 
-	coins := sdk.NewCoins(sdk.NewCoin("aevmos", sdk.NewInt(400)))
+	coins := sdk.NewCoins(sdk.NewCoin("areap", sdk.NewInt(400)))
 	err := testutil.FundModuleAccount(suite.app.BankKeeper, suite.ctx, types.ModuleName, coins)
 	suite.Require().NoError(err)
 

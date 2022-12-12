@@ -80,7 +80,7 @@ func (m *ClawbackVestingAccount) XXX_DiscardUnknown() {
 var xxx_messageInfo_ClawbackVestingAccount proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*ClawbackVestingAccount)(nil), "evmos.vesting.v1.ClawbackVestingAccount")
+	proto.RegisterType((*ClawbackVestingAccount)(nil), "reapchain.vesting.v1.ClawbackVestingAccount")
 }
 
 func init() {

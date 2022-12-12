@@ -68,7 +68,7 @@ func (Action) EnumDescriptor() ([]byte, []int) {
 // for a given user. This is only used during client queries.
 type Claim struct {
 	// action enum
-	Action Action `protobuf:"varint,1,opt,name=action,proto3,enum=evmos.claims.v1.Action" json:"action,omitempty"`
+	Action Action `protobuf:"varint,1,opt,name=action,proto3,enum=reapchain.claims.v1.Action" json:"action,omitempty"`
 	// true if the action has been completed
 	Completed bool `protobuf:"varint,2,opt,name=completed,proto3" json:"completed,omitempty"`
 	// claimable token amount for the action. Zero if completed
@@ -229,10 +229,10 @@ func (m *ClaimsRecord) GetActionsCompleted() []bool {
 }
 
 func init() {
-	proto.RegisterEnum("evmos.claims.v1.Action", Action_name, Action_value)
-	proto.RegisterType((*Claim)(nil), "evmos.claims.v1.Claim")
-	proto.RegisterType((*ClaimsRecordAddress)(nil), "evmos.claims.v1.ClaimsRecordAddress")
-	proto.RegisterType((*ClaimsRecord)(nil), "evmos.claims.v1.ClaimsRecord")
+	proto.RegisterEnum("reapchain.claims.v1.Action", Action_name, Action_value)
+	proto.RegisterType((*Claim)(nil), "reapchain.claims.v1.Claim")
+	proto.RegisterType((*ClaimsRecordAddress)(nil), "reapchain.claims.v1.ClaimsRecordAddress")
+	proto.RegisterType((*ClaimsRecord)(nil), "reapchain.claims.v1.ClaimsRecord")
 }
 
 func init() { proto.RegisterFile("reapchain/claims/v1/claims.proto", fileDescriptor_39b2ff2f1e19c4e6) }

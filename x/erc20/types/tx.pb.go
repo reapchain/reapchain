@@ -238,10 +238,10 @@ func (m *MsgConvertERC20Response) XXX_DiscardUnknown() {
 var xxx_messageInfo_MsgConvertERC20Response proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*MsgConvertCoin)(nil), "evmos.erc20.v1.MsgConvertCoin")
-	proto.RegisterType((*MsgConvertCoinResponse)(nil), "evmos.erc20.v1.MsgConvertCoinResponse")
-	proto.RegisterType((*MsgConvertERC20)(nil), "evmos.erc20.v1.MsgConvertERC20")
-	proto.RegisterType((*MsgConvertERC20Response)(nil), "evmos.erc20.v1.MsgConvertERC20Response")
+	proto.RegisterType((*MsgConvertCoin)(nil), "reapchain.erc20.v1.MsgConvertCoin")
+	proto.RegisterType((*MsgConvertCoinResponse)(nil), "reapchain.erc20.v1.MsgConvertCoinResponse")
+	proto.RegisterType((*MsgConvertERC20)(nil), "reapchain.erc20.v1.MsgConvertERC20")
+	proto.RegisterType((*MsgConvertERC20Response)(nil), "reapchain.erc20.v1.MsgConvertERC20Response")
 }
 
 func init() { proto.RegisterFile("reapchain/erc20/v1/tx.proto", fileDescriptor_166794c411253d11) }
@@ -309,7 +309,7 @@ func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 
 func (c *msgClient) ConvertCoin(ctx context.Context, in *MsgConvertCoin, opts ...grpc.CallOption) (*MsgConvertCoinResponse, error) {
 	out := new(MsgConvertCoinResponse)
-	err := c.cc.Invoke(ctx, "/evmos.erc20.v1.Msg/ConvertCoin", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.erc20.v1.Msg/ConvertCoin", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -318,7 +318,7 @@ func (c *msgClient) ConvertCoin(ctx context.Context, in *MsgConvertCoin, opts ..
 
 func (c *msgClient) ConvertERC20(ctx context.Context, in *MsgConvertERC20, opts ...grpc.CallOption) (*MsgConvertERC20Response, error) {
 	out := new(MsgConvertERC20Response)
-	err := c.cc.Invoke(ctx, "/evmos.erc20.v1.Msg/ConvertERC20", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.erc20.v1.Msg/ConvertERC20", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -360,7 +360,7 @@ func _Msg_ConvertCoin_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.erc20.v1.Msg/ConvertCoin",
+		FullMethod: "/reap.erc20.v1.Msg/ConvertCoin",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).ConvertCoin(ctx, req.(*MsgConvertCoin))
@@ -378,7 +378,7 @@ func _Msg_ConvertERC20_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.erc20.v1.Msg/ConvertERC20",
+		FullMethod: "/reap.erc20.v1.Msg/ConvertERC20",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(MsgServer).ConvertERC20(ctx, req.(*MsgConvertERC20))
@@ -387,7 +387,7 @@ func _Msg_ConvertERC20_Handler(srv interface{}, ctx context.Context, dec func(in
 }
 
 var _Msg_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.erc20.v1.Msg",
+	ServiceName: "reap.erc20.v1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

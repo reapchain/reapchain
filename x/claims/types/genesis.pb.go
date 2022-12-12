@@ -185,8 +185,8 @@ func (m *Params) GetEVMChannels() []string {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "evmos.claims.v1.GenesisState")
-	proto.RegisterType((*Params)(nil), "evmos.claims.v1.Params")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.claims.v1.GenesisState")
+	proto.RegisterType((*Params)(nil), "reapchain.claims.v1.Params")
 }
 
 func init() { proto.RegisterFile("reapchain/claims/v1/genesis.proto", fileDescriptor_c6775c608d2cfd6a) }

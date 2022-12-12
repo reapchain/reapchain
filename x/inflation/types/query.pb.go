@@ -531,18 +531,18 @@ func (m *QueryParamsResponse) GetParams() Params {
 }
 
 func init() {
-	proto.RegisterType((*QueryPeriodRequest)(nil), "evmos.inflation.v1.QueryPeriodRequest")
-	proto.RegisterType((*QueryPeriodResponse)(nil), "evmos.inflation.v1.QueryPeriodResponse")
-	proto.RegisterType((*QueryEpochMintProvisionRequest)(nil), "evmos.inflation.v1.QueryEpochMintProvisionRequest")
-	proto.RegisterType((*QueryEpochMintProvisionResponse)(nil), "evmos.inflation.v1.QueryEpochMintProvisionResponse")
-	proto.RegisterType((*QuerySkippedEpochsRequest)(nil), "evmos.inflation.v1.QuerySkippedEpochsRequest")
-	proto.RegisterType((*QuerySkippedEpochsResponse)(nil), "evmos.inflation.v1.QuerySkippedEpochsResponse")
-	proto.RegisterType((*QueryCirculatingSupplyRequest)(nil), "evmos.inflation.v1.QueryCirculatingSupplyRequest")
-	proto.RegisterType((*QueryCirculatingSupplyResponse)(nil), "evmos.inflation.v1.QueryCirculatingSupplyResponse")
-	proto.RegisterType((*QueryInflationRateRequest)(nil), "evmos.inflation.v1.QueryInflationRateRequest")
-	proto.RegisterType((*QueryInflationRateResponse)(nil), "evmos.inflation.v1.QueryInflationRateResponse")
-	proto.RegisterType((*QueryParamsRequest)(nil), "evmos.inflation.v1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "evmos.inflation.v1.QueryParamsResponse")
+	proto.RegisterType((*QueryPeriodRequest)(nil), "reapchain.inflation.v1.QueryPeriodRequest")
+	proto.RegisterType((*QueryPeriodResponse)(nil), "reapchain.inflation.v1.QueryPeriodResponse")
+	proto.RegisterType((*QueryEpochMintProvisionRequest)(nil), "reapchain.inflation.v1.QueryEpochMintProvisionRequest")
+	proto.RegisterType((*QueryEpochMintProvisionResponse)(nil), "reapchain.inflation.v1.QueryEpochMintProvisionResponse")
+	proto.RegisterType((*QuerySkippedEpochsRequest)(nil), "reapchain.inflation.v1.QuerySkippedEpochsRequest")
+	proto.RegisterType((*QuerySkippedEpochsResponse)(nil), "reapchain.inflation.v1.QuerySkippedEpochsResponse")
+	proto.RegisterType((*QueryCirculatingSupplyRequest)(nil), "reapchain.inflation.v1.QueryCirculatingSupplyRequest")
+	proto.RegisterType((*QueryCirculatingSupplyResponse)(nil), "reapchain.inflation.v1.QueryCirculatingSupplyResponse")
+	proto.RegisterType((*QueryInflationRateRequest)(nil), "reapchain.inflation.v1.QueryInflationRateRequest")
+	proto.RegisterType((*QueryInflationRateResponse)(nil), "reapchain.inflation.v1.QueryInflationRateResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "reapchain.inflation.v1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "reapchain.inflation.v1.QueryParamsResponse")
 }
 
 func init() {
@@ -633,7 +633,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) Period(ctx context.Context, in *QueryPeriodRequest, opts ...grpc.CallOption) (*QueryPeriodResponse, error) {
 	out := new(QueryPeriodResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/Period", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/Period", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -642,7 +642,7 @@ func (c *queryClient) Period(ctx context.Context, in *QueryPeriodRequest, opts .
 
 func (c *queryClient) EpochMintProvision(ctx context.Context, in *QueryEpochMintProvisionRequest, opts ...grpc.CallOption) (*QueryEpochMintProvisionResponse, error) {
 	out := new(QueryEpochMintProvisionResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/EpochMintProvision", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/EpochMintProvision", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -651,7 +651,7 @@ func (c *queryClient) EpochMintProvision(ctx context.Context, in *QueryEpochMint
 
 func (c *queryClient) SkippedEpochs(ctx context.Context, in *QuerySkippedEpochsRequest, opts ...grpc.CallOption) (*QuerySkippedEpochsResponse, error) {
 	out := new(QuerySkippedEpochsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/SkippedEpochs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/SkippedEpochs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -660,7 +660,7 @@ func (c *queryClient) SkippedEpochs(ctx context.Context, in *QuerySkippedEpochsR
 
 func (c *queryClient) CirculatingSupply(ctx context.Context, in *QueryCirculatingSupplyRequest, opts ...grpc.CallOption) (*QueryCirculatingSupplyResponse, error) {
 	out := new(QueryCirculatingSupplyResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/CirculatingSupply", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/CirculatingSupply", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -669,7 +669,7 @@ func (c *queryClient) CirculatingSupply(ctx context.Context, in *QueryCirculatin
 
 func (c *queryClient) InflationRate(ctx context.Context, in *QueryInflationRateRequest, opts ...grpc.CallOption) (*QueryInflationRateResponse, error) {
 	out := new(QueryInflationRateResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/InflationRate", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/InflationRate", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -678,7 +678,7 @@ func (c *queryClient) InflationRate(ctx context.Context, in *QueryInflationRateR
 
 func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error) {
 	out := new(QueryParamsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.inflation.v1.Query/Params", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.inflation.v1.Query/Params", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -739,7 +739,7 @@ func _Query_Period_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/Period",
+		FullMethod: "/reapchain.inflation.v1.Query/Period",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Period(ctx, req.(*QueryPeriodRequest))
@@ -757,7 +757,7 @@ func _Query_EpochMintProvision_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/EpochMintProvision",
+		FullMethod: "/reapchain.inflation.v1.Query/EpochMintProvision",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).EpochMintProvision(ctx, req.(*QueryEpochMintProvisionRequest))
@@ -775,7 +775,7 @@ func _Query_SkippedEpochs_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/SkippedEpochs",
+		FullMethod: "/reapchain.inflation.v1.Query/SkippedEpochs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).SkippedEpochs(ctx, req.(*QuerySkippedEpochsRequest))
@@ -793,7 +793,7 @@ func _Query_CirculatingSupply_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/CirculatingSupply",
+		FullMethod: "/reapchain.inflation.v1.Query/CirculatingSupply",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).CirculatingSupply(ctx, req.(*QueryCirculatingSupplyRequest))
@@ -811,7 +811,7 @@ func _Query_InflationRate_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/InflationRate",
+		FullMethod: "/reapchain.inflation.v1.Query/InflationRate",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).InflationRate(ctx, req.(*QueryInflationRateRequest))
@@ -829,7 +829,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.inflation.v1.Query/Params",
+		FullMethod: "/reapchain.inflation.v1.Query/Params",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Params(ctx, req.(*QueryParamsRequest))
@@ -838,7 +838,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.inflation.v1.Query",
+	ServiceName: "reapchain.inflation.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -128,8 +128,8 @@ func (m *ExponentialCalculation) XXX_DiscardUnknown() {
 var xxx_messageInfo_ExponentialCalculation proto.InternalMessageInfo
 
 func init() {
-	proto.RegisterType((*InflationDistribution)(nil), "evmos.inflation.v1.InflationDistribution")
-	proto.RegisterType((*ExponentialCalculation)(nil), "evmos.inflation.v1.ExponentialCalculation")
+	proto.RegisterType((*InflationDistribution)(nil), "reapchain.inflation.v1.InflationDistribution")
+	proto.RegisterType((*ExponentialCalculation)(nil), "reapchain.inflation.v1.ExponentialCalculation")
 }
 
 func init() {

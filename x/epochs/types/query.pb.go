@@ -215,10 +215,10 @@ func (m *QueryCurrentEpochResponse) GetCurrentEpoch() int64 {
 }
 
 func init() {
-	proto.RegisterType((*QueryEpochsInfoRequest)(nil), "evmos.epochs.v1.QueryEpochsInfoRequest")
-	proto.RegisterType((*QueryEpochsInfoResponse)(nil), "evmos.epochs.v1.QueryEpochsInfoResponse")
-	proto.RegisterType((*QueryCurrentEpochRequest)(nil), "evmos.epochs.v1.QueryCurrentEpochRequest")
-	proto.RegisterType((*QueryCurrentEpochResponse)(nil), "evmos.epochs.v1.QueryCurrentEpochResponse")
+	proto.RegisterType((*QueryEpochsInfoRequest)(nil), "reapchain.epochs.v1.QueryEpochsInfoRequest")
+	proto.RegisterType((*QueryEpochsInfoResponse)(nil), "reapchain.epochs.v1.QueryEpochsInfoResponse")
+	proto.RegisterType((*QueryCurrentEpochRequest)(nil), "reapchain.epochs.v1.QueryCurrentEpochRequest")
+	proto.RegisterType((*QueryCurrentEpochResponse)(nil), "reapchain.epochs.v1.QueryCurrentEpochResponse")
 }
 
 func init() { proto.RegisterFile("reapchain/epochs/v1/query.proto", fileDescriptor_a3585fa0ae98b059) }
@@ -284,7 +284,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) EpochInfos(ctx context.Context, in *QueryEpochsInfoRequest, opts ...grpc.CallOption) (*QueryEpochsInfoResponse, error) {
 	out := new(QueryEpochsInfoResponse)
-	err := c.cc.Invoke(ctx, "/evmos.epochs.v1.Query/EpochInfos", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.epochs.v1.Query/EpochInfos", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -293,7 +293,7 @@ func (c *queryClient) EpochInfos(ctx context.Context, in *QueryEpochsInfoRequest
 
 func (c *queryClient) CurrentEpoch(ctx context.Context, in *QueryCurrentEpochRequest, opts ...grpc.CallOption) (*QueryCurrentEpochResponse, error) {
 	out := new(QueryCurrentEpochResponse)
-	err := c.cc.Invoke(ctx, "/evmos.epochs.v1.Query/CurrentEpoch", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.epochs.v1.Query/CurrentEpoch", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -333,7 +333,7 @@ func _Query_EpochInfos_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.epochs.v1.Query/EpochInfos",
+		FullMethod: "/reapchain.epochs.v1.Query/EpochInfos",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).EpochInfos(ctx, req.(*QueryEpochsInfoRequest))
@@ -351,7 +351,7 @@ func _Query_CurrentEpoch_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.epochs.v1.Query/CurrentEpoch",
+		FullMethod: "/reapchain.epochs.v1.Query/CurrentEpoch",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).CurrentEpoch(ctx, req.(*QueryCurrentEpochRequest))
@@ -360,7 +360,7 @@ func _Query_CurrentEpoch_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.epochs.v1.Query",
+	ServiceName: "reapchain.epochs.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

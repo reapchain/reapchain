@@ -166,8 +166,8 @@ func (m *GenesisState) GetEpochs() []EpochInfo {
 }
 
 func init() {
-	proto.RegisterType((*EpochInfo)(nil), "evmos.epochs.v1.EpochInfo")
-	proto.RegisterType((*GenesisState)(nil), "evmos.epochs.v1.GenesisState")
+	proto.RegisterType((*EpochInfo)(nil), "reapchain.epochs.v1.EpochInfo")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.epochs.v1.GenesisState")
 }
 
 func init() { proto.RegisterFile("reapchain/epochs/v1/genesis.proto", fileDescriptor_f30dceb93acd12b2) }

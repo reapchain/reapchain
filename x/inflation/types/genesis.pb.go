@@ -197,8 +197,8 @@ func (m *Params) GetEnableInflation() bool {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "evmos.inflation.v1.GenesisState")
-	proto.RegisterType((*Params)(nil), "evmos.inflation.v1.Params")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.inflation.v1.GenesisState")
+	proto.RegisterType((*Params)(nil), "reapchain.inflation.v1.Params")
 }
 
 func init() {

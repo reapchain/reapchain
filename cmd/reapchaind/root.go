@@ -41,7 +41,7 @@ import (
 
 	"github.com/reapchain/reapchain/v4/app"
 	cmdcfg "github.com/reapchain/reapchain/v4/cmd/config"
-	evmoskr "github.com/reapchain/reapchain/v4/crypto/keyring"
+	reapkr "github.com/reapchain/reapchain/v4/crypto/keyring"
 )
 
 const (
@@ -61,7 +61,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithBroadcastMode(flags.BroadcastBlock).
 		WithHomeDir(app.DefaultNodeHome).
-		WithKeyringOptions(evmoskr.Option()).
+		WithKeyringOptions(reapkr.Option()).
 		WithViper(EnvPrefix)
 
 	rootCmd := &cobra.Command{
@@ -201,9 +201,9 @@ func initAppConfig(chainID string) (string, interface{}) {
 		panic(fmt.Errorf("unknown app config type %T", customAppConfig))
 	}
 
-	// define a non-zero default minimum gas price on Evmos Mainnet
-	if strings.HasPrefix(chainID, "evmos_9001-") && (srvCfg.MinGasPrices == "" || srvCfg.MinGasPrices == "0aevmos") {
-		srvCfg.MinGasPrices = "0.0025aevmos"
+	// define a non-zero default minimum gas price on Reapchain Mainnet
+	if strings.HasPrefix(chainID, "mercury_2022-") && (srvCfg.MinGasPrices == "" || srvCfg.MinGasPrices == "0areap") {
+		srvCfg.MinGasPrices = "0.0025areap"
 	}
 
 	srvCfg.StateSync.SnapshotInterval = 1500
@@ -244,7 +244,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		panic(err)
 	}
 
-	evmosApp := app.NewEvmos(
+	reapchainApp := app.NewReapchain(
 		logger, db, traceStore, true, skipUpgradeHeights,
 		cast.ToString(appOpts.Get(flags.FlagHome)),
 		cast.ToUint(appOpts.Get(sdkserver.FlagInvCheckPeriod)),
@@ -263,7 +263,7 @@ func (a appCreator) newApp(logger log.Logger, db dbm.DB, traceStore io.Writer, a
 		baseapp.SetSnapshotKeepRecent(cast.ToUint32(appOpts.Get(sdkserver.FlagStateSyncSnapshotKeepRecent))),
 	)
 
-	return evmosApp
+	return reapchainApp
 }
 
 // appExport creates a new simapp (optionally at a given height)
@@ -272,21 +272,21 @@ func (a appCreator) appExport(
 	logger log.Logger, db dbm.DB, traceStore io.Writer, height int64, forZeroHeight bool, jailAllowedAddrs []string,
 	appOpts servertypes.AppOptions,
 ) (servertypes.ExportedApp, error) {
-	var evmosApp *app.Evmos
+	var reapchainApp *app.Reapchain
 	homePath, ok := appOpts.Get(flags.FlagHome).(string)
 	if !ok || homePath == "" {
 		return servertypes.ExportedApp{}, errors.New("application home not set")
 	}
 
 	if height != -1 {
-		evmosApp = app.NewEvmos(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		reapchainApp = app.NewReapchain(logger, db, traceStore, false, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 
-		if err := evmosApp.LoadHeight(height); err != nil {
+		if err := reapchainApp.LoadHeight(height); err != nil {
 			return servertypes.ExportedApp{}, err
 		}
 	} else {
-		evmosApp = app.NewEvmos(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
+		reapchainApp = app.NewReapchain(logger, db, traceStore, true, map[int64]bool{}, "", uint(1), a.encCfg, appOpts)
 	}
 
-	return evmosApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
+	return reapchainApp.ExportAppStateAndValidators(forZeroHeight, jailAllowedAddrs)
 }

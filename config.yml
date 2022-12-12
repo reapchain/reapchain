@@ -1,14 +1,14 @@
 accounts:
   - name: alice
-    coins: ["100000000uatom", "100000000000000000000aevmos"]
+    coins: ["100000000ureap", "100000000000000000000areap"]
   - name: bob
-    coins: ["5000000000000aevmos"]
+    coins: ["5000000000000areap"]
 validator:
   name: alice
-  staked: "100000000000000000000aevmos"
+  staked: "100000000000000000000areap"
 faucet:
   name: bob 
-  coins: ["10aevmos"]
+  coins: ["10areap"]
 build:
   binary: "reapchaind"
 init:
@@ -22,18 +22,18 @@ genesis:
   app_state:
     staking:
       params:
-        bond_denom: "aevmos"
+        bond_denom: "areap"
     mint:
       params:
-        mint_denom: "aevmos"
+        mint_denom: "areap"
     crisis:
       constant_fee:
-        denom: "aevmos"
+        denom: "areap"
     gov:
       deposit_params:
         min_deposit:
           - amount: "10000000"
-            denom: "aevmos"
+            denom: "areap"
     evm:
       params:
-        evm_denom: "aevmos"
+        evm_denom: "areap"

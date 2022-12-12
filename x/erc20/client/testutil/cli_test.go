@@ -16,7 +16,7 @@ import (
 
 	"github.com/reapchain/ethermint/testutil/network"
 
-	evmosnetwork "github.com/reapchain/reapchain/v4/testutil/network"
+	reapchainnetwork "github.com/reapchain/reapchain/v4/testutil/network"
 	"github.com/reapchain/reapchain/v4/x/erc20/client/cli"
 )
 
@@ -39,7 +39,7 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	s.T().Log("setting up integration test suite")
 
 	var err error
-	s.cfg = evmosnetwork.DefaultConfig()
+	s.cfg = reapchainnetwork.DefaultConfig()
 	s.cfg.NumValidators = 1
 
 	s.network, err = network.New(s.T(), s.T().TempDir(), s.cfg)

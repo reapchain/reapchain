@@ -136,8 +136,8 @@ func (m *Params) GetEnableEVMHook() bool {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "evmos.erc20.v1.GenesisState")
-	proto.RegisterType((*Params)(nil), "evmos.erc20.v1.Params")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.erc20.v1.GenesisState")
+	proto.RegisterType((*Params)(nil), "reapchain.erc20.v1.Params")
 }
 
 func init() { proto.RegisterFile("reapchain/erc20/v1/genesis.proto", fileDescriptor_158cfae13dd12b4d) }

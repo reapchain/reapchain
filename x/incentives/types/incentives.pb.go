@@ -323,10 +323,10 @@ func (m *CancelIncentiveProposal) GetContract() string {
 }
 
 func init() {
-	proto.RegisterType((*Incentive)(nil), "evmos.incentives.v1.Incentive")
-	proto.RegisterType((*GasMeter)(nil), "evmos.incentives.v1.GasMeter")
-	proto.RegisterType((*RegisterIncentiveProposal)(nil), "evmos.incentives.v1.RegisterIncentiveProposal")
-	proto.RegisterType((*CancelIncentiveProposal)(nil), "evmos.incentives.v1.CancelIncentiveProposal")
+	proto.RegisterType((*Incentive)(nil), "reapchain.incentives.v1.Incentive")
+	proto.RegisterType((*GasMeter)(nil), "reapchain.incentives.v1.GasMeter")
+	proto.RegisterType((*RegisterIncentiveProposal)(nil), "reapchain.incentives.v1.RegisterIncentiveProposal")
+	proto.RegisterType((*CancelIncentiveProposal)(nil), "reapchain.incentives.v1.CancelIncentiveProposal")
 }
 
 func init() {

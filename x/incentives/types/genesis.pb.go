@@ -148,8 +148,8 @@ func (m *Params) GetIncentivesEpochIdentifier() string {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "evmos.incentives.v1.GenesisState")
-	proto.RegisterType((*Params)(nil), "evmos.incentives.v1.Params")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.incentives.v1.GenesisState")
+	proto.RegisterType((*Params)(nil), "reapchain.incentives.v1.Params")
 }
 
 func init() {

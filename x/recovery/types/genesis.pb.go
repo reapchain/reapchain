@@ -129,8 +129,8 @@ func (m *Params) GetPacketTimeoutDuration() time.Duration {
 }
 
 func init() {
-	proto.RegisterType((*GenesisState)(nil), "evmos.recovery.v1.GenesisState")
-	proto.RegisterType((*Params)(nil), "evmos.recovery.v1.Params")
+	proto.RegisterType((*GenesisState)(nil), "reapchain.recovery.v1.GenesisState")
+	proto.RegisterType((*Params)(nil), "reapchain.recovery.v1.Params")
 }
 
 func init() {

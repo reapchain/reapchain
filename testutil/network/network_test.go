@@ -14,7 +14,7 @@ import (
 	"github.com/reapchain/ethermint/server/config"
 	"github.com/reapchain/ethermint/testutil/network"
 
-	evmosnetwork "github.com/reapchain/reapchain/v4/testutil/network"
+	reapchainnetwork "github.com/reapchain/reapchain/v4/testutil/network"
 )
 
 type IntegrationTestSuite struct {
@@ -27,7 +27,7 @@ func (s *IntegrationTestSuite) SetupSuite() {
 	s.T().Log("setting up integration test suite")
 
 	var err error
-	cfg := evmosnetwork.DefaultConfig()
+	cfg := reapchainnetwork.DefaultConfig()
 	cfg.JSONRPCAddress = config.DefaultJSONRPCAddress
 	cfg.NumValidators = 1
 

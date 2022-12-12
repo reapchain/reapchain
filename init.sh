@@ -1,5 +1,5 @@
 KEY="mykey"
-CHAINID="evmos_9000-1"
+CHAINID="mercury_2022-3"
 MONIKER="localtestnet"
 KEYRING="test"
 KEYALGO="eth_secp256k1"
@@ -22,10 +22,10 @@ reapchaind config chain-id $CHAINID
 # if $KEY exists it should be deleted
 reapchaind keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 
-# Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
+# Set moniker and chain-id for Reapchain (Moniker can be anything, chain-id must be an integer)
 reapchaind init $MONIKER --chain-id $CHAINID
 
-# Change parameter token denominations to aevmos
+# Change parameter token denominations to areap
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json

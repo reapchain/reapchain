@@ -1,5 +1,5 @@
 syntax = "proto3";
-package evmos.erc20.v1;
+package reapchain.erc20.v1;
 
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "reapchain/erc20/v1/genesis.proto";

@@ -143,8 +143,8 @@ func (m *QueryBalancesResponse) GetVested() github_com_reapchain_cosmos_sdk_type
 }
 
 func init() {
-	proto.RegisterType((*QueryBalancesRequest)(nil), "evmos.vesting.v1.QueryBalancesRequest")
-	proto.RegisterType((*QueryBalancesResponse)(nil), "evmos.vesting.v1.QueryBalancesResponse")
+	proto.RegisterType((*QueryBalancesRequest)(nil), "reapchain.vesting.v1.QueryBalancesRequest")
+	proto.RegisterType((*QueryBalancesResponse)(nil), "reapchain.vesting.v1.QueryBalancesResponse")
 }
 
 func init() { proto.RegisterFile("reapchain/vesting/v1/query.proto", fileDescriptor_ed258af479545424) }
@@ -204,7 +204,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) Balances(ctx context.Context, in *QueryBalancesRequest, opts ...grpc.CallOption) (*QueryBalancesResponse, error) {
 	out := new(QueryBalancesResponse)
-	err := c.cc.Invoke(ctx, "/evmos.vesting.v1.Query/Balances", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.vesting.v1.Query/Balances", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -239,7 +239,7 @@ func _Query_Balances_Handler(srv interface{}, ctx context.Context, dec func(inte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.vesting.v1.Query/Balances",
+		FullMethod: "/reapchain.vesting.v1.Query/Balances",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Balances(ctx, req.(*QueryBalancesRequest))
@@ -248,7 +248,7 @@ func _Query_Balances_Handler(srv interface{}, ctx context.Context, dec func(inte
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.vesting.v1.Query",
+	ServiceName: "reapchain.vesting.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

@@ -400,14 +400,14 @@ func (m *QueryClaimsRecordResponse) GetClaims() []Claim {
 }
 
 func init() {
-	proto.RegisterType((*QueryTotalUnclaimedRequest)(nil), "evmos.claims.v1.QueryTotalUnclaimedRequest")
-	proto.RegisterType((*QueryTotalUnclaimedResponse)(nil), "evmos.claims.v1.QueryTotalUnclaimedResponse")
-	proto.RegisterType((*QueryParamsRequest)(nil), "evmos.claims.v1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "evmos.claims.v1.QueryParamsResponse")
-	proto.RegisterType((*QueryClaimsRecordsRequest)(nil), "evmos.claims.v1.QueryClaimsRecordsRequest")
-	proto.RegisterType((*QueryClaimsRecordsResponse)(nil), "evmos.claims.v1.QueryClaimsRecordsResponse")
-	proto.RegisterType((*QueryClaimsRecordRequest)(nil), "evmos.claims.v1.QueryClaimsRecordRequest")
-	proto.RegisterType((*QueryClaimsRecordResponse)(nil), "evmos.claims.v1.QueryClaimsRecordResponse")
+	proto.RegisterType((*QueryTotalUnclaimedRequest)(nil), "reapchain.claims.v1.QueryTotalUnclaimedRequest")
+	proto.RegisterType((*QueryTotalUnclaimedResponse)(nil), "reapchain.claims.v1.QueryTotalUnclaimedResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "reapchain.claims.v1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "reapchain.claims.v1.QueryParamsResponse")
+	proto.RegisterType((*QueryClaimsRecordsRequest)(nil), "reapchain.claims.v1.QueryClaimsRecordsRequest")
+	proto.RegisterType((*QueryClaimsRecordsResponse)(nil), "reapchain.claims.v1.QueryClaimsRecordsResponse")
+	proto.RegisterType((*QueryClaimsRecordRequest)(nil), "reapchain.claims.v1.QueryClaimsRecordRequest")
+	proto.RegisterType((*QueryClaimsRecordResponse)(nil), "reapchain.claims.v1.QueryClaimsRecordResponse")
 }
 
 func init() { proto.RegisterFile("reapchain/claims/v1/query.proto", fileDescriptor_84a85503db914b86) }
@@ -491,7 +491,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) TotalUnclaimed(ctx context.Context, in *QueryTotalUnclaimedRequest, opts ...grpc.CallOption) (*QueryTotalUnclaimedResponse, error) {
 	out := new(QueryTotalUnclaimedResponse)
-	err := c.cc.Invoke(ctx, "/evmos.claims.v1.Query/TotalUnclaimed", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.claims.v1.Query/TotalUnclaimed", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -500,7 +500,7 @@ func (c *queryClient) TotalUnclaimed(ctx context.Context, in *QueryTotalUnclaime
 
 func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error) {
 	out := new(QueryParamsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.claims.v1.Query/Params", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.claims.v1.Query/Params", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -509,7 +509,7 @@ func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts .
 
 func (c *queryClient) ClaimsRecords(ctx context.Context, in *QueryClaimsRecordsRequest, opts ...grpc.CallOption) (*QueryClaimsRecordsResponse, error) {
 	out := new(QueryClaimsRecordsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.claims.v1.Query/ClaimsRecords", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.claims.v1.Query/ClaimsRecords", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -518,7 +518,7 @@ func (c *queryClient) ClaimsRecords(ctx context.Context, in *QueryClaimsRecordsR
 
 func (c *queryClient) ClaimsRecord(ctx context.Context, in *QueryClaimsRecordRequest, opts ...grpc.CallOption) (*QueryClaimsRecordResponse, error) {
 	out := new(QueryClaimsRecordResponse)
-	err := c.cc.Invoke(ctx, "/evmos.claims.v1.Query/ClaimsRecord", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.claims.v1.Query/ClaimsRecord", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -568,7 +568,7 @@ func _Query_TotalUnclaimed_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.claims.v1.Query/TotalUnclaimed",
+		FullMethod: "/reapchain.claims.v1.Query/TotalUnclaimed",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).TotalUnclaimed(ctx, req.(*QueryTotalUnclaimedRequest))
@@ -586,7 +586,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.claims.v1.Query/Params",
+		FullMethod: "/reapchain.claims.v1.Query/Params",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Params(ctx, req.(*QueryParamsRequest))
@@ -604,7 +604,7 @@ func _Query_ClaimsRecords_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.claims.v1.Query/ClaimsRecords",
+		FullMethod: "/reapchain.claims.v1.Query/ClaimsRecords",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).ClaimsRecords(ctx, req.(*QueryClaimsRecordsRequest))
@@ -622,7 +622,7 @@ func _Query_ClaimsRecord_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.claims.v1.Query/ClaimsRecord",
+		FullMethod: "/reapchain.claims.v1.Query/ClaimsRecord",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).ClaimsRecord(ctx, req.(*QueryClaimsRecordRequest))
@@ -631,7 +631,7 @@ func _Query_ClaimsRecord_Handler(srv interface{}, ctx context.Context, dec func(
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.claims.v1.Query",
+	ServiceName: "reapchain.claims.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

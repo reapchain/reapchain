@@ -66,7 +66,7 @@ type TokenPair struct {
 	// shows token mapping enable status
 	Enabled bool `protobuf:"varint,3,opt,name=enabled,proto3" json:"enabled,omitempty"`
 	// ERC20 owner address ENUM (0 invalid, 1 ModuleAccount, 2 external address)
-	ContractOwner Owner `protobuf:"varint,4,opt,name=contract_owner,json=contractOwner,proto3,enum=evmos.erc20.v1.Owner" json:"contract_owner,omitempty"`
+	ContractOwner Owner `protobuf:"varint,4,opt,name=contract_owner,json=contractOwner,proto3,enum=reapchain.erc20.v1.Owner" json:"contract_owner,omitempty"`
 }
 
 func (m *TokenPair) Reset()         { *m = TokenPair{} }
@@ -327,11 +327,11 @@ func (m *ToggleTokenConversionProposal) GetToken() string {
 }
 
 func init() {
-	proto.RegisterEnum("evmos.erc20.v1.Owner", Owner_name, Owner_value)
-	proto.RegisterType((*TokenPair)(nil), "evmos.erc20.v1.TokenPair")
-	proto.RegisterType((*RegisterCoinProposal)(nil), "evmos.erc20.v1.RegisterCoinProposal")
-	proto.RegisterType((*RegisterERC20Proposal)(nil), "evmos.erc20.v1.RegisterERC20Proposal")
-	proto.RegisterType((*ToggleTokenConversionProposal)(nil), "evmos.erc20.v1.ToggleTokenConversionProposal")
+	proto.RegisterEnum("reapchain.erc20.v1.Owner", Owner_name, Owner_value)
+	proto.RegisterType((*TokenPair)(nil), "reapchain.erc20.v1.TokenPair")
+	proto.RegisterType((*RegisterCoinProposal)(nil), "reapchain.erc20.v1.RegisterCoinProposal")
+	proto.RegisterType((*RegisterERC20Proposal)(nil), "reapchain.erc20.v1.RegisterERC20Proposal")
+	proto.RegisterType((*ToggleTokenConversionProposal)(nil), "reapchain.erc20.v1.ToggleTokenConversionProposal")
 }
 
 func init() { proto.RegisterFile("reapchain/erc20/v1/erc20.proto", fileDescriptor_33b09dcb6e62d362) }

@@ -49,9 +49,9 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				Incentives: []Incentive{
 					{
-						Contract: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract: "",
 						Allocations: sdk.DecCoins{
-							sdk.NewDecCoinFromDec("aevmos", sdk.NewDecWithPrec(5, 2)),
+							sdk.NewDecCoinFromDec("areap", sdk.NewDecWithPrec(5, 2)),
 						},
 						Epochs:    10,
 						StartTime: time.Now(),
@@ -66,17 +66,17 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				Incentives: []Incentive{
 					{
-						Contract: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract: "",
 						Allocations: sdk.DecCoins{
-							sdk.NewDecCoinFromDec("aevmos", sdk.NewDecWithPrec(5, 2)),
+							sdk.NewDecCoinFromDec("areap", sdk.NewDecWithPrec(5, 2)),
 						},
 						Epochs:    10,
 						StartTime: time.Now(),
 					},
 					{
-						Contract: "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract: "",
 						Allocations: sdk.DecCoins{
-							sdk.NewDecCoinFromDec("aevmos", sdk.NewDecWithPrec(5, 2)),
+							sdk.NewDecCoinFromDec("areap", sdk.NewDecWithPrec(5, 2)),
 						},
 						Epochs:    10,
 						StartTime: time.Now(),
@@ -91,9 +91,9 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				Incentives: []Incentive{
 					{
-						Contract: "0xinvalidaddress",
+						Contract: "",
 						Allocations: sdk.DecCoins{
-							sdk.NewDecCoinFromDec("aevmos", sdk.NewDecWithPrec(5, 2)),
+							sdk.NewDecCoinFromDec("areap", sdk.NewDecWithPrec(5, 2)),
 						},
 						Epochs:    10,
 						StartTime: time.Now(),
@@ -108,8 +108,8 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				GasMeters: []GasMeter{
 					{
-						Contract:      "0xdac17f958d2ee523a2206206994597c13d831ec7",
-						Participant:   "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract:      "",
+						Participant:   "",
 						CumulativeGas: 10,
 					},
 				},
@@ -122,13 +122,13 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				GasMeters: []GasMeter{
 					{
-						Contract:      "0xdac17f958d2ee523a2206206994597c13d831ec7",
-						Participant:   "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract:      "",
+						Participant:   "",
 						CumulativeGas: 10,
 					},
 					{
-						Contract:      "0xdac17f958d2ee523a2206206994597c13d831ec7",
-						Participant:   "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract:      "",
+						Participant:   "",
 						CumulativeGas: 10,
 					},
 				},
@@ -141,8 +141,8 @@ func (suite *GenesisTestSuite) TestValidateGenesis() {
 				Params: DefaultParams(),
 				GasMeters: []GasMeter{
 					{
-						Contract:      "0xinvalidaddress",
-						Participant:   "0xdac17f958d2ee523a2206206994597c13d831ec7",
+						Contract:      "",
+						Participant:   "",
 						CumulativeGas: 10,
 					},
 				},

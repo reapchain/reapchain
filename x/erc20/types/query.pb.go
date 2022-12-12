@@ -309,12 +309,12 @@ func (m *QueryParamsResponse) GetParams() Params {
 }
 
 func init() {
-	proto.RegisterType((*QueryTokenPairsRequest)(nil), "evmos.erc20.v1.QueryTokenPairsRequest")
-	proto.RegisterType((*QueryTokenPairsResponse)(nil), "evmos.erc20.v1.QueryTokenPairsResponse")
-	proto.RegisterType((*QueryTokenPairRequest)(nil), "evmos.erc20.v1.QueryTokenPairRequest")
-	proto.RegisterType((*QueryTokenPairResponse)(nil), "evmos.erc20.v1.QueryTokenPairResponse")
-	proto.RegisterType((*QueryParamsRequest)(nil), "evmos.erc20.v1.QueryParamsRequest")
-	proto.RegisterType((*QueryParamsResponse)(nil), "evmos.erc20.v1.QueryParamsResponse")
+	proto.RegisterType((*QueryTokenPairsRequest)(nil), "reapchain.erc20.v1.QueryTokenPairsRequest")
+	proto.RegisterType((*QueryTokenPairsResponse)(nil), "reapchain.erc20.v1.QueryTokenPairsResponse")
+	proto.RegisterType((*QueryTokenPairRequest)(nil), "reapchain.erc20.v1.QueryTokenPairRequest")
+	proto.RegisterType((*QueryTokenPairResponse)(nil), "reapchain.erc20.v1.QueryTokenPairResponse")
+	proto.RegisterType((*QueryParamsRequest)(nil), "reapchain.erc20.v1.QueryParamsRequest")
+	proto.RegisterType((*QueryParamsResponse)(nil), "reapchain.erc20.v1.QueryParamsResponse")
 }
 
 func init() { proto.RegisterFile("reapchain/erc20/v1/query.proto", fileDescriptor_a6d5ce51a11e636c) }
@@ -385,7 +385,7 @@ func NewQueryClient(cc grpc1.ClientConn) QueryClient {
 
 func (c *queryClient) TokenPairs(ctx context.Context, in *QueryTokenPairsRequest, opts ...grpc.CallOption) (*QueryTokenPairsResponse, error) {
 	out := new(QueryTokenPairsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.erc20.v1.Query/TokenPairs", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.erc20.v1.Query/TokenPairs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -394,7 +394,7 @@ func (c *queryClient) TokenPairs(ctx context.Context, in *QueryTokenPairsRequest
 
 func (c *queryClient) TokenPair(ctx context.Context, in *QueryTokenPairRequest, opts ...grpc.CallOption) (*QueryTokenPairResponse, error) {
 	out := new(QueryTokenPairResponse)
-	err := c.cc.Invoke(ctx, "/evmos.erc20.v1.Query/TokenPair", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.erc20.v1.Query/TokenPair", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -403,7 +403,7 @@ func (c *queryClient) TokenPair(ctx context.Context, in *QueryTokenPairRequest, 
 
 func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error) {
 	out := new(QueryParamsResponse)
-	err := c.cc.Invoke(ctx, "/evmos.erc20.v1.Query/Params", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/reapchain.erc20.v1.Query/Params", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -448,7 +448,7 @@ func _Query_TokenPairs_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.erc20.v1.Query/TokenPairs",
+		FullMethod: "/reapchain.erc20.v1.Query/TokenPairs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).TokenPairs(ctx, req.(*QueryTokenPairsRequest))
@@ -466,7 +466,7 @@ func _Query_TokenPair_Handler(srv interface{}, ctx context.Context, dec func(int
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.erc20.v1.Query/TokenPair",
+		FullMethod: "/reapchain.erc20.v1.Query/TokenPair",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).TokenPair(ctx, req.(*QueryTokenPairRequest))
@@ -484,7 +484,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/evmos.erc20.v1.Query/Params",
+		FullMethod: "/reapchain.erc20.v1.Query/Params",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(QueryServer).Params(ctx, req.(*QueryParamsRequest))
@@ -493,7 +493,7 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 }
 
 var _Query_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "evmos.erc20.v1.Query",
+	ServiceName: "reapchain.erc20.v1.Query",
 	HandlerType: (*QueryServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
