@@ -149,10 +149,10 @@ The proposal details must be supplied via a JSON file.`,
 Where metadata.json contains (example):
 
 {
-  "description": "staking, gas and governance token of the Evmos testnets"
+  "description": "staking, gas and governance token of the Reapchain testnets"
   "denom_units": [
 		{
-			"denom": "aevmos",
+			"denom": "areap",
 			"exponent": 0,
 			"aliases": ["atto reapchain"]
 		},
@@ -161,10 +161,10 @@ Where metadata.json contains (example):
 			"exponent": 18
 		}
 	],
-	"base": "aevmos",
+	"base": "areap",
 	"display: "reapchain",
-	"name": "Evmos",
-	"symbol": "EVMOS"
+	"name": "Reapchain",
+	"symbol": "REAP"
 }`, version.AppName,
 		),
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -217,7 +217,7 @@ Where metadata.json contains (example):
 
 	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
 	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
-	cmd.Flags().String(cli.FlagDeposit, "1aevmos", "deposit of proposal")
+	cmd.Flags().String(cli.FlagDeposit, "1areap", "deposit of proposal")
 	if err := cmd.MarkFlagRequired(cli.FlagTitle); err != nil {
 		panic(err)
 	}
@@ -283,7 +283,7 @@ func NewRegisterERC20ProposalCmd() *cobra.Command {
 
 	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
 	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
-	cmd.Flags().String(cli.FlagDeposit, "1aevmos", "deposit of proposal")
+	cmd.Flags().String(cli.FlagDeposit, "1areap", "deposit of proposal")
 	if err := cmd.MarkFlagRequired(cli.FlagTitle); err != nil {
 		panic(err)
 	}
@@ -349,7 +349,7 @@ func NewToggleTokenConversionProposalCmd() *cobra.Command {
 
 	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
 	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
-	cmd.Flags().String(cli.FlagDeposit, "1aevmos", "deposit of proposal")
+	cmd.Flags().String(cli.FlagDeposit, "1areap", "deposit of proposal")
 	if err := cmd.MarkFlagRequired(cli.FlagTitle); err != nil {
 		panic(err)
 	}

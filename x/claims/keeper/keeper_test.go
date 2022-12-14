@@ -33,7 +33,7 @@ type KeeperTestSuite struct {
 
 	ctx sdk.Context
 
-	app            *app.Evmos
+	app            *app.Reapchain
 	queryClient    types.QueryClient
 	queryClientEvm evm.QueryClient
 	address        common.Address
@@ -72,7 +72,7 @@ func (suite *KeeperTestSuite) DoSetupTest(t require.TestingT) {
 	suite.app = app.Setup(false, feemarkettypes.DefaultGenesisState())
 	suite.ctx = suite.app.BaseApp.NewContext(false, tmproto.Header{
 		Height:          1,
-		ChainID:         "evmos_9001-1",
+		ChainID:         "mercury_2022-3",
 		Time:            time.Now().UTC(),
 		ProposerAddress: consAddress.Bytes(),
 

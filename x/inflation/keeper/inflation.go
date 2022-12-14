@@ -139,7 +139,7 @@ func (k Keeper) GetCirculatingSupply(ctx sdk.Context) sdk.Dec {
 	mintDenom := k.GetParams(ctx).MintDenom
 
 	circulatingSupply := k.bankKeeper.GetSupply(ctx, mintDenom).Amount.ToDec()
-
+	
 	return circulatingSupply
 }
 
