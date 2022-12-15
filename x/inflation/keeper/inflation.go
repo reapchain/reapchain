@@ -5,15 +5,9 @@ import (
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	ethermint "github.com/reapchain/ethermint/types"
-
-	evmos "github.com/reapchain/reapchain/v4/types"
 	incentivestypes "github.com/reapchain/reapchain/v4/x/incentives/types"
 	"github.com/reapchain/reapchain/v4/x/inflation/types"
 )
-
-// 200M token at year 4 allocated to the team
-var teamAlloc = sdk.NewInt(200_000_000).Mul(ethermint.PowerReduction)
 
 // MintAndAllocateInflation performs inflation minting and allocation
 func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
@@ -28,13 +22,13 @@ func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
 	}
 
 	fmt.Println("stompesi - maxInflationAmount", maxInflationAmount)
-	
+
 	if currentInflationAmount.Equal(maxInflationAmount) {
 		return nil
 	}
 
-	if (coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount)) {
-		coin.Amount = maxInflationAmount.Sub(currentInflationAmount) 
+	if coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount) {
+		coin.Amount = maxInflationAmount.Sub(currentInflationAmount)
 	}
 
 	fmt.Println("stompesi - add amount", coin.Amount)
@@ -51,7 +45,7 @@ func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
 	}
 
 	k.SetCurrentInflation(ctx, currentInflationAmount.Add(coin.Amount).String())
-	return  nil
+	return nil
 }
 
 // MintCoins implements an alias call to the underlying supply keeper's
@@ -129,37 +123,22 @@ func (k Keeper) GetProportions(
 }
 
 // BondedRatio the fraction of the staking tokens which are currently bonded
-// It doesn't consider team allocation for inflation
 func (k Keeper) BondedRatio(ctx sdk.Context) sdk.Dec {
 	stakeSupply := k.stakingKeeper.StakingTokenSupply(ctx)
 
-	isMainnet := evmos.IsMainnet(ctx.ChainID())
-
-	if !stakeSupply.IsPositive() || (isMainnet && stakeSupply.LTE(teamAlloc)) {
+	if !stakeSupply.IsPositive() {
 		return sdk.ZeroDec()
-	}
-
-	// don't count team allocation in bonded ratio's stake supple
-	if isMainnet {
-		stakeSupply = stakeSupply.Sub(teamAlloc)
 	}
 
 	return k.stakingKeeper.TotalBondedTokens(ctx).ToDec().QuoInt(stakeSupply)
 }
 
-// GetCirculatingSupply returns the bank supply of the mintDenom excluding the
-// team allocation in the first year
+// GetCirculatingSupply returns the bank supply of the mintDenom
 func (k Keeper) GetCirculatingSupply(ctx sdk.Context) sdk.Dec {
 	mintDenom := k.GetParams(ctx).MintDenom
 
 	circulatingSupply := k.bankKeeper.GetSupply(ctx, mintDenom).Amount.ToDec()
-	teamAllocation := teamAlloc.ToDec()
-
-	// Consider team allocation only on mainnet chain id
-	if evmos.IsMainnet(ctx.ChainID()) {
-		circulatingSupply = circulatingSupply.Sub(teamAllocation)
-	}
-
+	
 	return circulatingSupply
 }
 

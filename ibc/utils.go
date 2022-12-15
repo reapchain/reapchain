@@ -7,7 +7,7 @@ import (
 	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
 
-	evmos "github.com/reapchain/reapchain/v4/types"
+	reapchain "github.com/reapchain/reapchain/v4/types"
 )
 
 // GetTransferSenderRecipient returns the sender and recipient sdk.AccAddresses
@@ -29,14 +29,14 @@ func GetTransferSenderRecipient(packet channeltypes.Packet) (
 
 	// validate the sender bech32 address from the counterparty chain
 	// and change the bech32 human readable prefix (HRP) of the sender to `reapchain`
-	sender, err = evmos.GetEvmosAddressFromBech32(data.Sender)
+	sender, err = reapchain.GetReapchainAddressFromBech32(data.Sender)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid sender")
 	}
 
 	// validate the recipient bech32 address from the counterparty chain
 	// and change the bech32 human readable prefix (HRP) of the recipient to `reapchain`
-	recipient, err = evmos.GetEvmosAddressFromBech32(data.Receiver)
+	recipient, err = reapchain.GetReapchainAddressFromBech32(data.Receiver)
 	if err != nil {
 		return nil, nil, "", "", sdkerrors.Wrap(err, "invalid recipient")
 	}

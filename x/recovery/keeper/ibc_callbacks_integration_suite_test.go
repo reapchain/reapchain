@@ -29,13 +29,13 @@ type IBCTestingSuite struct {
 	coordinator *ibcgotesting.Coordinator
 
 	// testing chains used for convenience and readability
-	EvmosChain      *ibcgotesting.TestChain
+	Reapchain       *ibcgotesting.TestChain
 	IBCOsmosisChain *ibcgotesting.TestChain
 	IBCCosmosChain  *ibcgotesting.TestChain
 
-	pathOsmosisEvmos  *ibcgotesting.Path
-	pathCosmosEvmos   *ibcgotesting.Path
-	pathOsmosisCosmos *ibcgotesting.Path
+	pathOsmosisReapchain *ibcgotesting.Path
+	pathCosmosReapchain  *ibcgotesting.Path
+	pathOsmosisCosmos    *ibcgotesting.Path
 }
 
 var s *IBCTestingSuite
@@ -52,22 +52,22 @@ func TestIBCTestingSuite(t *testing.T) {
 func (suite *IBCTestingSuite) SetupTest() {
 	// initializes 3 test chains
 	suite.coordinator = ibctesting.NewCoordinator(suite.T(), 1, 2)
-	suite.EvmosChain = suite.coordinator.GetChain(ibcgotesting.GetChainID(1))
+	suite.Reapchain = suite.coordinator.GetChain(ibcgotesting.GetChainID(1))
 	suite.IBCOsmosisChain = suite.coordinator.GetChain(ibcgotesting.GetChainID(2))
 	suite.IBCCosmosChain = suite.coordinator.GetChain(ibcgotesting.GetChainID(3))
-	suite.coordinator.CommitNBlocks(suite.EvmosChain, 2)
+	suite.coordinator.CommitNBlocks(suite.Reapchain, 2)
 	suite.coordinator.CommitNBlocks(suite.IBCOsmosisChain, 2)
 	suite.coordinator.CommitNBlocks(suite.IBCCosmosChain, 2)
 
 	// Mint coins locked on the reapchain account generated with secp.
-	coinEvmos := sdk.NewCoin("aevmos", sdk.NewInt(10000))
-	coins := sdk.NewCoins(coinEvmos)
-	err := suite.EvmosChain.App.(*app.Evmos).BankKeeper.MintCoins(suite.EvmosChain.GetContext(), inflationtypes.ModuleName, coins)
+	coinReap := sdk.NewCoin("areap", sdk.NewInt(10000))
+	coins := sdk.NewCoins(coinReap)
+	err := suite.Reapchain.App.(*app.Reapchain).BankKeeper.MintCoins(suite.Reapchain.GetContext(), inflationtypes.ModuleName, coins)
 	suite.Require().NoError(err)
-	err = suite.EvmosChain.App.(*app.Evmos).BankKeeper.SendCoinsFromModuleToAccount(suite.EvmosChain.GetContext(), inflationtypes.ModuleName, suite.IBCOsmosisChain.SenderAccount.GetAddress(), coins)
+	err = suite.Reapchain.App.(*app.Reapchain).BankKeeper.SendCoinsFromModuleToAccount(suite.Reapchain.GetContext(), inflationtypes.ModuleName, suite.IBCOsmosisChain.SenderAccount.GetAddress(), coins)
 	suite.Require().NoError(err)
 
-	// Mint coins on the osmosis side which we'll use to unlock our aevmos
+	// Mint coins on the osmosis side which we'll use to unlock our areap
 	coinOsmo := sdk.NewCoin("uosmo", sdk.NewInt(10))
 	coins = sdk.NewCoins(coinOsmo)
 	err = suite.IBCOsmosisChain.GetSimApp().BankKeeper.MintCoins(suite.IBCOsmosisChain.GetContext(), minttypes.ModuleName, coins)
@@ -75,7 +75,7 @@ func (suite *IBCTestingSuite) SetupTest() {
 	err = suite.IBCOsmosisChain.GetSimApp().BankKeeper.SendCoinsFromModuleToAccount(suite.IBCOsmosisChain.GetContext(), minttypes.ModuleName, suite.IBCOsmosisChain.SenderAccount.GetAddress(), coins)
 	suite.Require().NoError(err)
 
-	// Mint coins on the cosmos side which we'll use to unlock our aevmos
+	// Mint coins on the cosmos side which we'll use to unlock our areap
 	coinAtom := sdk.NewCoin("uatom", sdk.NewInt(10))
 	coins = sdk.NewCoins(coinAtom)
 	err = suite.IBCCosmosChain.GetSimApp().BankKeeper.MintCoins(suite.IBCCosmosChain.GetContext(), minttypes.ModuleName, coins)
@@ -84,23 +84,23 @@ func (suite *IBCTestingSuite) SetupTest() {
 	suite.Require().NoError(err)
 
 	claimparams := claimtypes.DefaultParams()
-	claimparams.AirdropStartTime = suite.EvmosChain.GetContext().BlockTime()
+	claimparams.AirdropStartTime = suite.Reapchain.GetContext().BlockTime()
 	claimparams.EnableClaims = true
-	suite.EvmosChain.App.(*app.Evmos).ClaimsKeeper.SetParams(suite.EvmosChain.GetContext(), claimparams)
+	suite.Reapchain.App.(*app.Reapchain).ClaimsKeeper.SetParams(suite.Reapchain.GetContext(), claimparams)
 
 	params := types.DefaultParams()
 	params.EnableRecovery = true
-	suite.EvmosChain.App.(*app.Evmos).RecoveryKeeper.SetParams(suite.EvmosChain.GetContext(), params)
+	suite.Reapchain.App.(*app.Reapchain).RecoveryKeeper.SetParams(suite.Reapchain.GetContext(), params)
 
-	suite.pathOsmosisEvmos = ibctesting.NewTransferPath(suite.IBCOsmosisChain, suite.EvmosChain) // clientID, connectionID, channelID empty
-	suite.pathCosmosEvmos = ibctesting.NewTransferPath(suite.IBCCosmosChain, suite.EvmosChain)
+	suite.pathOsmosisReapchain = ibctesting.NewTransferPath(suite.IBCOsmosisChain, suite.Reapchain) // clientID, connectionID, channelID empty
+	suite.pathCosmosReapchain = ibctesting.NewTransferPath(suite.IBCCosmosChain, suite.Reapchain)
 	suite.pathOsmosisCosmos = ibctesting.NewTransferPath(suite.IBCCosmosChain, suite.IBCOsmosisChain)
-	suite.coordinator.Setup(suite.pathOsmosisEvmos) // clientID, connectionID, channelID filled
-	suite.coordinator.Setup(suite.pathCosmosEvmos)
+	suite.coordinator.Setup(suite.pathOsmosisReapchain) // clientID, connectionID, channelID filled
+	suite.coordinator.Setup(suite.pathCosmosReapchain)
 	suite.coordinator.Setup(suite.pathOsmosisCosmos)
-	suite.Require().Equal("07-tendermint-0", suite.pathOsmosisEvmos.EndpointA.ClientID)
-	suite.Require().Equal("connection-0", suite.pathOsmosisEvmos.EndpointA.ConnectionID)
-	suite.Require().Equal("channel-0", suite.pathOsmosisEvmos.EndpointA.ChannelID)
+	suite.Require().Equal("07-tendermint-0", suite.pathOsmosisReapchain.EndpointA.ClientID)
+	suite.Require().Equal("connection-0", suite.pathOsmosisReapchain.EndpointA.ConnectionID)
+	suite.Require().Equal("channel-0", suite.pathOsmosisReapchain.EndpointA.ChannelID)
 }
 
 var (
@@ -121,9 +121,9 @@ var (
 
 	areapchaindenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0",
-		BaseDenom: "aevmos",
+		BaseDenom: "areap",
 	}
-	aevmosIbcdenom = areapchaindenomtrace.IBCDenom()
+	areapIbcdenom = areapchaindenomtrace.IBCDenom()
 
 	uatomOsmoDenomtrace = transfertypes.DenomTrace{
 		Path:      "transfer/channel-0/transfer/channel-1",

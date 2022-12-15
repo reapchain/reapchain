@@ -13,18 +13,18 @@ import (
 )
 
 const (
-	// MainnetChainID defines the Evmos EIP155 chain ID for mainnet
-	MainnetChainID = "evmos_9001"
-	// TestnetChainID defines the Evmos EIP155 chain ID for testnet
-	TestnetChainID = "evmos_9000"
+	// MainnetChainID defines the Reapchain EIP155 chain ID for mainnet
+	MainnetChainID = "mercury_2022-3"
+	// TestnetChainID defines the Reapchain EIP155 chain ID for testnet
+	TestnetChainID = "mercury_2022-3"
 )
 
-// IsMainnet returns true if the chain-id has the Evmos mainnet EIP155 chain prefix.
+// IsMainnet returns true if the chain-id has the Reapchain mainnet EIP155 chain prefix.
 func IsMainnet(chainID string) bool {
 	return strings.HasPrefix(chainID, MainnetChainID)
 }
 
-// IsTestnet returns true if the chain-id has the Evmos testnet EIP155 chain prefix.
+// IsTestnet returns true if the chain-id has the Reapchain testnet EIP155 chain prefix.
 func IsTestnet(chainID string) bool {
 	return strings.HasPrefix(chainID, TestnetChainID)
 }
@@ -57,11 +57,11 @@ func IsSupportedKey(pubkey cryptotypes.PubKey) bool {
 	}
 }
 
-// GetEvmosAddressFromBech32 returns the sdk.Account address of given address,
+// GetReapchainAddressFromBech32 returns the sdk.Account address of given address,
 // while also changing bech32 human readable prefix (HRP) to the value set on
 // the global sdk.Config (eg: `reapchain`).
 // The function fails if the provided bech32 address is invalid.
-func GetEvmosAddressFromBech32(address string) (sdk.AccAddress, error) {
+func GetReapchainAddressFromBech32(address string) (sdk.AccAddress, error) {
 	bech32Prefix := strings.SplitN(address, "1", 2)[0]
 	if bech32Prefix == address {
 		return nil, sdkerrors.Wrapf(sdkerrors.ErrInvalidAddress, "invalid bech32 address: %s", address)

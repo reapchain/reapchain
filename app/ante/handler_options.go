@@ -17,7 +17,7 @@ import (
 	vestingtypes "github.com/reapchain/reapchain/v4/x/vesting/types"
 )
 
-// HandlerOptions defines the list of module keepers required to run the Evmos
+// HandlerOptions defines the list of module keepers required to run the Reapchain
 // AnteHandler decorators.
 type HandlerOptions struct {
 	AccountKeeper   evmtypes.AccountKeeper
