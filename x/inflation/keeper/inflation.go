@@ -27,7 +27,6 @@ func (k Keeper) MintAndAllocateInflation(ctx sdk.Context, coin sdk.Coin) error {
 		return nil
 	}
 
-	fmt.Println("stompesi - currentInflationAmount", currentInflationAmount)
 	fmt.Println("stompesi - maxInflationAmount", maxInflationAmount)
 	
 	if currentInflationAmount.Equal(maxInflationAmount) {
