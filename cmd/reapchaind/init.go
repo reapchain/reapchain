@@ -31,6 +31,12 @@ import (
 	genutilcli "github.com/reapchain/cosmos-sdk/x/genutil/client/cli"
 )
 
+const (
+	// Validator type
+	ValidatorType = "validator-type"
+)
+
+
 type printInfo struct {
 	Moniker    string          `json:"moniker" yaml:"moniker"`
 	ChainID    string          `json:"chain_id" yaml:"chain_id"`
@@ -155,41 +161,61 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			genDoc.Validators = nil
 			genDoc.AppState = appState
 
-			genDoc.Validators = []types.GenesisValidator{{
-				Name:    args[0],
-				Address: corePubKey.Address(),
-				PubKey:  corePubKey,
-				Power:   10,
-				Type:    "standing",
-			}}
+			validatorType, _ := cmd.Flags().GetString(ValidatorType)
+			if validatorType == "standing" {
+				genDoc.Validators = []types.GenesisValidator{{
+					Name:    args[0],
+					Address: corePubKey.Address(),
+					PubKey:  corePubKey,
+					Power:   10,
+					Type:    "standing",
+				}}
 
-			genDoc.StandingMembers = []types.GenesisMember{{
-				Address: corePubKey.Address(),
-				PubKey:  corePubKey,
-				Name:    args[0],
-				Power:   100,
-			}}
+				genDoc.StandingMembers = []types.GenesisMember{{
+					Address: corePubKey.Address(),
+					PubKey:  corePubKey,
+					Name:    args[0],
+					Power:   100,
+				}}
+				genDoc.SteeringMemberCandidates = []types.GenesisMember{}
 
-			qrnValue := tmrand.Uint64()
-			qrn := types.NewQrn(1, corePubKey, qrnValue)
-			qrn.Timestamp = genDoc.GenesisTime
+				qrnValue := tmrand.Uint64()
+				qrn := types.NewQrn(1, corePubKey, qrnValue)
+				qrn.Timestamp = genDoc.GenesisTime
 
-			err = privValidator.SignQrn(qrn)
-			if err != nil {
-				fmt.Println("Can't sign qrn", "err", err)
+				err = privValidator.SignQrn(qrn)
+				if err != nil {
+					fmt.Println("Can't sign qrn", "err", err)
+				}
+
+				if qrn.VerifySign() == false {
+					fmt.Println("Is invalid sign of qrn")
+				}
+
+				genDoc.Qrns = []types.Qrn{*qrn}				
+			} else {
+				genDoc.Validators = []types.GenesisValidator{{
+					Name:    args[0],
+					Address: corePubKey.Address(),
+					PubKey:  corePubKey,
+					Power:   10,
+					Type:    "steering",
+				}}
+
+				genDoc.StandingMembers = []types.GenesisMember{}
+				genDoc.SteeringMemberCandidates = []types.GenesisMember{{
+					Address: corePubKey.Address(),
+					PubKey:  corePubKey,
+					Name:    args[0],
+					Power:   100,
+				}}
+
+				genDoc.Qrns = []types.Qrn{}
 			}
-
-			if qrn.VerifySign() == false {
-				fmt.Println("Is invalid sign of qrn")
-			}
-
-			genDoc.Qrns = []types.Qrn{*qrn}
 
 			if err := genDoc.SaveAs(genFile); err != nil {
 				return err
 			}
-
-			genDoc.SteeringMemberCandidates = []types.GenesisMember{}
 
 			genDoc.Vrfs = []types.Vrf{}
 
@@ -209,6 +235,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 	cmd.Flags().String(cli.HomeFlag, defaultNodeHome, "node's home directory")
 	cmd.Flags().BoolP(genutilcli.FlagOverwrite, "o", false, "overwrite the genesis.json file")
 	cmd.Flags().Bool(genutilcli.FlagRecover, false, "provide seed phrase to recover existing key instead of creating")
+	cmd.Flags().StringP(ValidatorType, "v", "standing", "provide validator type (standing / steering)")
 	cmd.Flags().String(flags.FlagChainID, "", "genesis file chain-id, if left blank will be randomly created")
 
 	return cmd
