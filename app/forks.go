@@ -2,6 +2,7 @@ package app
 
 import (
 	"fmt"
+	v0_8_6 "github.com/reapchain/reapchain/v8/app/upgrades/v0_8_6"
 
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
@@ -18,9 +19,9 @@ import (
 //
 // CONTRACT: for this logic to work properly it is required to:
 //
-//  1. Release a non-breaking patch version so that the chain can set the scheduled upgrade plan at upgrade-height.
-//  2. Release the software defined in the upgrade-info
-func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
+// 	1) Release a non-breaking patch version so that the chain can set the scheduled upgrade plan at upgrade-height.
+// 	2) Release the software defined in the upgrade-info
+func (app *Reapchain) ScheduleForkUpgrade(ctx sdk.Context) {
 	// NOTE: there are no testnet forks for the existing versions
 	if !types.IsMainnet(ctx.ChainID()) {
 		return
@@ -41,6 +42,8 @@ func (app *Evmos) ScheduleForkUpgrade(ctx sdk.Context) {
 	case v7.MainnetUpgradeHeight:
 		upgradePlan.Name = v7.UpgradeName
 		upgradePlan.Info = v7.UpgradeInfo
+	case v0_8_6.MainnetUpgradeHeight:
+		upgradePlan.Name = v0_8_6.UpgradeName
 	default:
 		// No-op
 		return
