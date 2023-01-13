@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/reapchain/reapchain/v4/app/upgrades/v0_8_6"
 	"io"
 	"net/http"
 	"os"
@@ -1020,6 +1021,11 @@ func (app *Reapchain) setupUpgradeHandlers() {
 		),
 	)
 
+	app.UpgradeKeeper.SetUpgradeHandler(
+		v0_8_6.UpgradeName,
+		v0_8_6.CreateUpgradeHandler(app.mm, app.configurator),
+	)
+
 	// When a planned update height is reached, the old binary will panic
 	// writing on disk the height and name of the update that triggered it
 	// This will read that value, and execute the preparations for the upgrade.
@@ -1039,6 +1045,8 @@ func (app *Reapchain) setupUpgradeHandlers() {
 		// no store upgrades in v2
 	case v4.UpgradeName:
 		// no store upgrades in v4
+	case v0_8_6.UpgradeName:
+
 	}
 
 	if storeUpgrades != nil {

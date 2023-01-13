@@ -14,9 +14,9 @@ require (
 	github.com/onsi/gomega v1.19.0
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v0.4.4
-	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v0.2.5
-	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v0.5.5
+	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v0.4.5
+	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v0.2.6
+	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v0.5.6
 	github.com/reapchain/reapchain-core v0.1.12
 	github.com/spf13/cast v1.4.1
 	github.com/spf13/cobra v1.4.0
