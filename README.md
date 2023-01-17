@@ -29,3 +29,20 @@ Also, by giving the PID of an object through the Reap SDK, it is possible to sec
 
 ReapChain is creating a new IoT Blockchain world with technology that has both complete security and transparency.
 
+##  Mainnet
+To join the mainnet, follow [this guide](https://reapchain.gitbook.io/reapchain/).
+* * *
+## Install
+
+See the [install instructions](https://reapchain.gitbook.io/reapchain/).
+* * *
+## Resources
+
+* Dashboard: <https://dashboard.reapchain.org/>
+* * *
+
+## How To Contribute
+
+See the [contributing](./CONTRIBUTING.md).
+
+
