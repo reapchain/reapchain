@@ -38,7 +38,7 @@ To accommodate review process we suggest that PRs are categorically broken up.
 Ideally each PR addresses only a single issue. Additionally, as much as possible
 code refactoring and cleanup should be submitted as a separate PRs. And the feature branch `feature/XXX` should be synced with `develop` regularly.
 
-The following PR structuring checklist can be used when submitting changes to the Gaia repository for review:
+The following PR structuring checklist can be used when submitting changes to the Reapchain repository for review:
 
 - [ ] Proto files: PR updating proto files. As a suggested next step, don't regenerate updated protobuf
   implementations using `protgen`, since this will break existing code.
