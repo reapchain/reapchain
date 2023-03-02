@@ -183,12 +183,12 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 				qrn := types.NewQrn(1, corePubKey, qrnValue)
 				qrn.Timestamp = genDoc.GenesisTime
 
-				err = privValidator.SignQrn(qrn)
+				err = privValidator.SignQrn(chainID, qrn)
 				if err != nil {
 					fmt.Println("Can't sign qrn", "err", err)
 				}
 
-				if qrn.VerifySign() == false {
+				if qrn.VerifySign(chainID) == false {
 					fmt.Println("Is invalid sign of qrn")
 				}
 
