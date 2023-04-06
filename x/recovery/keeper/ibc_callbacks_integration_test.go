@@ -3,15 +3,14 @@ package keeper_test
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	"github.com/evmos/evmos/v8/app"
-	"github.com/evmos/evmos/v8/testutil"
-	claimtypes "github.com/evmos/evmos/v8/x/claims/types"
-	"github.com/evmos/evmos/v8/x/recovery/types"
 	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	"github.com/reapchain/reapchain/v8/app"
+	"github.com/reapchain/reapchain/v8/testutil"
+	claimtypes "github.com/reapchain/reapchain/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/x/recovery/types"
 )
 
 var _ = Describe("Recovery: Performing an IBC Transfer", Ordered, func() {

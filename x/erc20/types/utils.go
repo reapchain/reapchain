@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 )
 
 const (

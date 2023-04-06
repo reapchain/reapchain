@@ -1,11 +1,11 @@
 package erc20
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authkeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authkeeper "github.com/reapchain/cosmos-sdk/x/auth/keeper"
 
-	"github.com/evmos/evmos/v8/x/erc20/keeper"
-	"github.com/evmos/evmos/v8/x/erc20/types"
+	"github.com/reapchain/reapchain/v8/x/erc20/keeper"
+	"github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 // InitGenesis import module genesis

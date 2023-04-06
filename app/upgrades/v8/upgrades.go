@@ -1,9 +1,9 @@
 package v8
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v8

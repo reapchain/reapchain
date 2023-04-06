@@ -4,7 +4,7 @@ package evmos.feesplit.v1;
 import "evmos/feesplit/v1/feesplit.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/evmos/v8/x/feesplit/types";
+option go_package = "github.com/reapchain/reapchain/v8/x/feesplit/types";
 
 // GenesisState defines the module's genesis state.
 message GenesisState {
@@ -21,7 +21,7 @@ message Params {
   // developer_shares defines the proportion of the transaction fees to be
   // distributed to the registered contract owner
   string developer_shares = 2 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Dec",
     (gogoproto.nullable) = false
   ];
   // addr_derivation_cost_create defines the cost of address derivation for

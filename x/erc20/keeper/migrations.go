@@ -1,10 +1,10 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
 
-	v2 "github.com/evmos/evmos/v8/x/erc20/migrations/v2"
+	v2 "github.com/reapchain/reapchain/v8/x/erc20/migrations/v2"
 )
 
 var _ module.MigrationHandler = Migrator{}.Migrate1to2

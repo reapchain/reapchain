@@ -5,7 +5,7 @@ import "cosmos/base/v1beta1/coin.proto";
 import "google/api/annotations.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/evmos/v8/x/vesting/types";
+option go_package = "github.com/reapchain/reapchain/v8/x/vesting/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -27,16 +27,16 @@ message QueryBalancesResponse {
   // current amount of locked tokens
   repeated cosmos.base.v1beta1.Coin locked = 1 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins"
   ];
   // current amount of unvested tokens
   repeated cosmos.base.v1beta1.Coin unvested = 2 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins"
   ];
   // current amount of vested tokens
   repeated cosmos.base.v1beta1.Coin vested = 3 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins"
   ];
 }

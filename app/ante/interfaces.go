@@ -3,9 +3,9 @@ package ante
 import (
 	"math/big"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/params"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 )
 
 // EvmKeeper defines the expected keeper interface used on the AnteHandler

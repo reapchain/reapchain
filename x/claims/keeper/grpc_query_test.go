@@ -3,11 +3,11 @@ package keeper_test
 import (
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v8/testutil"
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/v8/testutil"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestTotalUnclaimed() {

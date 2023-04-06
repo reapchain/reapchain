@@ -1,10 +1,10 @@
 package feesplit
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/x/feesplit/keeper"
-	"github.com/evmos/evmos/v8/x/feesplit/types"
+	"github.com/reapchain/reapchain/v8/x/feesplit/keeper"
+	"github.com/reapchain/reapchain/v8/x/feesplit/types"
 )
 
 // InitGenesis import module genesis

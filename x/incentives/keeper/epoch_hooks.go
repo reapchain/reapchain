@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	epochstypes "github.com/evmos/evmos/v8/x/epochs/types"
+	epochstypes "github.com/reapchain/reapchain/v8/x/epochs/types"
 )
 
 // BeforeEpochStart performs a no-op

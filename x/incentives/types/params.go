@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	epochstypes "github.com/evmos/evmos/v8/x/epochs/types"
+	epochstypes "github.com/reapchain/reapchain/v8/x/epochs/types"
 )
 
 // Parameter store key

@@ -78,11 +78,11 @@ Once all chunks have been applied, Tendermint will call the [`Info` ABCI method]
 
 How snapshots are actually restored is entirely up to the application, but will generally be the inverse of how they are generated. Note, however, that Tendermint only verifies snapshots after all chunks have been restored, and does not reject any P2P peers on its own. As long as the trusted hash and application code are correct, it is not possible for an adversary to cause a state synced node to have incorrect state when joining consensus, but it is up to the application to counteract state sync denial-of-service (eg. by implementing incremental verification, rejecting invalid peers).
 
-Note that state synced nodes will have a truncated block history starting at the height of the restored snapshot, and there is currently no [backfill of all block data](https://github.com/tendermint/tendermint/issues/4629). Networks should consider broader implications of this, and may want to ensure at least a few archive nodes retain a complete block history, for both auditability and backup.
+Note that state synced nodes will have a truncated block history starting at the height of the restored snapshot, and there is currently no [backfill of all block data](https://github.com/reapchain/reapchain-core/issues/4629). Networks should consider broader implications of this, and may want to ensure at least a few archive nodes retain a complete block history, for both auditability and backup.
 
 ## Cosmos SDK State Sync
 
-[Cosmos SDK](https://github.com/cosmos/cosmos-sdk) v0.40+ includes automatic support for state sync, so application developers only need to enable it to take advantage. They will not need to implement the state sync protocol described in the [above section on Tendermint](#tendermint-core-state-sync) themselves.
+[Cosmos SDK](https://github.com/reapchain/cosmos-sdk) v0.40+ includes automatic support for state sync, so application developers only need to enable it to take advantage. They will not need to implement the state sync protocol described in the [above section on Tendermint](#tendermint-core-state-sync) themselves.
 
 ### State Sync Snapshots
 
@@ -200,7 +200,7 @@ wget -O $HOME/genesis.json https://archive.evmos.org/mainnet/genesis.json
 ### Install evmosd
 
 ```bash
-git clone https://github.com/evmos/evmos.git && \ 
+git clone https://github.com/reapchain/reapchain.git && \ 
 cd evmos && \ 
 make install
 ```

@@ -1,11 +1,11 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 
-	"github.com/evmos/evmos/v8/x/erc20/types"
+	"github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 // MintingEnabled checks that:

@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/query"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/query"
 
-	"github.com/evmos/evmos/v8/x/incentives/types"
+	"github.com/reapchain/reapchain/v8/x/incentives/types"
 )
 
 func (suite *KeeperTestSuite) TestIncentives() {

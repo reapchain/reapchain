@@ -3,15 +3,15 @@ package rest
 import (
 	"net/http"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/tx"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/rest"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	govrest "github.com/cosmos/cosmos-sdk/x/gov/client/rest"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/tx"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/rest"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	govrest "github.com/reapchain/cosmos-sdk/x/gov/client/rest"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
 
-	"github.com/evmos/evmos/v8/x/erc20/types"
+	"github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 // RegisterCoinProposalRequest defines a request for a new register coin proposal.

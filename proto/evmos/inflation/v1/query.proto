@@ -6,7 +6,7 @@ import "google/api/annotations.proto";
 import "cosmos/base/v1beta1/coin.proto";
 import "evmos/inflation/v1/genesis.proto";
 
-option go_package = "github.com/evmos/evmos/v8/x/inflation/types";
+option go_package = "github.com/reapchain/reapchain/v8/x/inflation/types";
 
 // Query provides defines the gRPC querier service.
 service Query {
@@ -65,7 +65,7 @@ message QueryEpochMintProvisionResponse {
   // epoch_mint_provision is the current minting per epoch provision value.
   cosmos.base.v1beta1.DecCoin epoch_mint_provision = 1 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
 }
 
@@ -90,7 +90,7 @@ message QueryCirculatingSupplyResponse {
   // total amount of coins in circulation
   cosmos.base.v1beta1.DecCoin circulating_supply = 1 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
 }
 
@@ -103,7 +103,7 @@ message QueryInflationRateRequest {}
 message QueryInflationRateResponse {
   // rate by which the total supply increases within one period
   string inflation_rate = 1 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Dec",
     (gogoproto.nullable) = false
   ];
 }

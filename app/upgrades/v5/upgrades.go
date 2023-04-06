@@ -1,30 +1,30 @@
 package v5
 
 import (
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	"github.com/cosmos/cosmos-sdk/client"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
-	paramskeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
-	slashingkeeper "github.com/cosmos/cosmos-sdk/x/slashing/keeper"
-	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	"github.com/reapchain/cosmos-sdk/client"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	bankkeeper "github.com/reapchain/cosmos-sdk/x/bank/keeper"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	genutiltypes "github.com/reapchain/cosmos-sdk/x/genutil/types"
+	paramskeeper "github.com/reapchain/cosmos-sdk/x/params/keeper"
+	slashingkeeper "github.com/reapchain/cosmos-sdk/x/slashing/keeper"
+	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 
-	ibctransferkeeper "github.com/cosmos/ibc-go/v3/modules/apps/transfer/keeper"
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
+	ibctransferkeeper "github.com/reapchain/ibc-go/v3/modules/apps/transfer/keeper"
+	ibctransfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 
-	feemarketv010types "github.com/evmos/ethermint/x/feemarket/migrations/v010/types"
-	feemarketv011 "github.com/evmos/ethermint/x/feemarket/migrations/v011"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	feemarketv010types "github.com/reapchain/ethermint/x/feemarket/migrations/v010/types"
+	feemarketv011 "github.com/reapchain/ethermint/x/feemarket/migrations/v011"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	"github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/types"
+	claimskeeper "github.com/reapchain/reapchain/v8/x/claims/keeper"
+	claimstypes "github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 // TestnetDenomMetadata defines the metadata for the tEVMOS denom on testnet
@@ -228,7 +228,7 @@ func UpdateConsensusParams(ctx sdk.Context, sk stakingkeeper.Keeper, pk paramske
 
 // UpdateIBCDenomTraces iterates over current traces to check if any of them are incorrectly formed
 // and corrects the trace information.
-// See https://github.com/cosmos/ibc-go/blob/main/docs/migrations/support-denoms-with-slashes.md for context.
+// See https://github.com/reapchain/ibc-go/blob/main/docs/migrations/support-denoms-with-slashes.md for context.
 func UpdateIBCDenomTraces(ctx sdk.Context, transferKeeper ibctransferkeeper.Keeper) {
 	// list of traces that must replace the old traces in store
 	var newTraces []ibctransfertypes.DenomTrace

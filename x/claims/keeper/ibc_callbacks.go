@@ -1,15 +1,15 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
-	"github.com/evmos/evmos/v8/ibc"
-	evmos "github.com/evmos/evmos/v8/types"
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/ibc"
+	evmos "github.com/reapchain/reapchain/v8/types"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 // OnAcknowledgementPacket performs an IBC send callback. Once a user submits an

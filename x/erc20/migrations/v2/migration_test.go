@@ -6,15 +6,15 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/testutil"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	"github.com/reapchain/cosmos-sdk/testutil"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	"github.com/evmos/ethermint/encoding"
+	"github.com/reapchain/ethermint/encoding"
 
-	"github.com/evmos/evmos/v8/app"
-	v2 "github.com/evmos/evmos/v8/x/erc20/migrations/v2"
-	erc20types "github.com/evmos/evmos/v8/x/erc20/types"
+	"github.com/reapchain/reapchain/v8/app"
+	v2 "github.com/reapchain/reapchain/v8/x/erc20/migrations/v2"
+	erc20types "github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 func TestUpdateParams(t *testing.T) {

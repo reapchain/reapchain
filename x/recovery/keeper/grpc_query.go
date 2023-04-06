@@ -3,9 +3,9 @@ package keeper
 import (
 	"context"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/x/recovery/types"
+	"github.com/reapchain/reapchain/v8/x/recovery/types"
 )
 
 var _ types.QueryServer = Keeper{}

@@ -3,18 +3,18 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 	"github.com/stretchr/testify/mock"
 
 	"github.com/ethereum/go-ethereum/common"
 
-	"github.com/evmos/ethermint/tests"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	"github.com/reapchain/ethermint/tests"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v8/x/erc20/keeper"
-	"github.com/evmos/evmos/v8/x/erc20/types"
-	inflationtypes "github.com/evmos/evmos/v8/x/inflation/types"
+	"github.com/reapchain/reapchain/v8/x/erc20/keeper"
+	"github.com/reapchain/reapchain/v8/x/erc20/types"
+	inflationtypes "github.com/reapchain/reapchain/v8/x/inflation/types"
 )
 
 const (

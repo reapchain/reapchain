@@ -5,11 +5,11 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	epochstypes "github.com/evmos/evmos/v8/x/epochs/types"
+	epochstypes "github.com/reapchain/reapchain/v8/x/epochs/types"
 )
 
 type ParamsTestSuite struct {

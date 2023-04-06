@@ -3,14 +3,14 @@ package ibc
 import (
 	"testing"
 
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 	"github.com/stretchr/testify/require"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibctesting "github.com/cosmos/ibc-go/v3/testing"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	ibctesting "github.com/reapchain/ibc-go/v3/testing"
 )
 
 func init() {

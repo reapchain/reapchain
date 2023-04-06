@@ -8,7 +8,7 @@ import "cosmos/base/v1beta1/coin.proto";
 import "evmos/claims/v1/claims.proto";
 import "evmos/claims/v1/genesis.proto";
 
-option go_package = "github.com/evmos/evmos/v8/x/claims/types";
+option go_package = "github.com/reapchain/reapchain/v8/x/claims/types";
 
 // Query defines the gRPC querier service.
 service Query {
@@ -42,7 +42,7 @@ message QueryTotalUnclaimedRequest {}
 message QueryTotalUnclaimedResponse {
   // coins defines the unclaimed coins
   repeated cosmos.base.v1beta1.Coin coins = 1 [
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins",
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins",
     (gogoproto.nullable) = false
   ];
 }
@@ -84,7 +84,7 @@ message QueryClaimsRecordRequest {
 message QueryClaimsRecordResponse {
   // total initial claimable amount for the user
   string initial_claimable_amount = 1 [
-    (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Int",
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
   // the claims of the user

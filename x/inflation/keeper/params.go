@@ -1,9 +1,9 @@
 package keeper
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/x/inflation/types"
+	"github.com/reapchain/reapchain/v8/x/inflation/types"
 )
 
 // GetParams returns the total set of inflation parameters.

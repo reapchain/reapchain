@@ -1,10 +1,10 @@
 package keeper
 
 import (
-	"github.com/cosmos/cosmos-sdk/store/prefix"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/store/prefix"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/x/epochs/types"
+	"github.com/reapchain/reapchain/v8/x/epochs/types"
 )
 
 // GetEpochInfo returns epoch info by identifier

@@ -130,8 +130,8 @@ import (
 
   "google.golang.org/grpc"
 
-    sdk "github.com/cosmos/cosmos-sdk/types"
-  "github.com/cosmos/cosmos-sdk/types/tx"
+    sdk "github.com/reapchain/cosmos-sdk/types"
+  "github.com/reapchain/cosmos-sdk/types/tx"
 )
 
 func queryState() error {
@@ -170,6 +170,6 @@ func GetEvmosAddressFromBech32(address string) (string, error) {...}
 **Note**: The following tools will be useful when using gRPC:
 
 - [Evmos Swagger API](https://api.evmos.dev/): a comprehensive description of all gRPC endpoints
-- [Cosmos SDK Go API](https://pkg.go.dev/github.com/cosmos/cosmos-sdk) & [Evmos Go API](https://pkg.go.dev/github.com/tharsis/evmos): packages to implement queries in Go scripts
+- [Cosmos SDK Go API](https://pkg.go.dev/github.com/reapchain/cosmos-sdk) & [Evmos Go API](https://pkg.go.dev/github.com/tharsis/evmos): packages to implement queries in Go scripts
 
 :::

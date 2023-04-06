@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	banktypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	ethermint "github.com/evmos/ethermint/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
+	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
+	ethermint "github.com/reapchain/ethermint/types"
+	ibctransfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 )
 
 // constants

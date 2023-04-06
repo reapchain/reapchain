@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/reapchain/cosmos-sdk/codec"
 )
 
 // DefaultGenesis returns the default claims module genesis state

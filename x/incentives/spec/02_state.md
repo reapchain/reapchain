@@ -23,7 +23,7 @@ type Incentive struct {
 	// contract address
 	Contract string `protobuf:"bytes,1,opt,name=contract,proto3" json:"contract,omitempty"`
 	// denoms and percentage of rewards to be allocated
-	Allocations github_com_cosmos_cosmos_sdk_types.DecCoins `protobuf:"bytes,2,rep,name=allocations,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.DecCoins" json:"allocations"`
+	Allocations github_com_cosmos_cosmos_sdk_types.DecCoins `protobuf:"bytes,2,rep,name=allocations,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.DecCoins" json:"allocations"`
 	// number of remaining epochs
 	Epochs uint32 `protobuf:"varint,3,opt,name=epochs,proto3" json:"epochs,omitempty"`
 	// distribution start time
@@ -33,7 +33,7 @@ type Incentive struct {
 }
 ```
 
-As long as an incentive has remaining epochs, it distributes rewards according to its allocations. The allocations are stored as `sdk.DecCoins` where each containing [`sdk.DecCoin`](https://github.com/cosmos/cosmos-sdk/blob/master/types/dec_coin.go) describes the percentage of rewards (`Amount`) that are allocated to the contract for a given coin denomination (`Denom`). An incentive can contain several allocations, resulting in users to receive rewards in form of several different denominations.
+As long as an incentive has remaining epochs, it distributes rewards according to its allocations. The allocations are stored as `sdk.DecCoins` where each containing [`sdk.DecCoin`](https://github.com/reapchain/cosmos-sdk/blob/master/types/dec_coin.go) describes the percentage of rewards (`Amount`) that are allocated to the contract for a given coin denomination (`Denom`). An incentive can contain several allocations, resulting in users to receive rewards in form of several different denominations.
 
 ### GasMeter
 

@@ -4,7 +4,7 @@ package evmos.incentives.v1;
 import "gogoproto/gogo.proto";
 import "google/protobuf/timestamp.proto";
 import "cosmos/base/v1beta1/coin.proto";
-option go_package = "github.com/evmos/evmos/v8/x/incentives/types";
+option go_package = "github.com/reapchain/reapchain/v8/x/incentives/types";
 
 // Incentive defines an instance that organizes distribution conditions for a
 // given smart contract
@@ -14,7 +14,7 @@ message Incentive {
   // denoms and percentage of rewards to be allocated
   repeated cosmos.base.v1beta1.DecCoin allocations = 2 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
   // number of remaining epochs
   uint32 epochs = 3;
@@ -46,7 +46,7 @@ message RegisterIncentiveProposal {
   // denoms and percentage of rewards to be allocated
   repeated cosmos.base.v1beta1.DecCoin allocations = 4 [
     (gogoproto.nullable) = false,
-    (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.DecCoins"
+    (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.DecCoins"
   ];
   // number of remaining epochs
   uint32 epochs = 5;

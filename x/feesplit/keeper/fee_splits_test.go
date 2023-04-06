@@ -3,10 +3,10 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v8/x/feesplit/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/v8/x/feesplit/types"
 )
 
 func (suite *KeeperTestSuite) TestGetFees() {

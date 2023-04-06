@@ -132,7 +132,7 @@ Users can query the proposal details with the `evmosd` command-line interface us
 ### Params-Change Proposals
 
 ::: tip
-Changes to the [`gov` module](./overview.md) are different from the other kinds of parameter changes because `gov` has subkeys, [as discussed here](https://github.com/cosmos/cosmos-sdk/issues/5800). Only the `key` part of the JSON file is different for `gov` parameter-change proposals.
+Changes to the [`gov` module](./overview.md) are different from the other kinds of parameter changes because `gov` has subkeys, [as discussed here](https://github.com/reapchain/cosmos-sdk/issues/5800). Only the `key` part of the JSON file is different for `gov` parameter-change proposals.
 :::
 
 For parameter-change proposals, there are seven components:

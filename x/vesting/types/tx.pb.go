@@ -6,8 +6,8 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_x_auth_vesting_types "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
-	types "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	github_com_cosmos_cosmos_sdk_x_auth_vesting_types "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
+	types "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -46,9 +46,9 @@ type MsgCreateClawbackVestingAccount struct {
 	// start_time defines the time at which the vesting period begins
 	StartTime time.Time `protobuf:"bytes,3,opt,name=start_time,json=startTime,proto3,stdtime" json:"start_time"`
 	// lockup_periods defines the unlocking schedule relative to the start_time
-	LockupPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,4,rep,name=lockup_periods,json=lockupPeriods,proto3,castrepeated=github.com/cosmos/cosmos-sdk/x/auth/vesting/types.Periods" json:"lockup_periods"`
+	LockupPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,4,rep,name=lockup_periods,json=lockupPeriods,proto3,castrepeated=github.com/reapchain/cosmos-sdk/x/auth/vesting/types.Periods" json:"lockup_periods"`
 	// vesting_periods defines thevesting schedule relative to the start_time
-	VestingPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,5,rep,name=vesting_periods,json=vestingPeriods,proto3,castrepeated=github.com/cosmos/cosmos-sdk/x/auth/vesting/types.Periods" json:"vesting_periods"`
+	VestingPeriods github_com_cosmos_cosmos_sdk_x_auth_vesting_types.Periods `protobuf:"bytes,5,rep,name=vesting_periods,json=vestingPeriods,proto3,castrepeated=github.com/reapchain/cosmos-sdk/x/auth/vesting/types.Periods" json:"vesting_periods"`
 	// merge specifies a the creation mechanism for existing
 	// ClawbackVestingAccounts. If true, merge this new grant into an existing
 	// ClawbackVestingAccount, or create it if it does not exist. If false,

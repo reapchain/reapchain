@@ -1,6 +1,6 @@
 package types
 
-import sdk "github.com/cosmos/cosmos-sdk/types"
+import sdk "github.com/reapchain/cosmos-sdk/types"
 
 // coinEq returns whether two Coins are equal.
 // The IsEqual() method can panic.

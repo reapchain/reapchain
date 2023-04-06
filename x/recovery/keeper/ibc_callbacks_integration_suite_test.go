@@ -5,23 +5,21 @@ import (
 	"testing"
 
 	. "github.com/onsi/ginkgo/v2"
-	. "github.com/onsi/gomega"
-
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	clienttypes "github.com/cosmos/ibc-go/v3/modules/core/02-client/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	clienttypes "github.com/reapchain/ibc-go/v3/modules/core/02-client/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/v3/testing"
 
-	ibctesting "github.com/evmos/evmos/v8/ibc/testing"
+	ibctesting "github.com/reapchain/reapchain/v8/ibc/testing"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
-	"github.com/evmos/evmos/v8/app"
-	claimtypes "github.com/evmos/evmos/v8/x/claims/types"
-	inflationtypes "github.com/evmos/evmos/v8/x/inflation/types"
-	"github.com/evmos/evmos/v8/x/recovery/types"
+	minttypes "github.com/reapchain/cosmos-sdk/x/mint/types"
+	"github.com/reapchain/reapchain/v8/app"
+	claimtypes "github.com/reapchain/reapchain/v8/x/claims/types"
+	inflationtypes "github.com/reapchain/reapchain/v8/x/inflation/types"
+	"github.com/reapchain/reapchain/v8/x/recovery/types"
 )
 
 type IBCTestingSuite struct {

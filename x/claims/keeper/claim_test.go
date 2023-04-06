@@ -4,20 +4,20 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	distrtypes "github.com/cosmos/cosmos-sdk/x/distribution/types"
-	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/tests"
-	ethermint "github.com/evmos/ethermint/types"
-	"github.com/evmos/evmos/v8/testutil"
-	inflationtypes "github.com/evmos/evmos/v8/x/inflation/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	distrtypes "github.com/reapchain/cosmos-sdk/x/distribution/types"
+	stakingkeeper "github.com/reapchain/cosmos-sdk/x/staking/keeper"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/ethermint/tests"
+	ethermint "github.com/reapchain/ethermint/types"
+	"github.com/reapchain/reapchain/v8/testutil"
+	inflationtypes "github.com/reapchain/reapchain/v8/x/inflation/types"
 
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 func (suite *KeeperTestSuite) TestGetClaimableAmountForAction() {

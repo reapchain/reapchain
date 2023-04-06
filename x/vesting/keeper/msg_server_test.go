@@ -4,14 +4,14 @@ import (
 	"fmt"
 	"time"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
-	sdkvesting "github.com/cosmos/cosmos-sdk/x/auth/vesting/types"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
+	sdkvesting "github.com/reapchain/cosmos-sdk/x/auth/vesting/types"
 
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v8/testutil"
-	"github.com/evmos/evmos/v8/x/vesting/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/v8/testutil"
+	"github.com/reapchain/reapchain/v8/x/vesting/types"
 )
 
 var (

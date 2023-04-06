@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	io "io"
@@ -85,7 +85,7 @@ type Params struct {
 	EnableFeeSplit bool `protobuf:"varint,1,opt,name=enable_fee_split,json=enableFeeSplit,proto3" json:"enable_fee_split,omitempty"`
 	// developer_shares defines the proportion of the transaction fees to be
 	// distributed to the registered contract owner
-	DeveloperShares github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=developer_shares,json=developerShares,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"developer_shares"`
+	DeveloperShares github_com_cosmos_cosmos_sdk_types.Dec `protobuf:"bytes,2,opt,name=developer_shares,json=developerShares,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"developer_shares"`
 	// addr_derivation_cost_create defines the cost of address derivation for
 	// verifying the contract deployer at fee registration
 	AddrDerivationCostCreate uint64 `protobuf:"varint,3,opt,name=addr_derivation_cost_create,json=addrDerivationCostCreate,proto3" json:"addr_derivation_cost_create,omitempty"`

@@ -3,11 +3,11 @@ package keeper
 import (
 	"strconv"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	vestexported "github.com/cosmos/cosmos-sdk/x/auth/vesting/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	vestexported "github.com/reapchain/cosmos-sdk/x/auth/vesting/exported"
 
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 // EndBlocker checks if the airdrop claiming period has ended in order to
@@ -93,7 +93,7 @@ func (k Keeper) ClawbackEmptyAccounts(ctx sdk.Context, claimsDenom string) {
 
 	k.IterateClaimsRecords(ctx, func(addr sdk.AccAddress, _ types.ClaimsRecord) (stop bool) {
 		// NOTE: we cannot delete the record while iterating over it
-		// Ref: https://github.com/cosmos/cosmos-sdk/blob/c2fd51b4c5f41efc56c9aec1f44b4ce9e963dfc3/store/types/store.go#L215-L221
+		// Ref: https://github.com/reapchain/cosmos-sdk/blob/c2fd51b4c5f41efc56c9aec1f44b4ce9e963dfc3/store/types/store.go#L215-L221
 		defer func() {
 			addresses = append(addresses, addr)
 		}()

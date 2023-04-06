@@ -1,15 +1,15 @@
 package v7
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	bankkeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	bankkeeper "github.com/reapchain/cosmos-sdk/x/bank/keeper"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 
-	"github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	inflationkeeper "github.com/evmos/evmos/v8/x/inflation/keeper"
+	"github.com/reapchain/reapchain/v8/types"
+	claimskeeper "github.com/reapchain/reapchain/v8/x/claims/keeper"
+	inflationkeeper "github.com/reapchain/reapchain/v8/x/inflation/keeper"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v7

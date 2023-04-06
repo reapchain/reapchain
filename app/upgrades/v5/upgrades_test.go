@@ -7,25 +7,25 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	"github.com/tendermint/tendermint/crypto/tmhash"
-	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
-	tmversion "github.com/tendermint/tendermint/proto/tendermint/version"
-	"github.com/tendermint/tendermint/version"
+	"github.com/reapchain/reapchain-core/crypto/tmhash"
+	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmversion "github.com/reapchain/reapchain-core/proto/reapchain-core/version"
+	"github.com/reapchain/reapchain-core/version"
 
-	"github.com/cosmos/cosmos-sdk/baseapp"
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/baseapp"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/ethermint/crypto/ethsecp256k1"
-	"github.com/evmos/ethermint/tests"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	"github.com/reapchain/ethermint/crypto/ethsecp256k1"
+	"github.com/reapchain/ethermint/tests"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 
-	ibctransfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
+	ibctransfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
 
-	"github.com/evmos/evmos/v8/app"
-	v5 "github.com/evmos/evmos/v8/app/upgrades/v5"
-	evmostypes "github.com/evmos/evmos/v8/types"
-	claimskeeper "github.com/evmos/evmos/v8/x/claims/keeper"
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/reapchain/v8/app"
+	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
+	evmostypes "github.com/reapchain/reapchain/v8/types"
+	claimskeeper "github.com/reapchain/reapchain/v8/x/claims/keeper"
+	claimstypes "github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 type UpgradeTestSuite struct {

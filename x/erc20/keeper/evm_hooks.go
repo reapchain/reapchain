@@ -5,14 +5,14 @@ import (
 	// nolint: typecheck
 	"math/big"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
-	evmtypes "github.com/evmos/ethermint/x/evm/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 
-	"github.com/evmos/evmos/v8/contracts"
-	"github.com/evmos/evmos/v8/x/erc20/types"
+	"github.com/reapchain/reapchain/v8/contracts"
+	"github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 var _ evmtypes.EvmHooks = Hooks{}

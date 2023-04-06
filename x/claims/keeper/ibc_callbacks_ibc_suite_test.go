@@ -6,17 +6,17 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	transfertypes "github.com/cosmos/ibc-go/v3/modules/apps/transfer/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	ibcgotesting "github.com/cosmos/ibc-go/v3/testing"
+	transfertypes "github.com/reapchain/ibc-go/v3/modules/apps/transfer/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	ibcgotesting "github.com/reapchain/ibc-go/v3/testing"
 
-	"github.com/evmos/ethermint/tests"
-	"github.com/evmos/evmos/v8/app"
-	ibctesting "github.com/evmos/evmos/v8/ibc/testing"
-	"github.com/evmos/evmos/v8/testutil"
-	"github.com/evmos/evmos/v8/x/claims/types"
+	"github.com/reapchain/ethermint/tests"
+	"github.com/reapchain/reapchain/v8/app"
+	ibctesting "github.com/reapchain/reapchain/v8/ibc/testing"
+	"github.com/reapchain/reapchain/v8/testutil"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 type IBCTestingSuite struct {

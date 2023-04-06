@@ -1,11 +1,11 @@
 package v2
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	paramtypes "github.com/cosmos/cosmos-sdk/x/params/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 
-	v1types "github.com/evmos/evmos/v8/x/claims/migrations/v1/types"
-	"github.com/evmos/evmos/v8/x/claims/types"
+	v1types "github.com/reapchain/reapchain/v8/x/claims/migrations/v1/types"
+	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
 // MigrateStore adds the new parameters AuthorizedChannels and EVMChannels

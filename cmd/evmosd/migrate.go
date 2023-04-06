@@ -7,18 +7,18 @@ import (
 
 	"github.com/spf13/cobra"
 
-	tmjson "github.com/tendermint/tendermint/libs/json"
-	tmtypes "github.com/tendermint/tendermint/types"
+	tmjson "github.com/reapchain/reapchain-core/libs/json"
+	tmtypes "github.com/reapchain/reapchain-core/types"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/version"
-	genutiltypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/version"
+	genutiltypes "github.com/reapchain/cosmos-sdk/x/genutil/types"
 
-	v3 "github.com/evmos/evmos/v8/app/upgrades/v3"
-	v5 "github.com/evmos/evmos/v8/app/upgrades/v5"
-	"github.com/evmos/evmos/v8/types"
+	v3 "github.com/reapchain/reapchain/v8/app/upgrades/v3"
+	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
+	"github.com/reapchain/reapchain/v8/types"
 )
 
 // FlagGenesisTime defines the genesis time in string format

@@ -1,6 +1,6 @@
 package types
 
-import sdk "github.com/cosmos/cosmos-sdk/types"
+import sdk "github.com/reapchain/cosmos-sdk/types"
 
 // EpochHooks event hooks for epoch processing
 type EpochHooks interface {

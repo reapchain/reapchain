@@ -1,12 +1,12 @@
 package v2
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/types/module"
-	upgradetypes "github.com/cosmos/cosmos-sdk/x/upgrade/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/cosmos-sdk/types/module"
+	upgradetypes "github.com/reapchain/cosmos-sdk/x/upgrade/types"
 
-	claimstypes "github.com/evmos/evmos/v8/x/claims/types"
-	erc20types "github.com/evmos/evmos/v8/x/erc20/types"
+	claimstypes "github.com/reapchain/reapchain/v8/x/claims/types"
+	erc20types "github.com/reapchain/reapchain/v8/x/erc20/types"
 )
 
 // CreateUpgradeHandler creates an SDK upgrade handler for v2

@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/suite"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/evmos/ethermint/tests"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	"github.com/reapchain/ethermint/tests"
 
 	"github.com/ethereum/go-ethereum/common"
 )

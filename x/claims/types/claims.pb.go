@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	io "io"
@@ -72,7 +72,7 @@ type Claim struct {
 	// true if the action has been completed
 	Completed bool `protobuf:"varint,2,opt,name=completed,proto3" json:"completed,omitempty"`
 	// claimable token amount for the action. Zero if completed
-	ClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,3,opt,name=claimable_amount,json=claimableAmount,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Int" json:"claimable_amount"`
+	ClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,3,opt,name=claimable_amount,json=claimableAmount,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"claimable_amount"`
 }
 
 func (m *Claim) Reset()         { *m = Claim{} }
@@ -128,7 +128,7 @@ type ClaimsRecordAddress struct {
 	// bech32 or hex address of claim user
 	Address string `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
 	// total initial claimable amount for the user
-	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,2,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
+	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,2,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
 	// slice of the available actions completed
 	ActionsCompleted []bool `protobuf:"varint,3,rep,packed,name=actions_completed,json=actionsCompleted,proto3" json:"actions_completed,omitempty"`
 }
@@ -184,7 +184,7 @@ func (m *ClaimsRecordAddress) GetActionsCompleted() []bool {
 // completed actions to claim the tokens.
 type ClaimsRecord struct {
 	// total initial claimable amount for the user
-	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,1,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
+	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,1,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
 	// slice of the available actions completed
 	ActionsCompleted []bool `protobuf:"varint,2,rep,packed,name=actions_completed,json=actionsCompleted,proto3" json:"actions_completed,omitempty"`
 }

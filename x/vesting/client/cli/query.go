@@ -4,11 +4,11 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"
 
-	"github.com/evmos/evmos/v8/x/vesting/types"
+	"github.com/reapchain/reapchain/v8/x/vesting/types"
 )
 
 // GetQueryCmd returns the parent command for all vesting CLI query commands.

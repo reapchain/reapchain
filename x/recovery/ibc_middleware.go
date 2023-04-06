@@ -1,14 +1,14 @@
 package recovery
 
 import (
-	sdk "github.com/cosmos/cosmos-sdk/types"
-	capabilitytypes "github.com/cosmos/cosmos-sdk/x/capability/types"
-	channeltypes "github.com/cosmos/ibc-go/v3/modules/core/04-channel/types"
-	porttypes "github.com/cosmos/ibc-go/v3/modules/core/05-port/types"
-	"github.com/cosmos/ibc-go/v3/modules/core/exported"
+	sdk "github.com/reapchain/cosmos-sdk/types"
+	capabilitytypes "github.com/reapchain/cosmos-sdk/x/capability/types"
+	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"
+	porttypes "github.com/reapchain/ibc-go/v3/modules/core/05-port/types"
+	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
-	"github.com/evmos/evmos/v8/ibc"
-	"github.com/evmos/evmos/v8/x/recovery/keeper"
+	"github.com/reapchain/reapchain/v8/ibc"
+	"github.com/reapchain/reapchain/v8/x/recovery/keeper"
 )
 
 var _ porttypes.Middleware = &IBCMiddleware{}

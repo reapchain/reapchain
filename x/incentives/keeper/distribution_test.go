@@ -3,9 +3,9 @@ package keeper_test
 import (
 	"fmt"
 
-	sdk "github.com/cosmos/cosmos-sdk/types"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 
-	"github.com/evmos/evmos/v8/x/incentives/types"
+	"github.com/reapchain/reapchain/v8/x/incentives/types"
 )
 
 func (suite *KeeperTestSuite) TestDistributeIncentives() {

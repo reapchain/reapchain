@@ -5,7 +5,7 @@ import "cosmos/auth/v1beta1/auth.proto";
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/evmos/ethermint/types";
+option go_package = "github.com/reapchain/ethermint/types";
 
 // EthAccount implements the authtypes.AccountI interface and embeds an
 // authtypes.BaseAccount type. It is compatible with the auth AccountKeeper.
@@ -15,7 +15,7 @@ message EthAccount {
   option (gogoproto.equal) = false;
 
   option (cosmos_proto.implements_interface) =
-      "github.com/cosmos/cosmos-sdk/x/auth/types.AccountI";
+      "github.com/reapchain/cosmos-sdk/x/auth/types.AccountI";
 
   cosmos.auth.v1beta1.BaseAccount base_account = 1 [
     (gogoproto.embed) = true,

@@ -6,9 +6,9 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
-	types "github.com/cosmos/cosmos-sdk/types"
-	query "github.com/cosmos/cosmos-sdk/types/query"
+	github_com_cosmos_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
+	types "github.com/reapchain/cosmos-sdk/types"
+	query "github.com/reapchain/cosmos-sdk/types/query"
 	_ "github.com/gogo/protobuf/gogoproto"
 	grpc1 "github.com/gogo/protobuf/grpc"
 	proto "github.com/gogo/protobuf/proto"
@@ -74,7 +74,7 @@ var xxx_messageInfo_QueryTotalUnclaimedRequest proto.InternalMessageInfo
 // RPC method.
 type QueryTotalUnclaimedResponse struct {
 	// coins defines the unclaimed coins
-	Coins github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=coins,proto3,castrepeated=github.com/cosmos/cosmos-sdk/types.Coins" json:"coins"`
+	Coins github_com_cosmos_cosmos_sdk_types.Coins `protobuf:"bytes,1,rep,name=coins,proto3,castrepeated=github.com/reapchain/cosmos-sdk/types.Coins" json:"coins"`
 }
 
 func (m *QueryTotalUnclaimedResponse) Reset()         { *m = QueryTotalUnclaimedResponse{} }
@@ -354,7 +354,7 @@ func (m *QueryClaimsRecordRequest) GetAddress() string {
 // method.
 type QueryClaimsRecordResponse struct {
 	// total initial claimable amount for the user
-	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,1,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
+	InitialClaimableAmount github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,1,opt,name=initial_claimable_amount,json=initialClaimableAmount,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_claimable_amount"`
 	// the claims of the user
 	Claims []Claim `protobuf:"bytes,2,rep,name=claims,proto3" json:"claims"`
 }

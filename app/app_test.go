@@ -7,14 +7,14 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/cosmos/cosmos-sdk/simapp"
+	"github.com/reapchain/cosmos-sdk/simapp"
 
-	abci "github.com/tendermint/tendermint/abci/types"
-	"github.com/tendermint/tendermint/libs/log"
+	abci "github.com/reapchain/reapchain-core/abci/types"
+	"github.com/reapchain/reapchain-core/libs/log"
 	dbm "github.com/tendermint/tm-db"
 
-	"github.com/evmos/ethermint/encoding"
-	"github.com/evmos/evmos/v8/types"
+	"github.com/reapchain/ethermint/encoding"
+	"github.com/reapchain/reapchain/v8/types"
 )
 
 func TestEvmosExport(t *testing.T) {

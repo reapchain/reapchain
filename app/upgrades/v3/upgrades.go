@@ -1,12 +1,12 @@
 package v3
 
 import (
-	"github.com/cosmos/cosmos-sdk/client"
-	"github.com/cosmos/cosmos-sdk/x/genutil/types"
+	"github.com/reapchain/cosmos-sdk/client"
+	"github.com/reapchain/cosmos-sdk/x/genutil/types"
 
-	feemarketv010 "github.com/evmos/ethermint/x/feemarket/migrations/v010"
-	feemarketv09types "github.com/evmos/ethermint/x/feemarket/migrations/v09/types"
-	feemarkettypes "github.com/evmos/ethermint/x/feemarket/types"
+	feemarketv010 "github.com/reapchain/ethermint/x/feemarket/migrations/v010"
+	feemarketv09types "github.com/reapchain/ethermint/x/feemarket/migrations/v09/types"
+	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
 )
 
 // MigrateGenesis migrates exported state from v2 to v3 genesis state.
