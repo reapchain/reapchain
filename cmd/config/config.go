@@ -2,7 +2,7 @@ package config
 
 import (
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	"github.com/reapchain/mercury/types"
+	"github.com/reapchain/reapchain/v8/types"
 
 	ethermint "github.com/reapchain/ethermint/types"
 )
