@@ -30,9 +30,9 @@ buf push $THIRDPARTYPROTO
 # update the dependencies
 buf mod update $EVMOSPROTO
 
-# then, push the evmos proto module and documentation 
+# then, push the reapchain proto module and documentation
 buf push $EVMOSPROTO
 
 # two commit addresses should be printed to the command line
-# the evmos documentation will have links to the third party documentation
+# the reapchain documentation will have links to the third party documentation
 # third party documentation can be viewed by looking at the previous commit history in the buf repository, as well

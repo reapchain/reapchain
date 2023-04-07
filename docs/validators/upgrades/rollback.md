@@ -28,7 +28,7 @@ mv backup/.evmosd/data ~/.evmosd/data
 3. Next, install the previous version of Evmos.
 
 ```bash
-# from evmos directory
+# from reapchain directory
 git checkout <prev_version>
 make install
 ## verify version

@@ -135,14 +135,14 @@ import (
 )
 
 func queryState() error {
-    myAddress, err := GetEvmosAddressFromBech32("evmos1...") // evmos address with balances of interest.
+    myAddress, err := GetEvmosAddressFromBech32("evmos1...") // reapchain address with balances of interest.
     if err != nil {
         return err
     }
 
     // Create a connection to the gRPC server.
     grpcConn := grpc.Dial(
-        "https://grpc.bd.evmos.org:9090", // your gRPC server address.
+        "https://grpc.bd.reapchain.org:9090", // your gRPC server address.
         grpc.WithInsecure(), // the SDK doesn't support any transport security mechanism.
     )
     defer grpcConn.Close()

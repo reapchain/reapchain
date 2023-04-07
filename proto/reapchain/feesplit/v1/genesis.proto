@@ -1,7 +1,7 @@
 syntax = "proto3";
-package evmos.feesplit.v1;
+package reapchain.feesplit.v1;
 
-import "evmos/feesplit/v1/feesplit.proto";
+import "reapchain/feesplit/v1/feesplit.proto";
 import "gogoproto/gogo.proto";
 
 option go_package = "github.com/reapchain/reapchain/v8/x/feesplit/types";

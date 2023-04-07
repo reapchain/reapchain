@@ -1,5 +1,5 @@
 syntax = "proto3";
-package evmos.incentives.v1;
+package reapchain.incentives.v1;
 import "reapchain/incentives/v1/incentives.proto";
 
 import "gogoproto/gogo.proto";

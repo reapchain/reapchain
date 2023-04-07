@@ -112,7 +112,7 @@ Users can query the proposal details with the `evmosd` command-line interface us
 ```json
 {
   "title": "Grant proposal for Flux Protocol an oracle solution live on Evmos",
-  "description": "proposal: https://gateway.pinata.cloud/ipfs/QmfZknL4KRHvJ6XUDwtyRKANVs44FFmjGuM8YbArqqfWwF discussion: https://commonwealth.im/evmos/discussion/4915-evmos-grant-flux-oracle-solution"
+  "description": "proposal: https://gateway.pinata.cloud/ipfs/QmfZknL4KRHvJ6XUDwtyRKANVs44FFmjGuM8YbArqqfWwF discussion: https://commonwealth.im/reapchain/discussion/4915-reapchain-grant-flux-oracle-solution"
   "recipient": "evmos15dxa2e3lc8zvmryv62x3stt86yhplu2vs9kxct",
   "amount": [
     {
@@ -160,7 +160,7 @@ Users can query the proposal details with the evmosd command-line interface usin
 ```json
 {
   "title": "Increase the minimum deposit for governance proposals",
-  "description": "If successful, this parameter-change governance proposal will change the minimum deposit for future proposals from 10 evmos tokens to 64.",
+  "description": "If successful, this parameter-change governance proposal will change the minimum deposit for future proposals from 10 reapchain tokens to 64.",
   "changes": [
     {
       "subspace": "gov",

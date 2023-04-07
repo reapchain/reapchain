@@ -64,8 +64,8 @@ module.exports = {
     // ['link', { rel: "apple-touch-icon-precomposed", href: "/apple-touch-icon-precomposed.png" }],
   ],
   themeConfig: {
-    repo: "tharsis/evmos",
-    docsRepo: "tharsis/evmos",
+    repo: "tharsis/reapchain",
+    docsRepo: "tharsis/reapchain",
     docsBranch: "main",
     docsDir: "docs",
     editLinks: true,
@@ -91,12 +91,12 @@ module.exports = {
       cosmos_explorer_url: "https://www.mintscan.io/evmos",
     },
     logo: {
-      src: "/evmos-black.svg",
+      src: "/reapchain-black.svg",
     },
     algolia: {
       id: "K3VQTEW3G5",
       key: "bf836a3c934b1d4df091d5c5b69c65d7",
-      index: "evmos",
+      index: "reapchain",
     },
     topbar: {
       banner: false,
@@ -338,9 +338,9 @@ module.exports = {
       },
     },
     footer: {
-      logo: "/evmos-black.svg",
+      logo: "/reapchain-black.svg",
       textLink: {
-        text: "evmos.org",
+        text: "reapchain.org",
         url: "https://evmos.org",
       },
       services: [

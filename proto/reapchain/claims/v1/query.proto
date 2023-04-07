@@ -1,5 +1,5 @@
 syntax = "proto3";
-package evmos.claims.v1;
+package reapchain.claims.v1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";

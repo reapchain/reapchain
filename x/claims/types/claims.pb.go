@@ -68,7 +68,7 @@ func (Action) EnumDescriptor() ([]byte, []int) {
 // for a given user. This is only used during client queries.
 type Claim struct {
 	// action enum
-	Action Action `protobuf:"varint,1,opt,name=action,proto3,enum=evmos.claims.v1.Action" json:"action,omitempty"`
+	Action Action `protobuf:"varint,1,opt,name=action,proto3,enum=reapchain.claims.v1.Action" json:"action,omitempty"`
 	// true if the action has been completed
 	Completed bool `protobuf:"varint,2,opt,name=completed,proto3" json:"completed,omitempty"`
 	// claimable token amount for the action. Zero if completed
@@ -193,7 +193,7 @@ func (m *ClaimsRecord) Reset()         { *m = ClaimsRecord{} }
 func (m *ClaimsRecord) String() string { return proto.CompactTextString(m) }
 func (*ClaimsRecord) ProtoMessage()    {}
 func (*ClaimsRecord) Descriptor() ([]byte, []int) {
-	return fileDescriptor_a7153f2307523893, []int{2}
+	return fileDescriptor_39b2ff2f1e19c4e6, []int{2}
 }
 func (m *ClaimsRecord) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)

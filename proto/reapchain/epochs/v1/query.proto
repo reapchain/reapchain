@@ -1,5 +1,5 @@
 syntax = "proto3";
-package evmos.epochs.v1;
+package reapchain.epochs.v1;
 
 import "gogoproto/gogo.proto";
 import "google/api/annotations.proto";

@@ -201,7 +201,7 @@ wget -O $HOME/genesis.json https://archive.evmos.org/mainnet/genesis.json
 
 ```bash
 git clone https://github.com/reapchain/reapchain.git && \ 
-cd evmos && \ 
+cd reapchain && \ 
 make install
 ```
 

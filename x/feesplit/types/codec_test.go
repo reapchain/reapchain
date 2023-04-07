@@ -25,8 +25,8 @@ func (suite *CodecTestSuite) TestRegisterInterfaces() {
 	impls := registry.ListImplementations(sdk.MsgInterfaceProtoName)
 	suite.Require().Equal(3, len(impls))
 	suite.Require().ElementsMatch([]string{
-		"/evmos.feesplit.v1.MsgRegisterFeeSplit",
-		"/evmos.feesplit.v1.MsgCancelFeeSplit",
-		"/evmos.feesplit.v1.MsgUpdateFeeSplit",
+		"/reapchain.feesplit.v1.MsgRegisterFeeSplit",
+		"/reapchain.feesplit.v1.MsgCancelFeeSplit",
+		"/reapchain.feesplit.v1.MsgUpdateFeeSplit",
 	}, impls)
 }
