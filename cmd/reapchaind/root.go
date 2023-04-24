@@ -3,13 +3,11 @@ package main
 import (
 	"errors"
 	"fmt"
+	"github.com/reapchain/cosmos-sdk/simapp/params"
+	"github.com/reapchain/cosmos-sdk/snapshots"
 	"io"
 	"os"
 	"path/filepath"
-	"time"
-
-	"github.com/reapchain/cosmos-sdk/simapp/params"
-	"github.com/reapchain/cosmos-sdk/snapshots"
 
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
@@ -102,7 +100,9 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 
 			// TODO: remove the lines below once Cosmos SDK v0.46 is released
 			serverCtx := sdkserver.GetServerContextFromCmd(cmd)
-			serverCtx.Config.Consensus.TimeoutCommit = time.Second
+
+			// TEMPORARY FIX: remove the line that overwrites custom Consensus Tiemout Commit to One Second
+			//serverCtx.Config.Consensus.TimeoutCommit = time.Second
 
 			return sdkserver.SetCmdServerContext(cmd, serverCtx)
 		},

@@ -11,7 +11,7 @@ import (
 	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 	banktypes "github.com/reapchain/cosmos-sdk/x/bank/types"
 
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/podc/types"
 	tmtypes "github.com/reapchain/reapchain-core/types"
 
 	channeltypes "github.com/reapchain/ibc-go/v3/modules/core/04-channel/types"

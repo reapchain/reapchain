@@ -5,7 +5,7 @@ import (
 	"time"
 
 	feemarkettypes "github.com/reapchain/ethermint/x/feemarket/types"
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/podc/types"
 	"github.com/stretchr/testify/require"
 
 	simapp "github.com/reapchain/reapchain/v8/app"

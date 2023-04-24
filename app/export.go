@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	tmproto "github.com/reapchain/reapchain-core/proto/reapchain-core/types"
+	tmproto "github.com/reapchain/reapchain-core/proto/podc/types"
 
 	servertypes "github.com/reapchain/cosmos-sdk/server/types"
 	"github.com/reapchain/cosmos-sdk/simapp"
