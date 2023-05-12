@@ -26,6 +26,7 @@ require (
 	google.golang.org/genproto v0.0.0-20221207170731-23e4bf6bdc37
 	google.golang.org/grpc v1.51.0
 	google.golang.org/protobuf v1.28.1
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -149,7 +150,6 @@ require (
 	gopkg.in/ini.v1 v1.66.4 // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
 	gopkg.in/olebedev/go-duktape.v3 v3.0.0-20200619000410-60c24ae608a6 // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	nhooyr.io/websocket v1.8.7 // indirect
 )
@@ -157,5 +157,9 @@ require (
 replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.1.7-0.20210622111912-ef00f8ac3d76
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
+	github.com/reapchain/cosmos-sdk v0.45.4-reap.sdk.v0.4.5 => ../cosmos-sdk
+	github.com/reapchain/ethermint v0.15.0-reap.ethermint.v0.2.6 => ../ethermint
+	github.com/reapchain/ibc-go/v3 v3.0.0-reap.ibc.v0.5.6 => ../ibc-go
+	github.com/reapchain/reapchain-core v0.1.12 => ../reapchain-core
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )

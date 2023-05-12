@@ -135,6 +135,9 @@ import (
 	"github.com/reapchain/reapchain/v4/x/vesting"
 	vestingkeeper "github.com/reapchain/reapchain/v4/x/vesting/keeper"
 	vestingtypes "github.com/reapchain/reapchain/v4/x/vesting/types"
+	witnessmodule "github.com/reapchain/reapchain/v4/x/witness"
+	witnessmodulekeeper "github.com/reapchain/reapchain/v4/x/witness/keeper"
+	witnessmoduletypes "github.com/reapchain/reapchain/v4/x/witness/types"
 )
 
 func init() {
@@ -191,6 +194,7 @@ var (
 		epochs.AppModuleBasic{},
 		claims.AppModuleBasic{},
 		recovery.AppModuleBasic{},
+		witnessmodule.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -272,6 +276,7 @@ type Reapchain struct {
 	EpochsKeeper     epochskeeper.Keeper
 	VestingKeeper    vestingkeeper.Keeper
 	RecoveryKeeper   *recoverykeeper.Keeper
+	WitnessKeeper witnessmodulekeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -328,6 +333,7 @@ func NewReapchain(
 		// reapchain keys
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
+		witnessmoduletypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -523,6 +529,14 @@ func NewReapchain(
 	transferStack = claims.NewIBCMiddleware(*app.ClaimsKeeper, transferStack)
 	transferStack = recovery.NewIBCMiddleware(*app.RecoveryKeeper, transferStack)
 
+	app.WitnessKeeper = *witnessmodulekeeper.NewKeeper(
+		appCodec,
+		keys[witnessmoduletypes.StoreKey],
+		keys[witnessmoduletypes.MemStoreKey],
+		app.GetSubspace(witnessmoduletypes.ModuleName),
+	)
+	witnessModule := witnessmodule.NewAppModule(appCodec, app.WitnessKeeper, app.AccountKeeper, app.BankKeeper)
+
 	// Create static IBC router, add transfer route, then set and seal it
 	ibcRouter := porttypes.NewRouter()
 	ibcRouter.AddRoute(ibctransfertypes.ModuleName, transferStack)
@@ -577,6 +591,7 @@ func NewReapchain(
 		claims.NewAppModule(appCodec, *app.ClaimsKeeper),
 		vesting.NewAppModule(app.VestingKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
 		recovery.NewAppModule(*app.RecoveryKeeper),
+		witnessModule,
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -613,6 +628,7 @@ func NewReapchain(
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
+		witnessmoduletypes.ModuleName,
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -645,6 +661,7 @@ func NewReapchain(
 		erc20types.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
+		witnessmoduletypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -682,6 +699,7 @@ func NewReapchain(
 		recoverytypes.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
 		crisistypes.ModuleName,
+		witnessmoduletypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -714,6 +732,7 @@ func NewReapchain(
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		epochs.NewAppModule(appCodec, app.EpochsKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
+		witnessModule,
 	)
 
 	app.sm.RegisterStoreDecoders()
@@ -1000,6 +1019,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(claimstypes.ModuleName)
 	paramsKeeper.Subspace(incentivestypes.ModuleName)
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
+	paramsKeeper.Subspace(witnessmoduletypes.ModuleName)
 	return paramsKeeper
 }
 
