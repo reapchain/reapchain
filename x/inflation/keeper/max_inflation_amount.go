@@ -7,19 +7,14 @@ import (
 
 // GetMaxInflationAmount gets current maxInflationAmount
 func (k Keeper) GetMaxInflationAmount(ctx sdk.Context) string {
-	store := ctx.KVStore(k.storeKey)
-	bz := store.Get(types.KeyPrefixMaxInflationAmount)
-	if len(bz) == 0 {
-		return ""
-	}
-
-	return string(bz)
+	params := k.GetParams(ctx)
+	return params.MaxInflationAmount
 }
 
 // SetMaxInflationAmount stores the current maxInflationAmount
 func (k Keeper) SetMaxInflationAmount(ctx sdk.Context, maxInflationAmount string) {
 	store := ctx.KVStore(k.storeKey)
-	store.Set(types.KeyPrefixMaxInflationAmount, []byte(maxInflationAmount))
+	store.Set(types.ParamStoreKeyMaxInflationAmount, []byte(maxInflationAmount))
 }
 
 // GetCurrKeyPrefixCurrentInflation gets current inflations

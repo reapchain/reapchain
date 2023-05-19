@@ -19,10 +19,8 @@ message GenesisState {
   int64 epochs_per_period = 4;
   // number of epochs that have passed while inflation is disabled
   uint64 skipped_epochs = 5;
-  // number of max inflation amount
-  string max_inflation_amount = 6;
   // init of current supplied inflation amount
-  string current_inflation_amount = 7;
+  string current_inflation_amount = 6;
 }
 
 // Params holds parameters for the inflation module.
@@ -37,4 +35,6 @@ message Params {
     [ (gogoproto.nullable) = false ];
   // parameter to enable inflation and halt increasing the skipped_epochs
   bool enable_inflation = 4;
+
+  string max_inflation_amount = 5;
 }
