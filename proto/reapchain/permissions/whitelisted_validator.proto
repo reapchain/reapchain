@@ -1,0 +1,10 @@
+syntax = "proto3";
+package reapchain.permissions.v1;
+
+option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
+
+message WhitelistedValidator {
+  string validatorAddress = 1;
+  string accountAddress = 2;
+  string moniker = 3;
+}

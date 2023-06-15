@@ -1,0 +1,43 @@
+syntax = "proto3";
+package reapchain.permissions.v1;
+
+import "gogoproto/gogo.proto";
+import "google/api/annotations.proto";
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "permissions/params.proto";
+import "permissions/whitelisted_validator.proto";
+
+// this line is used by starport scaffolding # 1
+
+option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
+
+// Query defines the gRPC querier service.
+service Query {
+  // Parameters queries the parameters of the module.
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/reapchain/v8/permissions/params";
+  }
+
+  // Queries a list of WhitelistedValidator items.
+  rpc GetAllWhiteListedValidators(QueryAllWhitelistedValidatorsRequest) returns (QueryAllWhitelistedValidatorsResponse) {
+    option (google.api.http).get = "/reapchain/v8/test/whitelisted_validators";
+  }
+}
+
+// QueryParamsRequest is request type for the Query/Params RPC method.
+message QueryParamsRequest {}
+
+// QueryParamsResponse is response type for the Query/Params RPC method.
+message QueryParamsResponse {
+  // params holds all the parameters of this module.
+  Params params = 1 [(gogoproto.nullable) = false];
+}
+
+message QueryAllWhitelistedValidatorsResponse {
+  repeated WhitelistedValidator WhitelistedValidators = 1 [(gogoproto.nullable) = false];
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+message QueryAllWhitelistedValidatorsRequest {
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+

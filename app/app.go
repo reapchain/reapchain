@@ -141,6 +141,12 @@ import (
 	"github.com/reapchain/reapchain/v8/x/vesting"
 	vestingkeeper "github.com/reapchain/reapchain/v8/x/vesting/keeper"
 	vestingtypes "github.com/reapchain/reapchain/v8/x/vesting/types"
+
+	permissionsmoduleclient "github.com/reapchain/reapchain/v8/x/permissions/client"
+
+	permissionsmodule "github.com/reapchain/reapchain/v8/x/permissions"
+	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
+	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
 )
 
 func init() {
@@ -181,6 +187,8 @@ var (
 			// Evmos proposal types
 			erc20client.RegisterCoinProposalHandler, erc20client.RegisterERC20ProposalHandler, erc20client.ToggleTokenConversionProposalHandler,
 			incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
+			// Reapchain Proposal Types
+			permissionsmoduleclient.RegisterStandingMemberProposal, permissionsmoduleclient.RemoveStandingMemberProposal, permissionsmoduleclient.ReplaceStandingMemberProposal,
 		),
 		params.AppModuleBasic{},
 		crisis.AppModuleBasic{},
@@ -201,21 +209,23 @@ var (
 		claims.AppModuleBasic{},
 		recovery.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
+		permissionsmodule.AppModuleBasic{},
 	)
 
 	// module account permissions
 	maccPerms = map[string][]string{
-		authtypes.FeeCollectorName:     nil,
-		distrtypes.ModuleName:          nil,
-		stakingtypes.BondedPoolName:    {authtypes.Burner, authtypes.Staking},
-		stakingtypes.NotBondedPoolName: {authtypes.Burner, authtypes.Staking},
-		govtypes.ModuleName:            {authtypes.Burner},
-		ibctransfertypes.ModuleName:    {authtypes.Minter, authtypes.Burner},
-		evmtypes.ModuleName:            {authtypes.Minter, authtypes.Burner}, // used for secure addition and subtraction of balance using module account
-		inflationtypes.ModuleName:      {authtypes.Minter},
-		erc20types.ModuleName:          {authtypes.Minter, authtypes.Burner},
-		claimstypes.ModuleName:         nil,
-		incentivestypes.ModuleName:     {authtypes.Minter, authtypes.Burner},
+		authtypes.FeeCollectorName:        nil,
+		distrtypes.ModuleName:             nil,
+		stakingtypes.BondedPoolName:       {authtypes.Burner, authtypes.Staking},
+		stakingtypes.NotBondedPoolName:    {authtypes.Burner, authtypes.Staking},
+		govtypes.ModuleName:               {authtypes.Burner},
+		ibctransfertypes.ModuleName:       {authtypes.Minter, authtypes.Burner},
+		evmtypes.ModuleName:               {authtypes.Minter, authtypes.Burner}, // used for secure addition and subtraction of balance using module account
+		inflationtypes.ModuleName:         {authtypes.Minter},
+		erc20types.ModuleName:             {authtypes.Minter, authtypes.Burner},
+		claimstypes.ModuleName:            nil,
+		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
+		permissionsmoduletypes.ModuleName: nil,
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -275,14 +285,15 @@ type Reapchain struct {
 	FeeMarketKeeper feemarketkeeper.Keeper
 
 	// Reapchain keepers
-	InflationKeeper  inflationkeeper.Keeper
-	ClaimsKeeper     *claimskeeper.Keeper
-	Erc20Keeper      erc20keeper.Keeper
-	IncentivesKeeper incentiveskeeper.Keeper
-	EpochsKeeper     epochskeeper.Keeper
-	VestingKeeper    vestingkeeper.Keeper
-	RecoveryKeeper   *recoverykeeper.Keeper
-	FeesplitKeeper   feesplitkeeper.Keeper
+	InflationKeeper   inflationkeeper.Keeper
+	ClaimsKeeper      *claimskeeper.Keeper
+	Erc20Keeper       erc20keeper.Keeper
+	IncentivesKeeper  incentiveskeeper.Keeper
+	EpochsKeeper      epochskeeper.Keeper
+	VestingKeeper     vestingkeeper.Keeper
+	RecoveryKeeper    *recoverykeeper.Keeper
+	FeesplitKeeper    feesplitkeeper.Keeper
+	PermissionsKeeper permissionsmodulekeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -340,6 +351,7 @@ func NewReapchain(
 		inflationtypes.StoreKey, erc20types.StoreKey, incentivestypes.StoreKey,
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		feesplittypes.StoreKey,
+		permissionsmoduletypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -379,6 +391,15 @@ func NewReapchain(
 	app.BankKeeper = bankkeeper.NewBaseKeeper(
 		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), app.BlockedAddrs(),
 	)
+
+	app.PermissionsKeeper = *permissionsmodulekeeper.NewKeeper(
+		appCodec,
+		keys[permissionsmoduletypes.StoreKey],
+		keys[permissionsmoduletypes.MemStoreKey],
+		app.GetSubspace(permissionsmoduletypes.ModuleName),
+		app.StakingKeeper,
+	)
+
 	stakingKeeper := stakingkeeper.NewKeeper(
 		appCodec, keys[stakingtypes.StoreKey], app.AccountKeeper, app.BankKeeper, app.GetSubspace(stakingtypes.ModuleName),
 	)
@@ -423,7 +444,8 @@ func NewReapchain(
 		AddRoute(upgradetypes.RouterKey, upgrade.NewSoftwareUpgradeProposalHandler(app.UpgradeKeeper)).
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.IBCKeeper.ClientKeeper)).
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
-		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper))
+		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
+		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
@@ -596,6 +618,9 @@ func NewReapchain(
 		vesting.NewAppModule(app.VestingKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
 		recovery.NewAppModule(*app.RecoveryKeeper),
 		feesplit.NewAppModule(app.FeesplitKeeper, app.AccountKeeper),
+
+		// Reapchain app modules
+		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -633,6 +658,7 @@ func NewReapchain(
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
+		permissionsmoduletypes.ModuleName,
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -640,6 +666,7 @@ func NewReapchain(
 		crisistypes.ModuleName,
 		govtypes.ModuleName,
 		stakingtypes.ModuleName,
+
 		evmtypes.ModuleName,
 		feemarkettypes.ModuleName,
 		// Note: epochs' endblock should be "real" end of epochs, we keep epochs endblock at the end
@@ -666,6 +693,7 @@ func NewReapchain(
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
+		permissionsmoduletypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -708,6 +736,7 @@ func NewReapchain(
 		feesplittypes.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
 		crisistypes.ModuleName,
+		permissionsmoduletypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -740,6 +769,7 @@ func NewReapchain(
 		evm.NewAppModule(app.EvmKeeper, app.AccountKeeper),
 		epochs.NewAppModule(appCodec, app.EpochsKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
+		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
 	)
 
 	app.sm.RegisterStoreDecoders()
@@ -755,17 +785,19 @@ func NewReapchain(
 
 	maxGasWanted := cast.ToUint64(appOpts.Get(srvflags.EVMMaxTxGasWanted))
 	options := ante.HandlerOptions{
-		AccountKeeper:   app.AccountKeeper,
-		BankKeeper:      app.BankKeeper,
-		EvmKeeper:       app.EvmKeeper,
-		StakingKeeper:   app.StakingKeeper,
-		FeegrantKeeper:  app.FeeGrantKeeper,
-		IBCKeeper:       app.IBCKeeper,
-		FeeMarketKeeper: app.FeeMarketKeeper,
-		SignModeHandler: encodingConfig.TxConfig.SignModeHandler(),
-		SigGasConsumer:  SigVerificationGasConsumer,
-		Cdc:             appCodec,
-		MaxTxGasWanted:  maxGasWanted,
+		GovKeeper:         app.GovKeeper,
+		PermissionsKeeper: app.PermissionsKeeper,
+		AccountKeeper:     app.AccountKeeper,
+		BankKeeper:        app.BankKeeper,
+		EvmKeeper:         app.EvmKeeper,
+		StakingKeeper:     app.StakingKeeper,
+		FeegrantKeeper:    app.FeeGrantKeeper,
+		IBCKeeper:         app.IBCKeeper,
+		FeeMarketKeeper:   app.FeeMarketKeeper,
+		SignModeHandler:   encodingConfig.TxConfig.SignModeHandler(),
+		SigGasConsumer:    SigVerificationGasConsumer,
+		Cdc:               appCodec,
+		MaxTxGasWanted:    maxGasWanted,
 	}
 
 	if err := options.Validate(); err != nil {
@@ -1027,6 +1059,8 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(incentivestypes.ModuleName)
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
 	paramsKeeper.Subspace(feesplittypes.ModuleName)
+	paramsKeeper.Subspace(permissionsmoduletypes.ModuleName)
+
 	return paramsKeeper
 }
 
