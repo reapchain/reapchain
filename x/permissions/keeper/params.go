@@ -8,6 +8,7 @@ import (
 // GetParams get all parameters as types.Params
 func (k Keeper) GetParams(ctx sdk.Context) types.Params {
 	return types.NewParams(
+		k.WhitelistEnabled(ctx),
 		k.ForcedUnbondingTime(ctx),
 		k.GovernanceMinimumInitialDepositEnabled(ctx),
 		k.GovernanceMinimumInitialDepositPercentage(ctx),
@@ -17,6 +18,12 @@ func (k Keeper) GetParams(ctx sdk.Context) types.Params {
 // SetParams set the params
 func (k Keeper) SetParams(ctx sdk.Context, params types.Params) {
 	k.paramstore.SetParamSet(ctx, &params)
+}
+
+// ForcedUnbondingTime returns the ForcedUnbondingTime param
+func (k Keeper) WhitelistEnabled(ctx sdk.Context) (res bool) {
+	k.paramstore.Get(ctx, types.KeyWhitelistEnabled, &res)
+	return
 }
 
 // ForcedUnbondingTime returns the ForcedUnbondingTime param

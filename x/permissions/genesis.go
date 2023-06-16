@@ -13,28 +13,33 @@ import (
 func InitGenesis(ctx sdk.Context, k keeper.Keeper, sk types.StakingKeeper, genState types.GenesisState) {
 	// this line is used by starport scaffolding # genesis/module/init
 	k.SetParams(ctx, genState.Params)
-	validators := sk.GetAllValidators(ctx)
-	for _, validator := range validators {
+	isWhitelistEnabled := k.GetParams(ctx).WhitelistEnabled
 
-		if validator.Type == "standing" {
-			fmt.Println("\n\n---------------------------------------------------------------------")
-			fmt.Println("PERMISSIONS MODULE - InitGenesis", time.Now().Format(time.RFC822))
-			fmt.Println("ADDRESS: ", validator.OperatorAddress)
-			fmt.Println("VALIDATOR TYPE: ", validator.Type)
+	if isWhitelistEnabled {
+		validators := sk.GetAllValidators(ctx)
+		for _, validator := range validators {
 
-			validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
-			accountAddress := sdk.AccAddress(validatorAddress).String()
+			if validator.Type == "standing" {
+				fmt.Println("\n\n---------------------------------------------------------------------")
+				fmt.Println("PERMISSIONS MODULE - InitGenesis", time.Now().Format(time.RFC822))
+				fmt.Println("ADDRESS: ", validator.OperatorAddress)
+				fmt.Println("VALIDATOR TYPE: ", validator.Type)
 
-			var whiteListedValidator = types.WhitelistedValidator{
-				ValidatorAddress: validator.OperatorAddress,
-				Moniker:          validator.GetMoniker(),
-				AccountAddress:   accountAddress,
+				validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
+				accountAddress := sdk.AccAddress(validatorAddress).String()
+
+				var whiteListedValidator = types.WhitelistedValidator{
+					ValidatorAddress: validator.OperatorAddress,
+					Moniker:          validator.GetMoniker(),
+					AccountAddress:   accountAddress,
+				}
+				_ = k.AppendWhitelistedValidator(
+					ctx,
+					whiteListedValidator,
+				)
 			}
-			_ = k.AppendWhitelistedValidator(
-				ctx,
-				whiteListedValidator,
-			)
 		}
+
 	}
 
 }

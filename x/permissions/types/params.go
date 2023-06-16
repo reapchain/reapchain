@@ -12,17 +12,16 @@ import (
 var _ paramtypes.ParamSet = (*Params)(nil)
 
 var (
-	KeyForcedUnbondingTime            = []byte("ForcedUnbondingTime")
-	DefaultForcedUnbondingTime string = "4h"
+	KeyWhitelistEnabled                          = []byte("WhitelistEnabled")
+	KeyForcedUnbondingTime                       = []byte("ForcedUnbondingTime")
+	KeyGovernanceMinimumInitialDepositEnabled    = []byte("GovernanceMinimumInitialDepositEnabled")
+	KeyGovernanceMinimumInitialDepositPercentage = []byte("GovernanceMinimumInitialDepositPercentage")
 )
 
 var (
-	KeyGovernanceMinimumInitialDepositEnabled          = []byte("GovernanceMinimumInitialDepositEnabled")
-	DefaultGovernanceMinimumInitialDepositEnabled bool = true
-)
-
-var (
-	KeyGovernanceMinimumInitialDepositPercentage             = []byte("GovernanceMinimumInitialDepositPercentage")
+	DefaultWhitelistEnabled                                  = true
+	DefaultForcedUnbondingTime                       string  = "4h"
+	DefaultGovernanceMinimumInitialDepositEnabled    bool    = true
 	DefaultGovernanceMinimumInitialDepositPercentage sdk.Dec = sdk.NewDec(1).Quo(sdk.NewDec(20))
 )
 
@@ -33,20 +32,23 @@ func ParamKeyTable() paramtypes.KeyTable {
 
 // NewParams creates a new Params instance
 func NewParams(
+	whitelistEnabled bool,
 	forcedUnbondingTime string,
 	governanceMinimumInitialDepositEnabled bool,
 	governanceMinimumInitialDepositPercentage sdk.Dec,
 ) Params {
 	return Params{
+		WhitelistEnabled:                          whitelistEnabled,
 		ForcedUnbondingTime:                       forcedUnbondingTime,
 		GovernanceMinimumInitialDepositEnabled:    governanceMinimumInitialDepositEnabled,
-		GovernanceMinimumInitialDepositPercentage: &governanceMinimumInitialDepositPercentage,
+		GovernanceMinimumInitialDepositPercentage: governanceMinimumInitialDepositPercentage,
 	}
 }
 
 // DefaultParams returns a default set of parameters
 func DefaultParams() Params {
 	return NewParams(
+		DefaultWhitelistEnabled,
 		DefaultForcedUnbondingTime,
 		DefaultGovernanceMinimumInitialDepositEnabled,
 		DefaultGovernanceMinimumInitialDepositPercentage,
@@ -56,6 +58,7 @@ func DefaultParams() Params {
 // ParamSetPairs get the params.ParamSet
 func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 	return paramtypes.ParamSetPairs{
+		paramtypes.NewParamSetPair(KeyWhitelistEnabled, &p.WhitelistEnabled, validateWhitelistEnabled),
 		paramtypes.NewParamSetPair(KeyForcedUnbondingTime, &p.ForcedUnbondingTime, validateForcedUnbondingTime),
 		paramtypes.NewParamSetPair(KeyGovernanceMinimumInitialDepositEnabled, &p.GovernanceMinimumInitialDepositEnabled, validateGovernanceMinimumInitialDepositEnabled),
 		paramtypes.NewParamSetPair(KeyGovernanceMinimumInitialDepositPercentage, &p.GovernanceMinimumInitialDepositPercentage, validateGovernanceMinimumInitialDepositPercentage),
@@ -64,6 +67,10 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 
 // Validate validates the set of params
 func (p Params) Validate() error {
+	if err := validateWhitelistEnabled(p.WhitelistEnabled); err != nil {
+		return err
+	}
+
 	if err := validateForcedUnbondingTime(p.ForcedUnbondingTime); err != nil {
 		return err
 	}
@@ -84,6 +91,14 @@ func (p Params) String() string {
 	out, _ := yaml.Marshal(p)
 	return string(out)
 }
+func validateWhitelistEnabled(v interface{}) error {
+	_, ok := v.(bool)
+	if !ok {
+		return fmt.Errorf("invalid parameter type: %T", v)
+	}
+
+	return nil
+}
 
 // validateForcedUnbondingTime validates the ForcedUnbondingTime param
 func validateForcedUnbondingTime(v interface{}) error {
@@ -102,20 +117,18 @@ func validateForcedUnbondingTime(v interface{}) error {
 
 // validateGovernanceMinimumInitialDepositEnabled validates the GovernanceMinimumInitialDepositEnabled param
 func validateGovernanceMinimumInitialDepositEnabled(v interface{}) error {
-	governanceMinimumInitialDepositEnabled, ok := v.(bool)
+	_, ok := v.(bool)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}
-
-	// TODO implement validation
-	_ = governanceMinimumInitialDepositEnabled
 
 	return nil
 }
 
 // validateGovernanceMinimumInitialDepositPercentage validates the GovernanceMinimumInitialDepositPercentage param
 func validateGovernanceMinimumInitialDepositPercentage(v interface{}) error {
-	governanceMinimumInitialDepositPercentage, ok := v.(*sdk.Dec)
+
+	governanceMinimumInitialDepositPercentage, ok := v.(sdk.Dec)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}

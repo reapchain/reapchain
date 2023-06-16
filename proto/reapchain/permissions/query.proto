@@ -15,12 +15,12 @@ option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
 service Query {
   // Parameters queries the parameters of the module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/reapchain/v8/permissions/params";
+    option (google.api.http).get = "/reapchain/permissions/v1/params";
   }
 
   // Queries a list of WhitelistedValidator items.
   rpc GetAllWhiteListedValidators(QueryAllWhitelistedValidatorsRequest) returns (QueryAllWhitelistedValidatorsResponse) {
-    option (google.api.http).get = "/reapchain/v8/test/whitelisted_validators";
+    option (google.api.http).get = "/reapchain/permissions/v1/whitelisted_validators";
   }
 }
 
