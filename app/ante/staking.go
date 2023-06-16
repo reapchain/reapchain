@@ -75,43 +75,45 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 	if !ok {
 		return nil
 	}
-	whitelistedValidatorList, err := sd.pk.GetWhitelistedValidatorList(sdk.WrapSDKContext(ctx))
-	if err != nil {
-		return err
-	}
-
-	if whitelistedValidatorList != nil {
-		//White List only applies to Standing Member Creation
-		if createValidatorMsg.ValidatorType != "standing" {
-			return nil
-		} else {
-			validatorAddress := createValidatorMsg.ValidatorAddress
-
-			var isApprovedAddress = false
-			for _, whitelistedVal := range whitelistedValidatorList {
-				if whitelistedVal.ValidatorAddress == validatorAddress {
-					isApprovedAddress = true
-					break
-				}
-			}
-
-			fmt.Println("\n=================================================")
-			fmt.Println("STAKING ANTE HANDLER - validateMsg", time.Now().Format(time.RFC822))
-			fmt.Println("ADDRESS: ", validatorAddress)
-			fmt.Println("isApprovedAddress: ", isApprovedAddress)
-			fmt.Println("=================================================")
-
-			if isApprovedAddress {
+	isWhiteListEnabled := sd.pk.GetParams(ctx).WhitelistEnabled
+	if isWhiteListEnabled {
+		whitelistedValidatorList, err := sd.pk.GetWhitelistedValidatorList(sdk.WrapSDKContext(ctx))
+		if err != nil {
+			return err
+		}
+		if whitelistedValidatorList != nil {
+			//White List only applies to Standing Member Creation
+			if createValidatorMsg.ValidatorType != "standing" {
 				return nil
 			} else {
-				return sdkerrors.Wrap(
-					permissionstypes.ErrUnauthorizedStandingMemberAddress,
-					validatorAddress+" -- Unauthorized",
-				)
-			}
+				validatorAddress := createValidatorMsg.ValidatorAddress
 
+				var isApprovedAddress = false
+				for _, whitelistedVal := range whitelistedValidatorList {
+					if whitelistedVal.ValidatorAddress == validatorAddress {
+						isApprovedAddress = true
+						break
+					}
+				}
+
+				fmt.Println("\n=================================================")
+				fmt.Println("STAKING ANTE HANDLER - validateMsg", time.Now().Format(time.RFC822))
+				fmt.Println("ADDRESS: ", validatorAddress)
+				fmt.Println("isApprovedAddress: ", isApprovedAddress)
+				fmt.Println("=================================================")
+
+				if isApprovedAddress {
+					return nil
+				} else {
+					return sdkerrors.Wrap(
+						permissionstypes.ErrUnauthorizedStandingMemberAddress,
+						validatorAddress+" -- Unauthorized",
+					)
+				}
+			}
 		}
 	}
+
 	return nil
 
 }
