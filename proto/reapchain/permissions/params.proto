@@ -10,8 +10,8 @@ message Params {
   option (gogoproto.goproto_stringer) = false;
 
   bool whitelist_enabled = 1 [(gogoproto.moretags) = "yaml:\"whitelist_enabled\"",  (gogoproto.jsontag)    = "whitelist_enabled,omitempty"];
-  string forced_unbonding_time = 2 [(gogoproto.moretags) = "yaml:\"forced_unbonding_time\"", (gogoproto.jsontag)    = "forced_unbonding_time,omitempty"];
-  bool governance_minimum_initial_deposit_enabled = 3 [(gogoproto.moretags) = "yaml:\"governance_minimum_initial_deposit_enabled\"",  (gogoproto.jsontag)    = "governance_minimum_initial_deposit_enabled,omitempty"];
-  bytes governance_minimum_initial_deposit_percentage = 4 [ (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",(gogoproto.moretags) = "yaml:\"governance_minimum_initial_deposit_percentage\"", (gogoproto.jsontag)    = "governance_minimum_initial_deposit_percentage,omitempty"];
+  string permissions_unbonding_time = 2 [(gogoproto.moretags) = "yaml:\"permissions_unbonding_time\"", (gogoproto.jsontag)    = "permissions_unbonding_time,omitempty"];
+  bool permissions_minimum_initial_deposit_enabled = 3 [(gogoproto.moretags) = "yaml:\"permissions_minimum_initial_deposit_enabled\"",  (gogoproto.jsontag)    = "permissions_minimum_initial_deposit_enabled,omitempty"];
+  bytes permissions_minimum_initial_deposit_percentage = 4 [ (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",(gogoproto.moretags) = "yaml:\"permissions_minimum_initial_deposit_percentage\"", (gogoproto.jsontag)    = "permissions_minimum_initial_deposit_percentage,omitempty"];
 
 }

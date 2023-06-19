@@ -74,7 +74,7 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 			}
 		}
 
-		unbondingDuration, _ := time.ParseDuration(k.GetParams(ctx).ForcedUnbondingTime)
+		unbondingDuration, _ := time.ParseDuration(k.GetParams(ctx).PermissionsUnbondingTime)
 		completionTime := ctx.BlockHeader().Time.Add(unbondingDuration)
 
 		ubd := sk.SetUnbondingDelegationEntry(ctx, delegatorAddress, validatorAddress, ctx.BlockHeight(), completionTime, returnAmount)

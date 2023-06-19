@@ -12,17 +12,17 @@ import (
 var _ paramtypes.ParamSet = (*Params)(nil)
 
 var (
-	KeyWhitelistEnabled                          = []byte("WhitelistEnabled")
-	KeyForcedUnbondingTime                       = []byte("ForcedUnbondingTime")
-	KeyGovernanceMinimumInitialDepositEnabled    = []byte("GovernanceMinimumInitialDepositEnabled")
-	KeyGovernanceMinimumInitialDepositPercentage = []byte("GovernanceMinimumInitialDepositPercentage")
+	KeyWhitelistEnabled                           = []byte("WhitelistEnabled")
+	KeyPermissionsUnbondingTime                   = []byte("PermissionsUnbondingTime")
+	KeyPermissionsMinimumInitialDepositEnabled    = []byte("PermissionsMinimumInitialDepositEnabled")
+	KeyPermissionsMinimumInitialDepositPercentage = []byte("PermissionsMinimumInitialDepositPercentage")
 )
 
 var (
-	DefaultWhitelistEnabled                                  = true
-	DefaultForcedUnbondingTime                       string  = "4h"
-	DefaultGovernanceMinimumInitialDepositEnabled    bool    = true
-	DefaultGovernanceMinimumInitialDepositPercentage sdk.Dec = sdk.NewDec(1).Quo(sdk.NewDec(20))
+	DefaultWhitelistEnabled                                   = true
+	DefaultPermissionsUnbondingTime                   string  = "4h"
+	DefaultPermissionsMinimumInitialDepositEnabled    bool    = true
+	DefaultPermissionsMinimumInitialDepositPercentage sdk.Dec = sdk.NewDec(1).Quo(sdk.NewDec(20))
 )
 
 // ParamKeyTable the param key table for launch module
@@ -33,15 +33,15 @@ func ParamKeyTable() paramtypes.KeyTable {
 // NewParams creates a new Params instance
 func NewParams(
 	whitelistEnabled bool,
-	forcedUnbondingTime string,
-	governanceMinimumInitialDepositEnabled bool,
-	governanceMinimumInitialDepositPercentage sdk.Dec,
+	permissionsUnbondingTime string,
+	permissionsMinimumInitialDepositEnabled bool,
+	permissionsMinimumInitialDepositPercentage sdk.Dec,
 ) Params {
 	return Params{
-		WhitelistEnabled:                          whitelistEnabled,
-		ForcedUnbondingTime:                       forcedUnbondingTime,
-		GovernanceMinimumInitialDepositEnabled:    governanceMinimumInitialDepositEnabled,
-		GovernanceMinimumInitialDepositPercentage: governanceMinimumInitialDepositPercentage,
+		WhitelistEnabled:                           whitelistEnabled,
+		PermissionsUnbondingTime:                   permissionsUnbondingTime,
+		PermissionsMinimumInitialDepositEnabled:    permissionsMinimumInitialDepositEnabled,
+		PermissionsMinimumInitialDepositPercentage: permissionsMinimumInitialDepositPercentage,
 	}
 }
 
@@ -49,9 +49,9 @@ func NewParams(
 func DefaultParams() Params {
 	return NewParams(
 		DefaultWhitelistEnabled,
-		DefaultForcedUnbondingTime,
-		DefaultGovernanceMinimumInitialDepositEnabled,
-		DefaultGovernanceMinimumInitialDepositPercentage,
+		DefaultPermissionsUnbondingTime,
+		DefaultPermissionsMinimumInitialDepositEnabled,
+		DefaultPermissionsMinimumInitialDepositPercentage,
 	)
 }
 
@@ -59,9 +59,9 @@ func DefaultParams() Params {
 func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 	return paramtypes.ParamSetPairs{
 		paramtypes.NewParamSetPair(KeyWhitelistEnabled, &p.WhitelistEnabled, validateWhitelistEnabled),
-		paramtypes.NewParamSetPair(KeyForcedUnbondingTime, &p.ForcedUnbondingTime, validateForcedUnbondingTime),
-		paramtypes.NewParamSetPair(KeyGovernanceMinimumInitialDepositEnabled, &p.GovernanceMinimumInitialDepositEnabled, validateGovernanceMinimumInitialDepositEnabled),
-		paramtypes.NewParamSetPair(KeyGovernanceMinimumInitialDepositPercentage, &p.GovernanceMinimumInitialDepositPercentage, validateGovernanceMinimumInitialDepositPercentage),
+		paramtypes.NewParamSetPair(KeyPermissionsUnbondingTime, &p.PermissionsUnbondingTime, validatePermissionsUnbondingTime),
+		paramtypes.NewParamSetPair(KeyPermissionsMinimumInitialDepositEnabled, &p.PermissionsMinimumInitialDepositEnabled, validateGovernanceMinimumInitialDepositEnabled),
+		paramtypes.NewParamSetPair(KeyPermissionsMinimumInitialDepositPercentage, &p.PermissionsMinimumInitialDepositPercentage, validateGovernanceMinimumInitialDepositPercentage),
 	}
 }
 
@@ -71,15 +71,15 @@ func (p Params) Validate() error {
 		return err
 	}
 
-	if err := validateForcedUnbondingTime(p.ForcedUnbondingTime); err != nil {
+	if err := validatePermissionsUnbondingTime(p.PermissionsUnbondingTime); err != nil {
 		return err
 	}
 
-	if err := validateGovernanceMinimumInitialDepositEnabled(p.GovernanceMinimumInitialDepositEnabled); err != nil {
+	if err := validateGovernanceMinimumInitialDepositEnabled(p.PermissionsMinimumInitialDepositEnabled); err != nil {
 		return err
 	}
 
-	if err := validateGovernanceMinimumInitialDepositPercentage(p.GovernanceMinimumInitialDepositPercentage); err != nil {
+	if err := validateGovernanceMinimumInitialDepositPercentage(p.PermissionsMinimumInitialDepositPercentage); err != nil {
 		return err
 	}
 
@@ -100,14 +100,14 @@ func validateWhitelistEnabled(v interface{}) error {
 	return nil
 }
 
-// validateForcedUnbondingTime validates the ForcedUnbondingTime param
-func validateForcedUnbondingTime(v interface{}) error {
-	forcedUnbondingTime, ok := v.(string)
+// validatePermissionsUnbondingTime validates the PermissionsUnbondingTime param
+func validatePermissionsUnbondingTime(v interface{}) error {
+	permissionsUnbondingTime, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}
 
-	UnbondingTime, err := time.ParseDuration(forcedUnbondingTime)
+	UnbondingTime, err := time.ParseDuration(permissionsUnbondingTime)
 	if err != nil {
 		return fmt.Errorf("invalid parameter type: %T", UnbondingTime)
 	}
@@ -128,12 +128,12 @@ func validateGovernanceMinimumInitialDepositEnabled(v interface{}) error {
 // validateGovernanceMinimumInitialDepositPercentage validates the GovernanceMinimumInitialDepositPercentage param
 func validateGovernanceMinimumInitialDepositPercentage(v interface{}) error {
 
-	governanceMinimumInitialDepositPercentage, ok := v.(sdk.Dec)
+	permissionsMinimumInitialDepositPercentage, ok := v.(sdk.Dec)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}
 
-	if governanceMinimumInitialDepositPercentage.IsNegative() {
+	if permissionsMinimumInitialDepositPercentage.IsNegative() {
 		return fmt.Errorf("min initial deposit cannot be negative: %s", v)
 	}
 

@@ -9,9 +9,9 @@ import (
 func (k Keeper) GetParams(ctx sdk.Context) types.Params {
 	return types.NewParams(
 		k.WhitelistEnabled(ctx),
-		k.ForcedUnbondingTime(ctx),
-		k.GovernanceMinimumInitialDepositEnabled(ctx),
-		k.GovernanceMinimumInitialDepositPercentage(ctx),
+		k.PermissionsUnbondingTime(ctx),
+		k.PermissionsMinimumInitialDepositEnabled(ctx),
+		k.PermissionsMinimumInitialDepositPercentage(ctx),
 	)
 }
 
@@ -20,31 +20,30 @@ func (k Keeper) SetParams(ctx sdk.Context, params types.Params) {
 	k.paramstore.SetParamSet(ctx, &params)
 }
 
-// ForcedUnbondingTime returns the ForcedUnbondingTime param
 func (k Keeper) WhitelistEnabled(ctx sdk.Context) (res bool) {
 	k.paramstore.Get(ctx, types.KeyWhitelistEnabled, &res)
 	return
 }
 
-// ForcedUnbondingTime returns the ForcedUnbondingTime param
-func (k Keeper) ForcedUnbondingTime(ctx sdk.Context) (res string) {
-	k.paramstore.Get(ctx, types.KeyForcedUnbondingTime, &res)
+// PermissionsUnbondingTime returns the PermissionsUnbondingTime param
+func (k Keeper) PermissionsUnbondingTime(ctx sdk.Context) (res string) {
+	k.paramstore.Get(ctx, types.KeyPermissionsUnbondingTime, &res)
 	return
 }
 
-// GovernanceMinimumInitialDepositEnabled returns the GovernanceMinimumInitialDepositEnabled param
-func (k Keeper) GovernanceMinimumInitialDepositEnabled(ctx sdk.Context) (res bool) {
-	k.paramstore.Get(ctx, types.KeyGovernanceMinimumInitialDepositEnabled, &res)
+// PermissionsMinimumInitialDepositEnabled  returns the GovernanceMinimumInitialDepositEnabled param
+func (k Keeper) PermissionsMinimumInitialDepositEnabled(ctx sdk.Context) (res bool) {
+	k.paramstore.Get(ctx, types.KeyPermissionsMinimumInitialDepositEnabled, &res)
 	return
 }
 
-// GovernanceMinimumInitialDepositPercentage returns the GovernanceMinimumInitialDepositPercentage param
-func (k Keeper) GovernanceMinimumInitialDepositPercentage(ctx sdk.Context) (res sdk.Dec) {
-	k.paramstore.Get(ctx, types.KeyGovernanceMinimumInitialDepositPercentage, &res)
+// PermissionsMinimumInitialDepositPercentage returns the GovernanceMinimumInitialDepositPercentage param
+func (k Keeper) PermissionsMinimumInitialDepositPercentage(ctx sdk.Context) (res sdk.Dec) {
+	k.paramstore.Get(ctx, types.KeyPermissionsMinimumInitialDepositPercentage, &res)
 	return
 }
 
-// ForcedUnbondingTime returns the ForcedUnbondingTime param
+// GetIfExistsWhitelistEnabled returns the WhitelistEnabled param
 func (k Keeper) GetIfExistsWhitelistEnabled(ctx sdk.Context) (res bool) {
 	k.paramstore.GetIfExists(ctx, types.KeyWhitelistEnabled, &res)
 	return

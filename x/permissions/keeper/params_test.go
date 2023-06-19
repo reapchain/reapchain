@@ -15,7 +15,7 @@ func TestGetParams(t *testing.T) {
 	k.SetParams(ctx, params)
 
 	require.EqualValues(t, params, k.GetParams(ctx))
-	require.EqualValues(t, params.ForcedUnbondingTime, k.ForcedUnbondingTime(ctx))
-	require.EqualValues(t, params.GovernanceMinimumInitialDepositEnabled, k.GovernanceMinimumInitialDepositEnabled(ctx))
-	require.EqualValues(t, params.GovernanceMinimumInitialDepositPercentage, k.GovernanceMinimumInitialDepositPercentage(ctx))
+	require.EqualValues(t, params.PermissionsUnbondingTime, k.PermissionsUnbondingTime(ctx))
+	require.EqualValues(t, params.PermissionsMinimumInitialDepositEnabled, k.PermissionsMinimumInitialDepositEnabled(ctx))
+	require.EqualValues(t, params.PermissionsMinimumInitialDepositPercentage, k.PermissionsMinimumInitialDepositPercentage(ctx))
 }
