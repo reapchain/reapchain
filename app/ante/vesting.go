@@ -159,20 +159,14 @@ func (vdd VestingDelegationDecorator) validateMsg(ctx sdk.Context, msg sdk.Msg) 
 		bondDenom := vdd.sk.BondDenom(ctx)
 		coins := clawbackAccount.GetVestedOnly(ctx.BlockTime())
 
-		// Commented Vesting Balance only Check for Staking
-		// This code only allows for Vesting Accounts to Stake their fully vested coins, not including any already owned coins.
-		//if coins == nil || coins.Empty() {
-		//	return sdkerrors.Wrap(
-		//		vestingtypes.ErrInsufficientVestedCoins,
-		//		"account has no vested coins",
-		//	)
-		//}
-
 		vested := coins.AmountOf(bondDenom)
 
 		balance := vdd.bk.GetBalance(ctx, acc.GetAddress(), bondDenom)
 
 		currentlyVestingAmounts := clawbackAccount.GetVestingCoins(ctx.BlockTime())
+		fmt.Println("\n==================================================")
+		fmt.Println("VESTING ANTE HANDLER - validateMsg", time.Now().Format(time.RFC822))
+		fmt.Println("ADDRESS: ", acc.GetAddress().String())
 
 		for _, currentVestingCoin := range currentlyVestingAmounts {
 			balanceWithoutCurrentVesting := balance.Sub(currentVestingCoin)
@@ -186,15 +180,8 @@ func (vdd VestingDelegationDecorator) validateMsg(ctx sdk.Context, msg sdk.Msg) 
 				)
 			}
 		}
-
-		fmt.Printf("\n\n")
+		fmt.Println("BALANCE: ", balance)
 		fmt.Println("==================================================")
-		fmt.Println("LOG OUTPUT - REAPCHAIN SOURCE CODE", time.Now().Format(time.RFC822))
-		fmt.Println("ADDRESS", acc.GetAddress().String())
-		fmt.Println("BALANCE", balance)
-		fmt.Println("==================================================")
-		fmt.Printf("\n\n")
-
 	}
 
 	return nil
