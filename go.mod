@@ -13,10 +13,10 @@ require (
 	github.com/onsi/ginkgo/v2 v2.1.4
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.7-rc6
-	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.7-rc6
-	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.8-rc6
-	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.14-rc6
+	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.7-rc7
+	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.7-rc7
+	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.8-rc7
+	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.14-rc7
 	github.com/spf13/cast v1.5.0
 	github.com/spf13/cobra v1.5.0
 	github.com/stretchr/testify v1.8.0
@@ -25,6 +25,7 @@ require (
 	google.golang.org/genproto v0.0.0-20230403163135-c38d8f061ccd
 	google.golang.org/grpc v1.54.0
 	google.golang.org/protobuf v1.30.0
+	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -123,7 +124,7 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.5-rc6 // indirect
+	github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.5-rc7 // indirect
 	github.com/regen-network/cosmos-proto v0.3.1 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rs/cors v1.8.2 // indirect
@@ -154,7 +155,6 @@ require (
 	golang.org/x/text v0.8.0 // indirect
 	gopkg.in/ini.v1 v1.66.6 // indirect
 	gopkg.in/natefinch/npipe.v2 v2.0.0-20160621034901-c1b8fa8bdcce // indirect
-	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	nhooyr.io/websocket v1.8.7 // indirect
 )
