@@ -1,14 +1,15 @@
 package ante
 
 import (
+	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
 	sdk "github.com/reapchain/cosmos-sdk/types"
-
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	"github.com/reapchain/cosmos-sdk/x/authz"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 	vestingtypes "github.com/reapchain/reapchain/v8/x/vesting/types"
+	"time"
 )
 
 // EthVestingTransactionDecorator validates if clawback vesting accounts are
@@ -82,14 +83,16 @@ type VestingDelegationDecorator struct {
 	ak  evmtypes.AccountKeeper
 	sk  vestingtypes.StakingKeeper
 	cdc codec.BinaryCodec
+	bk  evmtypes.BankKeeper
 }
 
 // NewVestingDelegationDecorator creates a new VestingDelegationDecorator
-func NewVestingDelegationDecorator(ak evmtypes.AccountKeeper, sk vestingtypes.StakingKeeper, cdc codec.BinaryCodec) VestingDelegationDecorator {
+func NewVestingDelegationDecorator(ak evmtypes.AccountKeeper, bk evmtypes.BankKeeper, sk vestingtypes.StakingKeeper, cdc codec.BinaryCodec) VestingDelegationDecorator {
 	return VestingDelegationDecorator{
 		ak:  ak,
 		sk:  sk,
 		cdc: cdc,
+		bk:  bk,
 	}
 }
 
@@ -155,21 +158,43 @@ func (vdd VestingDelegationDecorator) validateMsg(ctx sdk.Context, msg sdk.Msg) 
 		// error if bond amount is > vested coins
 		bondDenom := vdd.sk.BondDenom(ctx)
 		coins := clawbackAccount.GetVestedOnly(ctx.BlockTime())
-		if coins == nil || coins.Empty() {
-			return sdkerrors.Wrap(
-				vestingtypes.ErrInsufficientVestedCoins,
-				"account has no vested coins",
-			)
-		}
+
+		// Commented Vesting Balance only Check for Staking
+		// This code only allows for Vesting Accounts to Stake their fully vested coins, not including any already owned coins.
+		//if coins == nil || coins.Empty() {
+		//	return sdkerrors.Wrap(
+		//		vestingtypes.ErrInsufficientVestedCoins,
+		//		"account has no vested coins",
+		//	)
+		//}
 
 		vested := coins.AmountOf(bondDenom)
-		if vested.LT(delegateMsg.Amount.Amount) {
-			return sdkerrors.Wrapf(
-				vestingtypes.ErrInsufficientVestedCoins,
-				"cannot delegate unvested coins. coins vested < delegation amount (%s < %s)",
-				vested, delegateMsg.Amount.Amount,
-			)
+
+		balance := vdd.bk.GetBalance(ctx, acc.GetAddress(), bondDenom)
+
+		currentlyVestingAmounts := clawbackAccount.GetVestingCoins(ctx.BlockTime())
+
+		for _, currentVestingCoin := range currentlyVestingAmounts {
+			balanceWithoutCurrentVesting := balance.Sub(currentVestingCoin)
+			fmt.Println("CURRENTLY VESTING AMOUNT: ", currentVestingCoin.Amount)
+
+			if balanceWithoutCurrentVesting.Amount.LT(delegateMsg.Amount.Amount) {
+				return sdkerrors.Wrapf(
+					vestingtypes.ErrInsufficientVestedCoins,
+					"cannot delegate unvested coins. coins vested < delegation amount (%s < %s)",
+					vested, delegateMsg.Amount.Amount,
+				)
+			}
 		}
+
+		fmt.Printf("\n\n")
+		fmt.Println("==================================================")
+		fmt.Println("LOG OUTPUT - REAPCHAIN SOURCE CODE", time.Now().Format(time.RFC822))
+		fmt.Println("ADDRESS", acc.GetAddress().String())
+		fmt.Println("BALANCE", balance)
+		fmt.Println("==================================================")
+		fmt.Printf("\n\n")
+
 	}
 
 	return nil
