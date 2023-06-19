@@ -3,12 +3,10 @@ package reapchain.permissions.v1;
 
 import "gogoproto/gogo.proto";
 import "permissions/params.proto";
-// this line is used by starport scaffolding # genesis/proto/import
 
 option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
 
 // GenesisState defines the permissions module's genesis state.
 message GenesisState {
   Params params = 1 [(gogoproto.nullable) = false];
-  // this line is used by starport scaffolding # genesis/proto/state
 }

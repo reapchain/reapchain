@@ -7,7 +7,6 @@ import "cosmos/base/query/v1beta1/pagination.proto";
 import "permissions/params.proto";
 import "permissions/whitelisted_validator.proto";
 
-// this line is used by starport scaffolding # 1
 
 option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
 

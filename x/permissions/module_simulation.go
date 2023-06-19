@@ -23,9 +23,7 @@ var (
 	_ = baseapp.Paramspace
 )
 
-const (
-// this line is used by starport scaffolding # simapp/module/const
-)
+const ()
 
 func AccAddress() string {
 	pk := ed25519.GenPrivKey().PubKey()
@@ -41,7 +39,6 @@ func (AppModule) GenerateGenesisState(simState *module.SimulationState) {
 	}
 	permissionsGenesis := types.GenesisState{
 		Params: types.DefaultParams(),
-		// this line is used by starport scaffolding # simapp/module/genesisState
 	}
 	simState.GenState[types.ModuleName] = simState.Cdc.MustMarshalJSON(&permissionsGenesis)
 }
@@ -73,8 +70,6 @@ func (am AppModule) RegisterStoreDecoder(_ sdk.StoreDecoderRegistry) {}
 // WeightedOperations returns the all the gov module operations with their respective weights.
 func (am AppModule) WeightedOperations(simState module.SimulationState) []simtypes.WeightedOperation {
 	operations := make([]simtypes.WeightedOperation, 0)
-
-	// this line is used by starport scaffolding # simapp/module/operation
 
 	return operations
 }

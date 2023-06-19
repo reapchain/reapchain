@@ -710,7 +710,9 @@ func NewReapchain(
 		// NOTE: staking requires the claiming hook
 		claimstypes.ModuleName,
 		stakingtypes.ModuleName,
+
 		slashingtypes.ModuleName,
+
 		govtypes.ModuleName,
 		ibchost.ModuleName,
 		// Ethermint modules

@@ -43,3 +43,9 @@ func (k Keeper) GovernanceMinimumInitialDepositPercentage(ctx sdk.Context) (res 
 	k.paramstore.Get(ctx, types.KeyGovernanceMinimumInitialDepositPercentage, &res)
 	return
 }
+
+// ForcedUnbondingTime returns the ForcedUnbondingTime param
+func (k Keeper) GetIfExistsWhitelistEnabled(ctx sdk.Context) (res bool) {
+	k.paramstore.GetIfExists(ctx, types.KeyWhitelistEnabled, &res)
+	return
+}

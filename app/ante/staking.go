@@ -75,7 +75,8 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 	if !ok {
 		return nil
 	}
-	isWhiteListEnabled := sd.pk.GetParams(ctx).WhitelistEnabled
+
+	isWhiteListEnabled := sd.pk.GetIfExistsWhitelistEnabled(ctx)
 	if isWhiteListEnabled {
 		whitelistedValidatorList, err := sd.pk.GetWhitelistedValidatorList(sdk.WrapSDKContext(ctx))
 		if err != nil {
