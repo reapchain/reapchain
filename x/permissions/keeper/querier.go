@@ -2,7 +2,7 @@ package keeper
 
 import (
 	"context"
-	"fmt"
+
 	"github.com/reapchain/cosmos-sdk/codec"
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
@@ -10,7 +10,6 @@ import (
 	"github.com/reapchain/reapchain/v8/x/permissions/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
-	"time"
 )
 
 func (k Keeper) GetWhitelistedValidatorList(goCtx context.Context) (list []types.WhitelistedValidator, err error) {
@@ -118,13 +117,5 @@ func (k Keeper) GetValidatorWithAddress(ctx sdk.Context, valAddr string) (valida
 	if err := k.cdc.Unmarshal(value, &whiteListedValidator); err != nil {
 		return validator, err
 	}
-	fmt.Println("\n=================================================")
-	fmt.Println("PERMISSIONS MODULE - GetValidatorWithAddress", time.Now().Format(time.RFC822))
-	fmt.Println("GetValidatorWithAddress")
-	fmt.Println("valAddr: ", valAddr)
-	fmt.Println("validatorAddress: ", validatorAddress)
-	fmt.Println("whiteListedValidator: ", whiteListedValidator)
-	fmt.Println("=================================================")
-
 	return whiteListedValidator, nil
 }

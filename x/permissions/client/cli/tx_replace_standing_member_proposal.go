@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+
 	"github.com/reapchain/cosmos-sdk/client"
 	"github.com/reapchain/cosmos-sdk/client/tx"
 	sdk "github.com/reapchain/cosmos-sdk/types"
@@ -12,7 +13,6 @@ import (
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	"github.com/reapchain/reapchain/v8/x/permissions/types"
 	"github.com/spf13/cobra"
-	"time"
 )
 
 // NewRegisterCoinProposalCmd implements the command to submit a community-pool-spend proposal
@@ -76,17 +76,6 @@ Upon passing, the replacement-validator-addresss submitted will be allowed to be
 			}
 
 			from := clientCtx.GetFromAddress()
-
-			fmt.Println("\n=================================================")
-			fmt.Println("PERMISSIONS MODULE - CmdReplaceStandingMemberProposal", time.Now().Format(time.RFC822))
-			fmt.Println("title: ", title)
-			fmt.Println("description: ", description)
-			fmt.Println("depositStr: ", depositStr)
-			fmt.Println("existingValidatorAddress: ", existingValidatorAddress.String())
-			fmt.Println("replacementValidatorAddress: ", replacementValidatorAddress.String())
-			fmt.Println("replacementAccountAddress: ", replacementAccountAddress.String())
-			fmt.Println("from: ", from.String())
-			fmt.Println("=================================================")
 
 			content := types.NewMsgReplaceStandingMemberProposal(title, description, existingValidatorAddress.String(), replacementValidatorAddress.String(), replacementAccountAddress.String(), moniker)
 

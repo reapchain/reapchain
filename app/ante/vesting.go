@@ -1,7 +1,6 @@
 package ante
 
 import (
-	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
@@ -9,7 +8,6 @@ import (
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	evmtypes "github.com/reapchain/ethermint/x/evm/types"
 	vestingtypes "github.com/reapchain/reapchain/v8/x/vesting/types"
-	"time"
 )
 
 // EthVestingTransactionDecorator validates if clawback vesting accounts are
@@ -164,13 +162,9 @@ func (vdd VestingDelegationDecorator) validateMsg(ctx sdk.Context, msg sdk.Msg) 
 		balance := vdd.bk.GetBalance(ctx, acc.GetAddress(), bondDenom)
 
 		currentlyVestingAmounts := clawbackAccount.GetVestingCoins(ctx.BlockTime())
-		fmt.Println("\n==================================================")
-		fmt.Println("VESTING ANTE HANDLER - validateMsg", time.Now().Format(time.RFC822))
-		fmt.Println("ADDRESS: ", acc.GetAddress().String())
 
 		for _, currentVestingCoin := range currentlyVestingAmounts {
 			balanceWithoutCurrentVesting := balance.Sub(currentVestingCoin)
-			fmt.Println("CURRENTLY VESTING AMOUNT: ", currentVestingCoin.Amount)
 
 			if balanceWithoutCurrentVesting.Amount.LT(delegateMsg.Amount.Amount) {
 				return sdkerrors.Wrapf(
@@ -180,8 +174,6 @@ func (vdd VestingDelegationDecorator) validateMsg(ctx sdk.Context, msg sdk.Msg) 
 				)
 			}
 		}
-		fmt.Println("BALANCE: ", balance)
-		fmt.Println("==================================================")
 	}
 
 	return nil

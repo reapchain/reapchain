@@ -1,23 +1,18 @@
 package keeper
 
 import (
-	"fmt"
+	"time"
+
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	"github.com/reapchain/reapchain/v8/x/permissions/types"
-	"time"
 )
 
 func (k Keeper) RemoveWhitelistedValidator(
 	ctx sdk.Context,
 	whiteListedValidator types.WhitelistedValidator,
 ) error {
-
-	fmt.Println("\n=================================================")
-	fmt.Println("PERMISSIONS MODULE - RemoveWhitelistedValidator", time.Now().Format(time.RFC822))
-	fmt.Println("WHITELISTED VALIDATOR: ", whiteListedValidator)
-	fmt.Println("=================================================")
 
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.WhiteListedValidatorKey))
 	operatorAddr, err := sdk.ValAddressFromBech32(whiteListedValidator.ValidatorAddress)
@@ -50,7 +45,7 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 
 	validatorAddress, _ := sdk.ValAddressFromBech32(valAddrStr)
 	listOfDelegations := sk.GetValidatorDelegations(ctx, validatorAddress)
-	for index, delegation := range listOfDelegations {
+	for _, delegation := range listOfDelegations {
 		delegatorShares := delegation.GetShares()
 		delegatorAddress := delegation.GetDelegatorAddr()
 
@@ -79,14 +74,6 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 
 		ubd := sk.SetUnbondingDelegationEntry(ctx, delegatorAddress, validatorAddress, ctx.BlockHeight(), completionTime, returnAmount)
 		sk.InsertUBDQueue(ctx, ubd, completionTime)
-
-		fmt.Println("\n=================================================")
-		fmt.Println("PERMISSIONS MODULE - ForceUnbondAllDelegations", time.Now().Format(time.RFC822))
-		fmt.Println("At index", index, "delegator is", delegatorAddress.String())
-		fmt.Println("At index", index, "delegation amount is", delegatorShares)
-		fmt.Println("At index", index, "delegated validator is", validatorAddress.String())
-		fmt.Println("\nCOMPLETION TIME: ", completionTime)
-		fmt.Println("=================================================")
 
 		ctx.EventManager().EmitEvents(sdk.Events{
 			sdk.NewEvent(
