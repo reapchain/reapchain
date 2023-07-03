@@ -1,8 +1,6 @@
 package keeper
 
 import (
- 	"fmt"
-
 	sdk "github.com/reapchain/cosmos-sdk/types"
 
 	incentivestypes "github.com/reapchain/reapchain/v8/x/incentives/types"
@@ -27,17 +25,13 @@ func (k Keeper) MintAndAllocateInflation(
 	if !errors {
 		return nil, nil, nil, nil
 	}
-	fmt.Println("stompesi - currentInflationAmount", currentInflationAmount)
-	fmt.Println("stompesi - maxInflationAmount", maxInflationAmount)
 	if currentInflationAmount.Equal(maxInflationAmount) {
 		return nil, nil, nil, nil
 	}
 
-	if (coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount)) {
+	if coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount) {
 		coin.Amount = maxInflationAmount.Sub(currentInflationAmount)
 	}
-
-	fmt.Println("stompesi - add amount", coin.Amount)
 
 	// Mint coins for distribution
 	if err := k.MintCoins(ctx, coin); err != nil {
@@ -51,7 +45,7 @@ func (k Keeper) MintAndAllocateInflation(
 	}
 
 	k.SetCurrentInflation(ctx, currentInflationAmount.Add(coin.Amount).String())
-	return  nil, nil, nil, nil
+	return nil, nil, nil, nil
 
 }
 

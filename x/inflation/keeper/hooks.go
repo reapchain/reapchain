@@ -19,10 +19,6 @@ func (k Keeper) AfterEpochEnd(ctx sdk.Context, epochIdentifier string, epochNumb
 	params := k.GetParams(ctx)
 	skippedEpochs := k.GetSkippedEpochs(ctx)
 
-	currentInflationAmount, _ := sdk.NewIntFromString(k.GetCurrentInflationAmount(ctx))
-	fmt.Println("stompesi - AfterEpochEnd", params.EnableInflation)
-	fmt.Println("stompesi - currentInflationAmount", currentInflationAmount)
-
 	// Skip inflation if it is disabled and increment number of skipped epochs
 	if !params.EnableInflation {
 		// check if the epochIdentifier is "day" before incrementing.
@@ -41,30 +37,24 @@ func (k Keeper) AfterEpochEnd(ctx sdk.Context, epochIdentifier string, epochNumb
 		)
 		return
 	}
-	fmt.Println("stompesi - AfterEpochEnd1")
 
 	expEpochID := k.GetEpochIdentifier(ctx)
-	fmt.Println("stompesi - AfterEpochEnd1", expEpochID, epochIdentifier)
 	if epochIdentifier != expEpochID {
 		return
 	}
-	fmt.Println("stompesi - AfterEpochEnd2")
 
 	// mint coins, update supply
 	epochMintProvision, found := k.GetEpochMintProvision(ctx)
 	if !found {
 		panic("the epochMintProvision was not found")
 	}
-	fmt.Println("stompesi - AfterEpochEnd3")
 
 	mintedCoin := sdk.NewCoin(params.MintDenom, epochMintProvision.TruncateInt())
 	staking, incentives, communityPool, err := k.MintAndAllocateInflation(ctx, mintedCoin)
-	fmt.Println("stompesi - AfterEpochEnd4")
 
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("stompesi - AfterEpochEnd - success")
 
 	period := k.GetPeriod(ctx)
 	epochsPerPeriod := k.GetEpochsPerPeriod(ctx)
