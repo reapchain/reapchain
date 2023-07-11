@@ -78,6 +78,7 @@ func (sd GovernanceSubmitProposalMessage) validateMsg(ctx sdk.Context, msg sdk.M
 	minimumInitialDepositEnabled := permissionsModuleParams.PermissionsMinimumInitialDepositEnabled
 
 	if minimumInitialDepositEnabled {
+
 		govSubmitProposalMsg.GetInitialDeposit()
 		minimumInitialDepositPercentage := permissionsModuleParams.PermissionsMinimumInitialDepositPercentage
 		govParamMinimumDeposit := govModuleParams.MinDeposit.AmountOf(sdk.DefaultBondDenom)
@@ -87,9 +88,12 @@ func (sd GovernanceSubmitProposalMessage) validateMsg(ctx sdk.Context, msg sdk.M
 		initialDeposit := govSubmitProposalMsg.InitialDeposit.AmountOf(sdk.DefaultBondDenom).BigInt()
 
 		if initialDeposit.Cmp(requiredInitialDeposit) == -1 {
-			return permissionsmoduletypes.ErrInsufficientInitialDeposit
-		}
 
+			return sdkerrors.Wrap(
+				permissionsmoduletypes.ErrInsufficientInitialDeposit,
+				initialDeposit.String()+" -- deposit is less than "+requiredInitialDeposit.String()+sdk.DefaultBondDenom,
+			)
+		}
 	}
 
 	return nil
