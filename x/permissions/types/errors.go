@@ -15,5 +15,5 @@ var (
 	ErrInvalidValidatorAddress           = sdkerrors.Register(ModuleName, 14, "\n\nvalidator address invalid\n\n")
 	ErrUnauthorizedStandingMemberAddress = sdkerrors.Register(ModuleName, 15, "\n\naddresss is not authorized to be a standing member\n\n")
 	ErrInsufficientInitialDeposit        = sdkerrors.Register(ModuleName, 16, "\n\ninsufficient initial deposit, please deposit more.\n\n")
-	ErrNotMatchingMonikers               = sdkerrors.Register(ModuleName, 15, "\n\ntry again with matching moniker.\n\n")
+	ErrNotMatchingMonikers               = sdkerrors.Register(ModuleName, 17, "\n\ntry again with matching moniker.\n\n")
 )
