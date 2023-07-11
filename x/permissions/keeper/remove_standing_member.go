@@ -44,6 +44,17 @@ func (k Keeper) ValidateRemoveStandingMember(ctx sdk.Context, sk types.StakingKe
 func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeeper, bk types.BankKeeper, valAddrStr string) error {
 
 	validatorAddress, _ := sdk.ValAddressFromBech32(valAddrStr)
+
+	validator := sk.Validator(ctx, validatorAddress)
+
+	if validator.IsJailed() {
+		consAddr, err := validator.GetConsAddr()
+		if err != nil {
+			return err
+		}
+		sk.Unjail(ctx, consAddr)
+	}
+
 	listOfDelegations := sk.GetValidatorDelegations(ctx, validatorAddress)
 	for _, delegation := range listOfDelegations {
 		delegatorShares := delegation.GetShares()

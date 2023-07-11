@@ -8,6 +8,9 @@ import (
 )
 
 type StakingKeeper interface {
+	Validator(sdk.Context, sdk.ValAddress) stakingtypes.ValidatorI
+	Unjail(sdk.Context, sdk.ConsAddress)
+
 	UnbondingTime(ctx sdk.Context) (res time.Duration)
 
 	GetUnbondingDelegation(
