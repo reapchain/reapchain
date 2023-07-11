@@ -89,8 +89,18 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 				var isApprovedAddress = false
 				for _, whitelistedVal := range whitelistedValidatorList {
 					if whitelistedVal.ValidatorAddress == validatorAddress {
-						isApprovedAddress = true
-						break
+
+						if whitelistedVal.Moniker == createValidatorMsg.Description.Moniker {
+							isApprovedAddress = true
+							break
+						} else {
+
+							return sdkerrors.Wrap(
+								permissionstypes.ErrNotMatchingMonikers,
+								createValidatorMsg.Description.Moniker+" -- moniker does not match whitelisted validator's moniker",
+							)
+						}
+
 					}
 				}
 
