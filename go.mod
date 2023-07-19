@@ -163,5 +163,11 @@ replace (
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.1.7-0.20210622111912-ef00f8ac3d76
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 
+	github.com/reapchain/cosmos-sdk => ../cosmos-sdk
+	github.com/reapchain/ethermint => ../ethermint
+	github.com/reapchain/iavl => ../iavl
+	github.com/reapchain/ibc-go/v3 => ../ibc-go
+	github.com/reapchain/reapchain-core => ../reapchain-core
+
 	google.golang.org/grpc => google.golang.org/grpc v1.33.2
 )
