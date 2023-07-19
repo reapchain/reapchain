@@ -1,7 +1,6 @@
 package ante
 
 import (
-	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
@@ -11,8 +10,6 @@ import (
 	permissionstypes "github.com/reapchain/reapchain/v8/x/permissions/types"
 
 	vestingtypes "github.com/reapchain/reapchain/v8/x/vesting/types"
-
-	"time"
 )
 
 // CreateValidatorMessage applies a WhiteList Filtering for Standing Member Creation
@@ -92,16 +89,20 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 				var isApprovedAddress = false
 				for _, whitelistedVal := range whitelistedValidatorList {
 					if whitelistedVal.ValidatorAddress == validatorAddress {
-						isApprovedAddress = true
-						break
+
+						if whitelistedVal.Moniker == createValidatorMsg.Description.Moniker {
+							isApprovedAddress = true
+							break
+						} else {
+
+							return sdkerrors.Wrap(
+								permissionstypes.ErrNotMatchingMonikers,
+								createValidatorMsg.Description.Moniker+" -- moniker does not match whitelisted validator's moniker",
+							)
+						}
+
 					}
 				}
-
-				fmt.Println("\n=================================================")
-				fmt.Println("STAKING ANTE HANDLER - validateMsg", time.Now().Format(time.RFC822))
-				fmt.Println("ADDRESS: ", validatorAddress)
-				fmt.Println("isApprovedAddress: ", isApprovedAddress)
-				fmt.Println("=================================================")
 
 				if isApprovedAddress {
 					return nil

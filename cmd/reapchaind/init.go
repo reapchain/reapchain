@@ -218,7 +218,6 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			}
 
 			genDoc.Vrfs = []types.Vrf{}
-			
 			genDoc.NextVrfs = []types.Vrf{}
 			genDoc.NextQrns = []types.Qrn{}
 

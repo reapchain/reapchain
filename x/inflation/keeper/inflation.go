@@ -29,10 +29,9 @@ func (k Keeper) MintAndAllocateInflation(
 		return nil, nil, nil, nil
 	}
 
-	if (coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount)) {
+	if coin.Amount.Add(currentInflationAmount).GT(maxInflationAmount) {
 		coin.Amount = maxInflationAmount.Sub(currentInflationAmount)
 	}
-
 
 	// Mint coins for distribution
 	if err := k.MintCoins(ctx, coin); err != nil {
@@ -46,7 +45,7 @@ func (k Keeper) MintAndAllocateInflation(
 	}
 
 	k.SetCurrentInflation(ctx, currentInflationAmount.Add(coin.Amount).String())
-	return  nil, nil, nil, nil
+	return nil, nil, nil, nil
 
 }
 
