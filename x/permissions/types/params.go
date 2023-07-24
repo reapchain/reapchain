@@ -3,8 +3,6 @@ package types
 import (
 	"fmt"
 	sdk "github.com/reapchain/cosmos-sdk/types"
-	"time"
-
 	paramtypes "github.com/reapchain/cosmos-sdk/x/params/types"
 	"gopkg.in/yaml.v2"
 )
@@ -12,17 +10,15 @@ import (
 var _ paramtypes.ParamSet = (*Params)(nil)
 
 var (
-	KeyWhitelistEnabled                           = []byte("WhitelistEnabled")
-	KeyPermissionsUnbondingTime                   = []byte("PermissionsUnbondingTime")
-	KeyPermissionsMinimumInitialDepositEnabled    = []byte("PermissionsMinimumInitialDepositEnabled")
-	KeyPermissionsMinimumInitialDepositPercentage = []byte("PermissionsMinimumInitialDepositPercentage")
+	KeyPodcWhitelistEnabled           = []byte("PodcWhitelistEnabled")
+	KeyGovMinInitialDepositEnabled    = []byte("GovMinInitialDepositEnabled")
+	KeyGovMinInitialDepositPercentage = []byte("GovMinInitialDepositPercentage")
 )
 
 var (
-	DefaultWhitelistEnabled                                   = true
-	DefaultPermissionsUnbondingTime                   string  = "4h"
-	DefaultPermissionsMinimumInitialDepositEnabled    bool    = true
-	DefaultPermissionsMinimumInitialDepositPercentage sdk.Dec = sdk.NewDec(1).Quo(sdk.NewDec(20))
+	DefaultWhitelistEnabled                       = true
+	DefaultGovMinInitialDepositEnabled    bool    = true
+	DefaultGovMinInitialDepositPercentage sdk.Dec = sdk.NewDec(1).Quo(sdk.NewDec(20))
 )
 
 // ParamKeyTable the param key table for launch module
@@ -32,16 +28,14 @@ func ParamKeyTable() paramtypes.KeyTable {
 
 // NewParams creates a new Params instance
 func NewParams(
-	whitelistEnabled bool,
-	permissionsUnbondingTime string,
-	permissionsMinimumInitialDepositEnabled bool,
-	permissionsMinimumInitialDepositPercentage sdk.Dec,
+	PodcWhitelistEnabled bool,
+	GovMinInitialDepositEnabled bool,
+	GovMinInitialDepositPercentage sdk.Dec,
 ) Params {
 	return Params{
-		WhitelistEnabled:                           whitelistEnabled,
-		PermissionsUnbondingTime:                   permissionsUnbondingTime,
-		PermissionsMinimumInitialDepositEnabled:    permissionsMinimumInitialDepositEnabled,
-		PermissionsMinimumInitialDepositPercentage: permissionsMinimumInitialDepositPercentage,
+		PodcWhitelistEnabled:           PodcWhitelistEnabled,
+		GovMinInitialDepositEnabled:    GovMinInitialDepositEnabled,
+		GovMinInitialDepositPercentage: GovMinInitialDepositPercentage,
 	}
 }
 
@@ -49,37 +43,31 @@ func NewParams(
 func DefaultParams() Params {
 	return NewParams(
 		DefaultWhitelistEnabled,
-		DefaultPermissionsUnbondingTime,
-		DefaultPermissionsMinimumInitialDepositEnabled,
-		DefaultPermissionsMinimumInitialDepositPercentage,
+		DefaultGovMinInitialDepositEnabled,
+		DefaultGovMinInitialDepositPercentage,
 	)
 }
 
 // ParamSetPairs get the params.ParamSet
 func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 	return paramtypes.ParamSetPairs{
-		paramtypes.NewParamSetPair(KeyWhitelistEnabled, &p.WhitelistEnabled, validateWhitelistEnabled),
-		paramtypes.NewParamSetPair(KeyPermissionsUnbondingTime, &p.PermissionsUnbondingTime, validatePermissionsUnbondingTime),
-		paramtypes.NewParamSetPair(KeyPermissionsMinimumInitialDepositEnabled, &p.PermissionsMinimumInitialDepositEnabled, validateGovernanceMinimumInitialDepositEnabled),
-		paramtypes.NewParamSetPair(KeyPermissionsMinimumInitialDepositPercentage, &p.PermissionsMinimumInitialDepositPercentage, validateGovernanceMinimumInitialDepositPercentage),
+		paramtypes.NewParamSetPair(KeyPodcWhitelistEnabled, &p.PodcWhitelistEnabled, validateWhitelistEnabled),
+		paramtypes.NewParamSetPair(KeyGovMinInitialDepositEnabled, &p.GovMinInitialDepositEnabled, validateGovMinInitialDepositEnabled),
+		paramtypes.NewParamSetPair(KeyGovMinInitialDepositPercentage, &p.GovMinInitialDepositPercentage, validateGovMinInitialDepositPercentage),
 	}
 }
 
 // Validate validates the set of params
 func (p Params) Validate() error {
-	if err := validateWhitelistEnabled(p.WhitelistEnabled); err != nil {
+	if err := validateWhitelistEnabled(p.PodcWhitelistEnabled); err != nil {
 		return err
 	}
 
-	if err := validatePermissionsUnbondingTime(p.PermissionsUnbondingTime); err != nil {
+	if err := validateGovMinInitialDepositEnabled(p.GovMinInitialDepositEnabled); err != nil {
 		return err
 	}
 
-	if err := validateGovernanceMinimumInitialDepositEnabled(p.PermissionsMinimumInitialDepositEnabled); err != nil {
-		return err
-	}
-
-	if err := validateGovernanceMinimumInitialDepositPercentage(p.PermissionsMinimumInitialDepositPercentage); err != nil {
+	if err := validateGovMinInitialDepositPercentage(p.GovMinInitialDepositPercentage); err != nil {
 		return err
 	}
 
@@ -100,40 +88,23 @@ func validateWhitelistEnabled(v interface{}) error {
 	return nil
 }
 
-// validatePermissionsUnbondingTime validates the PermissionsUnbondingTime param
-func validatePermissionsUnbondingTime(v interface{}) error {
-	permissionsUnbondingTime, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("invalid parameter type: %T", v)
-	}
-
-	UnbondingTime, err := time.ParseDuration(permissionsUnbondingTime)
-	if err != nil {
-		return fmt.Errorf("invalid parameter type: %T", UnbondingTime)
-	}
-
-	return nil
-}
-
 // validateGovernanceMinimumInitialDepositEnabled validates the GovernanceMinimumInitialDepositEnabled param
-func validateGovernanceMinimumInitialDepositEnabled(v interface{}) error {
+func validateGovMinInitialDepositEnabled(v interface{}) error {
 	_, ok := v.(bool)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}
-
 	return nil
 }
 
 // validateGovernanceMinimumInitialDepositPercentage validates the GovernanceMinimumInitialDepositPercentage param
-func validateGovernanceMinimumInitialDepositPercentage(v interface{}) error {
+func validateGovMinInitialDepositPercentage(v interface{}) error {
 
-	permissionsMinimumInitialDepositPercentage, ok := v.(sdk.Dec)
+	govMinInitialDepositPercentage, ok := v.(sdk.Dec)
 	if !ok {
 		return fmt.Errorf("invalid parameter type: %T", v)
 	}
-
-	if permissionsMinimumInitialDepositPercentage.IsNegative() {
+	if govMinInitialDepositPercentage.IsNegative() {
 		return fmt.Errorf("min initial deposit cannot be negative: %s", v)
 	}
 
