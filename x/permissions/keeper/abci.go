@@ -1,7 +1,6 @@
 package keeper
 
 import (
-	"fmt"
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
@@ -38,10 +37,6 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 		}
 
 		if standingMemberCount > whitelistCount {
-			fmt.Println("\n\n=====================================================")
-			fmt.Println("whitelistCount: ", whitelistCount)
-			fmt.Println("standingMemberCount: ", standingMemberCount)
-
 			for _, validator := range validators {
 
 				if validator.Type == stakingtypes.ValidatorTypeStanding {
@@ -49,29 +44,12 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 					validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
 					foundInWhitelist := k.FindValidator(ctx, validatorAddress)
 
-					bondStatus := validator.GetStatus()
 					blockHeight := ctx.BlockHeight()
-					unbondingTime := validator.UnbondingTime
 
 					if !foundInWhitelist {
-						fmt.Println("\n\n========================     STAKING VALIDATORS     =============================")
-						fmt.Println("----     NOT IN WHITELIST     ----")
-
-						fmt.Println("validatorAddress - hex: ", validatorAddress)
-						fmt.Println("validatorAddress - string: ", validatorAddress.String())
-						fmt.Println("delegation shares: ", validator.DelegatorShares.String())
-
-						fmt.Println("found in whitelist: ", foundInWhitelist)
-						fmt.Println("bondStatus: ", bondStatus)
-						fmt.Println("blockHeight: ", blockHeight)
-
 						if validator.DelegatorShares.IsZero() && validator.IsUnbonding() {
-
 							if validator.IsUnbonding() {
 								var unbondingStartHeight = validator.UnbondingHeight
-								fmt.Println("unbonding time: ", unbondingTime)
-								fmt.Println("unbondingStartHeight: ", unbondingStartHeight)
-
 								if blockHeight > (unbondingStartHeight + int64(types.DefaultRemovalBlockInterval)) {
 									validator = sk.UnbondingToUnbonded(ctx, validator)
 									sk.RemoveValidator(ctx, validator.GetOperator())
@@ -81,8 +59,6 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 					}
 				}
 			}
-			fmt.Println("=====================================================\n\n")
-
 		}
 
 	} else {

@@ -1,7 +1,6 @@
 package ante
 
 import (
-	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
@@ -183,11 +182,6 @@ func (sd StakingDelegationMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) err
 		if delegatedValidator.GetType() == stakingtypes.ValidatorTypeStanding {
 			foundInWhitelist := sd.pk.FindValidator(ctx, validatorAddress)
 			if !foundInWhitelist {
-				fmt.Println("\n\n========================     StakingDelegationMessage     =============================")
-				fmt.Println("----     NOT IN WHITELIST     ----")
-				fmt.Println("validatorAddress - string: ", validatorAddress.String())
-				fmt.Println("found in whitelist: ", foundInWhitelist)
-
 				return permissionstypes.ErrInvalidDelegation
 			}
 
