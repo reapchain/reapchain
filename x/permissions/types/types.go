@@ -8,7 +8,7 @@ import (
 var (
 	ValidatorsKey               = []byte{0x21} // prefix for each key to a validator
 	DefaultUnbondingTime        = "4s"
-	DefaultRemovalBlockInterval = 10
+	DefaultRemovalBlockInterval = 1
 )
 
 // GetValidatorKey creates the key for the validator with address

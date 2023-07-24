@@ -52,14 +52,12 @@ func (AppModule) ProposalContents(_ module.SimulationState) []simtypes.WeightedP
 func (am AppModule) RandomizedParams(_ *rand.Rand) []simtypes.ParamChange {
 	permissionsParams := types.DefaultParams()
 	return []simtypes.ParamChange{
-		simulation.NewSimParamChange(types.ModuleName, string(types.KeyPermissionsUnbondingTime), func(r *rand.Rand) string {
-			return string(types.Amino.MustMarshalJSON(permissionsParams.PermissionsUnbondingTime))
+
+		simulation.NewSimParamChange(types.ModuleName, string(types.KeyGovMinInitialDepositEnabled), func(r *rand.Rand) string {
+			return string(types.Amino.MustMarshalJSON(permissionsParams.GovMinInitialDepositEnabled))
 		}),
-		simulation.NewSimParamChange(types.ModuleName, string(types.KeyPermissionsMinimumInitialDepositEnabled), func(r *rand.Rand) string {
-			return string(types.Amino.MustMarshalJSON(permissionsParams.PermissionsMinimumInitialDepositEnabled))
-		}),
-		simulation.NewSimParamChange(types.ModuleName, string(types.KeyPermissionsMinimumInitialDepositPercentage), func(r *rand.Rand) string {
-			return string(types.Amino.MustMarshalJSON(permissionsParams.PermissionsMinimumInitialDepositPercentage))
+		simulation.NewSimParamChange(types.ModuleName, string(types.KeyGovMinInitialDepositPercentage), func(r *rand.Rand) string {
+			return string(types.Amino.MustMarshalJSON(permissionsParams.GovMinInitialDepositPercentage))
 		}),
 	}
 }

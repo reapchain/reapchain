@@ -9,9 +9,8 @@ import (
 func (k Keeper) GetParams(ctx sdk.Context) types.Params {
 	return types.NewParams(
 		k.WhitelistEnabled(ctx),
-		k.PermissionsUnbondingTime(ctx),
-		k.PermissionsMinimumInitialDepositEnabled(ctx),
-		k.PermissionsMinimumInitialDepositPercentage(ctx),
+		k.GovMinInitialDepositEnabled(ctx),
+		k.GovMinInitialDepositPercentage(ctx),
 	)
 }
 
@@ -21,30 +20,24 @@ func (k Keeper) SetParams(ctx sdk.Context, params types.Params) {
 }
 
 func (k Keeper) WhitelistEnabled(ctx sdk.Context) (res bool) {
-	k.paramstore.Get(ctx, types.KeyWhitelistEnabled, &res)
+	k.paramstore.Get(ctx, types.KeyPodcWhitelistEnabled, &res)
 	return
 }
 
-// PermissionsUnbondingTime returns the PermissionsUnbondingTime param
-func (k Keeper) PermissionsUnbondingTime(ctx sdk.Context) (res string) {
-	k.paramstore.Get(ctx, types.KeyPermissionsUnbondingTime, &res)
+// GovMinInitialDepositEnabled  returns the GovernanceMinimumInitialDepositEnabled param
+func (k Keeper) GovMinInitialDepositEnabled(ctx sdk.Context) (res bool) {
+	k.paramstore.Get(ctx, types.KeyGovMinInitialDepositEnabled, &res)
 	return
 }
 
-// PermissionsMinimumInitialDepositEnabled  returns the GovernanceMinimumInitialDepositEnabled param
-func (k Keeper) PermissionsMinimumInitialDepositEnabled(ctx sdk.Context) (res bool) {
-	k.paramstore.Get(ctx, types.KeyPermissionsMinimumInitialDepositEnabled, &res)
-	return
-}
-
-// PermissionsMinimumInitialDepositPercentage returns the GovernanceMinimumInitialDepositPercentage param
-func (k Keeper) PermissionsMinimumInitialDepositPercentage(ctx sdk.Context) (res sdk.Dec) {
-	k.paramstore.Get(ctx, types.KeyPermissionsMinimumInitialDepositPercentage, &res)
+// GovMinInitialDepositPercentage returns the GovernanceMinimumInitialDepositPercentage param
+func (k Keeper) GovMinInitialDepositPercentage(ctx sdk.Context) (res sdk.Dec) {
+	k.paramstore.Get(ctx, types.KeyGovMinInitialDepositPercentage, &res)
 	return
 }
 
 // GetIfExistsWhitelistEnabled returns the WhitelistEnabled param
 func (k Keeper) GetIfExistsWhitelistEnabled(ctx sdk.Context) (res bool) {
-	k.paramstore.GetIfExists(ctx, types.KeyWhitelistEnabled, &res)
+	k.paramstore.GetIfExists(ctx, types.KeyPodcWhitelistEnabled, &res)
 	return
 }

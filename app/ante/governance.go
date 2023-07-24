@@ -67,12 +67,12 @@ func (sd GovernanceSubmitProposalMessage) validateMsg(ctx sdk.Context, msg sdk.M
 	govModuleParams := sd.gk.GetDepositParams(ctx)
 	permissionsModuleParams := sd.pk.GetParams(ctx)
 
-	minimumInitialDepositEnabled := permissionsModuleParams.PermissionsMinimumInitialDepositEnabled
+	minimumInitialDepositEnabled := permissionsModuleParams.GovMinInitialDepositEnabled
 
 	if minimumInitialDepositEnabled {
 
 		govSubmitProposalMsg.GetInitialDeposit()
-		minimumInitialDepositPercentage := permissionsModuleParams.PermissionsMinimumInitialDepositPercentage
+		minimumInitialDepositPercentage := permissionsModuleParams.GovMinInitialDepositPercentage
 		govParamMinimumDeposit := govModuleParams.MinDeposit.AmountOf(sdk.DefaultBondDenom)
 		requiredInitialDeposit := minimumInitialDepositPercentage.MulInt(govParamMinimumDeposit).RoundInt().BigInt()
 		initialDeposit := govSubmitProposalMsg.InitialDeposit.AmountOf(sdk.DefaultBondDenom).BigInt()

@@ -10,7 +10,7 @@ import (
 // BeginBlocker of permissions module
 func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 
-	isWhitelistEnabled := k.GetParams(ctx).WhitelistEnabled
+	isWhitelistEnabled := k.GetParams(ctx).PodcWhitelistEnabled
 	whitelistCount := k.GetWhiteListedValidatorCount(sdk.WrapSDKContext(ctx))
 	standingMemberCount := sk.CountStandingMember(ctx)
 
