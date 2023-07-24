@@ -20,10 +20,8 @@ func CmdRemoveStandingMemberProposal() *cobra.Command {
 		Args:  cobra.ExactArgs(1),
 		Short: "Submit a remove-standing-member proposal",
 		Long: `Submit a proposal to remove a Validator from the White List.
-Upon passing, the validator-addresss submitted will be remove from the Standing Member Validator List`,
-		Example: fmt.Sprintf(`$ %s tx gov submit-proposal register-standing-member  <validator-operating-address> --from=<key_or_address>
-}`, version.AppName,
-		),
+Upon passing, the validator-address submitted will be removed from the Standing Member Validator List and all delegations will be retured`,
+		Example: fmt.Sprintf(`$ %s tx gov submit-proposal remove-standing-member  reapvaloper1xpsy5u9mm6d09af70d9r0sew877n6mvl0jt64s --from <key_or_address> `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {

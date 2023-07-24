@@ -3,6 +3,7 @@ package keeper
 import (
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 	"github.com/reapchain/reapchain/v8/x/permissions/types"
 )
 
@@ -11,29 +12,53 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 
 	isWhitelistEnabled := k.GetParams(ctx).WhitelistEnabled
 	whitelistCount := k.GetWhiteListedValidatorCount(sdk.WrapSDKContext(ctx))
+	standingMemberCount := sk.CountStandingMember(ctx)
 
 	if isWhitelistEnabled {
+
+		validators := sk.GetAllValidators(ctx)
+
 		if whitelistCount == 0 {
-
-			validators := sk.GetAllValidators(ctx)
 			for _, validator := range validators {
+				if validator.Type == stakingtypes.ValidatorTypeStanding {
 
-				if validator.Type == "standing" {
-					validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
-					accountAddress := sdk.AccAddress(validatorAddress).String()
-
-					var whiteListedValidator = types.WhitelistedValidator{
-						ValidatorAddress: validator.OperatorAddress,
-						Moniker:          validator.GetMoniker(),
-						AccountAddress:   accountAddress,
+					if !validator.DelegatorShares.IsZero() && !validator.IsUnbonding() {
+						validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
+						accountAddress := sdk.AccAddress(validatorAddress).String()
+						var whiteListedValidator = types.WhitelistedValidator{
+							ValidatorAddress: validator.OperatorAddress,
+							Moniker:          validator.GetMoniker(),
+							AccountAddress:   accountAddress,
+						}
+						k.AppendWhitelistedValidator(ctx, whiteListedValidator)
 					}
-					_ = k.AppendWhitelistedValidator(
-						ctx,
-						whiteListedValidator,
-					)
 				}
 			}
+		}
 
+		if standingMemberCount > whitelistCount {
+			for _, validator := range validators {
+
+				if validator.Type == stakingtypes.ValidatorTypeStanding {
+
+					validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
+					foundInWhitelist := k.FindValidator(ctx, validatorAddress)
+
+					blockHeight := ctx.BlockHeight()
+
+					if !foundInWhitelist {
+						if validator.DelegatorShares.IsZero() && validator.IsUnbonding() {
+							if validator.IsUnbonding() {
+								var unbondingStartHeight = validator.UnbondingHeight
+								if blockHeight > (unbondingStartHeight + int64(types.DefaultRemovalBlockInterval)) {
+									validator = sk.UnbondingToUnbonded(ctx, validator)
+									sk.RemoveValidator(ctx, validator.GetOperator())
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 
 	} else {
@@ -48,8 +73,6 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 				operatorAddr, _ := sdk.ValAddressFromBech32(validator.ValidatorAddress)
 				delStore.Delete(types.GetValidatorKey(operatorAddr))
 			}
-
 		}
 	}
-
 }

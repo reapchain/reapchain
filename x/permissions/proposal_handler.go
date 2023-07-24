@@ -44,8 +44,9 @@ func handleRegisterNewStandingMemberProposal(ctx sdk.Context, k *keeper.Keeper, 
 		return err
 	}
 
-	k.Logger(ctx).Info(fmt.Sprintf("New MsgRegisterStandingMemberProposal, validator: %s", whiteListedValidator.ValidatorAddress))
-
+	k.Logger(ctx).Info(
+		fmt.Sprintf("attempt to register new validator; validator address: %s, moniker: %s", whiteListedValidator.ValidatorAddress, whiteListedValidator.Moniker),
+	)
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
 			types.TypeMsgRegisterStandingMemberProposal,
@@ -78,7 +79,9 @@ func handleRemoveStandingMemberProposal(ctx sdk.Context, k *keeper.Keeper, sk ty
 		return removeResult
 	}
 
-	k.Logger(ctx).Info(fmt.Sprintf("New MsgRemoveStandingMemberProposal, validator: %s", whiteListedValidator.ValidatorAddress))
+	k.Logger(ctx).Info(
+		fmt.Sprintf("attempt to remove validator; validator address: %s, moniker: %s", whiteListedValidator.ValidatorAddress, whiteListedValidator.Moniker),
+	)
 
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
@@ -128,8 +131,9 @@ func handleReplaceStandingMemberProposal(ctx sdk.Context, k *keeper.Keeper, sk t
 		return err
 	}
 
-	k.Logger(ctx).Info(fmt.Sprintf("New MsgRemoveStandingMemberProposal, validator: %s", whiteListedValidator.ValidatorAddress))
-
+	k.Logger(ctx).Info(
+		fmt.Sprintf("attempt to repace a validator; existing validator: %s, replacement validator: %s", p.ExistingValidatorAddress, whiteListedValidator.ValidatorAddress),
+	)
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
 			types.TypeMsgRemoveStandingMemberProposal,

@@ -22,10 +22,8 @@ func CmdRegisterStandingMemberProposal() *cobra.Command {
 		Args:  cobra.ExactArgs(3),
 		Short: "Submit a register-standing-member proposal",
 		Long: `Submit a proposal to register a Validator to the White List.
-Upon passing, the validator-addresss submitted will be allowed to become a full standing member validator`,
-		Example: fmt.Sprintf(`$ %s tx gov submit-proposal register-standing-member  <validator-operating-address> --from=<key_or_address>
-}`, version.AppName,
-		),
+Upon passing, the validator-address submitted will be allowed to become a full standing member validator`,
+		Example: fmt.Sprintf(`$ %s tx gov submit-proposal register-standing-member  reapvaloper1wsr6ykhacnpsjy4gysx7e9umejz0jnqc98cvqp reap1wsr6ykhacnpsjy4gysx7e9umejz0jnqc8jj8cd --from <key_or_address> `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {

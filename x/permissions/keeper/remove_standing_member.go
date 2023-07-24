@@ -27,15 +27,12 @@ func (k Keeper) RemoveWhitelistedValidator(
 func (k Keeper) ValidateRemoveStandingMember(ctx sdk.Context, sk types.StakingKeeper, valAddrStr string) error {
 
 	validatorAddress, err := sdk.ValAddressFromBech32(valAddrStr)
-
 	if err != nil {
 		return types.ErrInvalidValidatorAddress
 	}
-
 	found := k.FindValidator(ctx, validatorAddress)
-
-	if found {
-		return types.ErrValidatorAlreadyRegistered
+	if !found {
+		return types.ErrValidatorNotFound
 	}
 
 	return nil
@@ -80,7 +77,7 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 			}
 		}
 
-		unbondingDuration, _ := time.ParseDuration(k.GetParams(ctx).PermissionsUnbondingTime)
+		unbondingDuration, _ := time.ParseDuration(types.DefaultUnbondingTime)
 		completionTime := ctx.BlockHeader().Time.Add(unbondingDuration)
 
 		ubd := sk.SetUnbondingDelegationEntry(ctx, delegatorAddress, validatorAddress, ctx.BlockHeight(), completionTime, returnAmount)
@@ -99,8 +96,6 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 				sdk.NewAttribute(sdk.AttributeKeySender, delegatorAddress.String()),
 			),
 		})
-
 	}
-
 	return nil
 }
