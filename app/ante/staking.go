@@ -1,6 +1,7 @@
 package ante
 
 import (
+	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
@@ -56,7 +57,6 @@ func (sd CreateValidatorMessage) validateAuthz(ctx sdk.Context, execMsg *authz.M
 		if err := sd.cdc.UnpackAny(v, &innerMsg); err != nil {
 			return sdkerrors.Wrap(err, "cannot unmarshal authz exec msgs")
 		}
-
 		if err := sd.validateMsg(ctx, innerMsg); err != nil {
 			return err
 		}
@@ -81,7 +81,7 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 		}
 		if whitelistedValidatorList != nil {
 			//White List only applies to Standing Member Creation
-			if createValidatorMsg.ValidatorType != "standing" {
+			if createValidatorMsg.ValidatorType != stakingtypes.ValidatorTypeStanding {
 				return nil
 			} else {
 				validatorAddress := createValidatorMsg.ValidatorAddress
@@ -100,7 +100,6 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 								createValidatorMsg.Description.Moniker+" -- moniker does not match whitelisted validator's moniker",
 							)
 						}
-
 					}
 				}
 
@@ -116,6 +115,84 @@ func (sd CreateValidatorMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error
 		}
 	}
 
+	return nil
+
+}
+
+type StakingDelegationMessage struct {
+	sk  vestingtypes.StakingKeeper
+	cdc codec.BinaryCodec
+	pk  permissionsmodulekeeper.Keeper
+}
+
+func NewStakingDelegationMessage(sk vestingtypes.StakingKeeper, cdc codec.BinaryCodec, pk permissionsmodulekeeper.Keeper) StakingDelegationMessage {
+	return StakingDelegationMessage{
+		sk:  sk,
+		cdc: cdc,
+		pk:  pk,
+	}
+}
+
+func (sd StakingDelegationMessage) AnteHandle(ctx sdk.Context, tx sdk.Tx, simulate bool, next sdk.AnteHandler) (newCtx sdk.Context, err error) {
+	for _, msg := range tx.GetMsgs() {
+		switch msg := msg.(type) {
+		case *authz.MsgExec:
+			// Check for bypassing authorization
+			if err := sd.validateAuthz(ctx, msg); err != nil {
+				return ctx, err
+			}
+		default:
+			if err := sd.validateMsg(ctx, msg); err != nil {
+				return ctx, err
+			}
+		}
+	}
+
+	return next(ctx, tx, simulate)
+}
+
+func (sd StakingDelegationMessage) validateAuthz(ctx sdk.Context, execMsg *authz.MsgExec) error {
+	for _, v := range execMsg.Msgs {
+		var innerMsg sdk.Msg
+		if err := sd.cdc.UnpackAny(v, &innerMsg); err != nil {
+			return sdkerrors.Wrap(err, "cannot unmarshal authz exec msgs")
+		}
+		if err := sd.validateMsg(ctx, innerMsg); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (sd StakingDelegationMessage) validateMsg(ctx sdk.Context, msg sdk.Msg) error {
+
+	delegationMessage, ok := msg.(*stakingtypes.MsgDelegate)
+	if !ok {
+		return nil
+	}
+
+	isWhiteListEnabled := sd.pk.GetIfExistsWhitelistEnabled(ctx)
+	if isWhiteListEnabled {
+		validatorAddress, err := sdk.ValAddressFromBech32(delegationMessage.ValidatorAddress)
+		if err != nil {
+			return err
+		}
+		delegatedValidator, _ := sd.sk.GetValidator(ctx, validatorAddress)
+
+		if delegatedValidator.GetType() == stakingtypes.ValidatorTypeStanding {
+			foundInWhitelist := sd.pk.FindValidator(ctx, validatorAddress)
+			if !foundInWhitelist {
+				fmt.Println("\n\n========================     StakingDelegationMessage     =============================")
+				fmt.Println("----     NOT IN WHITELIST     ----")
+				fmt.Println("validatorAddress - string: ", validatorAddress.String())
+				fmt.Println("found in whitelist: ", foundInWhitelist)
+
+				return permissionstypes.ErrInvalidDelegation
+			}
+
+		}
+	}
 	return nil
 
 }

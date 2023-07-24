@@ -19,6 +19,7 @@ func (k Keeper) AppendWhitelistedValidator(
 		return err
 	}
 	store.Set(types.GetValidatorKey(operatorAddr), appendedValue)
+
 	return nil
 }
 

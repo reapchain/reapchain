@@ -8,12 +8,13 @@ import (
 
 // x/permissions module sentinel errors
 var (
-	ErrMaximumNumberOfStandingMember     = sdkerrors.Register(ModuleName, 10, "\n\ncannot register anymore validators to whitelist, maximum capacity\n\n")
-	ErrValidatorAlreadyRegistered        = sdkerrors.Register(ModuleName, 11, "\n\ncannot register validator, already in whitelist\n\n")
-	ErrAccountsDontMatch                 = sdkerrors.Register(ModuleName, 12, "\n\nvalidator address & account address are not from the same keys\n\n")
-	ErrValidatorNotFound                 = sdkerrors.Register(ModuleName, 13, "\n\nvalidator address not found in whitelist\n\n")
-	ErrInvalidValidatorAddress           = sdkerrors.Register(ModuleName, 14, "\n\nvalidator address invalid\n\n")
-	ErrUnauthorizedStandingMemberAddress = sdkerrors.Register(ModuleName, 15, "\n\naddresss is not authorized to be a standing member\n\n")
-	ErrInsufficientInitialDeposit        = sdkerrors.Register(ModuleName, 16, "\n\ninsufficient initial deposit, please deposit more.\n\n")
-	ErrNotMatchingMonikers               = sdkerrors.Register(ModuleName, 17, "\n\ntry again with matching moniker.\n\n")
+	ErrMaximumNumberOfStandingMember     = sdkerrors.Register(ModuleName, 2, "cannot register anymore validators to whitelist, maximum capacity")
+	ErrValidatorAlreadyRegistered        = sdkerrors.Register(ModuleName, 3, "cannot register validator, already in whitelist")
+	ErrAccountsDontMatch                 = sdkerrors.Register(ModuleName, 4, "validator address & account address do not match")
+	ErrValidatorNotFound                 = sdkerrors.Register(ModuleName, 5, "validator address not found in whitelist")
+	ErrInvalidValidatorAddress           = sdkerrors.Register(ModuleName, 6, "validator address invalid")
+	ErrUnauthorizedStandingMemberAddress = sdkerrors.Register(ModuleName, 7, "address is not authorized to be a standing member")
+	ErrInsufficientInitialDeposit        = sdkerrors.Register(ModuleName, 8, "insufficient initial deposit, please deposit more")
+	ErrNotMatchingMonikers               = sdkerrors.Register(ModuleName, 9, "try again with matching moniker")
+	ErrInvalidDelegation                 = sdkerrors.Register(ModuleName, 10, "validator not in whitelist, delegation is not possible")
 )
