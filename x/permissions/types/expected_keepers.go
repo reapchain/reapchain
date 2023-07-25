@@ -56,6 +56,8 @@ type StakingKeeper interface {
 	RemoveValidator(ctx sdk.Context, address sdk.ValAddress)
 
 	CountStandingMember(ctx sdk.Context) uint32
+
+	DeleteValidatorQueue(ctx sdk.Context, val stakingtypes.Validator)
 }
 
 // AccountKeeper defines the expected account keeper used for simulations (noalias)
