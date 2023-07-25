@@ -37,6 +37,7 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 		}
 
 		if standingMemberCount > whitelistCount {
+
 			for _, validator := range validators {
 
 				if validator.Type == stakingtypes.ValidatorTypeStanding {
@@ -44,17 +45,21 @@ func (k Keeper) BeginBlocker(ctx sdk.Context, sk types.StakingKeeper) {
 					validatorAddress, _ := sdk.ValAddressFromBech32(validator.OperatorAddress)
 					foundInWhitelist := k.FindValidator(ctx, validatorAddress)
 
-					blockHeight := ctx.BlockHeight()
-
 					if !foundInWhitelist {
-						if validator.DelegatorShares.IsZero() && validator.IsUnbonding() {
-							if validator.IsUnbonding() {
-								var unbondingStartHeight = validator.UnbondingHeight
-								if blockHeight > (unbondingStartHeight + int64(types.DefaultRemovalBlockInterval)) {
-									validator = sk.UnbondingToUnbonded(ctx, validator)
-									sk.RemoveValidator(ctx, validator.GetOperator())
-								}
-							}
+
+						blockHeight := ctx.BlockHeight()
+						unbondingTime := validator.UnbondingTime
+						remainingUnbondingTime := unbondingTime.Sub(ctx.BlockTime())
+						var unbondingStartHeight = validator.UnbondingHeight
+
+						if validator.DelegatorShares.IsZero() &&
+							validator.IsUnbonding() &&
+							remainingUnbondingTime > types.DefaultSafeTimeInterval &&
+							blockHeight > (unbondingStartHeight+types.DefaultRemovalBlockInterval) {
+
+							validator = sk.UnbondingToUnbonded(ctx, validator)
+							sk.RemoveValidator(ctx, validator.GetOperator())
+							sk.DeleteValidatorQueue(ctx, validator)
 						}
 					}
 				}
