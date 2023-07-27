@@ -48,7 +48,16 @@ type StakingKeeper interface {
 	InsertUBDQueue(ctx sdk.Context, ubd stakingtypes.UnbondingDelegation,
 		completionTime time.Time)
 
+	SetValidator(ctx sdk.Context, validator stakingtypes.Validator)
+
+	UnbondingToUnbonded(ctx sdk.Context, validator stakingtypes.Validator) stakingtypes.Validator
 	stakingtypes.StakingHooks
+
+	RemoveValidator(ctx sdk.Context, address sdk.ValAddress)
+
+	CountStandingMember(ctx sdk.Context) uint32
+
+	DeleteValidatorQueue(ctx sdk.Context, val stakingtypes.Validator)
 }
 
 // AccountKeeper defines the expected account keeper used for simulations (noalias)

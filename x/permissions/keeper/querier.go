@@ -26,7 +26,6 @@ func (k Keeper) GetWhitelistedValidatorList(goCtx context.Context) (list []types
 	return allWhiteListedValidators, nil
 }
 
-// unmarshal a redelegation from a store value
 func MustUnmarshalValidator(cdc codec.BinaryCodec, value []byte) types.WhitelistedValidator {
 	validator, err := UnmarshalValidator(cdc, value)
 	if err != nil {
@@ -36,7 +35,6 @@ func MustUnmarshalValidator(cdc codec.BinaryCodec, value []byte) types.Whitelist
 	return validator
 }
 
-// unmarshal a redelegation from a store value
 func UnmarshalValidator(cdc codec.BinaryCodec, value []byte) (v types.WhitelistedValidator, err error) {
 	err = cdc.Unmarshal(value, &v)
 	return v, err
@@ -85,17 +83,13 @@ func (k Keeper) GetWhiteListedValidatorCount(goCtx context.Context) uint32 {
 }
 
 func (k Keeper) FindValidator(ctx sdk.Context, addr sdk.ValAddress) (found bool) {
-	store := ctx.KVStore(k.storeKey)
-
+	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefix(types.WhiteListedValidatorKey))
 	value := store.Get(types.GetValidatorKey(addr))
-	var whiteListedValidator types.WhitelistedValidator
-	if err := k.cdc.Unmarshal(value, &whiteListedValidator); err != nil {
+
+	if value == nil {
 		return false
 	}
 
-	if (types.WhitelistedValidator{}) == whiteListedValidator {
-		return false
-	}
 	return true
 }
 

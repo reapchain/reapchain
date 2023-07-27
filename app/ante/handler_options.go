@@ -96,6 +96,7 @@ func newCosmosAnteHandler(options HandlerOptions) sdk.AnteHandler {
 
 		NewCreateValidatorMessage(options.StakingKeeper, options.Cdc, options.PermissionsKeeper),
 		NewGovernanceSubmitProposalMessage(options.Cdc, options.PermissionsKeeper, options.GovKeeper),
+		NewStakingDelegationMessage(options.StakingKeeper, options.Cdc, options.PermissionsKeeper),
 
 		// SetPubKeyDecorator must be called before all signature verification decorators
 		ante.NewSetPubKeyDecorator(options.AccountKeeper),
@@ -125,6 +126,7 @@ func newCosmosAnteHandlerEip712(options HandlerOptions) sdk.AnteHandler {
 
 		NewCreateValidatorMessage(options.StakingKeeper, options.Cdc, options.PermissionsKeeper),
 		NewGovernanceSubmitProposalMessage(options.Cdc, options.PermissionsKeeper, options.GovKeeper),
+		NewStakingDelegationMessage(options.StakingKeeper, options.Cdc, options.PermissionsKeeper),
 
 		// SetPubKeyDecorator must be called before all signature verification decorators
 		ante.NewSetPubKeyDecorator(options.AccountKeeper),

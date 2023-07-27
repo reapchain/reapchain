@@ -22,10 +22,8 @@ func CmdReplaceStandingMemberProposal() *cobra.Command {
 		Args:  cobra.ExactArgs(4),
 		Short: "Submit a replace-standing-member proposal",
 		Long: `Submit a proposal to remove a Validator from the White List and replace it with a Replacement Validator
-Upon passing, the replacement-validator-addresss submitted will be allowed to become a full standing member validator`,
-		Example: fmt.Sprintf(`$ %s tx gov submit-proposal register-standing-member  <validator-operating-address> --from=<key_or_address>
-}`, version.AppName,
-		),
+Upon passing, the replacement-validator-address submitted will be allowed to become a full standing member validator`,
+		Example: fmt.Sprintf(`$ %s tx gov submit-proposal replace-standing-member reapvaloper1xpsy5u9mm6d09af70d9r0sew877n6mvl0jt64s reapvaloper1wsr6ykhacnpsjy4gysx7e9umejz0jnqc98cvqp reap1wsr6ykhacnpsjy4gysx7e9umejz0jnqc8jj8cd --from <key_or_address> }`, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
