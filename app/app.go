@@ -147,6 +147,10 @@ import (
 	permissionsmodule "github.com/reapchain/reapchain/v8/x/permissions"
 	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
 	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
+
+	bridgemodule "github.com/reapchain/reapchain/v8/x/bridge"
+	bridgemodulekeeper "github.com/reapchain/reapchain/v8/x/bridge/keeper"
+	bridgemoduletypes "github.com/reapchain/reapchain/v8/x/bridge/types"
 )
 
 func init() {
@@ -210,6 +214,7 @@ var (
 		recovery.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
 		permissionsmodule.AppModuleBasic{},
+		bridgemodule.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -226,6 +231,7 @@ var (
 		claimstypes.ModuleName:            nil,
 		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 		permissionsmoduletypes.ModuleName: nil,
+		bridgemoduletypes.ModuleName:      {authtypes.Minter, authtypes.Burner, authtypes.Staking},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -294,6 +300,7 @@ type Reapchain struct {
 	RecoveryKeeper    *recoverykeeper.Keeper
 	FeesplitKeeper    feesplitkeeper.Keeper
 	PermissionsKeeper permissionsmodulekeeper.Keeper
+	BridgeKeeper      bridgemodulekeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -352,6 +359,7 @@ func NewReapchain(
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		feesplittypes.StoreKey,
 		permissionsmoduletypes.StoreKey,
+		bridgemoduletypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -520,6 +528,13 @@ func NewReapchain(
 		),
 	)
 
+	app.BridgeKeeper = *bridgemodulekeeper.NewKeeper(
+		appCodec,
+		keys[bridgemoduletypes.StoreKey],
+		keys[bridgemoduletypes.MemStoreKey],
+		app.BankKeeper,
+	)
+
 	// Create Transfer Stack
 
 	// SendPacket, since it is originating from the application to core IBC:
@@ -621,6 +636,7 @@ func NewReapchain(
 
 		// Reapchain app modules
 		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+		bridgemodule.NewAppModule(appCodec, app.BridgeKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -659,6 +675,7 @@ func NewReapchain(
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
 		permissionsmoduletypes.ModuleName,
+		bridgemoduletypes.ModuleName,
 	)
 
 	// NOTE: fee market module must go last in order to retrieve the block gas used.
@@ -694,6 +711,7 @@ func NewReapchain(
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
 		permissionsmoduletypes.ModuleName,
+		bridgemoduletypes.ModuleName,
 	)
 
 	// NOTE: The genutils module must occur after staking so that pools are
@@ -739,6 +757,7 @@ func NewReapchain(
 		// NOTE: crisis module must go at the end to check for invariants on each module
 		crisistypes.ModuleName,
 		permissionsmoduletypes.ModuleName,
+		bridgemoduletypes.ModuleName,
 	)
 
 	app.mm.RegisterInvariants(&app.CrisisKeeper)
@@ -772,6 +791,7 @@ func NewReapchain(
 		epochs.NewAppModule(appCodec, app.EpochsKeeper),
 		feemarket.NewAppModule(app.FeeMarketKeeper),
 		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+		bridgemodule.NewAppModule(appCodec, app.BridgeKeeper, app.AccountKeeper, app.BankKeeper),
 	)
 
 	app.sm.RegisterStoreDecoders()
@@ -1062,6 +1082,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
 	paramsKeeper.Subspace(feesplittypes.ModuleName)
 	paramsKeeper.Subspace(permissionsmoduletypes.ModuleName)
+	paramsKeeper.Subspace(bridgemoduletypes.ModuleName)
 
 	return paramsKeeper
 }
