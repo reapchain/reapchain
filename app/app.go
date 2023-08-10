@@ -4,11 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"github.com/reapchain/reapchain/v8/app/upgrades/v0_8_6"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	"github.com/reapchain/reapchain/v8/app/upgrades/v0_8_6"
 
 	"github.com/gorilla/mux"
 	"github.com/rakyll/statik/fs"
@@ -449,7 +450,7 @@ func NewReapchain(
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
-		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter,
+		app.AccountKeeper, app.BankKeeper, &stakingKeeper, govRouter, app.DistrKeeper,
 	)
 
 	// Reapchain Keeper
