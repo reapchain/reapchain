@@ -279,7 +279,7 @@ type Reapchain struct {
 
 	// keepers
 	AccountKeeper    authkeeper.AccountKeeper
-	BankKeeper       bankkeeper.Keeper
+	BankKeeper       bankkeeper.BaseKeeper
 	CapabilityKeeper *capabilitykeeper.Keeper
 	StakingKeeper    stakingkeeper.Keeper
 	SlashingKeeper   slashingkeeper.Keeper
@@ -866,7 +866,9 @@ func NewReapchain(
 		panic(err)
 	}
 
-	app.SetAnteHandler(ante.NewAnteHandler(options))
+	app.SetAnteHandler(ante.NewAnteHandler(
+		options, &gravityKeeper, &app.AccountKeeper, &app.BankKeeper, nil, app.IBCKeeper, appCodec,
+	))
 	app.SetEndBlocker(app.EndBlocker)
 	app.setupUpgradeHandlers()
 
