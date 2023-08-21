@@ -4,6 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
+	bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
 	"io"
 	"net/http"
 	"os"
@@ -148,6 +150,18 @@ import (
 	permissionsmodule "github.com/reapchain/reapchain/v8/x/permissions"
 	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
 	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
+
+	//// Osmosis-Labs Bech32-IBC
+	"github.com/reapchain/reapchain/v8/x/bech32ibc"
+	//bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
+	//bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
+	"github.com/reapchain/reapchain/v8/x/gravity"
+	//gravityparams "github.com/Gravity-Bridge/Gravity-Bridge/module/app/params"
+	//"github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades"
+	//v2 "github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades/v2"
+	//"github.com/Gravity-Bridge/Gravity-Bridge/module/x/gravity"
+	gravitykeeper "github.com/reapchain/reapchain/v8/x/gravity/keeper"
+	gravitytypes "github.com/reapchain/reapchain/v8/x/gravity/types"
 )
 
 func init() {
@@ -211,6 +225,8 @@ var (
 		recovery.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
 		permissionsmodule.AppModuleBasic{},
+		gravity.AppModuleBasic{},
+		bech32ibc.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -227,6 +243,7 @@ var (
 		claimstypes.ModuleName:            nil,
 		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 		permissionsmoduletypes.ModuleName: nil,
+		gravitytypes.ModuleName:           {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -296,6 +313,9 @@ type Reapchain struct {
 	FeesplitKeeper    feesplitkeeper.Keeper
 	PermissionsKeeper permissionsmodulekeeper.Keeper
 
+	gravityKeeper   *gravitykeeper.Keeper
+	bech32IbcKeeper *bech32ibckeeper.Keeper
+
 	// the module manager
 	mm *module.Manager
 
@@ -353,6 +373,7 @@ func NewReapchain(
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		feesplittypes.StoreKey,
 		permissionsmoduletypes.StoreKey,
+		gravitytypes.StoreKey, bech32ibctypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -446,7 +467,8 @@ func NewReapchain(
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.IBCKeeper.ClientKeeper)).
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
-		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper))
+		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper)).
+		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.bech32IbcKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
@@ -576,6 +598,29 @@ func NewReapchain(
 	// If evidence needs to be handled for the app, set routes in router here and seal
 	app.EvidenceKeeper = *evidenceKeeper
 
+	bech32IbcKeeper := *bech32ibckeeper.NewKeeper(
+		app.IBCKeeper.ChannelKeeper, appCodec, keys[bech32ibctypes.StoreKey],
+		app.TransferKeeper,
+	)
+	app.bech32IbcKeeper = &bech32IbcKeeper
+
+	bankBaseKeeper := bankkeeper.NewBaseKeeper(
+		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), app.BlockedAddrs(),
+	)
+	gravityKeeper := gravitykeeper.NewKeeper(
+		keys[gravitytypes.StoreKey],
+		app.GetSubspace(gravitytypes.ModuleName),
+		appCodec,
+		&bankBaseKeeper,
+		&stakingKeeper,
+		&app.SlashingKeeper,
+		&app.DistrKeeper,
+		&app.AccountKeeper,
+		&app.TransferKeeper,
+		&bech32IbcKeeper,
+	)
+	app.gravityKeeper = &gravityKeeper
+
 	/****  Module Options ****/
 
 	// NOTE: we may consider parsing `appOpts` inside module constructors. For the moment
@@ -622,6 +667,15 @@ func NewReapchain(
 
 		// Reapchain app modules
 		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+
+		gravity.NewAppModule(
+			gravityKeeper,
+			app.BankKeeper,
+		),
+		bech32ibc.NewAppModule(
+			appCodec,
+			bech32IbcKeeper,
+		),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -648,6 +702,8 @@ func NewReapchain(
 		banktypes.ModuleName,
 		govtypes.ModuleName,
 		crisistypes.ModuleName,
+		bech32ibctypes.ModuleName,
+		gravitytypes.ModuleName,
 		genutiltypes.ModuleName,
 		authz.ModuleName,
 		feegrant.ModuleName,
@@ -667,7 +723,7 @@ func NewReapchain(
 		crisistypes.ModuleName,
 		govtypes.ModuleName,
 		stakingtypes.ModuleName,
-
+		gravitytypes.ModuleName,
 		evmtypes.ModuleName,
 		feemarkettypes.ModuleName,
 		// Note: epochs' endblock should be "real" end of epochs, we keep epochs endblock at the end
@@ -681,6 +737,7 @@ func NewReapchain(
 		banktypes.ModuleName,
 		distrtypes.ModuleName,
 		slashingtypes.ModuleName,
+		bech32ibctypes.ModuleName,
 		genutiltypes.ModuleName,
 		evidencetypes.ModuleName,
 		authz.ModuleName,
@@ -738,6 +795,8 @@ func NewReapchain(
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
+		bech32ibctypes.ModuleName, // Must go before gravity so that pending ibc auto forwards can be restored
+		gravitytypes.ModuleName,
 		crisistypes.ModuleName,
 		permissionsmoduletypes.ModuleName,
 	)
@@ -1051,6 +1110,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(govtypes.ModuleName).WithKeyTable(govtypes.ParamKeyTable())
 	paramsKeeper.Subspace(crisistypes.ModuleName)
 	paramsKeeper.Subspace(ibctransfertypes.ModuleName)
+	paramsKeeper.Subspace(gravitytypes.ModuleName)
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	// ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName)
