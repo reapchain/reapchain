@@ -174,7 +174,7 @@ func (i *InternalERC20Token) GravityCoin() sdk.Coin {
 
 // GravityDenom converts an EthAddress to a gravity cosmos denom
 func GravityDenom(tokenContract EthAddress) string {
-	return fmt.Sprintf("%s%s%s", GravityDenomPrefix, GravityDenomSeparator, tokenContract.GetAddress().Hex())
+	return fmt.Sprintf("%s%s%s", GravityDenomPrefix, GravityDenomSeparator, tokenContract.GetAddress().Hex()) // sdk.DefaultBondDenom
 }
 
 // ValidateBasic performs stateless validation
