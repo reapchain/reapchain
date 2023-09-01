@@ -371,6 +371,9 @@ func (k Keeper) autoIncrementID(ctx sdk.Context, idKey []byte) uint64 {
 func (k Keeper) getID(ctx sdk.Context, idKey []byte) uint64 {
 	store := ctx.KVStore(k.storeKey)
 	bz := store.Get(idKey)
+	if bz == nil {
+		return 1
+	}
 	id := types.UInt64FromBytesUnsafe(bz)
 	return id
 }
