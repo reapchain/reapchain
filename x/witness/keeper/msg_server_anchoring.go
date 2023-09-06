@@ -15,6 +15,7 @@ func (k msgServer) Anchoring(goCtx context.Context, msg *types.MsgAnchoring) (*t
 		BlockHash:   msg.BlockHash,
 		BlockHeight: msg.BlockHeight,
 		ChainID: msg.ChainID,
+		Filter: msg.Filter,
 	}
 
 	_ = k.AppendAnchored(ctx, anchored)

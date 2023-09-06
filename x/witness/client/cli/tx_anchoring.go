@@ -14,13 +14,14 @@ var _ = strconv.Itoa(0)
 
 func CmdAnchoring() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "anchoring [block-hash] [block-height] [chain-id]",
+		Use:   "anchoring [block-hash] [block-height] [chain-id] [filter]",
 		Short: "Broadcast message anchoring",
-		Args:  cobra.ExactArgs(3),
+		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			argBlockHash := args[0]
 			argBlockHeight := args[1]
 			argChainID := args[2]
+			argFilter := args[3]
 
 			clientCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -32,6 +33,7 @@ func CmdAnchoring() *cobra.Command {
 				argBlockHash,
 				argBlockHeight,
 				argChainID,
+				argFilter,
 			)
 			if err := msg.ValidateBasic(); err != nil {
 				return err

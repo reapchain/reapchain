@@ -1,0 +1,25 @@
+syntax = "proto3";
+package reapchain.witness;
+
+// this line is used by starport scaffolding # proto/tx/import
+
+option go_package = "reapchain/x/witness/types";
+
+// Msg defines the Msg service.
+service Msg {
+      rpc Anchoring(MsgAnchoring) returns (MsgAnchoringResponse);
+// this line is used by starport scaffolding # proto/tx/rpc
+}
+
+message MsgAnchoring {
+  string creator = 1;
+  string blockHash = 2;
+  string blockHeight = 3;
+  string chainID = 4;
+  string filter = 5;
+}
+
+message MsgAnchoringResponse {
+}
+
+// this line is used by starport scaffolding # proto/tx/message

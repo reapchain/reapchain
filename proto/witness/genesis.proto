@@ -1,0 +1,17 @@
+syntax = "proto3";
+package reapchain.witness;
+
+import "gogoproto/gogo.proto";
+import "witness/params.proto";
+import "witness/anchored.proto";
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "reapchain/x/witness/types";
+
+// GenesisState defines the witness module's genesis state.
+message GenesisState {
+  Params params = 1 [(gogoproto.nullable) = false];
+  repeated Anchored anchoredList = 2 [(gogoproto.nullable) = false];
+  uint64 anchoredCount = 3;
+  // this line is used by starport scaffolding # genesis/proto/state
+}

@@ -9,12 +9,13 @@ const TypeMsgAnchoring = "anchoring"
 
 var _ sdk.Msg = &MsgAnchoring{}
 
-func NewMsgAnchoring(creator string, blockHash string, blockHeight string, chainID string) *MsgAnchoring {
+func NewMsgAnchoring(creator string, blockHash string, blockHeight string, chainID string, filter string) *MsgAnchoring {
 	return &MsgAnchoring{
 		Creator:     creator,
 		BlockHash:   blockHash,
 		BlockHeight: blockHeight,
 		ChainID:     chainID,
+		Filter:      filter,
 	}
 }
 

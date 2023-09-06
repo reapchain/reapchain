@@ -5,7 +5,7 @@ import (
 
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
-	"reapchain/testutil/sample"
+	"github.com/reapchain/reapchain/v4/testutil/sample"
 )
 
 func TestMsgAnchoring_ValidateBasic(t *testing.T) {

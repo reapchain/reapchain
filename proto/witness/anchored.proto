@@ -1,0 +1,13 @@
+syntax = "proto3";
+package reapchain.witness;
+
+option go_package = "reapchain/x/witness/types";
+
+message Anchored {
+  uint64 id = 1;
+  string blockHash = 2; 
+  string blockHeight = 3; 
+  string chainID = 4; 
+  string filter = 5; 
+  
+}
