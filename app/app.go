@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"github.com/reapchain/reapchain/v8/x/escrow"
 	"io"
 	"net/http"
 	"os"
@@ -148,6 +149,10 @@ import (
 	permissionsmodule "github.com/reapchain/reapchain/v8/x/permissions"
 	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
 	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
+
+	escrowclient "github.com/reapchain/reapchain/v8/x/escrow/client"
+	escrowkeeper "github.com/reapchain/reapchain/v8/x/escrow/keeper"
+	escrowtypes "github.com/reapchain/reapchain/v8/x/escrow/types"
 )
 
 func init() {
@@ -190,6 +195,7 @@ var (
 			incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
 			// Reapchain Proposal Types
 			permissionsmoduleclient.RegisterStandingMemberProposal, permissionsmoduleclient.RemoveStandingMemberProposal, permissionsmoduleclient.ReplaceStandingMemberProposal,
+			escrowclient.RegisterEscrowDenomProposalHandler, escrowclient.ToggleEscrowConversionProposalHandler, escrowclient.AddEscrowSupplyProposalHandler,
 		),
 		params.AppModuleBasic{},
 		crisis.AppModuleBasic{},
@@ -211,6 +217,7 @@ var (
 		recovery.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
 		permissionsmodule.AppModuleBasic{},
+		escrow.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -227,6 +234,7 @@ var (
 		claimstypes.ModuleName:            nil,
 		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 		permissionsmoduletypes.ModuleName: nil,
+		escrowtypes.ModuleName:            {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -296,6 +304,8 @@ type Reapchain struct {
 	FeesplitKeeper    feesplitkeeper.Keeper
 	PermissionsKeeper permissionsmodulekeeper.Keeper
 
+	EscrowKeeper escrowkeeper.Keeper
+
 	// the module manager
 	mm *module.Manager
 
@@ -353,6 +363,7 @@ func NewReapchain(
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		feesplittypes.StoreKey,
 		permissionsmoduletypes.StoreKey,
+		escrowtypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -446,7 +457,8 @@ func NewReapchain(
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.IBCKeeper.ClientKeeper)).
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
-		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper))
+		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper)).
+		AddRoute(escrowtypes.RouterKey, escrow.NewEscrowProposalHandler(&app.EscrowKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
@@ -484,6 +496,11 @@ func NewReapchain(
 	app.Erc20Keeper = erc20keeper.NewKeeper(
 		keys[erc20types.StoreKey], appCodec, app.GetSubspace(erc20types.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.EvmKeeper,
+	)
+
+	app.EscrowKeeper = escrowkeeper.NewKeeper(
+		keys[escrowtypes.StoreKey], appCodec, app.GetSubspace(escrowtypes.ModuleName),
+		app.AccountKeeper, app.BankKeeper,
 	)
 
 	app.IncentivesKeeper = incentiveskeeper.NewKeeper(
@@ -622,6 +639,7 @@ func NewReapchain(
 
 		// Reapchain app modules
 		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+		escrow.NewAppModule(app.EscrowKeeper, app.AccountKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -655,6 +673,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
@@ -691,6 +710,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
@@ -733,6 +753,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		epochstypes.ModuleName,
 		recoverytypes.ModuleName,
@@ -1063,6 +1084,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
 	paramsKeeper.Subspace(feesplittypes.ModuleName)
 	paramsKeeper.Subspace(permissionsmoduletypes.ModuleName)
+	paramsKeeper.Subspace(escrowtypes.ModuleName)
 
 	return paramsKeeper
 }
