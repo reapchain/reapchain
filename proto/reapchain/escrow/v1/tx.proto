@@ -1,0 +1,40 @@
+syntax = "proto3";
+package reapchain.escrow.v1;
+
+import "google/api/annotations.proto";
+import "gogoproto/gogo.proto";
+import "cosmos/base/v1beta1/coin.proto";
+
+option go_package = "github.com/reapchain/reapchain/v8/x/escrow/types";
+
+service Msg {
+  rpc ConvertToNative(MsgConvertToNative) returns (MsgConvertToNativeResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/tx/convert_to_native";
+  };
+  rpc ConvertToDenom(MsgConvertToDenom) returns (MsgConvertToDenomResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/tx/convert_to_denom";
+  };
+}
+
+message MsgConvertToNative {
+  cosmos.base.v1beta1.Coin coin = 1 [ (gogoproto.nullable) = false ];
+  string sender = 2;
+
+}
+
+// MsgConvertCoinResponse returns no fields
+message MsgConvertToNativeResponse {}
+
+message MsgConvertToDenom {
+  string amount = 1 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+  string denom = 2;
+  string sender = 3;
+
+
+}
+
+// MsgConvertERC20Response returns no fields
+message MsgConvertToDenomResponse {}

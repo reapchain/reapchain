@@ -7,23 +7,7 @@ option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
 
 // Msg defines the Msg service.
 service Msg {
-//  rpc RegisterStandingMemberProposal(MsgRegisterStandingMemberProposal)
-//      returns (MsgRegisterStandingMemberProposalResponse){
-//    option (google.api.http).get =
-//        "/reapchain/permissions/v1/tx/register_standing_member";
-//  };
-//
-//  rpc RemoveStandingMemberProposal(MsgRemoveStandingMemberProposal)
-//      returns (MsgRemoveStandingMemberProposalResponse){
-//    option (google.api.http).get =
-//        "/reapchain/permissions/v1/tx/remove_standing_member";
-//  };
-//
-//  rpc RemoveStandingMemberProposal(MsgRemoveStandingMemberProposal)
-//      returns (MsgRemoveStandingMemberProposalResponse){
-//    option (google.api.http).get =
-//        "/reapchain/permissions/v1/tx/replace_standing_member";
-//  };
+
 }
 
 message MsgRegisterStandingMemberProposal {

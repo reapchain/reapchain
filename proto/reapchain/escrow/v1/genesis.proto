@@ -1,0 +1,35 @@
+syntax = "proto3";
+package reapchain.escrow.v1;
+
+import "reapchain/escrow/v1/escrow.proto";
+import "cosmos/base/v1beta1/coin.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/reapchain/reapchain/v8/x/escrow/types";
+
+// GenesisState defines the module's genesis state.
+message GenesisState {
+  // module parameters
+  Params params = 1 [ (gogoproto.nullable) = false ];
+  // registered denominations
+  repeated RegisteredDenom registered_denoms = 2 [ (gogoproto.nullable) = false ];
+
+  repeated EscrowSupply total_escrow_supply = 3 [(gogoproto.nullable) = false];
+}
+
+message Params {
+  // parameter to enable the conversion of Cosmos coins <--> ERC20 tokens.
+  bool enable_escrow = 1;
+}
+
+message EscrowSupply {
+  option (gogoproto.equal)           = false;
+  option (gogoproto.goproto_getters) = false;
+
+  // address is the address of the balance holder.
+  string denom = 1;
+
+  // coins defines the different coins this balance holds.
+  repeated cosmos.base.v1beta1.Coin coins = 2
+  [(gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins", (gogoproto.nullable) = false];
+}
