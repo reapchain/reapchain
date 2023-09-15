@@ -215,6 +215,15 @@ func valsetSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 	unslashedValsets := k.GetUnSlashedValsets(ctx, params.SignedValsetsWindow)
 
 	currentBondedSet := k.StakingKeeper.GetBondedValidatorsByPower(ctx)
+
+	// Only Standing members
+	var currentStandingBondedSet []stakingtypes.Validator
+	for _, validator := range currentBondedSet {
+		if validator.Type == stakingtypes.ValidatorTypeStanding {
+			currentStandingBondedSet = append(currentStandingBondedSet, validator)
+		}
+	}
+
 	unbondingValidators := getUnbondingValidators(ctx, k)
 
 	for _, vs := range unslashedValsets {
@@ -222,7 +231,7 @@ func valsetSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 
 		// SLASH BONDED VALIDTORS who didn't attest valset request
 
-		for _, val := range currentBondedSet {
+		for _, val := range currentStandingBondedSet {
 			consAddr, err := val.GetConsAddr()
 			if err != nil {
 				panic("Failed to get validator consensus addr")

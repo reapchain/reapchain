@@ -9,6 +9,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
 
 	"github.com/reapchain/reapchain/v8/x/gravity/types"
 )
@@ -264,6 +265,12 @@ func (k Keeper) GetCurrentValset(ctx sdk.Context) (types.Valset, error) {
 	// TODO someone with in depth info on Cosmos staking should determine
 	// if this is doing what I think it's doing
 	for _, validator := range validators {
+
+		// Skip if validator type is steering
+		if validator.Type == stakingtypes.ValidatorTypeSteering {
+			continue
+		}
+
 		val := validator.GetOperator()
 		if err := sdk.VerifyAddressFormat(val); err != nil {
 			return types.Valset{}, sdkerrors.Wrap(err, types.ErrInvalidValAddress.Error())
