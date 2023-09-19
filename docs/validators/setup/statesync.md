@@ -222,7 +222,7 @@ mv $HOME/genesis.json ~/.evmosd/config/
 Reset the node
 
 ```bash
-evmosd tendermint unsafe-reset-all --home $HOME/.evmosd
+evmosd podc unsafe-reset-all --home $HOME/.evmosd
 ```
 
 Change config files (set the node name, add persistent peers, set indexer = "null")

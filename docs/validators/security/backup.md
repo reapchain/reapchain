@@ -24,13 +24,13 @@ Then do the following:
 To see your validator's associated public key:
 
 ```bash
-evmosd tendermint show-validator
+evmosd podc show-validator
 ```
 
 To see your validator's associated bech32 address:
 
 ```bash
-evmosd tendermint show-address
+evmosd podc show-address
 ```
 
 You can also use hardware to store your Tendermint Key much more safely, such as [YubiHSM2](https://developers.yubico.com/YubiHSM2/).

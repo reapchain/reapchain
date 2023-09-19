@@ -113,7 +113,7 @@ First, remove the outdated files and reset the data.
 
 ```bash
 rm $HOME/.reapchaind/config/addrbook.json $HOME/.reapchaind/config/genesis.json
-reapchaind tendermint unsafe-reset-all --home $HOME/.reapchaind
+reapchaind podc unsafe-reset-all --home $HOME/.reapchaind
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before, your node will still try to connect to them, but may fail if they haven't also been upgraded.

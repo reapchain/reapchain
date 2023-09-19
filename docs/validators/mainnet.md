@@ -130,7 +130,7 @@ For more details on how to run your validator, follow the validator [these](./se
 ```bash
 reapchaind tx staking create-validator \
   --amount=1000000000000aevmos \
-  --pubkey=$(reapchaind tendermint show-validator) \
+  --pubkey=$(reapchaind podc show-validator) \
   --moniker="EvmosWhale" \
   --chain-id=<chain_id> \
   --commission-rate="0.05" \
@@ -164,7 +164,7 @@ You can share your peer to posting it in the `#find-peers` channel in the [Evmos
 To get your Node ID use
 
 ```bash
-reapchaind tendermint show-node-id
+reapchaind podc show-node-id
 ```
 
 :::

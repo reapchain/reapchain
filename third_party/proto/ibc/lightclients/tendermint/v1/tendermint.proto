@@ -4,8 +4,8 @@ package ibc.lightclients.tendermint.v1;
 
 option go_package = "github.com/reapchain/ibc-go/v3/modules/light-clients/07-tendermint/types";
 
-import "tendermint/types/validator.proto";
-import "tendermint/types/types.proto";
+import "podc/types/validator.proto";
+import "podc/types/types.proto";
 import "proofs.proto";
 import "google/protobuf/duration.proto";
 import "google/protobuf/timestamp.proto";

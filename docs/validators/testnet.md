@@ -126,7 +126,7 @@ For more details on how to run your validator, follow [these](./setup/run_valida
 ```bash
 reapchaind tx staking create-validator \
   --amount=1000000000000atevmos \
-  --pubkey=$(reapchaind tendermint show-validator) \
+  --pubkey=$(reapchaind podc show-validator) \
   --moniker="EvmosWhale" \
   --chain-id=<chain_id> \
   --commission-rate="0.10" \
@@ -162,7 +162,7 @@ First, remove the outdated files and reset the data.
 
 ```bash
 rm $HOME/.reapchaind/config/addrbook.json $HOME/.reapchaind/config/genesis.json
-reapchaind tendermint unsafe-reset-all --home $HOME/.reapchaind
+reapchaind podc unsafe-reset-all --home $HOME/.reapchaind
 ```
 
 Your node is now in a pristine state while keeping the original `priv_validator.json` and `config.toml`. If you had any sentry nodes or full nodes setup before,

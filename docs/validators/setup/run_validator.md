@@ -20,7 +20,7 @@ If you plan to use a Key Management System (KMS), you should go through these st
 Your node consensus public key (`evmosvalconspub...`) can be used to create a new validator by staking EVMOS tokens. You can find your validator pubkey by running:
 
 ```bash
-reapchaind tendermint show-validator
+reapchaind podc show-validator
 ```
 
 ::: danger
@@ -34,7 +34,7 @@ To create your validator on testnet, just use the following command:
 ```bash
 reapchaind tx staking create-validator \
   --amount=1000000atevmos \
-  --pubkey=$(reapchaind tendermint show-validator) \
+  --pubkey=$(reapchaind podc show-validator) \
   --moniker="choose a moniker" \
   --chain-id=<chain_id> \
   --commission-rate="0.05" \
@@ -116,7 +116,7 @@ reapchaind tx slashing unjail \
 Your validator is active if the following command returns anything:
 
 ```bash
-reapchaind query tendermint-validator-set | grep "$(reapchaind tendermint show-address)"
+reapchaind query podc-validator-set | grep "$(reapchaind podc show-address)"
 ```
 
 You should now see your validator in one of Evmos explorers. You are looking for the `bech32` encoded `address` in the `~/.reapchaind/config/priv_validator.json` file.
