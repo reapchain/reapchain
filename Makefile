@@ -69,7 +69,7 @@ build_tags_comma_sep := $(subst $(whitespace),$(comma),$(build_tags))
 # process linker flags
 
 ldflags = -X github.com/reapchain/cosmos-sdk/version.Name=reapchain \
-          -X github.com/reapchain/cosmos-sdk/version.AppName=$(REAPCHAIN_BINARY ) \
+          -X github.com/reapchain/cosmos-sdk/version.AppName=$(REAPCHAIN_BINARY) \
           -X github.com/reapchain/cosmos-sdk/version.Version=$(VERSION) \
           -X github.com/reapchain/cosmos-sdk/version.Commit=$(COMMIT) \
           -X "github.com/reapchain/cosmos-sdk/version.BuildTags=$(build_tags_comma_sep)" \
