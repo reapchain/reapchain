@@ -1,6 +1,7 @@
 package gravity
 
 import (
+	"fmt"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
@@ -88,6 +89,12 @@ func pruneValsets(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 
 func slashing(ctx sdk.Context, k keeper.Keeper) {
 	params := k.GetParams(ctx)
+
+	// don't slash if EnableSlash is false
+	fmt.Printf("\nGravity Params EnableSlash: %v\n", params.EnableSlash)
+	if !params.EnableSlash {
+		return
+	}
 
 	// Slash validator for not confirming valset requests, batch requests, logic call requests
 	valsetSlashing(ctx, k, params)
