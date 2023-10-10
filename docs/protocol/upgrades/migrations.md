@@ -7,7 +7,7 @@
 
 ### Manual Genesis Migration
 
-Evmos can dump the entire application state to a JSON file. This, besides upgrades, can be
+reapchain can dump the entire application state to a JSON file. This, besides upgrades, can be
 useful for manual analysis of the state at a given height.
 
 Export state with:

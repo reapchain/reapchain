@@ -21,28 +21,56 @@ parent:
 <div align="center">
 </div>
 
-ReapChain was created to solve the problems of the existing IoT Blockchain.
+This repository hosts `ReapChain`. This repository is forked from [evmos](https://github.com/evmos/evmos) at 2022-05-03. ReapChain is a mainnet app implementation using [reapchain cosmos-sdk](https://github.com/reapchain/cosmos-sdk), [reapchain-core](https://github.com/reapchain/reapchain-core), [ethermint](https://github.com/reapchain/ethermint) and [ibc-go](https://github.com/reapchain/ibc-go).
 
-Based on the Shell-Core structure, which combines public and private Blockchains, and the two-way consensus algorithm (PoDC), we have overcome the three problems of the existing Blockchain: “scalability, security, and decentralization”.
+**Node**: Requires [Go 1.18+](https://golang.org/dl/)
 
-Also, by giving the PID of an object through the Reap SDK, it is possible to secure clean data by improving security through mutual verification between devices and preventing the forgery of data.
+# Quick Start
 
-ReapChain is creating a new IoT Blockchain world with technology that has both complete security and transparency.
+## Local
 
-## Mainnet
+**Build**
+```
+make build
+make install 
+```
 
-To join the mainnet, follow [this guide](https://reapchain.gitbook.io/mainnet).
+**Configure**
+```
+sh init_single.sh
+```
+or
+```
+sh init_single.sh testnet  # for testnet
+```
 
----
+**Run**
+```
+reapchaind start                # Run a node
+```
 
-## Install
+**visit with your browser**
+* Node: http://localhost:26657/
 
-See the [install instructions](https://reapchain.gitbook.io/mainnet/user-guides/initial-setup).
+## Localnet with 4 nodes
 
----
+**Run**
+```
+make localnet-start
+```
 
-## Resources
+**Stop**
+```
+make localnet-stop
+```
+## Docker
+**Warnings**: Initial development is in progress, but there has not yet been a stable.
 
-- Dashboard : <https://dashboard.reapchain.org>
-- Dashboard for TestNet : <https://test-dashboard.reapchain.org>
-- Faucet for TestNet : <https://test-faucet.reapchain.org>
+# How to contribute
+check out [CONTRIBUTING.md](CONTRIBUTING.md) for our guidelines & policies for how we develop Finschia. Thank you to all those who have contributed!
+
+# Guide && Resources
+- [ReapchainGuide](https://reapchain.gitbook.io/mainnet)
+- [Mainnet Dashboard](https://dashboard.reapchain.org)
+- [Testnet Dashboard](https://dashboard.reapchain.org)
+- [Faucet](https://test-faucet.reapchain.org)

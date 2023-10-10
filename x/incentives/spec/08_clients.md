@@ -88,13 +88,13 @@ reapchaind tx gov submit-proposal param-change [proposal-file] [flags]
 
 | Verb   | Method                                                     | Description                                   |
 | ------ | ---------------------------------------------------------- | --------------------------------------------- |
-| `gRPC` | `evmos.incentives.v1.Query/Incentives`                     | Gets all registered incentives                |
-| `gRPC` | `evmos.incentives.v1.Query/Incentive`                      | Gets incentive for a given contract           |
-| `gRPC` | `evmos.incentives.v1.Query/GasMeters`                      | Gets gas meters for a given incentive         |
-| `gRPC` | `evmos.incentives.v1.Query/GasMeter`                       | Gets gas meter for a given incentive and user |
-| `gRPC` | `evmos.incentives.v1.Query/AllocationMeters`               | Gets all allocation meters                    |
-| `gRPC` | `evmos.incentives.v1.Query/AllocationMeter`                | Gets allocation meter for a denom             |
-| `gRPC` | `evmos.incentives.v1.Query/Params`                         | Gets incentives params                        |
+| `gRPC` | `reapchain.incentives.v1.Query/Incentives`                     | Gets all registered incentives                |
+| `gRPC` | `reapchain.incentives.v1.Query/Incentive`                      | Gets incentive for a given contract           |
+| `gRPC` | `reapchain.incentives.v1.Query/GasMeters`                      | Gets gas meters for a given incentive         |
+| `gRPC` | `reapchain.incentives.v1.Query/GasMeter`                       | Gets gas meter for a given incentive and user |
+| `gRPC` | `reapchain.incentives.v1.Query/AllocationMeters`               | Gets all allocation meters                    |
+| `gRPC` | `reapchain.incentives.v1.Query/AllocationMeter`                | Gets allocation meter for a denom             |
+| `gRPC` | `reapchain.incentives.v1.Query/Params`                         | Gets incentives params                        |
 | `GET`  | `/reapchain/incentives/v1/incentives`                          | Gets all registered incentives                |
 | `GET`  | `/reapchain/incentives/v1/incentives/{contract}`               | Gets incentive for a given contract           |
 | `GET`  | `/reapchain/incentives/v1/gas_meters`                          | Gets gas meters for a given incentive         |

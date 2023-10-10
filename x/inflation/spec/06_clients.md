@@ -83,12 +83,12 @@ reapchaind tx gov submit-proposal param-change [proposal-file] [flags]
 
 | Verb   | Method                                        | Description                                   |
 | ------ | --------------------------------------------- | --------------------------------------------- |
-| `gRPC` | `evmos.inflation.v1.Query/Period`             | Gets current inflation period                 |
-| `gRPC` | `evmos.inflation.v1.Query/EpochMintProvision` | Gets current inflation epoch provisions value |
-| `gRPC` | `evmos.inflation.v1.Query/Params`             | Gets current inflation parameters             |
-| `gRPC` | `evmos.inflation.v1.Query/SkippedEpochs`      | Gets current number of skipped epochs         |
-| `gRPC` | `evmos.inflation.v1.Query/TotalSupply`        | Gets current total supply                     |
-| `gRPC` | `evmos.inflation.v1.Query/InflationRate`      | Gets current inflation rate                   |
+| `gRPC` | `reapchain.inflation.v1.Query/Period`             | Gets current inflation period                 |
+| `gRPC` | `reapchain.inflation.v1.Query/EpochMintProvision` | Gets current inflation epoch provisions value |
+| `gRPC` | `reapchain.inflation.v1.Query/Params`             | Gets current inflation parameters             |
+| `gRPC` | `reapchain.inflation.v1.Query/SkippedEpochs`      | Gets current number of skipped epochs         |
+| `gRPC` | `reapchain.inflation.v1.Query/TotalSupply`        | Gets current total supply                     |
+| `gRPC` | `reapchain.inflation.v1.Query/InflationRate`      | Gets current inflation rate                   |
 | `GET`  | `/reapchain/inflation/v1/period`                  | Gets current inflation period                 |
 | `GET`  | `/reapchain/inflation/v1/epoch_mint_provision`    | Gets current inflation epoch provisions value |
 | `GET`  | `/reapchain/inflation/v1/skipped_epochs`          | Gets current number of skipped epochs         |
