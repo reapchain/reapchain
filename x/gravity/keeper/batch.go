@@ -2,6 +2,7 @@ package keeper
 
 import (
 	"fmt"
+	types2 "github.com/reapchain/reapchain/v8/types"
 	"strconv"
 
 	"github.com/reapchain/cosmos-sdk/store/prefix"
@@ -114,7 +115,7 @@ func (k Keeper) OutgoingTxBatchExecuted(ctx sdk.Context, tokenContract types.Eth
 	}
 	contract := b.TokenContract
 	// Burn tokens if they're Ethereum originated
-	if isCosmosOriginated, _ := k.ERC20ToDenomLookup(ctx, contract); !isCosmosOriginated {
+	if isCosmosOriginated, denom := k.ERC20ToDenomLookup(ctx, contract); !isCosmosOriginated {
 		totalToBurn := sdk.NewInt(0)
 		for _, tx := range b.Transactions {
 			totalToBurn = totalToBurn.Add(tx.Erc20Token.Amount.Add(tx.Erc20Fee.Amount))
@@ -124,7 +125,13 @@ func (k Keeper) OutgoingTxBatchExecuted(ctx sdk.Context, tokenContract types.Eth
 		if err != nil {
 			panic(sdkerrors.Wrapf(err, "invalid ERC20 address in executed batch"))
 		}
-		burnVouchers := sdk.NewCoins(erc20.GravityCoin())
+		var burnVouchers sdk.Coins
+		if denom == types2.AttoReap {
+			burnVouchers = sdk.NewCoins(sdk.NewCoin(denom, erc20.Amount))
+		} else {
+			burnVouchers = sdk.NewCoins(erc20.GravityCoin())
+		}
+
 		if err := k.bankKeeper.BurnCoins(ctx, types.ModuleName, burnVouchers); err != nil {
 			panic(err)
 		}

@@ -57,6 +57,9 @@ func initBridgeDataFromGenesis(ctx sdk.Context, k Keeper, data types.GenesisStat
 func InitGenesis(ctx sdk.Context, k Keeper, data types.GenesisState) {
 	k.SetParams(ctx, *data.Params)
 
+	// Set DefaultErc20ContractAddress
+	k.SetDefaultErc20ContractAddress(ctx, data.DefaultErc20ContractAddress)
+
 	// restore various nonces, this MUST match GravityNonces in genesis
 	k.SetLatestValsetNonce(ctx, data.GravityNonces.LatestValsetNonce)
 	k.setLastObservedEventNonce(ctx, data.GravityNonces.LastObservedNonce)

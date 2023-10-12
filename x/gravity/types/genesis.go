@@ -87,7 +87,7 @@ var (
 	// submitted with too low of a ChainFee value, it will be rejected in the AnteHandler
 	ParamStoreMinChainFeeBasisPoints = []byte("MinChainFeeBasisPoints")
 
-	ParamStoreEnableSlash = []byte("EnableSlash")
+	ParamStoreKeyEnableSlash = []byte("EnableSlash")
 
 	// Ensure that params implements the proper interface
 	_ paramtypes.ParamSet = &Params{
@@ -129,19 +129,20 @@ func (s GenesisState) ValidateBasic() error {
 // DefaultGenesisState returns empty genesis state
 func DefaultGenesisState() *GenesisState {
 	return &GenesisState{
-		Params:                 DefaultParams(),
-		GravityNonces:          GravityNonces{},
-		Valsets:                []Valset{},
-		ValsetConfirms:         []MsgValsetConfirm{},
-		Batches:                []OutgoingTxBatch{},
-		BatchConfirms:          []MsgConfirmBatch{},
-		LogicCalls:             []OutgoingLogicCall{},
-		LogicCallConfirms:      []MsgConfirmLogicCall{},
-		Attestations:           []Attestation{},
-		DelegateKeys:           []MsgSetOrchestratorAddress{},
-		Erc20ToDenoms:          []ERC20ToDenom{},
-		UnbatchedTransfers:     []OutgoingTransferTx{},
-		PendingIbcAutoForwards: []PendingIbcAutoForward{},
+		Params:                      DefaultParams(),
+		GravityNonces:               GravityNonces{},
+		Valsets:                     []Valset{},
+		ValsetConfirms:              []MsgValsetConfirm{},
+		Batches:                     []OutgoingTxBatch{},
+		BatchConfirms:               []MsgConfirmBatch{},
+		LogicCalls:                  []OutgoingLogicCall{},
+		LogicCallConfirms:           []MsgConfirmLogicCall{},
+		Attestations:                []Attestation{},
+		DelegateKeys:                []MsgSetOrchestratorAddress{},
+		Erc20ToDenoms:               []ERC20ToDenom{},
+		UnbatchedTransfers:          []OutgoingTransferTx{},
+		PendingIbcAutoForwards:      []PendingIbcAutoForward{},
+		DefaultErc20ContractAddress: "0x0000000000000000000000000000000000000000",
 	}
 }
 
@@ -280,7 +281,7 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 		paramtypes.NewParamSetPair(ParamStoreBridgeActive, &p.BridgeActive, validateBridgeActive),
 		paramtypes.NewParamSetPair(ParamStoreEthereumBlacklist, &p.EthereumBlacklist, validateEthereumBlacklistAddresses),
 		paramtypes.NewParamSetPair(ParamStoreMinChainFeeBasisPoints, &p.MinChainFeeBasisPoints, validateMinChainFeeBasisPoints),
-		paramtypes.NewParamSetPair(ParamStoreEnableSlash, &p.EnableSlash, validateEnableSlash),
+		paramtypes.NewParamSetPair(ParamStoreKeyEnableSlash, &p.EnableSlash, validateEnableSlash),
 	}
 }
 

@@ -154,6 +154,8 @@ var (
 	// PendingIbcAutoForwards indexes pending SendToCosmos sends via IBC, queued by event nonce
 	// [0x5b89a7c5dc9abd2a7abc2560d6eb42ea]
 	PendingIbcAutoForwards = HashString("IbcAutoForwardQueue")
+
+	DefaultErc20ContractAddressKey = HashString("DefaultErc20ContractAddress")
 )
 
 // GetOrchestratorAddressKey returns the following key format

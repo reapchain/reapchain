@@ -6,6 +6,7 @@ import (
 	"github.com/reapchain/cosmos-sdk/store/prefix"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
+	reaptypes "github.com/reapchain/reapchain/v8/types"
 
 	"github.com/reapchain/reapchain/v8/x/gravity/types"
 )
@@ -67,8 +68,17 @@ func (k Keeper) setCosmosOriginatedDenomToERC20(ctx sdk.Context, denom string, t
 // This will return an error if it cant parse the denom as a gravity denom, and then also can't find the denom
 // in an index of ERC20 contracts deployed on Ethereum to serve as synthetic Cosmos assets.
 func (k Keeper) DenomToERC20Lookup(ctx sdk.Context, denom string) (bool, *types.EthAddress, error) {
-	// First try parsing the ERC20 out of the denom
-	tc1, err := types.GravityDenomToERC20(denom)
+
+	var tc1 *types.EthAddress
+	var err error = nil
+
+	defaultErc20ContractAddress := k.GetDefaultErc20ContractAddress(ctx)
+	if denom == reaptypes.AttoReap {
+		tc1, err = types.NewEthAddress(defaultErc20ContractAddress)
+	} else {
+		// First try parsing the ERC20 out of the denom
+		tc1, err = types.GravityDenomToERC20(denom)
+	}
 
 	if err != nil {
 		// Look up ERC20 contract in index and error if it's not in there.
@@ -115,6 +125,11 @@ func (k Keeper) ERC20ToDenomLookup(ctx sdk.Context, tokenContract types.EthAddre
 	if exists {
 		// It is a cosmos originated asset
 		return true, dn1
+	}
+	// TODO: Need test
+	defaultErc20ContractAddress := k.GetDefaultErc20ContractAddress(ctx)
+	if tokenContract.GetAddress().String() == defaultErc20ContractAddress {
+		return false, reaptypes.AttoReap
 	}
 
 	// If it is not in there, it is not a cosmos originated token, turn the ERC20 into a gravity denom
