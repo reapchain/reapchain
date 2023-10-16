@@ -67,7 +67,7 @@ make localnet-stop
 **Warnings**: Initial development is in progress, but there has not yet been a stable.
 
 # How to contribute
-check out [CONTRIBUTING.md](CONTRIBUTING.md) for our guidelines & policies for how we develop Finschia. Thank you to all those who have contributed!
+check out [CONTRIBUTING.md](CONTRIBUTING.md) for our guidelines & policies for how we develop ReapChain. Thank you to all those who have contributed!
 
 # Guide && Resources
 - [ReapchainGuide](https://reapchain.gitbook.io/mainnet)
