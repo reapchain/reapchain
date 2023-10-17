@@ -72,6 +72,8 @@ func (k Keeper) DenomToERC20Lookup(ctx sdk.Context, denom string) (bool, *types.
 	var tc1 *types.EthAddress
 	var err error = nil
 
+	// if denom equals "areap", return Default ERC-20 Contract Address.
+	// Otherwise, return corresponding Gravity ERC-20 Contract Address.
 	defaultErc20ContractAddress := k.GetDefaultErc20ContractAddress(ctx)
 	if denom == reaptypes.AttoReap {
 		tc1, err = types.NewEthAddress(defaultErc20ContractAddress)
@@ -126,7 +128,8 @@ func (k Keeper) ERC20ToDenomLookup(ctx sdk.Context, tokenContract types.EthAddre
 		// It is a cosmos originated asset
 		return true, dn1
 	}
-	// TODO: Need test
+
+	// if tokenContact equals Default ERC20 Contract Address, return "areap"
 	defaultErc20ContractAddress := k.GetDefaultErc20ContractAddress(ctx)
 	if tokenContract.GetAddress().String() == defaultErc20ContractAddress {
 		return false, reaptypes.AttoReap
