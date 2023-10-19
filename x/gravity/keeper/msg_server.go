@@ -129,6 +129,13 @@ func (k msgServer) SendToEth(c context.Context, msg *types.MsgSendToEth) (*types
 		return nil, sdkerrors.Wrap(err, "invalid eth dest")
 	}
 
+	params := k.GetParams(ctx)
+	MinBridgeFeeStr := params.MinBridgeFee
+	MinBridgeFee, _ := sdk.NewIntFromString(MinBridgeFeeStr)
+	if msg.BridgeFee.Amount.LT(MinBridgeFee) {
+		return nil, fmt.Errorf("insufficient bridge-fee, min_bridge_fee: %s", MinBridgeFee)
+	}
+
 	_, erc20, err := k.DenomToERC20Lookup(ctx, msg.Amount.Denom)
 	if err != nil {
 		return nil, sdkerrors.Wrap(err, "invalid denom")

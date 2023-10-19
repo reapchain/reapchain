@@ -1,7 +1,6 @@
 package gravity
 
 import (
-	"fmt"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	stakingtypes "github.com/reapchain/cosmos-sdk/x/staking/types"
@@ -91,7 +90,6 @@ func slashing(ctx sdk.Context, k keeper.Keeper) {
 	params := k.GetParams(ctx)
 
 	// don't slash if EnableSlash is false
-	fmt.Printf("\nGravity Params EnableSlash: %v\n", params.EnableSlash)
 	if !params.EnableSlash {
 		return
 	}

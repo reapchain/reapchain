@@ -87,7 +87,8 @@ var (
 	// submitted with too low of a ChainFee value, it will be rejected in the AnteHandler
 	ParamStoreMinChainFeeBasisPoints = []byte("MinChainFeeBasisPoints")
 
-	ParamStoreKeyEnableSlash = []byte("EnableSlash")
+	ParamStoreKeyEnableSlash  = []byte("EnableSlash")
+	ParamStoreKeyMinBridgeFee = []byte("MinBridgeFee")
 
 	// Ensure that params implements the proper interface
 	_ paramtypes.ParamSet = &Params{
@@ -114,6 +115,7 @@ var (
 		EthereumBlacklist:      []string{},
 		MinChainFeeBasisPoints: 0,
 		EnableSlash:            true,
+		MinBridgeFee:           "1000000000000000000",
 	}
 )
 
@@ -168,6 +170,8 @@ func DefaultParams() *Params {
 		BridgeActive:                 true,
 		EthereumBlacklist:            []string{},
 		MinChainFeeBasisPoints:       2,
+		EnableSlash:                  true,
+		MinBridgeFee:                 "1000000000000000000",
 	}
 }
 
@@ -256,6 +260,7 @@ func ParamKeyTable() paramtypes.KeyTable {
 		EthereumBlacklist:            []string{},
 		MinChainFeeBasisPoints:       0,
 		EnableSlash:                  true,
+		MinBridgeFee:                 "1000000000000000000",
 	})
 }
 
@@ -282,6 +287,7 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 		paramtypes.NewParamSetPair(ParamStoreEthereumBlacklist, &p.EthereumBlacklist, validateEthereumBlacklistAddresses),
 		paramtypes.NewParamSetPair(ParamStoreMinChainFeeBasisPoints, &p.MinChainFeeBasisPoints, validateMinChainFeeBasisPoints),
 		paramtypes.NewParamSetPair(ParamStoreKeyEnableSlash, &p.EnableSlash, validateEnableSlash),
+		paramtypes.NewParamSetPair(ParamStoreKeyMinBridgeFee, &p.MinBridgeFee, validateMinBridgeFee),
 	}
 }
 
@@ -472,6 +478,19 @@ func validateEnableSlash(i interface{}) error {
 	if _, ok := i.(bool); !ok {
 		return fmt.Errorf("invalid parameter type: %T", i)
 	}
+	return nil
+}
+
+func validateMinBridgeFee(i interface{}) error {
+	v, ok := i.(string)
+	if !ok {
+		return fmt.Errorf("invalid parameter type: %T", i)
+	}
+
+	if strings.TrimSpace(v) == "" {
+		return fmt.Errorf("min_bridge_fee cannot be blank")
+	}
+
 	return nil
 }
 
