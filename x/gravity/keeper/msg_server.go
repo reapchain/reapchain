@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/hex"
 	"fmt"
+	authtypes "github.com/reapchain/cosmos-sdk/x/auth/types"
 
 	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
 	sdk "github.com/reapchain/cosmos-sdk/types"
@@ -143,6 +144,11 @@ func (k msgServer) SendToEth(c context.Context, msg *types.MsgSendToEth) (*types
 
 	if k.InvalidSendToEthAddress(ctx, *dest, *erc20) {
 		return nil, sdkerrors.Wrap(types.ErrInvalid, "destination address is invalid or blacklisted")
+	}
+
+	// send chain-fee to fee-collector
+	if err := k.bankKeeper.SendCoinsFromAccountToModule(ctx, sender, authtypes.FeeCollectorName, sdk.Coins{msg.ChainFee}); err != nil {
+		return nil, sdkerrors.Wrap(err, "fail to send chain-fee to fee-collector Module")
 	}
 
 	txID, err := k.AddToOutgoingPool(ctx, sender, *dest, msg.Amount, msg.BridgeFee)
