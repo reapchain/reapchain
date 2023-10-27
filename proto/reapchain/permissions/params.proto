@@ -11,6 +11,6 @@ message Params {
 
   bool podc_whitelist_enabled = 1 [(gogoproto.moretags) = "yaml:\"podc_whitelist_enabled\"",  (gogoproto.jsontag)    = "podc_whitelist_enabled,omitempty"];
   bool gov_min_initial_deposit_enabled = 2 [(gogoproto.moretags) = "yaml:\"gov_min_initial_deposit_enabled\"",  (gogoproto.jsontag)    = "gov_min_initial_deposit_enabled,omitempty"];
-  bytes gov_min_initial_deposit_percentage = 3 [ (gogoproto.customtype) = "github.com/cosmos/cosmos-sdk/types.Dec",(gogoproto.moretags) = "yaml:\"gov_minimum_initial_deposit_percentage\"", (gogoproto.jsontag)    = "gov_minimum_initial_deposit_percentage,omitempty"];
+  bytes gov_min_initial_deposit_percentage = 3 [ (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Dec",(gogoproto.moretags) = "yaml:\"gov_minimum_initial_deposit_percentage\"", (gogoproto.jsontag)    = "gov_minimum_initial_deposit_percentage,omitempty"];
 
 }

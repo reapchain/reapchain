@@ -5,9 +5,9 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
+	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"
@@ -26,9 +26,9 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // Params defines the parameters for the module.
 type Params struct {
-	PodcWhitelistEnabled           bool                                    `protobuf:"varint,1,opt,name=podc_whitelist_enabled,json=podcWhitelistEnabled,proto3" json:"podc_whitelist_enabled,omitempty" yaml:"podc_whitelist_enabled"`
-	GovMinInitialDepositEnabled    bool                                    `protobuf:"varint,2,opt,name=gov_min_initial_deposit_enabled,json=govMinInitialDepositEnabled,proto3" json:"gov_min_initial_deposit_enabled,omitempty" yaml:"gov_min_initial_deposit_enabled"`
-	GovMinInitialDepositPercentage github_com_reapchain_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=gov_min_initial_deposit_percentage,json=govMinInitialDepositPercentage,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Dec" json:"gov_minimum_initial_deposit_percentage,omitempty" yaml:"gov_minimum_initial_deposit_percentage"`
+	PodcWhitelistEnabled           bool                                      `protobuf:"varint,1,opt,name=podc_whitelist_enabled,json=podcWhitelistEnabled,proto3" json:"podc_whitelist_enabled,omitempty" yaml:"podc_whitelist_enabled"`
+	GovMinInitialDepositEnabled    bool                                      `protobuf:"varint,2,opt,name=gov_min_initial_deposit_enabled,json=govMinInitialDepositEnabled,proto3" json:"gov_min_initial_deposit_enabled,omitempty" yaml:"gov_min_initial_deposit_enabled"`
+	GovMinInitialDepositPercentage github_com_reapchain_cosmos_sdk_types.Dec `protobuf:"bytes,3,opt,name=gov_min_initial_deposit_percentage,json=govMinInitialDepositPercentage,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Dec" json:"gov_minimum_initial_deposit_percentage,omitempty" yaml:"gov_minimum_initial_deposit_percentage"`
 }
 
 func (m *Params) Reset()      { *m = Params{} }
@@ -189,7 +189,7 @@ func (m *Params) Size() (n int) {
 	if m.GovMinInitialDepositEnabled {
 		n += 2
 	}
-	if !m.GovMinInitialDepositPercentage.IsNil()  {
+	if !m.GovMinInitialDepositPercentage.IsNil() {
 		l = m.GovMinInitialDepositPercentage.Size()
 		n += 1 + l + sovParams(uint64(l))
 	}
