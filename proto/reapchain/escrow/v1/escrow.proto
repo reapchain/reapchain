@@ -21,10 +21,31 @@ message RegisterEscrowDenomProposal {
   // cosmos base denomination to be able to convert
   string denom = 3;
 
-  string initial_supply = 4 [
+  string initial_pool_balance = 4 [
     (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
+
+}
+
+
+message RegisterEscrowDenomAndConvertProposal {
+  option (gogoproto.equal) = false;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // cosmos base denomination to be able to convert
+  string denom = 3;
+
+  string initial_pool_balance = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+
+  string proposer = 5;
+
+
 }
 
 message ToggleEscrowConversionProposal {
@@ -38,7 +59,7 @@ message ToggleEscrowConversionProposal {
   string denom = 3;
 }
 
-message AddEscrowSupplyProposal {
+message AddToEscrowPoolProposal {
   option (gogoproto.equal) = true;
   // title of the proposal
   string title = 1;

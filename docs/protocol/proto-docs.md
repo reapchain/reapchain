@@ -70,19 +70,20 @@
     - [Msg](#reapchain.erc20.v1.Msg)
   
 - [reapchain/escrow/v1/escrow.proto](#reapchain/escrow/v1/escrow.proto)
-    - [AddEscrowSupplyProposal](#reapchain.escrow.v1.AddEscrowSupplyProposal)
+    - [AddToEscrowPoolProposal](#reapchain.escrow.v1.AddToEscrowPoolProposal)
+    - [RegisterEscrowDenomAndConvertProposal](#reapchain.escrow.v1.RegisterEscrowDenomAndConvertProposal)
     - [RegisterEscrowDenomProposal](#reapchain.escrow.v1.RegisterEscrowDenomProposal)
     - [RegisteredDenom](#reapchain.escrow.v1.RegisteredDenom)
     - [ToggleEscrowConversionProposal](#reapchain.escrow.v1.ToggleEscrowConversionProposal)
   
 - [reapchain/escrow/v1/genesis.proto](#reapchain/escrow/v1/genesis.proto)
-    - [EscrowSupply](#reapchain.escrow.v1.EscrowSupply)
+    - [EscrowPool](#reapchain.escrow.v1.EscrowPool)
     - [GenesisState](#reapchain.escrow.v1.GenesisState)
     - [Params](#reapchain.escrow.v1.Params)
   
 - [reapchain/escrow/v1/query.proto](#reapchain/escrow/v1/query.proto)
-    - [QueryEscrowSupplyRequest](#reapchain.escrow.v1.QueryEscrowSupplyRequest)
-    - [QueryEscrowSupplyResponse](#reapchain.escrow.v1.QueryEscrowSupplyResponse)
+    - [QueryEscrowPoolBalanceRequest](#reapchain.escrow.v1.QueryEscrowPoolBalanceRequest)
+    - [QueryEscrowPoolBalanceResponse](#reapchain.escrow.v1.QueryEscrowPoolBalanceResponse)
     - [QueryParamsRequest](#reapchain.escrow.v1.QueryParamsRequest)
     - [QueryParamsResponse](#reapchain.escrow.v1.QueryParamsResponse)
     - [QueryRegisteredDenomsRequest](#reapchain.escrow.v1.QueryRegisteredDenomsRequest)
@@ -1021,9 +1022,9 @@ Msg defines the erc20 Msg service.
 
 
 
-<a name="reapchain.escrow.v1.AddEscrowSupplyProposal"></a>
+<a name="reapchain.escrow.v1.AddToEscrowPoolProposal"></a>
 
-### AddEscrowSupplyProposal
+### AddToEscrowPoolProposal
 
 
 
@@ -1033,6 +1034,25 @@ Msg defines the erc20 Msg service.
 | `description` | [string](#string) |  | proposal description |
 | `denom` | [string](#string) |  | token identifier can be either the hex contract address of the ERC20 or the Cosmos base denomination |
 | `amount` | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="reapchain.escrow.v1.RegisterEscrowDenomAndConvertProposal"></a>
+
+### RegisterEscrowDenomAndConvertProposal
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| `title` | [string](#string) |  | title of the proposal |
+| `description` | [string](#string) |  | proposal description |
+| `denom` | [string](#string) |  | cosmos base denomination to be able to convert |
+| `initial_pool_balance` | [string](#string) |  |  |
+| `proposer` | [string](#string) |  |  |
 
 
 
@@ -1050,7 +1070,7 @@ Msg defines the erc20 Msg service.
 | `title` | [string](#string) |  | title of the proposal |
 | `description` | [string](#string) |  | proposal description |
 | `denom` | [string](#string) |  | cosmos base denomination to be able to convert |
-| `initial_supply` | [string](#string) |  |  |
+| `initial_pool_balance` | [string](#string) |  |  |
 
 
 
@@ -1106,9 +1126,9 @@ Msg defines the erc20 Msg service.
 
 
 
-<a name="reapchain.escrow.v1.EscrowSupply"></a>
+<a name="reapchain.escrow.v1.EscrowPool"></a>
 
-### EscrowSupply
+### EscrowPool
 
 
 
@@ -1132,7 +1152,7 @@ GenesisState defines the module's genesis state.
 | ----- | ---- | ----- | ----------- |
 | `params` | [Params](#reapchain.escrow.v1.Params) |  | module parameters |
 | `registered_denoms` | [RegisteredDenom](#reapchain.escrow.v1.RegisteredDenom) | repeated | registered denominations |
-| `total_escrow_supply` | [EscrowSupply](#reapchain.escrow.v1.EscrowSupply) | repeated |  |
+| `escrow_pools` | [EscrowPool](#reapchain.escrow.v1.EscrowPool) | repeated |  |
 
 
 
@@ -1170,9 +1190,9 @@ GenesisState defines the module's genesis state.
 
 
 
-<a name="reapchain.escrow.v1.QueryEscrowSupplyRequest"></a>
+<a name="reapchain.escrow.v1.QueryEscrowPoolBalanceRequest"></a>
 
-### QueryEscrowSupplyRequest
+### QueryEscrowPoolBalanceRequest
 
 
 
@@ -1185,15 +1205,15 @@ GenesisState defines the module's genesis state.
 
 
 
-<a name="reapchain.escrow.v1.QueryEscrowSupplyResponse"></a>
+<a name="reapchain.escrow.v1.QueryEscrowPoolBalanceResponse"></a>
 
-### QueryEscrowSupplyResponse
+### QueryEscrowPoolBalanceResponse
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `escrow_supply` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | balances is the balances of all the coins. |
+| `escrow_pool_balance` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | balances is the balances of all the coins. |
 
 
 
@@ -1271,7 +1291,7 @@ Query defines the gRPC queried service.
 | ----------- | ------------ | ------------- | ------------| ------- | -------- |
 | `RegisteredDenoms` | [QueryRegisteredDenomsRequest](#reapchain.escrow.v1.QueryRegisteredDenomsRequest) | [QueryRegisteredDenomsResponse](#reapchain.escrow.v1.QueryRegisteredDenomsResponse) |  | GET|/reapchain/escrow/v1/registered_denoms|
 | `Params` | [QueryParamsRequest](#reapchain.escrow.v1.QueryParamsRequest) | [QueryParamsResponse](#reapchain.escrow.v1.QueryParamsResponse) | Params retrieves the escrow module params | GET|/reapchain/escrow/v1/params|
-| `EscrowSupply` | [QueryEscrowSupplyRequest](#reapchain.escrow.v1.QueryEscrowSupplyRequest) | [QueryEscrowSupplyResponse](#reapchain.escrow.v1.QueryEscrowSupplyResponse) | EscrowSupply queries the available supply of a coin. | GET|/reapchain/escrow/v1/escrow_supply/{denom}|
+| `EscrowPoolBalance` | [QueryEscrowPoolBalanceRequest](#reapchain.escrow.v1.QueryEscrowPoolBalanceRequest) | [QueryEscrowPoolBalanceResponse](#reapchain.escrow.v1.QueryEscrowPoolBalanceResponse) | EscrowPool queries the available supply of a coin. | GET|/reapchain/escrow/v1/escrow_pool_balance/{denom}|
 
  <!-- end services -->
 

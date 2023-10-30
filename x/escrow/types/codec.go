@@ -35,8 +35,9 @@ func RegisterInterfaces(registry codectypes.InterfaceRegistry) {
 	registry.RegisterImplementations(
 		(*govtypes.Content)(nil),
 		&RegisterEscrowDenomProposal{},
+		&RegisterEscrowDenomAndConvertProposal{},
 		&ToggleEscrowConversionProposal{},
-		&AddEscrowSupplyProposal{},
+		&AddToEscrowPoolProposal{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)

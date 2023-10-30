@@ -15,10 +15,12 @@ func NewEscrowProposalHandler(k *keeper.Keeper) govtypes.Handler {
 		switch c := content.(type) {
 		case *types.RegisterEscrowDenomProposal:
 			return handleRegisterEscrowDenomProposal(ctx, k, c)
+		case *types.RegisterEscrowDenomAndConvertProposal:
+			return handleRegisterEscrowDenomAndConvertProposal(ctx, k, c)
 		case *types.ToggleEscrowConversionProposal:
 			return handleToggleEscrowConversionProposal(ctx, k, c)
-		case *types.AddEscrowSupplyProposal:
-			return handleAddEscrowSupplyProposal(ctx, k, c)
+		case *types.AddToEscrowPoolProposal:
+			return handleAddToEscrowPoolProposal(ctx, k, c)
 
 		default:
 			return sdkerrors.Wrapf(sdkerrors.ErrUnknownRequest, "unrecognized %s proposal content type: %T", types.ModuleName, c)
@@ -26,8 +28,23 @@ func NewEscrowProposalHandler(k *keeper.Keeper) govtypes.Handler {
 	}
 }
 
+func handleRegisterEscrowDenomAndConvertProposal(ctx sdk.Context, k *keeper.Keeper, redp *types.RegisterEscrowDenomAndConvertProposal) error {
+	registeredDenom, err := k.RegisterEscrowDenomAndConvert(ctx, redp.Denom, redp.InitialPoolBalance, redp.Proposer)
+	if err != nil {
+		return err
+	}
+	ctx.EventManager().EmitEvent(
+		sdk.NewEvent(
+			types.EventRegisterEscrowDenom,
+			sdk.NewAttribute(types.AttributeKeyCosmosCoin, registeredDenom.Denom),
+		),
+	)
+
+	return nil
+}
+
 func handleRegisterEscrowDenomProposal(ctx sdk.Context, k *keeper.Keeper, redp *types.RegisterEscrowDenomProposal) error {
-	registeredDenom, err := k.RegisterEscrowDenom(ctx, redp.Denom, redp.InitialSupply)
+	registeredDenom, err := k.RegisterEscrowDenom(ctx, redp.Denom, redp.InitialPoolBalance)
 	if err != nil {
 		return err
 	}
@@ -57,8 +74,8 @@ func handleToggleEscrowConversionProposal(ctx sdk.Context, k *keeper.Keeper, tdc
 	return nil
 }
 
-func handleAddEscrowSupplyProposal(ctx sdk.Context, k *keeper.Keeper, aesp *types.AddEscrowSupplyProposal) error {
-	escrowSupply, err := k.HandleAddEscrowSupply(ctx, aesp.Denom, aesp.Amount)
+func handleAddToEscrowPoolProposal(ctx sdk.Context, k *keeper.Keeper, aesp *types.AddToEscrowPoolProposal) error {
+	escrowPool, err := k.HandleAddToEscrowPool(ctx, aesp.Denom, aesp.Amount)
 	if err != nil {
 		return err
 	}
@@ -66,7 +83,7 @@ func handleAddEscrowSupplyProposal(ctx sdk.Context, k *keeper.Keeper, aesp *type
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
 			types.EventAddEscrowSupply,
-			sdk.NewAttribute(types.AttributeKeyReceiver, escrowSupply.Denom),
+			sdk.NewAttribute(types.AttributeKeyReceiver, escrowPool.Denom),
 		),
 	)
 

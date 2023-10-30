@@ -22,7 +22,7 @@ func GetQueryCmd() *cobra.Command {
 
 	cmd.AddCommand(
 		GetRegisteredDenomsCmd(),
-		GetEscrowSupplyCmd(),
+		GetEscrowPoolBalanceCmd(),
 		GetParamsCmd(),
 	)
 	return cmd
@@ -64,11 +64,11 @@ func GetRegisteredDenomsCmd() *cobra.Command {
 	return cmd
 }
 
-func GetEscrowSupplyCmd() *cobra.Command {
+func GetEscrowPoolBalanceCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "escrow-supply [denom]",
-		Short: "Get all escrow available supply for a registered denomination",
-		Long:  "Get all escrow available supply for a registered denomination",
+		Use:   "escrow-pool-balance [denom]",
+		Short: "Get the pool-balance for a registered denomination",
+		Long:  "Get the pool-balance for a registered denomination",
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientQueryContext(cmd)
@@ -82,11 +82,11 @@ func GetEscrowSupplyCmd() *cobra.Command {
 				return err
 			}
 
-			req := &types.QueryEscrowSupplyRequest{
+			req := &types.QueryEscrowPoolBalanceRequest{
 				Denom: args[0],
 			}
 
-			res, err := queryClient.EscrowSupply(context.Background(), req)
+			res, err := queryClient.EscrowPoolBalance(context.Background(), req)
 			if err != nil {
 				return err
 			}

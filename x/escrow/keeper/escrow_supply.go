@@ -8,42 +8,42 @@ import (
 	"github.com/reapchain/reapchain/v8/x/escrow/types"
 )
 
-func (k Keeper) GetEscrowSupplyByDenom(ctx sdk.Context, denom string) (types.EscrowSupply, bool) {
-	var escrowSupply types.EscrowSupply
+func (k Keeper) GetEscrowPoolByDenom(ctx sdk.Context, denom string) (types.EscrowPool, bool) {
+	var escrowSupply types.EscrowPool
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefixEscrowSupply)
 	bz := store.Get(tmhash.Sum([]byte(denom)))
 	if len(bz) == 0 {
-		return types.EscrowSupply{}, false
+		return types.EscrowPool{}, false
 	}
 	k.cdc.MustUnmarshal(bz, &escrowSupply)
 
 	return escrowSupply, true
 }
 
-func (k Keeper) GetTotalEscrowSupply(ctx sdk.Context) []types.EscrowSupply {
-	var totalEscrowSupply []types.EscrowSupply
+func (k Keeper) GetTotalEscrowPool(ctx sdk.Context) []types.EscrowPool {
+	var totalEscrowSupply []types.EscrowPool
 
 	store := ctx.KVStore(k.storeKey)
 	iterator := sdk.KVStorePrefixIterator(store, types.KeyPrefixEscrowSupply)
 	defer iterator.Close()
 
 	for ; iterator.Valid(); iterator.Next() {
-		var escrowSupply types.EscrowSupply
-		k.cdc.MustUnmarshal(iterator.Value(), &escrowSupply)
-		totalEscrowSupply = append(totalEscrowSupply, escrowSupply)
+		var escrowPool types.EscrowPool
+		k.cdc.MustUnmarshal(iterator.Value(), &escrowPool)
+		totalEscrowSupply = append(totalEscrowSupply, escrowPool)
 	}
 
 	return totalEscrowSupply
 }
 
-func (k Keeper) AddEscrowSupply(ctx sdk.Context, escrowsupply types.EscrowSupply) {
+func (k Keeper) AddToEscrowPool(ctx sdk.Context, escrowpool types.EscrowPool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefixEscrowSupply)
-	key := escrowsupply.GetID()
-	bz := k.cdc.MustMarshal(&escrowsupply)
+	key := escrowpool.GetID()
+	bz := k.cdc.MustMarshal(&escrowpool)
 	store.Set(key, bz)
 }
 
-func (k Keeper) SetEscrowSupply(ctx sdk.Context, escrowSupply types.EscrowSupply) {
+func (k Keeper) SetEscrowPool(ctx sdk.Context, escrowSupply types.EscrowPool) {
 	store := prefix.NewStore(ctx.KVStore(k.storeKey), types.KeyPrefixEscrowSupply)
 	key := escrowSupply.GetID()
 	bz := k.cdc.MustMarshal(&escrowSupply)

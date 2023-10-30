@@ -7,11 +7,11 @@ import (
 )
 
 // NewGenesisState creates a new genesis state.
-func NewGenesisState(params Params, registeredDenoms []RegisteredDenom, totalEscrowSupply []EscrowSupply) GenesisState {
+func NewGenesisState(params Params, registeredDenoms []RegisteredDenom, totalEscrowPool []EscrowPool) GenesisState {
 	return GenesisState{
-		Params:            params,
-		RegisteredDenoms:  registeredDenoms,
-		TotalEscrowSupply: totalEscrowSupply,
+		Params:           params,
+		RegisteredDenoms: registeredDenoms,
+		EscrowPools:      totalEscrowPool,
 	}
 }
 
@@ -38,7 +38,7 @@ func (gs GenesisState) Validate() error {
 		seenDenom[b.Denom] = true
 	}
 
-	for _, b := range gs.TotalEscrowSupply {
+	for _, b := range gs.EscrowPools {
 		if seenSupply[b.Denom] {
 			return fmt.Errorf("coin denomination duplicated on genesis for EscrowSupply: '%s'", b.Denom)
 		}

@@ -14,7 +14,7 @@ message GenesisState {
   // registered denominations
   repeated RegisteredDenom registered_denoms = 2 [ (gogoproto.nullable) = false ];
 
-  repeated EscrowSupply total_escrow_supply = 3 [(gogoproto.nullable) = false];
+  repeated EscrowPool escrow_pools = 3 [(gogoproto.nullable) = false];
 }
 
 message Params {
@@ -22,7 +22,7 @@ message Params {
   bool enable_escrow = 1;
 }
 
-message EscrowSupply {
+message EscrowPool {
   option (gogoproto.equal)           = false;
   option (gogoproto.goproto_getters) = false;
 
@@ -30,6 +30,6 @@ message EscrowSupply {
   string denom = 1;
 
   // coins defines the different coins this balance holds.
-  repeated cosmos.base.v1beta1.Coin coins = 2
+  repeated cosmos.base.v1beta1.Coin amount = 2
   [(gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins", (gogoproto.nullable) = false];
 }

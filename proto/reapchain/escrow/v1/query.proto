@@ -21,9 +21,9 @@ service Query {
     option (google.api.http).get = "/reapchain/escrow/v1/params";
   }
 
-  // EscrowSupply queries the available supply of a coin.
-  rpc EscrowSupply(QueryEscrowSupplyRequest) returns (QueryEscrowSupplyResponse) {
-    option (google.api.http).get = "/reapchain/escrow/v1/escrow_supply/{denom}";
+  // EscrowPool queries the available supply of a coin.
+  rpc EscrowPoolBalance(QueryEscrowPoolBalanceRequest) returns (QueryEscrowPoolBalanceResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/escrow_pool_balance/{denom}";
   }
 }
 
@@ -44,7 +44,7 @@ message QueryParamsResponse {
   Params params = 1 [ (gogoproto.nullable) = false ];
 }
 
-message QueryEscrowSupplyRequest {
+message QueryEscrowPoolBalanceRequest {
   option (gogoproto.equal)           = false;
   option (gogoproto.goproto_getters) = false;
 
@@ -54,9 +54,9 @@ message QueryEscrowSupplyRequest {
 
 }
 
-message QueryEscrowSupplyResponse {
+message QueryEscrowPoolBalanceResponse {
   // balances is the balances of all the coins.
-  repeated cosmos.base.v1beta1.Coin escrow_supply = 1
+  repeated cosmos.base.v1beta1.Coin escrow_pool_balance = 1
   [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins"];
 
 

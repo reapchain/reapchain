@@ -12,24 +12,24 @@ import (
 const (
 	ProposalTypeRegisterEscrowDenom    string = "RegisterEscrowDenom"
 	ProposalTypeToggleEscrowConversion string = "ToggleEscrowConversion"
-	ProposalTypeAddEscrowSupply        string = "AddEscrowSupply"
+	ProposalTypeAddToEscrowPool        string = "AddToEscrowPool"
 )
 
 // Implements Proposal Interface
 var (
 	_ govtypes.Content = &RegisterEscrowDenomProposal{}
 	_ govtypes.Content = &ToggleEscrowConversionProposal{}
-	_ govtypes.Content = &AddEscrowSupplyProposal{}
+	_ govtypes.Content = &AddToEscrowPoolProposal{}
 )
 
 func init() {
 	govtypes.RegisterProposalType(ProposalTypeRegisterEscrowDenom)
 	govtypes.RegisterProposalType(ProposalTypeToggleEscrowConversion)
-	govtypes.RegisterProposalType(ProposalTypeAddEscrowSupply)
+	govtypes.RegisterProposalType(ProposalTypeAddToEscrowPool)
 
 	govtypes.RegisterProposalTypeCodec(&RegisterEscrowDenomProposal{}, "escrow/RegisterEscrowDenomProposal")
 	govtypes.RegisterProposalTypeCodec(&ToggleEscrowConversionProposal{}, "escrow/ToggleEscrowConversionProposal")
-	govtypes.RegisterProposalTypeCodec(&AddEscrowSupplyProposal{}, "escrow/AddEscrowSupplyProposal")
+	govtypes.RegisterProposalTypeCodec(&AddToEscrowPoolProposal{}, "escrow/AddToEscrowPoolProposal")
 
 }
 
@@ -38,12 +38,12 @@ func CreateDenomDescription(address string) string {
 	return fmt.Sprintf("Cosmos coin token representation of %s", address)
 }
 
-func NewRegisterEscrowDenomProposal(title, description, denom string, initialSupply sdk.Int) govtypes.Content {
+func NewRegisterEscrowDenomProposal(title, description, denom string, initialPoolBalance sdk.Int) govtypes.Content {
 	return &RegisterEscrowDenomProposal{
-		Title:         title,
-		Description:   description,
-		Denom:         denom,
-		InitialSupply: initialSupply,
+		Title:              title,
+		Description:        description,
+		Denom:              denom,
+		InitialPoolBalance: initialPoolBalance,
 	}
 }
 
@@ -57,6 +57,33 @@ func (*RegisterEscrowDenomProposal) ProposalType() string {
 
 // ValidateBasic performs a stateless check of the proposal fields
 func (rtbp *RegisterEscrowDenomProposal) ValidateBasic() error {
+	EVMAddress := removePrefix(rtbp.Denom)
+	if err := ethermint.ValidateAddress(EVMAddress); err != nil {
+		return sdkerrors.Wrap(err, "Invalid EVM address")
+	}
+	return govtypes.ValidateAbstract(rtbp)
+}
+
+func NewRegisterEscrowDenoAndConvertmProposal(title, description, denom string, initialPoolBalance sdk.Int, propser string) govtypes.Content {
+	return &RegisterEscrowDenomAndConvertProposal{
+		Title:              title,
+		Description:        description,
+		Denom:              denom,
+		InitialPoolBalance: initialPoolBalance,
+		Proposer:           propser,
+	}
+}
+
+// ProposalRoute returns router key for this proposal
+func (*RegisterEscrowDenomAndConvertProposal) ProposalRoute() string { return RouterKey }
+
+// ProposalType returns proposal type for this proposal
+func (*RegisterEscrowDenomAndConvertProposal) ProposalType() string {
+	return ProposalTypeRegisterEscrowDenom
+}
+
+// ValidateBasic performs a stateless check of the proposal fields
+func (rtbp *RegisterEscrowDenomAndConvertProposal) ValidateBasic() error {
 	EVMAddress := removePrefix(rtbp.Denom)
 	if err := ethermint.ValidateAddress(EVMAddress); err != nil {
 		return sdkerrors.Wrap(err, "Invalid EVM address")
@@ -89,8 +116,8 @@ func (ttcp *ToggleEscrowConversionProposal) ValidateBasic() error {
 	return govtypes.ValidateAbstract(ttcp)
 }
 
-func NewAddEscrowSupplyProposal(title, description, denom string) govtypes.Content {
-	return &AddEscrowSupplyProposal{
+func NewAddToEscrowPoolProposal(title, description, denom string) govtypes.Content {
+	return &AddToEscrowPoolProposal{
 		Title:       title,
 		Description: description,
 		Denom:       denom,
@@ -98,15 +125,15 @@ func NewAddEscrowSupplyProposal(title, description, denom string) govtypes.Conte
 }
 
 // ProposalRoute returns router key for this proposal
-func (*AddEscrowSupplyProposal) ProposalRoute() string { return RouterKey }
+func (*AddToEscrowPoolProposal) ProposalRoute() string { return RouterKey }
 
 // ProposalType returns proposal type for this proposal
-func (*AddEscrowSupplyProposal) ProposalType() string {
+func (*AddToEscrowPoolProposal) ProposalType() string {
 	return ProposalTypeRegisterEscrowDenom
 }
 
 // ValidateBasic performs a stateless check of the proposal fields
-func (aesp *AddEscrowSupplyProposal) ValidateBasic() error {
+func (aesp *AddToEscrowPoolProposal) ValidateBasic() error {
 
 	EVMAddress := removePrefix(aesp.Denom)
 	if err := ethermint.ValidateAddress(EVMAddress); err != nil {

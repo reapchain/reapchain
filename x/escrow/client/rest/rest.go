@@ -14,12 +14,21 @@ import (
 )
 
 type RegisterEscrowDenomProposalRequest struct {
-	BaseReq       rest.BaseReq `json:"base_req" yaml:"base_req"`
-	Title         string       `json:"title" yaml:"title"`
-	Description   string       `json:"description" yaml:"description"`
-	Deposit       sdk.Coins    `json:"deposit" yaml:"deposit"`
-	Denom         string       `json:"denom" yaml:"denom"`
-	InitialSupply string       `json:"initial_supply" yaml:"initial_supply"`
+	BaseReq            rest.BaseReq `json:"base_req" yaml:"base_req"`
+	Title              string       `json:"title" yaml:"title"`
+	Description        string       `json:"description" yaml:"description"`
+	Deposit            sdk.Coins    `json:"deposit" yaml:"deposit"`
+	Denom              string       `json:"denom" yaml:"denom"`
+	initialPoolBalance string       `json:"initial_pool_balance" yaml:"initial_supply"`
+}
+
+type RegisterEscrowDenomAndConvertProposalRequest struct {
+	BaseReq            rest.BaseReq `json:"base_req" yaml:"base_req"`
+	Title              string       `json:"title" yaml:"title"`
+	Description        string       `json:"description" yaml:"description"`
+	Deposit            sdk.Coins    `json:"deposit" yaml:"deposit"`
+	Denom              string       `json:"denom" yaml:"denom"`
+	initialPoolBalance string       `json:"initial_pool_balance" yaml:"initial_supply"`
 }
 
 type ToggleEscrowConversionProposalRequest struct {
@@ -30,7 +39,7 @@ type ToggleEscrowConversionProposalRequest struct {
 	Denom       string       `json:"token" yaml:"token"`
 }
 
-type AddEscrowSupplyProposalRequest struct {
+type AddToEscrowPoolProposalRequest struct {
 	BaseReq     rest.BaseReq `json:"base_req" yaml:"base_req"`
 	Title       string       `json:"title" yaml:"title"`
 	Description string       `json:"description" yaml:"description"`
@@ -45,6 +54,13 @@ func RegisterEscrowDenomProposalRESTHandler(clientCtx client.Context) govrest.Pr
 	}
 }
 
+func RegisterEscrowDenomAndConvertProposalRESTHandler(clientCtx client.Context) govrest.ProposalRESTHandler {
+	return govrest.ProposalRESTHandler{
+		SubRoute: types.ModuleName,
+		Handler:  newRegisterEscrowDenomAndConvertProposalHandler(clientCtx),
+	}
+}
+
 func ToggleEscrowConversionRESTHandler(clientCtx client.Context) govrest.ProposalRESTHandler {
 	return govrest.ProposalRESTHandler{
 		SubRoute: types.ModuleName,
@@ -52,10 +68,10 @@ func ToggleEscrowConversionRESTHandler(clientCtx client.Context) govrest.Proposa
 	}
 }
 
-func AddEscrowSupplyRESTHandler(clientCtx client.Context) govrest.ProposalRESTHandler {
+func AddToEscrowPoolRESTHandler(clientCtx client.Context) govrest.ProposalRESTHandler {
 	return govrest.ProposalRESTHandler{
 		SubRoute: types.ModuleName,
-		Handler:  newAddEscrowSupplyProposalHandler(clientCtx),
+		Handler:  newAddToEscrowPoolProposalHandler(clientCtx),
 	}
 }
 
@@ -77,8 +93,41 @@ func newRegisterEscrowDenomProposalHandler(clientCtx client.Context) http.Handle
 			return
 		}
 
-		initialSupply, _ := sdk.ParseUint(req.InitialSupply)
-		content := types.NewRegisterEscrowDenomProposal(req.Title, req.Description, req.Denom, sdk.Int(initialSupply))
+		initialPoolAmount, _ := sdk.ParseUint(req.initialPoolBalance)
+		content := types.NewRegisterEscrowDenomProposal(req.Title, req.Description, req.Denom, sdk.Int(initialPoolAmount))
+		msg, err := govtypes.NewMsgSubmitProposal(content, req.Deposit, fromAddr)
+		if rest.CheckBadRequestError(w, err) {
+			return
+		}
+
+		if rest.CheckBadRequestError(w, msg.ValidateBasic()) {
+			return
+		}
+
+		tx.WriteGeneratedTxResponse(clientCtx, w, req.BaseReq, msg)
+	}
+}
+
+func newRegisterEscrowDenomAndConvertProposalHandler(clientCtx client.Context) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var req RegisterEscrowDenomAndConvertProposalRequest
+
+		if !rest.ReadRESTReq(w, r, clientCtx.LegacyAmino, &req) {
+			return
+		}
+
+		req.BaseReq = req.BaseReq.Sanitize()
+		if !req.BaseReq.ValidateBasic(w) {
+			return
+		}
+
+		fromAddr, err := sdk.AccAddressFromBech32(req.BaseReq.From)
+		if rest.CheckBadRequestError(w, err) {
+			return
+		}
+
+		initialPoolAmount, _ := sdk.ParseUint(req.initialPoolBalance)
+		content := types.NewRegisterEscrowDenoAndConvertmProposal(req.Title, req.Description, req.Denom, sdk.Int(initialPoolAmount), req.BaseReq.From)
 		msg, err := govtypes.NewMsgSubmitProposal(content, req.Deposit, fromAddr)
 		if rest.CheckBadRequestError(w, err) {
 			return
@@ -124,9 +173,9 @@ func newToggleEscrowConversionHandler(clientCtx client.Context) http.HandlerFunc
 	}
 }
 
-func newAddEscrowSupplyProposalHandler(clientCtx client.Context) http.HandlerFunc {
+func newAddToEscrowPoolProposalHandler(clientCtx client.Context) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req AddEscrowSupplyProposalRequest
+		var req AddToEscrowPoolProposalRequest
 
 		if !rest.ReadRESTReq(w, r, clientCtx.LegacyAmino, &req) {
 			return
@@ -142,7 +191,7 @@ func newAddEscrowSupplyProposalHandler(clientCtx client.Context) http.HandlerFun
 			return
 		}
 
-		content := types.NewAddEscrowSupplyProposal(req.Title, req.Description, req.Denom)
+		content := types.NewAddToEscrowPoolProposal(req.Title, req.Description, req.Denom)
 		msg, err := govtypes.NewMsgSubmitProposal(content, req.Deposit, fromAddr)
 		if rest.CheckBadRequestError(w, err) {
 			return

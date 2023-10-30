@@ -25,16 +25,16 @@ func InitGenesis(
 	for _, denom := range data.RegisteredDenoms {
 		k.RegisterDenom(ctx, denom)
 	}
-	for _, escrowSupply := range data.TotalEscrowSupply {
-		k.AddEscrowSupply(ctx, escrowSupply)
+	for _, escrowPool := range data.GetEscrowPools() {
+		k.AddToEscrowPool(ctx, escrowPool)
 	}
 }
 
 // ExportGenesis export module status
 func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	return &types.GenesisState{
-		Params:            k.GetParams(ctx),
-		RegisteredDenoms:  k.GetRegisteredDenoms(ctx),
-		TotalEscrowSupply: k.GetTotalEscrowSupply(ctx),
+		Params:           k.GetParams(ctx),
+		RegisteredDenoms: k.GetRegisteredDenoms(ctx),
+		EscrowPools:      k.GetTotalEscrowPool(ctx),
 	}
 }

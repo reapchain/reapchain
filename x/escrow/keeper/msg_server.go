@@ -63,19 +63,19 @@ func (k Keeper) ConvertToNative(
 	if sendCoinsFromModuleToAccErr != nil {
 		return nil, sendCoinsFromModuleToAccErr
 	}
-	escrowSupply, _ := k.GetEscrowSupplyByDenom(ctx, msg.Coin.Denom)
+	escrowSupply, _ := k.GetEscrowPoolByDenom(ctx, msg.Coin.Denom)
 
 	newEscrowSupplyCoins := sdk.Coins{sdk.Coin{
 		Denom:  msg.Coin.Denom,
 		Amount: escrowSupply.Coins.AmountOf(msg.Coin.Denom).Add(msg.Coin.Amount),
 	}}
 
-	newEscrowSupply := types.EscrowSupply{
+	newEscrowSupply := types.EscrowPool{
 		Denom: msg.Coin.Denom,
 		Coins: newEscrowSupplyCoins,
 	}
 
-	k.SetEscrowSupply(ctx, newEscrowSupply)
+	k.SetEscrowPool(ctx, newEscrowSupply)
 
 	ctx.EventManager().EmitEvents(
 		sdk.Events{
@@ -125,7 +125,7 @@ func (k Keeper) ConvertToDenom(
 		)
 	}
 
-	escrowSupply, found := k.GetEscrowSupplyByDenom(ctx, msg.Denom)
+	escrowSupply, found := k.GetEscrowPoolByDenom(ctx, msg.Denom)
 
 	if !found {
 		return nil, sdkerrors.Wrapf(
@@ -172,12 +172,12 @@ func (k Keeper) ConvertToDenom(
 		Amount: escrowSupply.Coins.AmountOf(msg.Denom).Sub(msg.Amount),
 	}}
 
-	newEscrowSupply := types.EscrowSupply{
+	newEscrowSupply := types.EscrowPool{
 		Denom: msg.Denom,
 		Coins: newEscrowSupplyCoins,
 	}
 
-	k.SetEscrowSupply(ctx, newEscrowSupply)
+	k.SetEscrowPool(ctx, newEscrowSupply)
 
 	ctx.EventManager().EmitEvents(
 		sdk.Events{

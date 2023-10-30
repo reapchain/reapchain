@@ -40,17 +40,17 @@ func (k Keeper) RegisteredDenoms(c context.Context, req *types.QueryRegisteredDe
 	}, nil
 }
 
-func (k Keeper) EscrowSupply(c context.Context, req *types.QueryEscrowSupplyRequest) (*types.QueryEscrowSupplyResponse, error) {
+func (k Keeper) EscrowPoolBalance(c context.Context, req *types.QueryEscrowPoolBalanceRequest) (*types.QueryEscrowPoolBalanceResponse, error) {
 	if req == nil {
 		return nil, status.Error(codes.InvalidArgument, "empty request")
 	}
 
 	ctx := sdk.UnwrapSDKContext(c)
 
-	escrowSupply, _ := k.GetEscrowSupplyByDenom(ctx, req.Denom)
+	escrowPool, _ := k.GetEscrowPoolByDenom(ctx, req.Denom)
 
-	return &types.QueryEscrowSupplyResponse{
-		EscrowSupply: escrowSupply.Coins,
+	return &types.QueryEscrowPoolBalanceResponse{
+		EscrowPoolBalance: escrowPool.Coins,
 	}, nil
 }
 

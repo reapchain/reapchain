@@ -83,8 +83,8 @@ type RegisterEscrowDenomProposal struct {
 	// proposal description
 	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	// cosmos base denomination to be able to convert
-	Denom         string                                    `protobuf:"bytes,3,opt,name=denom,proto3" json:"denom,omitempty"`
-	InitialSupply github_com_reapchain_cosmos_sdk_types.Int `protobuf:"bytes,4,opt,name=initial_supply,json=initialSupply,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_supply"`
+	Denom              string                                    `protobuf:"bytes,3,opt,name=denom,proto3" json:"denom,omitempty"`
+	InitialPoolBalance github_com_reapchain_cosmos_sdk_types.Int `protobuf:"bytes,4,opt,name=initial_pool_balance,json=initialPoolBalance,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_pool_balance"`
 }
 
 func (m *RegisterEscrowDenomProposal) Reset()         { *m = RegisterEscrowDenomProposal{} }
@@ -141,6 +141,78 @@ func (m *RegisterEscrowDenomProposal) GetDenom() string {
 	return ""
 }
 
+type RegisterEscrowDenomAndConvertProposal struct {
+	// title of the proposal
+	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
+	// proposal description
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+	// cosmos base denomination to be able to convert
+	Denom              string                                    `protobuf:"bytes,3,opt,name=denom,proto3" json:"denom,omitempty"`
+	InitialPoolBalance github_com_reapchain_cosmos_sdk_types.Int `protobuf:"bytes,4,opt,name=initial_pool_balance,json=initialPoolBalance,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"initial_pool_balance"`
+	Proposer           string                                    `protobuf:"bytes,5,opt,name=proposer,proto3" json:"proposer,omitempty"`
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) Reset()         { *m = RegisterEscrowDenomAndConvertProposal{} }
+func (m *RegisterEscrowDenomAndConvertProposal) String() string { return proto.CompactTextString(m) }
+func (*RegisterEscrowDenomAndConvertProposal) ProtoMessage()    {}
+func (*RegisterEscrowDenomAndConvertProposal) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6312e58141a8adc9, []int{2}
+}
+func (m *RegisterEscrowDenomAndConvertProposal) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *RegisterEscrowDenomAndConvertProposal) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_RegisterEscrowDenomAndConvertProposal.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *RegisterEscrowDenomAndConvertProposal) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RegisterEscrowDenomAndConvertProposal.Merge(m, src)
+}
+func (m *RegisterEscrowDenomAndConvertProposal) XXX_Size() int {
+	return m.Size()
+}
+func (m *RegisterEscrowDenomAndConvertProposal) XXX_DiscardUnknown() {
+	xxx_messageInfo_RegisterEscrowDenomAndConvertProposal.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_RegisterEscrowDenomAndConvertProposal proto.InternalMessageInfo
+
+func (m *RegisterEscrowDenomAndConvertProposal) GetTitle() string {
+	if m != nil {
+		return m.Title
+	}
+	return ""
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) GetDenom() string {
+	if m != nil {
+		return m.Denom
+	}
+	return ""
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) GetProposer() string {
+	if m != nil {
+		return m.Proposer
+	}
+	return ""
+}
+
 type ToggleEscrowConversionProposal struct {
 	// title of the proposal
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
@@ -155,7 +227,7 @@ func (m *ToggleEscrowConversionProposal) Reset()         { *m = ToggleEscrowConv
 func (m *ToggleEscrowConversionProposal) String() string { return proto.CompactTextString(m) }
 func (*ToggleEscrowConversionProposal) ProtoMessage()    {}
 func (*ToggleEscrowConversionProposal) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6312e58141a8adc9, []int{2}
+	return fileDescriptor_6312e58141a8adc9, []int{3}
 }
 func (m *ToggleEscrowConversionProposal) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -205,7 +277,7 @@ func (m *ToggleEscrowConversionProposal) GetDenom() string {
 	return ""
 }
 
-type AddEscrowSupplyProposal struct {
+type AddToEscrowPoolProposal struct {
 	// title of the proposal
 	Title string `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
 	// proposal description
@@ -216,18 +288,18 @@ type AddEscrowSupplyProposal struct {
 	Amount github_com_reapchain_cosmos_sdk_types.Int `protobuf:"bytes,4,opt,name=amount,proto3,customtype=github.com/reapchain/cosmos-sdk/types.Int" json:"amount"`
 }
 
-func (m *AddEscrowSupplyProposal) Reset()         { *m = AddEscrowSupplyProposal{} }
-func (m *AddEscrowSupplyProposal) String() string { return proto.CompactTextString(m) }
-func (*AddEscrowSupplyProposal) ProtoMessage()    {}
-func (*AddEscrowSupplyProposal) Descriptor() ([]byte, []int) {
-	return fileDescriptor_6312e58141a8adc9, []int{3}
+func (m *AddToEscrowPoolProposal) Reset()         { *m = AddToEscrowPoolProposal{} }
+func (m *AddToEscrowPoolProposal) String() string { return proto.CompactTextString(m) }
+func (*AddToEscrowPoolProposal) ProtoMessage()    {}
+func (*AddToEscrowPoolProposal) Descriptor() ([]byte, []int) {
+	return fileDescriptor_6312e58141a8adc9, []int{4}
 }
-func (m *AddEscrowSupplyProposal) XXX_Unmarshal(b []byte) error {
+func (m *AddToEscrowPoolProposal) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *AddEscrowSupplyProposal) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *AddToEscrowPoolProposal) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_AddEscrowSupplyProposal.Marshal(b, m, deterministic)
+		return xxx_messageInfo_AddToEscrowPoolProposal.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -237,33 +309,33 @@ func (m *AddEscrowSupplyProposal) XXX_Marshal(b []byte, deterministic bool) ([]b
 		return b[:n], nil
 	}
 }
-func (m *AddEscrowSupplyProposal) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_AddEscrowSupplyProposal.Merge(m, src)
+func (m *AddToEscrowPoolProposal) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_AddToEscrowPoolProposal.Merge(m, src)
 }
-func (m *AddEscrowSupplyProposal) XXX_Size() int {
+func (m *AddToEscrowPoolProposal) XXX_Size() int {
 	return m.Size()
 }
-func (m *AddEscrowSupplyProposal) XXX_DiscardUnknown() {
-	xxx_messageInfo_AddEscrowSupplyProposal.DiscardUnknown(m)
+func (m *AddToEscrowPoolProposal) XXX_DiscardUnknown() {
+	xxx_messageInfo_AddToEscrowPoolProposal.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_AddEscrowSupplyProposal proto.InternalMessageInfo
+var xxx_messageInfo_AddToEscrowPoolProposal proto.InternalMessageInfo
 
-func (m *AddEscrowSupplyProposal) GetTitle() string {
+func (m *AddToEscrowPoolProposal) GetTitle() string {
 	if m != nil {
 		return m.Title
 	}
 	return ""
 }
 
-func (m *AddEscrowSupplyProposal) GetDescription() string {
+func (m *AddToEscrowPoolProposal) GetDescription() string {
 	if m != nil {
 		return m.Description
 	}
 	return ""
 }
 
-func (m *AddEscrowSupplyProposal) GetDenom() string {
+func (m *AddToEscrowPoolProposal) GetDenom() string {
 	if m != nil {
 		return m.Denom
 	}
@@ -273,39 +345,42 @@ func (m *AddEscrowSupplyProposal) GetDenom() string {
 func init() {
 	proto.RegisterType((*RegisteredDenom)(nil), "reapchain.escrow.v1.RegisteredDenom")
 	proto.RegisterType((*RegisterEscrowDenomProposal)(nil), "reapchain.escrow.v1.RegisterEscrowDenomProposal")
+	proto.RegisterType((*RegisterEscrowDenomAndConvertProposal)(nil), "reapchain.escrow.v1.RegisterEscrowDenomAndConvertProposal")
 	proto.RegisterType((*ToggleEscrowConversionProposal)(nil), "reapchain.escrow.v1.ToggleEscrowConversionProposal")
-	proto.RegisterType((*AddEscrowSupplyProposal)(nil), "reapchain.escrow.v1.AddEscrowSupplyProposal")
+	proto.RegisterType((*AddToEscrowPoolProposal)(nil), "reapchain.escrow.v1.AddToEscrowPoolProposal")
 }
 
 func init() { proto.RegisterFile("reapchain/escrow/v1/escrow.proto", fileDescriptor_6312e58141a8adc9) }
 
 var fileDescriptor_6312e58141a8adc9 = []byte{
-	// 387 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x92, 0xb1, 0xae, 0xd3, 0x30,
-	0x18, 0x85, 0x63, 0x28, 0x85, 0x1a, 0x01, 0x52, 0xa8, 0x44, 0x54, 0x24, 0x37, 0xea, 0x54, 0x06,
-	0x62, 0x22, 0x16, 0xc4, 0x46, 0x01, 0xa1, 0x32, 0xa1, 0xc0, 0x80, 0x58, 0x90, 0x93, 0x58, 0xa9,
-	0xd5, 0xc4, 0x7f, 0x14, 0xbb, 0x81, 0xbe, 0x05, 0x8f, 0xc0, 0x63, 0xf0, 0x08, 0x95, 0x58, 0x3a,
-	0x22, 0x86, 0x0a, 0xb5, 0x0b, 0x8f, 0x71, 0x15, 0x3b, 0xb9, 0xed, 0x70, 0xa7, 0x2b, 0x75, 0xfb,
-	0x8f, 0x7f, 0xeb, 0xf3, 0x39, 0x47, 0xc6, 0x7e, 0xc5, 0x59, 0x99, 0x2c, 0x98, 0x90, 0x94, 0xab,
-	0xa4, 0x82, 0x6f, 0xb4, 0x0e, 0xdb, 0x29, 0x28, 0x2b, 0xd0, 0xe0, 0x3e, 0xbc, 0xbc, 0x11, 0xb4,
-	0xe7, 0x75, 0x38, 0x1a, 0x66, 0x90, 0x81, 0xd9, 0xd3, 0x66, 0xb2, 0x57, 0x47, 0x24, 0x01, 0x55,
-	0x80, 0xa2, 0x31, 0x93, 0x4b, 0x5a, 0x87, 0x31, 0xd7, 0x2c, 0x34, 0xc2, 0xee, 0x27, 0xef, 0xf0,
-	0x83, 0x88, 0x67, 0x42, 0x69, 0x5e, 0xf1, 0xf4, 0x0d, 0x97, 0x50, 0xb8, 0x43, 0x7c, 0x2b, 0x6d,
-	0x06, 0x0f, 0xf9, 0x68, 0x3a, 0x88, 0xac, 0x70, 0x3d, 0x7c, 0x9b, 0x4b, 0x16, 0xe7, 0x3c, 0xf5,
-	0x6e, 0xf8, 0x68, 0x7a, 0x27, 0xea, 0xe4, 0xcb, 0xde, 0xff, 0x9f, 0x63, 0x34, 0xf9, 0x8d, 0xf0,
-	0xe3, 0x8e, 0xf4, 0xd6, 0x98, 0x32, 0xb4, 0x0f, 0x15, 0x94, 0xa0, 0x58, 0xde, 0x50, 0xb5, 0xd0,
-	0x39, 0xef, 0xa8, 0x46, 0xb8, 0x3e, 0xbe, 0x9b, 0x36, 0x11, 0x44, 0xa9, 0x05, 0x48, 0x43, 0x1e,
-	0x44, 0xa7, 0x47, 0x47, 0x37, 0x37, 0x4f, 0xdd, 0x7c, 0xc6, 0xf7, 0x85, 0x14, 0x5a, 0xb0, 0xfc,
-	0xab, 0x5a, 0x95, 0x65, 0xbe, 0xf6, 0x7a, 0xcd, 0x7a, 0x16, 0x6e, 0x76, 0x63, 0xe7, 0xef, 0x6e,
-	0xfc, 0x24, 0x13, 0x7a, 0xb1, 0x8a, 0x83, 0x04, 0x0a, 0x7a, 0xac, 0xd3, 0x76, 0xf1, 0x54, 0xa5,
-	0x4b, 0xaa, 0xd7, 0x25, 0x57, 0xc1, 0x5c, 0xea, 0xe8, 0x5e, 0x0b, 0xfa, 0x68, 0x38, 0x26, 0x8d,
-	0x33, 0xd1, 0x98, 0x7c, 0x82, 0x2c, 0xcb, 0xb9, 0x8d, 0xf2, 0x1a, 0x64, 0xcd, 0x2b, 0x25, 0x40,
-	0x9e, 0x27, 0x4f, 0xdb, 0xe1, 0x2f, 0x84, 0x1f, 0xbd, 0x4a, 0x53, 0xfb, 0xa6, 0xf5, 0x73, 0xa6,
-	0xfe, 0xe6, 0xb8, 0xcf, 0x0a, 0x58, 0x49, 0x7d, 0xfd, 0xde, 0x5a, 0x80, 0xb5, 0x3e, 0x7b, 0xbf,
-	0xd9, 0x13, 0xb4, 0xdd, 0x13, 0xf4, 0x6f, 0x4f, 0xd0, 0x8f, 0x03, 0x71, 0xb6, 0x07, 0xe2, 0xfc,
-	0x39, 0x10, 0xe7, 0xcb, 0xb3, 0x2b, 0x91, 0xc7, 0xa9, 0x7e, 0x41, 0xbf, 0x77, 0x1f, 0xdd, 0xd0,
-	0xe3, 0xbe, 0xf9, 0x9a, 0xcf, 0x2f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x23, 0xd7, 0xfa, 0xb7, 0x09,
-	0x03, 0x00, 0x00,
+	// 427 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xd4, 0x93, 0xb1, 0x6e, 0xd4, 0x30,
+	0x18, 0xc7, 0x63, 0x68, 0x4b, 0x6b, 0x06, 0xa4, 0x70, 0x12, 0xd1, 0x21, 0xf9, 0xa2, 0x93, 0x90,
+	0xca, 0x40, 0x4c, 0xc4, 0x82, 0xd8, 0x7a, 0x80, 0x50, 0x99, 0xaa, 0xa8, 0x13, 0x4b, 0xe5, 0xc4,
+	0x56, 0x6a, 0xd5, 0xf1, 0x17, 0xc5, 0x6e, 0x80, 0xb7, 0xe0, 0x11, 0x78, 0x0c, 0x1e, 0xa1, 0x63,
+	0x27, 0x84, 0x18, 0x4e, 0xe8, 0x6e, 0xe1, 0x21, 0x18, 0x50, 0xec, 0xe4, 0xee, 0x86, 0x9b, 0x90,
+	0x6e, 0x60, 0xfb, 0xfe, 0xf6, 0xa7, 0x9f, 0xff, 0xff, 0x4f, 0xfe, 0x70, 0xdc, 0x08, 0x56, 0x17,
+	0x97, 0x4c, 0x6a, 0x2a, 0x4c, 0xd1, 0xc0, 0x47, 0xda, 0xa6, 0x7d, 0x95, 0xd4, 0x0d, 0x58, 0x08,
+	0x1f, 0xae, 0x3a, 0x92, 0xfe, 0xbc, 0x4d, 0xc7, 0xa3, 0x12, 0x4a, 0x70, 0xf7, 0xb4, 0xab, 0x7c,
+	0xeb, 0x98, 0x14, 0x60, 0x2a, 0x30, 0x34, 0x67, 0xfa, 0x8a, 0xb6, 0x69, 0x2e, 0x2c, 0x4b, 0x9d,
+	0xf0, 0xf7, 0xd3, 0x77, 0xf8, 0x41, 0x26, 0x4a, 0x69, 0xac, 0x68, 0x04, 0x7f, 0x23, 0x34, 0x54,
+	0xe1, 0x08, 0xef, 0xf3, 0xae, 0x88, 0x50, 0x8c, 0x8e, 0x8f, 0x32, 0x2f, 0xc2, 0x08, 0xdf, 0x13,
+	0x9a, 0xe5, 0x4a, 0xf0, 0xe8, 0x4e, 0x8c, 0x8e, 0x0f, 0xb3, 0x41, 0xbe, 0xda, 0xfb, 0xfd, 0x75,
+	0x82, 0xa6, 0xdf, 0x11, 0x7e, 0x3c, 0x90, 0xde, 0x3a, 0x53, 0x8e, 0x76, 0xd6, 0x40, 0x0d, 0x86,
+	0xa9, 0x8e, 0x6a, 0xa5, 0x55, 0x62, 0xa0, 0x3a, 0x11, 0xc6, 0xf8, 0x3e, 0xef, 0x22, 0xc8, 0xda,
+	0x4a, 0xd0, 0x8e, 0x7c, 0x94, 0x6d, 0x1e, 0xad, 0xdd, 0xdc, 0xdd, 0x74, 0x53, 0xe0, 0x91, 0xd4,
+	0xd2, 0x4a, 0xa6, 0x2e, 0x6a, 0x00, 0x75, 0x91, 0x33, 0xc5, 0x74, 0x21, 0xa2, 0xbd, 0xae, 0x69,
+	0x96, 0xde, 0xcc, 0x27, 0xc1, 0xcf, 0xf9, 0xe4, 0x69, 0x29, 0xed, 0xe5, 0x75, 0x9e, 0x14, 0x50,
+	0xd1, 0xf5, 0x50, 0xfd, 0x44, 0x9e, 0x19, 0x7e, 0x45, 0xed, 0xe7, 0x5a, 0x98, 0xe4, 0x54, 0xdb,
+	0x2c, 0xec, 0x71, 0x67, 0x00, 0x6a, 0xe6, 0x61, 0x2e, 0x58, 0x30, 0xfd, 0x83, 0xf0, 0x93, 0x2d,
+	0xc1, 0x4e, 0x34, 0x7f, 0x0d, 0xba, 0x15, 0x8d, 0xfd, 0x8f, 0x23, 0x86, 0x63, 0x7c, 0x58, 0x3b,
+	0xfb, 0xa2, 0x89, 0xf6, 0xdd, 0xeb, 0x2b, 0xdd, 0xc7, 0xb7, 0x98, 0x9c, 0x43, 0x59, 0x2a, 0xe1,
+	0xb3, 0xfb, 0xcc, 0x46, 0x82, 0xde, 0x4d, 0xec, 0xfe, 0x37, 0x7d, 0x43, 0xf8, 0xd1, 0x09, 0xe7,
+	0xe7, 0xe0, 0x5f, 0xed, 0x2c, 0xef, 0x68, 0xcc, 0xa7, 0xf8, 0x80, 0x55, 0x70, 0xad, 0xed, 0xbf,
+	0x0f, 0xb6, 0x07, 0x78, 0xeb, 0xb3, 0xf7, 0x37, 0x0b, 0x82, 0x6e, 0x17, 0x04, 0xfd, 0x5a, 0x10,
+	0xf4, 0x65, 0x49, 0x82, 0xdb, 0x25, 0x09, 0x7e, 0x2c, 0x49, 0xf0, 0xe1, 0xf9, 0x56, 0xe4, 0xba,
+	0x6a, 0x5f, 0xd2, 0x4f, 0xc3, 0xca, 0x3b, 0x7a, 0x7e, 0xe0, 0x96, 0xf4, 0xc5, 0xdf, 0x00, 0x00,
+	0x00, 0xff, 0xff, 0xd9, 0x68, 0xe8, 0xd4, 0x13, 0x04, 0x00, 0x00,
 }
 
 func (this *RegisteredDenom) Equal(that interface{}) bool {
@@ -365,14 +440,14 @@ func (this *ToggleEscrowConversionProposal) Equal(that interface{}) bool {
 	}
 	return true
 }
-func (this *AddEscrowSupplyProposal) Equal(that interface{}) bool {
+func (this *AddToEscrowPoolProposal) Equal(that interface{}) bool {
 	if that == nil {
 		return this == nil
 	}
 
-	that1, ok := that.(*AddEscrowSupplyProposal)
+	that1, ok := that.(*AddToEscrowPoolProposal)
 	if !ok {
-		that2, ok := that.(AddEscrowSupplyProposal)
+		that2, ok := that.(AddToEscrowPoolProposal)
 		if ok {
 			that1 = &that2
 		} else {
@@ -459,9 +534,70 @@ func (m *RegisterEscrowDenomProposal) MarshalToSizedBuffer(dAtA []byte) (int, er
 	var l int
 	_ = l
 	{
-		size := m.InitialSupply.Size()
+		size := m.InitialPoolBalance.Size()
 		i -= size
-		if _, err := m.InitialSupply.MarshalTo(dAtA[i:]); err != nil {
+		if _, err := m.InitialPoolBalance.MarshalTo(dAtA[i:]); err != nil {
+			return 0, err
+		}
+		i = encodeVarintEscrow(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0x22
+	if len(m.Denom) > 0 {
+		i -= len(m.Denom)
+		copy(dAtA[i:], m.Denom)
+		i = encodeVarintEscrow(dAtA, i, uint64(len(m.Denom)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Description) > 0 {
+		i -= len(m.Description)
+		copy(dAtA[i:], m.Description)
+		i = encodeVarintEscrow(dAtA, i, uint64(len(m.Description)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Title) > 0 {
+		i -= len(m.Title)
+		copy(dAtA[i:], m.Title)
+		i = encodeVarintEscrow(dAtA, i, uint64(len(m.Title)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Proposer) > 0 {
+		i -= len(m.Proposer)
+		copy(dAtA[i:], m.Proposer)
+		i = encodeVarintEscrow(dAtA, i, uint64(len(m.Proposer)))
+		i--
+		dAtA[i] = 0x2a
+	}
+	{
+		size := m.InitialPoolBalance.Size()
+		i -= size
+		if _, err := m.InitialPoolBalance.MarshalTo(dAtA[i:]); err != nil {
 			return 0, err
 		}
 		i = encodeVarintEscrow(dAtA, i, uint64(size))
@@ -536,7 +672,7 @@ func (m *ToggleEscrowConversionProposal) MarshalToSizedBuffer(dAtA []byte) (int,
 	return len(dAtA) - i, nil
 }
 
-func (m *AddEscrowSupplyProposal) Marshal() (dAtA []byte, err error) {
+func (m *AddToEscrowPoolProposal) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -546,12 +682,12 @@ func (m *AddEscrowSupplyProposal) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *AddEscrowSupplyProposal) MarshalTo(dAtA []byte) (int, error) {
+func (m *AddToEscrowPoolProposal) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *AddEscrowSupplyProposal) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *AddToEscrowPoolProposal) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -635,8 +771,35 @@ func (m *RegisterEscrowDenomProposal) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovEscrow(uint64(l))
 	}
-	l = m.InitialSupply.Size()
+	l = m.InitialPoolBalance.Size()
 	n += 1 + l + sovEscrow(uint64(l))
+	return n
+}
+
+func (m *RegisterEscrowDenomAndConvertProposal) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Title)
+	if l > 0 {
+		n += 1 + l + sovEscrow(uint64(l))
+	}
+	l = len(m.Description)
+	if l > 0 {
+		n += 1 + l + sovEscrow(uint64(l))
+	}
+	l = len(m.Denom)
+	if l > 0 {
+		n += 1 + l + sovEscrow(uint64(l))
+	}
+	l = m.InitialPoolBalance.Size()
+	n += 1 + l + sovEscrow(uint64(l))
+	l = len(m.Proposer)
+	if l > 0 {
+		n += 1 + l + sovEscrow(uint64(l))
+	}
 	return n
 }
 
@@ -661,7 +824,7 @@ func (m *ToggleEscrowConversionProposal) Size() (n int) {
 	return n
 }
 
-func (m *AddEscrowSupplyProposal) Size() (n int) {
+func (m *AddToEscrowPoolProposal) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -919,7 +1082,7 @@ func (m *RegisterEscrowDenomProposal) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 4:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field InitialSupply", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field InitialPoolBalance", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -947,9 +1110,221 @@ func (m *RegisterEscrowDenomProposal) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if err := m.InitialSupply.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.InitialPoolBalance.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipEscrow(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *RegisterEscrowDenomAndConvertProposal) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowEscrow
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: RegisterEscrowDenomAndConvertProposal: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: RegisterEscrowDenomAndConvertProposal: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Title", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowEscrow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Title = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Description", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowEscrow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Description = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Denom", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowEscrow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Denom = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field InitialPoolBalance", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowEscrow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.InitialPoolBalance.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Proposer", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowEscrow
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthEscrow
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Proposer = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -1118,7 +1493,7 @@ func (m *ToggleEscrowConversionProposal) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *AddEscrowSupplyProposal) Unmarshal(dAtA []byte) error {
+func (m *AddToEscrowPoolProposal) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1141,10 +1516,10 @@ func (m *AddEscrowSupplyProposal) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: AddEscrowSupplyProposal: wiretype end group for non-group")
+			return fmt.Errorf("proto: AddToEscrowPoolProposal: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: AddEscrowSupplyProposal: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: AddToEscrowPoolProposal: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:

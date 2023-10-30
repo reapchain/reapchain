@@ -5,8 +5,8 @@ import (
 	"regexp"
 )
 
-func (escrowSupply EscrowSupply) GetID() []byte {
-	id := escrowSupply.Denom
+func (escrowPool EscrowPool) GetID() []byte {
+	id := escrowPool.Denom
 	return tmhash.Sum([]byte(id))
 }
 
