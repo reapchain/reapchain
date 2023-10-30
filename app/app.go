@@ -4,12 +4,14 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
-	bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
+
+	bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
+	bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
+	"github.com/reapchain/reapchain/v8/x/escrow"
 
 	"github.com/reapchain/reapchain/v8/app/upgrades/v0_8_6"
 
@@ -160,6 +162,9 @@ import (
 	//"github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades"
 	//v2 "github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades/v2"
 	//"github.com/Gravity-Bridge/Gravity-Bridge/module/x/gravity"
+	escrowclient "github.com/reapchain/reapchain/v8/x/escrow/client"
+	escrowkeeper "github.com/reapchain/reapchain/v8/x/escrow/keeper"
+	escrowtypes "github.com/reapchain/reapchain/v8/x/escrow/types"
 	gravitykeeper "github.com/reapchain/reapchain/v8/x/gravity/keeper"
 	gravitytypes "github.com/reapchain/reapchain/v8/x/gravity/types"
 )
@@ -204,6 +209,7 @@ var (
 			incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
 			// Reapchain Proposal Types
 			permissionsmoduleclient.RegisterStandingMemberProposal, permissionsmoduleclient.RemoveStandingMemberProposal, permissionsmoduleclient.ReplaceStandingMemberProposal,
+			escrowclient.RegisterEscrowDenomProposalHandler, escrowclient.RegisterEscrowDenomAndConvertProposalHandler, escrowclient.ToggleEscrowConversionProposalHandler, escrowclient.AddToEscrowPoolProposalHandler,
 		),
 		params.AppModuleBasic{},
 		crisis.AppModuleBasic{},
@@ -227,6 +233,7 @@ var (
 		permissionsmodule.AppModuleBasic{},
 		gravity.AppModuleBasic{},
 		bech32ibc.AppModuleBasic{},
+		escrow.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -244,6 +251,7 @@ var (
 		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 		permissionsmoduletypes.ModuleName: nil,
 		gravitytypes.ModuleName:           {authtypes.Minter, authtypes.Burner},
+		escrowtypes.ModuleName:            {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -315,6 +323,7 @@ type Reapchain struct {
 
 	gravityKeeper   *gravitykeeper.Keeper
 	bech32IbcKeeper *bech32ibckeeper.Keeper
+	EscrowKeeper    escrowkeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -374,6 +383,7 @@ func NewReapchain(
 		feesplittypes.StoreKey,
 		permissionsmoduletypes.StoreKey,
 		gravitytypes.StoreKey, bech32ibctypes.StoreKey,
+		escrowtypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -474,7 +484,8 @@ func NewReapchain(
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
 		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper)).
-		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.bech32IbcKeeper))
+		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.bech32IbcKeeper)).
+		AddRoute(escrowtypes.RouterKey, escrow.NewEscrowProposalHandler(&app.EscrowKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
@@ -512,6 +523,11 @@ func NewReapchain(
 	app.Erc20Keeper = erc20keeper.NewKeeper(
 		keys[erc20types.StoreKey], appCodec, app.GetSubspace(erc20types.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.EvmKeeper,
+	)
+
+	app.EscrowKeeper = escrowkeeper.NewKeeper(
+		keys[escrowtypes.StoreKey], appCodec, app.GetSubspace(escrowtypes.ModuleName),
+		app.AccountKeeper, app.BankKeeper,
 	)
 
 	app.IncentivesKeeper = incentiveskeeper.NewKeeper(
@@ -676,6 +692,7 @@ func NewReapchain(
 			appCodec,
 			bech32IbcKeeper,
 		),
+		escrow.NewAppModule(app.EscrowKeeper, app.AccountKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -711,6 +728,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
@@ -748,6 +766,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
@@ -790,6 +809,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		epochstypes.ModuleName,
 		recoverytypes.ModuleName,
@@ -1125,6 +1145,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
 	paramsKeeper.Subspace(feesplittypes.ModuleName)
 	paramsKeeper.Subspace(permissionsmoduletypes.ModuleName)
+	paramsKeeper.Subspace(escrowtypes.ModuleName)
 
 	return paramsKeeper
 }
