@@ -77,7 +77,6 @@
     - [ToggleEscrowConversionProposal](#reapchain.escrow.v1.ToggleEscrowConversionProposal)
   
 - [reapchain/escrow/v1/genesis.proto](#reapchain/escrow/v1/genesis.proto)
-    - [EscrowPool](#reapchain.escrow.v1.EscrowPool)
     - [GenesisState](#reapchain.escrow.v1.GenesisState)
     - [Params](#reapchain.escrow.v1.Params)
   
@@ -1126,22 +1125,6 @@ Msg defines the erc20 Msg service.
 
 
 
-<a name="reapchain.escrow.v1.EscrowPool"></a>
-
-### EscrowPool
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| `denom` | [string](#string) |  | address is the address of the balance holder. |
-| `coins` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | coins defines the different coins this balance holds. |
-
-
-
-
-
-
 <a name="reapchain.escrow.v1.GenesisState"></a>
 
 ### GenesisState
@@ -1152,7 +1135,7 @@ GenesisState defines the module's genesis state.
 | ----- | ---- | ----- | ----------- |
 | `params` | [Params](#reapchain.escrow.v1.Params) |  | module parameters |
 | `registered_denoms` | [RegisteredDenom](#reapchain.escrow.v1.RegisteredDenom) | repeated | registered denominations |
-| `escrow_pools` | [EscrowPool](#reapchain.escrow.v1.EscrowPool) | repeated |  |
+| `escrow_pools` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated |  |
 
 
 
@@ -1213,7 +1196,7 @@ GenesisState defines the module's genesis state.
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| `escrow_pool_balance` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) | repeated | balances is the balances of all the coins. |
+| `escrow_pool_balance` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  | balances is the balances of all the coins. |
 
 
 
@@ -1315,6 +1298,7 @@ Query defines the gRPC queried service.
 | `amount` | [string](#string) |  |  |
 | `denom` | [string](#string) |  |  |
 | `sender` | [string](#string) |  |  |
+| `receiver` | [string](#string) |  |  |
 
 
 
@@ -1341,6 +1325,7 @@ MsgConvertERC20Response returns no fields
 | ----- | ---- | ----- | ----------- |
 | `coin` | [cosmos.base.v1beta1.Coin](#cosmos.base.v1beta1.Coin) |  |  |
 | `sender` | [string](#string) |  |  |
+| `receiver` | [string](#string) |  |  |
 
 
 

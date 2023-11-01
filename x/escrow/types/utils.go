@@ -1,11 +1,12 @@
 package types
 
 import (
+	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/reapchain/reapchain-core/crypto/tmhash"
 	"regexp"
 )
 
-func (escrowPool EscrowPool) GetID() []byte {
+func GetID(escrowPool sdk.Coin) []byte {
 	id := escrowPool.Denom
 	return tmhash.Sum([]byte(id))
 }

@@ -29,12 +29,12 @@ func init() {
 // prefix bytes for the EVM persistent store
 const (
 	prefixDenom = iota + 1
-	prefixEscrowSupply
+	prefixEscrowPool
 )
 
 // KVStore key prefixes
 var (
-	KeyPrefixDenom        = []byte{prefixDenom}
-	KeyPrefixEscrowSupply = []byte{prefixEscrowSupply}
-	KeyPrefixTokenPair    = []byte{prefixDenom}
+	KeyPrefixDenom      = []byte{prefixDenom}
+	KeyPrefixEscrowPool = []byte{prefixEscrowPool}
+	KeyPrefixTokenPair  = []byte{prefixDenom}
 )

@@ -26,7 +26,7 @@ func InitGenesis(
 		k.RegisterDenom(ctx, denom)
 	}
 	for _, escrowPool := range data.GetEscrowPools() {
-		k.AddToEscrowPool(ctx, escrowPool)
+		k.SetEscrowPool(ctx, escrowPool)
 	}
 }
 
@@ -35,6 +35,6 @@ func ExportGenesis(ctx sdk.Context, k keeper.Keeper) *types.GenesisState {
 	return &types.GenesisState{
 		Params:           k.GetParams(ctx),
 		RegisteredDenoms: k.GetRegisteredDenoms(ctx),
-		EscrowPools:      k.GetTotalEscrowPool(ctx),
+		EscrowPools:      k.GetAllEscrowPools(ctx),
 	}
 }
