@@ -35,7 +35,7 @@ func handleRegisterEscrowDenomAndConvertProposal(ctx sdk.Context, k *keeper.Keep
 	}
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
-			types.EventRegisterEscrowDenom,
+			types.EventRegisterEscrowDenomAndConvert,
 			sdk.NewAttribute(types.AttributeKeyCosmosCoin, registeredDenom.Denom),
 		),
 	)
@@ -82,7 +82,7 @@ func handleAddToEscrowPoolProposal(ctx sdk.Context, k *keeper.Keeper, aesp *type
 
 	ctx.EventManager().EmitEvent(
 		sdk.NewEvent(
-			types.EventAddEscrowSupply,
+			types.EventAddToEscrowPool,
 			sdk.NewAttribute(types.AttributeKeyReceiver, escrowPool.Denom),
 		),
 	)

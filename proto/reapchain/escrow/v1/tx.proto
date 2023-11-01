@@ -19,6 +19,7 @@ service Msg {
 message MsgConvertToNative {
   cosmos.base.v1beta1.Coin coin = 1 [ (gogoproto.nullable) = false ];
   string sender = 2;
+  string receiver = 3;
 
 }
 
@@ -32,6 +33,7 @@ message MsgConvertToDenom {
   ];
   string denom = 2;
   string sender = 3;
+  string receiver = 4;
 
 
 }

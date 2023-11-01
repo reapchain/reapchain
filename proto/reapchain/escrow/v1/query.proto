@@ -56,8 +56,8 @@ message QueryEscrowPoolBalanceRequest {
 
 message QueryEscrowPoolBalanceResponse {
   // balances is the balances of all the coins.
-  repeated cosmos.base.v1beta1.Coin escrow_pool_balance = 1
-  [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins"];
+   cosmos.base.v1beta1.Coin escrow_pool_balance = 1
+  [(gogoproto.nullable) = false];
 
 
 }

@@ -4,10 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/reapchain/cosmos-sdk/codec"
+	sdk "github.com/reapchain/cosmos-sdk/types"
 )
 
 // NewGenesisState creates a new genesis state.
-func NewGenesisState(params Params, registeredDenoms []RegisteredDenom, totalEscrowPool []EscrowPool) GenesisState {
+func NewGenesisState(params Params, registeredDenoms []RegisteredDenom, totalEscrowPool []sdk.Coin) GenesisState {
 	return GenesisState{
 		Params:           params,
 		RegisteredDenoms: registeredDenoms,
@@ -38,11 +39,11 @@ func (gs GenesisState) Validate() error {
 		seenDenom[b.Denom] = true
 	}
 
-	for _, b := range gs.EscrowPools {
-		if seenSupply[b.Denom] {
-			return fmt.Errorf("coin denomination duplicated on genesis for EscrowSupply: '%s'", b.Denom)
+	for _, balance := range gs.EscrowPools {
+		if seenSupply[balance.Denom] {
+			return fmt.Errorf("coin denomination duplicated on genesis for EscrowPool: '%s'", balance.Denom)
 		}
-		seenSupply[b.Denom] = true
+		seenSupply[balance.Denom] = true
 	}
 
 	return gs.Params.Validate()

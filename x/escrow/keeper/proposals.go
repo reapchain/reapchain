@@ -57,7 +57,7 @@ func (k Keeper) RegisterEscrowDenomAndConvert(
 	fromAddr, err := sdk.AccAddressFromBech32(from)
 	currentNativeBalance := k.bankKeeper.GetBalance(ctx, fromAddr, sdk.DefaultBondDenom)
 
-	escrowSupply, found := k.GetEscrowPoolByDenom(ctx, denom)
+	escrowPool, found := k.GetEscrowPoolByDenom(ctx, denom)
 	if !found {
 		return nil, sdkerrors.Wrapf(
 			types.ErrDenomNotFound, "denom not registered: %s", denom,
@@ -98,17 +98,12 @@ func (k Keeper) RegisterEscrowDenomAndConvert(
 		return nil, sendCoinsFromModuleToAccErr
 	}
 
-	newEscrowSupplyCoins := sdk.Coins{sdk.Coin{
+	newEscrowPoolBalance := sdk.Coin{
 		Denom:  denom,
-		Amount: escrowSupply.Coins.AmountOf(denom).Sub(initialPoolAmount),
-	}}
-
-	newEscrowSupply := types.EscrowPool{
-		Denom: denom,
-		Coins: newEscrowSupplyCoins,
+		Amount: escrowPool.Amount.Sub(initialPoolAmount),
 	}
 
-	k.SetEscrowPool(ctx, newEscrowSupply)
+	k.SetEscrowPool(ctx, newEscrowPoolBalance)
 
 	return &newRegisteredDenom, nil
 }
@@ -117,7 +112,7 @@ func (k Keeper) HandleAddToEscrowPool(
 	ctx sdk.Context,
 	denom string,
 	amount sdk.Int,
-) (*types.EscrowPool, error) {
+) (*sdk.Coin, error) {
 	// Check if the conversion is globally enabled
 	params := k.GetParams(ctx)
 	if !params.EnableEscrow {
@@ -132,35 +127,27 @@ func (k Keeper) HandleAddToEscrowPool(
 		)
 	}
 
-	escrowSupply, found := k.GetEscrowPoolByDenom(ctx, denom)
+	escrowPool, found := k.GetEscrowPoolByDenom(ctx, denom)
 
 	if !found {
-		newSupply := sdk.Coins{sdk.Coin{Denom: denom, Amount: amount}}
+		newEscrowPoolAmount := sdk.Coin{Denom: denom, Amount: amount}
+		//newEscrowPoolAmount := types.EscrowPool{Balance: newPoolAmount}
 
-		newEscrowSupply := types.EscrowPool{
-			Denom: denom,
-			Coins: newSupply,
-		}
-		k.SetEscrowPool(ctx, newEscrowSupply)
-		return &newEscrowSupply, nil
+		k.SetEscrowPool(ctx, newEscrowPoolAmount)
+		return &newEscrowPoolAmount, nil
 	}
 
 	if found {
 
-		additionalSupply := sdk.Coin{Denom: denom, Amount: amount}
-		currentSupply := escrowSupply.Coins
+		additionalPoolAmount := sdk.Coin{Denom: denom, Amount: amount}
+		currentPoolAmount := escrowPool
 
-		newSupply := currentSupply.Add(additionalSupply)
-		newEscrowSupply := types.EscrowPool{
-			Denom: denom,
-			Coins: newSupply,
-		}
-
-		k.SetEscrowPool(ctx, newEscrowSupply)
-		return &newEscrowSupply, nil
+		newEscrowPoolAmount := currentPoolAmount.Add(additionalPoolAmount)
+		k.SetEscrowPool(ctx, newEscrowPoolAmount)
+		return &newEscrowPoolAmount, nil
 	}
 
-	return &escrowSupply, nil
+	return &escrowPool, nil
 }
 
 func (k Keeper) ToggleEscrowConversion(

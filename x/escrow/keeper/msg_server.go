@@ -16,6 +16,7 @@ func (k Keeper) ConvertToNative(
 ) (*types.MsgConvertToNativeResponse, error) {
 	ctx := sdk.UnwrapSDKContext(goCtx)
 	sender := sdk.MustAccAddressFromBech32(msg.Sender)
+	receiver := sdk.MustAccAddressFromBech32(msg.Receiver)
 
 	escrowParams := k.GetParams(ctx)
 	if !escrowParams.EnableEscrow {
@@ -59,23 +60,17 @@ func (k Keeper) ConvertToNative(
 	if mintCoinsErr != nil {
 		return nil, mintCoinsErr
 	}
-	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, sender, mintCoins)
+	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, receiver, mintCoins)
 	if sendCoinsFromModuleToAccErr != nil {
 		return nil, sendCoinsFromModuleToAccErr
 	}
-	escrowSupply, _ := k.GetEscrowPoolByDenom(ctx, msg.Coin.Denom)
+	escrowPool, _ := k.GetEscrowPoolByDenom(ctx, msg.Coin.Denom)
 
-	newEscrowSupplyCoins := sdk.Coins{sdk.Coin{
+	newEscrowPoolAmount := sdk.Coin{
 		Denom:  msg.Coin.Denom,
-		Amount: escrowSupply.Coins.AmountOf(msg.Coin.Denom).Add(msg.Coin.Amount),
-	}}
-
-	newEscrowSupply := types.EscrowPool{
-		Denom: msg.Coin.Denom,
-		Coins: newEscrowSupplyCoins,
+		Amount: escrowPool.Amount.Add(msg.Coin.Amount),
 	}
-
-	k.SetEscrowPool(ctx, newEscrowSupply)
+	k.SetEscrowPool(ctx, newEscrowPoolAmount)
 
 	ctx.EventManager().EmitEvents(
 		sdk.Events{
@@ -100,6 +95,7 @@ func (k Keeper) ConvertToDenom(
 	ctx := sdk.UnwrapSDKContext(goCtx)
 
 	sender := sdk.MustAccAddressFromBech32(msg.Sender)
+	receiver := sdk.MustAccAddressFromBech32(msg.Receiver)
 
 	escrowParams := k.GetParams(ctx)
 	if !escrowParams.EnableEscrow {
@@ -125,7 +121,7 @@ func (k Keeper) ConvertToDenom(
 		)
 	}
 
-	escrowSupply, found := k.GetEscrowPoolByDenom(ctx, msg.Denom)
+	escrowPool, found := k.GetEscrowPoolByDenom(ctx, msg.Denom)
 
 	if !found {
 		return nil, sdkerrors.Wrapf(
@@ -133,7 +129,7 @@ func (k Keeper) ConvertToDenom(
 		)
 	}
 
-	if escrowSupply.Coins.AmountOf(msg.Denom).LT(msg.Amount) {
+	if escrowPool.Amount.LT(msg.Amount) {
 		return nil, sdkerrors.Wrapf(
 			sdkerrors.ErrInsufficientFunds, "not enough escrow supply for denom: %s", msg.Denom,
 		)
@@ -162,23 +158,17 @@ func (k Keeper) ConvertToDenom(
 	if mintCoinsErr != nil {
 		return nil, mintCoinsErr
 	}
-	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, sender, mintCoins)
+	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, receiver, mintCoins)
 	if sendCoinsFromModuleToAccErr != nil {
 		return nil, sendCoinsFromModuleToAccErr
 	}
 
-	newEscrowSupplyCoins := sdk.Coins{sdk.Coin{
+	newEscrowPoolAmount := sdk.Coin{
 		Denom:  msg.Denom,
-		Amount: escrowSupply.Coins.AmountOf(msg.Denom).Sub(msg.Amount),
-	}}
-
-	newEscrowSupply := types.EscrowPool{
-		Denom: msg.Denom,
-		Coins: newEscrowSupplyCoins,
+		Amount: escrowPool.Amount.Sub(msg.Amount),
 	}
 
-	k.SetEscrowPool(ctx, newEscrowSupply)
-
+	k.SetEscrowPool(ctx, newEscrowPoolAmount)
 	ctx.EventManager().EmitEvents(
 		sdk.Events{
 			sdk.NewEvent(

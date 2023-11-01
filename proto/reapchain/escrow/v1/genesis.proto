@@ -14,22 +14,11 @@ message GenesisState {
   // registered denominations
   repeated RegisteredDenom registered_denoms = 2 [ (gogoproto.nullable) = false ];
 
-  repeated EscrowPool escrow_pools = 3 [(gogoproto.nullable) = false];
+  repeated cosmos.base.v1beta1.Coin escrow_pools = 3
+  [(gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins", (gogoproto.nullable) = false];
 }
 
 message Params {
   // parameter to enable the conversion of Cosmos coins <--> ERC20 tokens.
   bool enable_escrow = 1;
-}
-
-message EscrowPool {
-  option (gogoproto.equal)           = false;
-  option (gogoproto.goproto_getters) = false;
-
-  // address is the address of the balance holder.
-  string denom = 1;
-
-  // coins defines the different coins this balance holds.
-  repeated cosmos.base.v1beta1.Coin amount = 2
-  [(gogoproto.castrepeated) = "github.com/reapchain/cosmos-sdk/types.Coins", (gogoproto.nullable) = false];
 }

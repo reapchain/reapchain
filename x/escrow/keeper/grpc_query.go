@@ -50,7 +50,7 @@ func (k Keeper) EscrowPoolBalance(c context.Context, req *types.QueryEscrowPoolB
 	escrowPool, _ := k.GetEscrowPoolByDenom(ctx, req.Denom)
 
 	return &types.QueryEscrowPoolBalanceResponse{
-		EscrowPoolBalance: escrowPool.Coins,
+		EscrowPoolBalance: escrowPool,
 	}, nil
 }
 

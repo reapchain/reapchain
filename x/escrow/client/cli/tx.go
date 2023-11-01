@@ -2,7 +2,6 @@ package cli
 
 import (
 	"fmt"
-
 	"github.com/spf13/cobra"
 
 	"github.com/reapchain/cosmos-sdk/client"
@@ -35,9 +34,10 @@ func NewTxCmd() *cobra.Command {
 
 func NewConvertToNativeCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "convert-to-native [coin] ",
-		Short: "Convert a coin with a registered denomination to the Default denomination",
-		Args:  cobra.ExactArgs(1),
+		Use:     "convert-to-native [coin] [receiver]",
+		Short:   "Convert a coin with a registered denomination to the Default denomination. When the receiver [optional] is omitted, the coins are transferred to the sender.",
+		Example: fmt.Sprintf(`$ %s tx escrow convert-to-native <registered_denomination_and_amount> <optional_reciever_address> --from <key_or_address> `, version.AppName),
+		Args:    cobra.RangeArgs(1, 2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			cliCtx, err := client.GetClientTxContext(cmd)
 			if err != nil {
@@ -49,11 +49,23 @@ func NewConvertToNativeCmd() *cobra.Command {
 				return err
 			}
 
-			sender := cliCtx.GetFromAddress()
+			sender := cliCtx.GetFromAddress().String()
+			var receiver string
+			if len(args) == 2 {
+				receiverAddr, err := sdk.AccAddressFromBech32(args[1])
+				if err != nil {
+					return err
+				}
+				receiver = receiverAddr.String()
+
+			} else {
+				receiver = sender
+			}
 
 			msg := &types.MsgConvertToNative{
-				Coin:   coin,
-				Sender: sender.String(),
+				Coin:     coin,
+				Sender:   sender,
+				Receiver: receiver,
 			}
 
 			if err := msg.ValidateBasic(); err != nil {
@@ -70,10 +82,10 @@ func NewConvertToNativeCmd() *cobra.Command {
 
 func NewConvertToDenomCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:     "convert-to-denom [amount] [denom] ",
-		Short:   "Convert a specified amount to a Registered Denomination",
-		Args:    cobra.ExactArgs(2),
-		Long:    `Convert your balance of native chain denomination to a specified amount of a specific denomination`,
+		Use:     "convert-to-denom [amount] [denom] [receiver] ",
+		Short:   "Convert a specified amount to a Registered Denomination. When the receiver [optional] is omitted, the coins are transferred to the sender.",
+		Args:    cobra.RangeArgs(2, 3),
+		Long:    `Convert your balance of native chain denomination to a specified amount of a specific denomination. When the receiver [optional] is omitted, the coins are transferred to the sender.`,
 		Example: fmt.Sprintf(`$ %s tx escrow convert-to-denom 1000 <registered_denomination> --from <key_or_address> `, version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 
@@ -89,12 +101,25 @@ func NewConvertToDenomCmd() *cobra.Command {
 
 			denom := args[1]
 
-			sender := cliCtx.GetFromAddress()
+			sender := cliCtx.GetFromAddress().String()
+			var receiver string
+
+			if len(args) == 3 {
+				receiverAddr, err := sdk.AccAddressFromBech32(args[2])
+				if err != nil {
+					return err
+				}
+				receiver = receiverAddr.String()
+
+			} else {
+				receiver = sender
+			}
 
 			msg := &types.MsgConvertToDenom{
-				Amount: amount,
-				Denom:  denom,
-				Sender: sender.String(),
+				Amount:   amount,
+				Denom:    denom,
+				Sender:   sender,
+				Receiver: receiver,
 			}
 
 			if err := msg.ValidateBasic(); err != nil {
