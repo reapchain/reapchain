@@ -14,9 +14,9 @@ require (
 	github.com/onsi/ginkgo/v2 v2.1.4
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.14
-	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.14
-	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.15
+	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.15
+	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.15
+	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.16
 	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.22
 	github.com/regen-network/cosmos-proto v0.3.1
 	github.com/spf13/cast v1.5.0
@@ -24,6 +24,7 @@ require (
 	github.com/stretchr/testify v1.8.0
 	github.com/tendermint/tm-db v0.6.7
 	go.opencensus.io v0.23.0
+	golang.org/x/exp v0.0.0-20220426173459-3bcf042a4bf5
 	google.golang.org/genproto/googleapis/api v0.0.0-20231030173426-d783a09b4405
 	google.golang.org/grpc v1.59.0
 	google.golang.org/protobuf v1.31.0
