@@ -114,12 +114,6 @@ import (
 	_ "github.com/reapchain/reapchain/v8/client/docs/statik"
 
 	"github.com/reapchain/reapchain/v8/app/ante"
-	v2 "github.com/reapchain/reapchain/v8/app/upgrades/v2"
-	v4 "github.com/reapchain/reapchain/v8/app/upgrades/v4"
-	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
-	v6 "github.com/reapchain/reapchain/v8/app/upgrades/v6"
-	v7 "github.com/reapchain/reapchain/v8/app/upgrades/v7"
-	v8 "github.com/reapchain/reapchain/v8/app/upgrades/v8"
 	"github.com/reapchain/reapchain/v8/x/claims"
 	claimskeeper "github.com/reapchain/reapchain/v8/x/claims/keeper"
 	claimstypes "github.com/reapchain/reapchain/v8/x/claims/types"
@@ -180,8 +174,8 @@ func init() {
 	// manually update the power reduction by replacing micro (u) -> atto (a) reapchain
 	//sdk.DefaultPowerReduction = ethermint.PowerReduction
 	// modify fee market parameter defaults through global
-	feemarkettypes.DefaultMinGasPrice = v5.MainnetMinGasPrices
-	feemarkettypes.DefaultMinGasMultiplier = v5.MainnetMinGasMultiplier
+	feemarkettypes.DefaultMinGasPrice = v0_8_6.MainnetMinGasPrices
+	feemarkettypes.DefaultMinGasMultiplier = v0_8_6.MainnetMinGasMultiplier
 }
 
 // Name defines the application binary name
@@ -321,8 +315,8 @@ type Reapchain struct {
 	FeesplitKeeper    feesplitkeeper.Keeper
 	PermissionsKeeper permissionsmodulekeeper.Keeper
 
-	gravityKeeper   *gravitykeeper.Keeper
-	bech32IbcKeeper *bech32ibckeeper.Keeper
+	GravityKeeper   *gravitykeeper.Keeper
+	Bech32IBCKeeper *bech32ibckeeper.Keeper
 	EscrowKeeper    escrowkeeper.Keeper
 
 	// the module manager
@@ -472,7 +466,7 @@ func NewReapchain(
 		app.IBCKeeper.ChannelKeeper, appCodec, keys[bech32ibctypes.StoreKey],
 		app.TransferKeeper,
 	)
-	app.bech32IbcKeeper = &bech32IbcKeeper
+	app.Bech32IBCKeeper = &bech32IbcKeeper
 
 	// register the proposal types
 	govRouter := govtypes.NewRouter()
@@ -484,7 +478,7 @@ func NewReapchain(
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
 		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper)).
-		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.bech32IbcKeeper)).
+		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.Bech32IBCKeeper)).
 		AddRoute(escrowtypes.RouterKey, escrow.NewEscrowProposalHandler(&app.EscrowKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
@@ -635,7 +629,7 @@ func NewReapchain(
 		&app.TransferKeeper,
 		&bech32IbcKeeper,
 	)
-	app.gravityKeeper = &gravityKeeper
+	app.GravityKeeper = &gravityKeeper
 
 	/****  Module Options ****/
 
@@ -805,7 +799,7 @@ func NewReapchain(
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
-		// Evmos modules
+		// Reapchain modules
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
@@ -1151,69 +1145,6 @@ func initParamsKeeper(
 }
 
 func (app *Reapchain) setupUpgradeHandlers() {
-	// v2 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v2.UpgradeName,
-		v2.CreateUpgradeHandler(app.mm, app.configurator),
-	)
-
-	// NOTE: no v3 upgrade handler as it required an unscheduled manual upgrade.
-
-	// v4 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v4.UpgradeName,
-		v4.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.IBCKeeper.ClientKeeper,
-		),
-	)
-
-	// v5 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v5.UpgradeName,
-		v5.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.ClaimsKeeper,
-			app.StakingKeeper,
-			app.ParamsKeeper,
-			app.TransferKeeper,
-			app.SlashingKeeper,
-		),
-	)
-
-	// v6 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v6.UpgradeName,
-		v6.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.ClaimsKeeper,
-			app.StakingKeeper,
-			app.ParamsKeeper,
-			app.TransferKeeper,
-			app.SlashingKeeper,
-		),
-	)
-
-	// v7 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v7.UpgradeName,
-		v7.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.InflationKeeper,
-			app.ClaimsKeeper,
-		),
-	)
-
-	// v8 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v8.UpgradeName,
-		v8.CreateUpgradeHandler(
-			app.mm, app.configurator,
-		),
-	)
 
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v0_8_6.UpgradeName,
@@ -1235,21 +1166,6 @@ func (app *Reapchain) setupUpgradeHandlers() {
 	var storeUpgrades *storetypes.StoreUpgrades
 
 	switch upgradeInfo.Name {
-	case v2.UpgradeName:
-		// no store upgrades in v2
-	case v4.UpgradeName:
-		// no store upgrades in v4
-	case v5.UpgradeName:
-		// no store upgrades in v5
-	case v6.UpgradeName:
-		// no store upgrades in v6
-	case v7.UpgradeName:
-		// no store upgrades in v7
-	case v8.UpgradeName:
-		// add feesplit module
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{feesplittypes.ModuleName},
-		}
 	case v0_8_6.UpgradeName:
 	}
 
