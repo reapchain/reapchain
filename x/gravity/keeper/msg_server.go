@@ -44,8 +44,13 @@ func (k msgServer) SetOrchestratorAddress(c context.Context, msg *types.MsgSetOr
 	}
 
 	// ensure that the validator exists
-	if k.Keeper.StakingKeeper.Validator(ctx, val) == nil {
+	validator := k.Keeper.StakingKeeper.Validator(ctx, val)
+	if validator == nil {
 		return nil, sdkerrors.Wrap(stakingtypes.ErrNoValidatorFound, val.String())
+	}
+
+	if validator.GetType() == stakingtypes.ValidatorTypeSteering {
+		return &types.MsgSetOrchestratorAddressResponse{}, nil
 	}
 
 	_, foundExistingOrchestratorKey := k.GetOrchestratorValidator(ctx, orch)
