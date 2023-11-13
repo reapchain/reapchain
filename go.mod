@@ -14,9 +14,9 @@ require (
 	github.com/onsi/ginkgo/v2 v2.1.4
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.15
-	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.15
-	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.16
+	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.16
+	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.16
+	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.17
 	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.22
 	github.com/regen-network/cosmos-proto v0.3.1
 	github.com/spf13/cast v1.5.0

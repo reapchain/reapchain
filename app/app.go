@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
 	"io"
 	"net/http"
 	"os"
@@ -174,8 +175,8 @@ func init() {
 	// manually update the power reduction by replacing micro (u) -> atto (a) reapchain
 	//sdk.DefaultPowerReduction = ethermint.PowerReduction
 	// modify fee market parameter defaults through global
-	feemarkettypes.DefaultMinGasPrice = v0_8_6.MainnetMinGasPrices
-	feemarkettypes.DefaultMinGasMultiplier = v0_8_6.MainnetMinGasMultiplier
+	feemarkettypes.DefaultMinGasPrice = v5.MainnetMinGasPrices
+	feemarkettypes.DefaultMinGasMultiplier = v5.MainnetMinGasMultiplier
 }
 
 // Name defines the application binary name
