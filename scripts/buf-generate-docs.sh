@@ -16,22 +16,22 @@ then
 fi
 
 # ensure that you authenticate with the BSR by generating an API token
-# also make sure that you are added to the Evmos organization on buf
+# also make sure that you are added to the Reapchain organization on buf
 # run `buf registry login` and input your details
 
 # below are the module addresses (directories containing `buf.yaml` files)
 # paths are relative to the scripts/ directory
 THIRDPARTYPROTO="../third_party/proto/"
-EVMOSPROTO="../proto/"
+REAPCHAINPROTO="../proto/"
 
 # first, push the third party module and documentation as dependencies (order matters)
 buf push $THIRDPARTYPROTO
 
 # update the dependencies
-buf mod update $EVMOSPROTO
+buf mod update $REAPCHAINPROTO
 
 # then, push the reapchain proto module and documentation
-buf push $EVMOSPROTO
+buf push $REAPCHAINPROTO
 
 # two commit addresses should be printed to the command line
 # the reapchain documentation will have links to the third party documentation

@@ -5,6 +5,7 @@ import (
 	"time"
 
 	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
 	"github.com/reapchain/ethermint/encoding"
 	"github.com/reapchain/ethermint/tests"
 	"github.com/reapchain/reapchain/v8/app"
@@ -459,13 +460,13 @@ func delegate(clawbackAccount *types.ClawbackVestingAccount, amount int64) error
 	addr, err := sdk.AccAddressFromBech32(clawbackAccount.Address)
 	s.Require().NoError(err)
 	//
-	val, err := sdk.ValAddressFromBech32("evmosvaloper1z3t55m0l9h0eupuz3dp5t5cypyv674jjn4d6nn")
+	val, err := sdk.ValAddressFromBech32("reapvaloper1z3t55m0l9h0eupuz3dp5t5cypyv674jjn4d6nn")
 	s.Require().NoError(err)
 	delegateMsg := stakingtypes.NewMsgDelegate(addr, val, sdk.NewCoin(stakingtypes.DefaultParams().BondDenom, sdk.NewInt(amount)))
 	txBuilder.SetMsgs(delegateMsg)
 	tx := txBuilder.GetTx()
 
-	dec := ante.NewVestingDelegationDecorator(s.app.AccountKeeper, s.app.StakingKeeper, types.ModuleCdc)
+	dec := ante.NewVestingDelegationDecorator(s.app.AccountKeeper, s.app.BankKeeper, s.app.StakingKeeper, types.ModuleCdc)
 	_, err = dec.AnteHandle(s.ctx, tx, false, nextFn)
 	return err
 }

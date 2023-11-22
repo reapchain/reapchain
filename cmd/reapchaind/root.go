@@ -39,7 +39,7 @@ import (
 
 	"github.com/reapchain/reapchain/v8/app"
 	cmdcfg "github.com/reapchain/reapchain/v8/cmd/config"
-	evmoskr "github.com/reapchain/reapchain/v8/crypto/keyring"
+	reapchainkr "github.com/reapchain/reapchain/v8/crypto/keyring"
 )
 
 const (
@@ -59,7 +59,7 @@ func NewRootCmd() (*cobra.Command, params.EncodingConfig) {
 		WithAccountRetriever(types.AccountRetriever{}).
 		WithBroadcastMode(flags.BroadcastBlock).
 		WithHomeDir(app.DefaultNodeHome).
-		WithKeyringOptions(evmoskr.Option()).
+		WithKeyringOptions(reapchainkr.Option()).
 		WithViper(EnvPrefix)
 
 	rootCmd := &cobra.Command{
