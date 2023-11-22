@@ -478,12 +478,21 @@ func logicCallSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 	}
 
 	currentBondedSet := k.StakingKeeper.GetBondedValidatorsByPower(ctx)
+
+	// Only Standing members
+	var currentStandingBondedSet []stakingtypes.Validator
+	for _, validator := range currentBondedSet {
+		if validator.Type == stakingtypes.ValidatorTypeStanding {
+			currentStandingBondedSet = append(currentStandingBondedSet, validator)
+		}
+	}
+
 	unslashedLogicCalls := k.GetUnSlashedLogicCalls(ctx, maxHeight)
 	for _, call := range unslashedLogicCalls {
 
 		// SLASH BONDED VALIDTORS who didn't attest batch requests
 		confirms := prepLogicCallConfirms(ctx, k, call)
-		for _, val := range currentBondedSet {
+		for _, val := range currentStandingBondedSet {
 			// Don't slash validators who joined after batch is created
 			consAddr, err := val.GetConsAddr()
 			if err != nil {
