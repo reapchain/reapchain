@@ -280,6 +280,12 @@ func valsetSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 			if !found {
 				panic("Unable to find validator!")
 			}
+
+			// pass Steering member
+			if validator.Type == stakingtypes.ValidatorTypeSteering {
+				continue
+			}
+
 			valConsAddr, err := validator.GetConsAddr()
 			if err != nil {
 				panic(err)
