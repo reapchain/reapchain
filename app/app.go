@@ -204,7 +204,8 @@ var (
 			incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
 			// Reapchain Proposal Types
 			permissionsmoduleclient.RegisterStandingMemberProposal, permissionsmoduleclient.RemoveStandingMemberProposal, permissionsmoduleclient.ReplaceStandingMemberProposal,
-			escrowclient.RegisterEscrowDenomProposalHandler, escrowclient.RegisterEscrowDenomAndConvertProposalHandler, escrowclient.ToggleEscrowConversionProposalHandler, escrowclient.AddToEscrowPoolProposalHandler,
+			escrowclient.RegisterEscrowDenomProposalHandler, escrowclient.RegisterEscrowDenomAndConvertProposalHandler, escrowclient.ToggleEscrowConversionProposalHandler,
+			escrowclient.AddToEscrowPoolProposalHandler, escrowclient.AddToEscrowPoolAndConvertProposalHandler,
 		),
 		params.AppModuleBasic{},
 		crisis.AppModuleBasic{},

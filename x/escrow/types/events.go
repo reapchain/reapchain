@@ -13,8 +13,9 @@ const (
 	EventRegisterEscrowDenom           = "register_escrow_denom"
 	EventRegisterEscrowDenomAndConvert = "register_escrow_denom_and_convert"
 
-	EventToggleEscrowConversion = "toggle_denom_conversion"
-	EventAddToEscrowPool        = "add_to_escrow_pool"
+	EventToggleEscrowConversion    = "toggle_denom_conversion"
+	EventAddToEscrowPool           = "add_to_escrow_pool"
+	EventAddToEscrowPoolAndConvert = "add_to_escrow_pool_and_convert"
 
 	AttributeKeyCosmosCoin = "cosmos_coin"
 	AttributeKeyReceiver   = "receiver"

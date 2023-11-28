@@ -36,6 +36,7 @@ func (k Keeper) RegisterEscrowDenomAndConvert(
 	denom string,
 	initialPoolAmount sdk.Int,
 	from string,
+	receiver string,
 ) (*types.RegisteredDenom, error) {
 	params := k.GetParams(ctx)
 	if !params.EnableEscrow {
@@ -52,17 +53,13 @@ func (k Keeper) RegisterEscrowDenomAndConvert(
 
 	newRegisteredDenom := NewEscrowDenom(denom, true)
 	k.RegisterDenom(ctx, newRegisteredDenom)
-	k.HandleAddToEscrowPool(ctx, denom, initialPoolAmount)
 
 	fromAddr, err := sdk.AccAddressFromBech32(from)
-	currentNativeBalance := k.bankKeeper.GetBalance(ctx, fromAddr, sdk.DefaultBondDenom)
-
-	escrowPool, found := k.GetEscrowPoolByDenom(ctx, denom)
-	if !found {
-		return nil, sdkerrors.Wrapf(
-			types.ErrDenomNotFound, "denom not registered: %s", denom,
-		)
+	if err != nil {
+		return nil, err
 	}
+
+	currentNativeBalance := k.bankKeeper.GetBalance(ctx, fromAddr, sdk.DefaultBondDenom)
 
 	if initialPoolAmount.GT(currentNativeBalance.Amount) {
 		return nil, sdkerrors.Wrapf(
@@ -93,17 +90,17 @@ func (k Keeper) RegisterEscrowDenomAndConvert(
 	if mintCoinsErr != nil {
 		return nil, mintCoinsErr
 	}
-	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, fromAddr, mintCoins)
+
+	receiverAddr, err := sdk.AccAddressFromBech32(receiver)
+	if err != nil {
+		return nil, err
+	}
+
+	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, receiverAddr, mintCoins)
 	if sendCoinsFromModuleToAccErr != nil {
 		return nil, sendCoinsFromModuleToAccErr
 	}
-
-	newEscrowPoolBalance := sdk.Coin{
-		Denom:  denom,
-		Amount: escrowPool.Amount.Sub(initialPoolAmount),
-	}
-
-	k.SetEscrowPool(ctx, newEscrowPoolBalance)
+	k.HandleAddToEscrowPool(ctx, denom, sdk.NewInt(0))
 
 	return &newRegisteredDenom, nil
 }
@@ -148,6 +145,75 @@ func (k Keeper) HandleAddToEscrowPool(
 	}
 
 	return &escrowPool, nil
+}
+
+func (k Keeper) HandleAddToEscrowPoolAndConvert(
+	ctx sdk.Context,
+	denom string,
+	amount sdk.Int,
+	from string,
+	receiver string,
+) error {
+	// Check if the conversion is globally enabled
+	params := k.GetParams(ctx)
+	if !params.EnableEscrow {
+		return sdkerrors.Wrap(
+			types.ErrEscrowDisabled, "registration is currently disabled by governance",
+		)
+	}
+
+	if !k.IsDenomRegistered(ctx, denom) {
+		return sdkerrors.Wrapf(
+			types.ErrDenomNotFound, "denom not registered: %s", denom,
+		)
+	}
+
+	fromAddr, err := sdk.AccAddressFromBech32(from)
+	if err != nil {
+		return err
+	}
+
+	currentNativeBalance := k.bankKeeper.GetBalance(ctx, fromAddr, sdk.DefaultBondDenom)
+	if amount.GT(currentNativeBalance.Amount) {
+		return sdkerrors.Wrapf(
+			sdkerrors.ErrInsufficientFunds, "not enough balance in account for denom: %s", denom,
+		)
+	}
+
+	burnCoins := sdk.Coins{sdk.Coin{
+		Denom:  sdk.DefaultBondDenom,
+		Amount: amount,
+	}}
+
+	err = k.bankKeeper.SendCoinsFromAccountToModule(ctx, fromAddr, types.ModuleName, burnCoins)
+	if err != nil {
+		return err
+	}
+	burnCoinsErr := k.bankKeeper.BurnCoins(ctx, types.ModuleName, burnCoins)
+	if burnCoinsErr != nil {
+		return burnCoinsErr
+	}
+
+	mintCoins := sdk.Coins{sdk.Coin{
+		Denom:  denom,
+		Amount: amount,
+	}}
+
+	receiverAddr, err := sdk.AccAddressFromBech32(receiver)
+	if err != nil {
+		return err
+	}
+
+	mintCoinsErr := k.bankKeeper.MintCoins(ctx, types.ModuleName, mintCoins)
+	if mintCoinsErr != nil {
+		return mintCoinsErr
+	}
+	sendCoinsFromModuleToAccErr := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, receiverAddr, mintCoins)
+	if sendCoinsFromModuleToAccErr != nil {
+		return sendCoinsFromModuleToAccErr
+	}
+
+	return nil
 }
 
 func (k Keeper) ToggleEscrowConversion(

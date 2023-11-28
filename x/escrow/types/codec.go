@@ -38,6 +38,7 @@ func RegisterInterfaces(registry codectypes.InterfaceRegistry) {
 		&RegisterEscrowDenomAndConvertProposal{},
 		&ToggleEscrowConversionProposal{},
 		&AddToEscrowPoolProposal{},
+		&AddToEscrowPoolAndConvertProposal{},
 	)
 
 	msgservice.RegisterMsgServiceDesc(registry, &_Msg_serviceDesc)

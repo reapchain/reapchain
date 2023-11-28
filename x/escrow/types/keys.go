@@ -16,7 +16,7 @@ const (
 	// RouterKey to be used for message routing
 	RouterKey = ModuleName
 
-	DenomPrefix = "gravity"
+	DenomPrefix = "reap"
 )
 
 // ModuleAddress is the native module address for EVM

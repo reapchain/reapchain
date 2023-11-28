@@ -44,6 +44,7 @@ message RegisterEscrowDenomAndConvertProposal {
   ];
 
   string proposer = 5;
+  string receiver = 6;
 
 
 }
@@ -74,5 +75,27 @@ message AddToEscrowPoolProposal {
     (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
     (gogoproto.nullable) = false
   ];
+
+}
+
+
+message AddToEscrowPoolAndConvertProposal {
+  option (gogoproto.equal) = true;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // token identifier can be either the hex contract address of the ERC20 or the
+  // Cosmos base denomination
+  string denom = 3;
+
+
+  string amount = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+  string proposer = 5;
+  string receiver = 6;
+
 }
 
