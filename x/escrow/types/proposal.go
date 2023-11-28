@@ -64,13 +64,14 @@ func (rtbp *RegisterEscrowDenomProposal) ValidateBasic() error {
 	return govtypes.ValidateAbstract(rtbp)
 }
 
-func NewRegisterEscrowDenoAndConvertmProposal(title, description, denom string, initialPoolBalance sdk.Int, propser string) govtypes.Content {
+func NewRegisterEscrowDenomAndConvertProposal(title, description, denom string, initialPoolBalance sdk.Int, proposer string, receiver string) govtypes.Content {
 	return &RegisterEscrowDenomAndConvertProposal{
 		Title:              title,
 		Description:        description,
 		Denom:              denom,
 		InitialPoolBalance: initialPoolBalance,
-		Proposer:           propser,
+		Proposer:           proposer,
+		Receiver:           receiver,
 	}
 }
 
@@ -116,11 +117,12 @@ func (ttcp *ToggleEscrowConversionProposal) ValidateBasic() error {
 	return govtypes.ValidateAbstract(ttcp)
 }
 
-func NewAddToEscrowPoolProposal(title, description, denom string) govtypes.Content {
+func NewAddToEscrowPoolProposal(title, description, denom string, amount sdk.Int) govtypes.Content {
 	return &AddToEscrowPoolProposal{
 		Title:       title,
 		Description: description,
 		Denom:       denom,
+		Amount:      amount,
 	}
 }
 
@@ -134,6 +136,35 @@ func (*AddToEscrowPoolProposal) ProposalType() string {
 
 // ValidateBasic performs a stateless check of the proposal fields
 func (aesp *AddToEscrowPoolProposal) ValidateBasic() error {
+
+	EVMAddress := removePrefix(aesp.Denom)
+	if err := ethermint.ValidateAddress(EVMAddress); err != nil {
+		return sdkerrors.Wrap(err, "Invalid EVM address")
+	}
+	return govtypes.ValidateAbstract(aesp)
+}
+
+func NewAddToEscrowPoolAndConvertProposal(title, description, denom string, amount sdk.Int, proposer string, receiver string) govtypes.Content {
+	return &AddToEscrowPoolAndConvertProposal{
+		Title:       title,
+		Description: description,
+		Denom:       denom,
+		Amount:      amount,
+		Proposer:    proposer,
+		Receiver:    receiver,
+	}
+}
+
+// ProposalRoute returns router key for this proposal
+func (*AddToEscrowPoolAndConvertProposal) ProposalRoute() string { return RouterKey }
+
+// ProposalType returns proposal type for this proposal
+func (*AddToEscrowPoolAndConvertProposal) ProposalType() string {
+	return ProposalTypeRegisterEscrowDenom
+}
+
+// ValidateBasic performs a stateless check of the proposal fields
+func (aesp *AddToEscrowPoolAndConvertProposal) ValidateBasic() error {
 
 	EVMAddress := removePrefix(aesp.Denom)
 	if err := ethermint.ValidateAddress(EVMAddress); err != nil {

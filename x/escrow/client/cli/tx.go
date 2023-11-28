@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+	"github.com/reapchain/cosmos-sdk/types/errors"
 	"github.com/spf13/cobra"
 
 	"github.com/reapchain/cosmos-sdk/client"
@@ -202,10 +203,10 @@ func NewRegisterEscrowDenomProposalCmd() *cobra.Command {
 
 func NewRegisterEscrowDenomAndConvertProposalCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:     "register-escrow-denom-and-convert [denomination] [initial-supply]",
-		Args:    cobra.ExactArgs(2),
-		Short:   "Submit a proposal to register a denom for Escrow Authorization and automatically convert to specified denom",
-		Long:    "Submit a proposal to register a denom for Escrow Authorization and conversion along with an initial deposit.",
+		Use:     "register-escrow-denom-and-convert [denomination] [initial-supply] [receiver]",
+		Args:    cobra.RangeArgs(2, 3),
+		Short:   "Submit a proposal to register a denom for Escrow Authorization and automatically convert to specified denom.",
+		Long:    "Submit a proposal to register a denom for Escrow Authorization and conversion along with an initial deposit. When the receiver [optional] is omitted, the coins are transferred to the sender.",
 		Example: fmt.Sprintf("$ %s tx gov submit-proposal register-escrow-denom  <denomination> --from=<key_or_address>", version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -236,7 +237,20 @@ func NewRegisterEscrowDenomAndConvertProposalCmd() *cobra.Command {
 			denomination := args[0]
 			initialSupply, _ := sdk.ParseUint(args[1])
 			from := clientCtx.GetFromAddress()
-			content := types.NewRegisterEscrowDenoAndConvertmProposal(title, description, denomination, sdk.Int(initialSupply), from.String())
+
+			var receiver string
+			if len(args) == 3 {
+				receiverAddr, err := sdk.AccAddressFromBech32(args[2])
+				if err != nil {
+					return err
+				}
+				receiver = receiverAddr.String()
+
+			} else {
+				receiver = from.String()
+			}
+
+			content := types.NewRegisterEscrowDenomAndConvertProposal(title, description, denomination, sdk.Int(initialSupply), from.String(), receiver)
 
 			msg, err := govtypes.NewMsgSubmitProposal(content, deposit, from)
 			if err != nil {
@@ -333,10 +347,10 @@ func NewToggleEscrowConversionProposalCmd() *cobra.Command {
 
 func NewAddToEscrowPoolProposalCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:     "add-escrow-supply [denomination]",
-		Args:    cobra.ExactArgs(1),
-		Short:   "Submit a proposal to add circulation supply for an Escrow Registered Denomination",
-		Long:    "Submit a proposal to add circulation supply for an Escrow Registered Denomination",
+		Use:     "add-escrow-pool-amount [denomination] [amount]",
+		Args:    cobra.ExactArgs(2),
+		Short:   "Submit a proposal to add balance to the Escrow Pool for an Escrow Registered Denomination",
+		Long:    "Submit a proposal to add balance to the Escrow Pool for an Escrow Registered Denomination",
 		Example: fmt.Sprintf("$ %s tx gov submit-proposal add-escrow-supply <denomination> --from=<key_or_address>", version.AppName),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx, err := client.GetClientTxContext(cmd)
@@ -366,7 +380,96 @@ func NewAddToEscrowPoolProposalCmd() *cobra.Command {
 
 			from := clientCtx.GetFromAddress()
 			denom := args[0]
-			content := types.NewAddToEscrowPoolProposal(title, description, denom)
+			amount := args[1]
+
+			parsedAmount, ok := sdk.NewIntFromString(amount)
+			if !ok {
+				return errors.ErrNotSupported
+			}
+			content := types.NewAddToEscrowPoolProposal(title, description, denom, parsedAmount)
+
+			msg, err := govtypes.NewMsgSubmitProposal(content, deposit, from)
+			if err != nil {
+				return err
+			}
+
+			if err := msg.ValidateBasic(); err != nil {
+				return err
+			}
+
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), msg)
+		},
+	}
+
+	cmd.Flags().String(cli.FlagTitle, "", "title of proposal")
+	cmd.Flags().String(cli.FlagDescription, "", "description of proposal")
+	cmd.Flags().String(cli.FlagDeposit, "1areap", "deposit of proposal")
+	if err := cmd.MarkFlagRequired(cli.FlagTitle); err != nil {
+		panic(err)
+	}
+	if err := cmd.MarkFlagRequired(cli.FlagDescription); err != nil {
+		panic(err)
+	}
+	if err := cmd.MarkFlagRequired(cli.FlagDeposit); err != nil {
+		panic(err)
+	}
+	return cmd
+}
+
+func NewAddToEscrowPoolAndConvertProposalCmd() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:     "add-escrow-pool-amount-and-convert [denomination] [amount] [receiver]",
+		Args:    cobra.RangeArgs(2, 3),
+		Short:   "Submit a proposal to add to a Registered Denom Pool and automatically send it to an Address.",
+		Long:    "Submit a proposal to add to a Registered Denom Pool and automatically send it to an Address. When the receiver [optional] is omitted, the coins are transferred to the sender.",
+		Example: fmt.Sprintf("$ %s tx gov submit-proposal add-escrow-supply <denomination> --from=<key_or_address>", version.AppName),
+		RunE: func(cmd *cobra.Command, args []string) error {
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			title, err := cmd.Flags().GetString(cli.FlagTitle)
+			if err != nil {
+				return err
+			}
+
+			description, err := cmd.Flags().GetString(cli.FlagDescription)
+			if err != nil {
+				return err
+			}
+
+			depositStr, err := cmd.Flags().GetString(cli.FlagDeposit)
+			if err != nil {
+				return err
+			}
+
+			deposit, err := sdk.ParseCoinsNormalized(depositStr)
+			if err != nil {
+				return err
+			}
+
+			from := clientCtx.GetFromAddress()
+			denom := args[0]
+			amount := args[1]
+
+			var receiver string
+			if len(args) == 3 {
+				receiverAddr, err := sdk.AccAddressFromBech32(args[2])
+				if err != nil {
+					return err
+				}
+				receiver = receiverAddr.String()
+
+			} else {
+				receiver = from.String()
+			}
+
+			parsedAmount, ok := sdk.NewIntFromString(amount)
+			if !ok {
+				return errors.ErrNotSupported
+			}
+			content := types.NewAddToEscrowPoolAndConvertProposal(title, description, denom, parsedAmount, from.String(), receiver)
 
 			msg, err := govtypes.NewMsgSubmitProposal(content, deposit, from)
 			if err != nil {

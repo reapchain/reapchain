@@ -11,6 +11,7 @@ var (
 	RegisterEscrowDenomProposalHandler           = govclient.NewProposalHandler(cli.NewRegisterEscrowDenomProposalCmd, rest.RegisterEscrowDenomProposalRESTHandler)
 	RegisterEscrowDenomAndConvertProposalHandler = govclient.NewProposalHandler(cli.NewRegisterEscrowDenomAndConvertProposalCmd, rest.RegisterEscrowDenomAndConvertProposalRESTHandler)
 
-	ToggleEscrowConversionProposalHandler = govclient.NewProposalHandler(cli.NewToggleEscrowConversionProposalCmd, rest.ToggleEscrowConversionRESTHandler)
-	AddToEscrowPoolProposalHandler        = govclient.NewProposalHandler(cli.NewAddToEscrowPoolProposalCmd, rest.AddToEscrowPoolRESTHandler)
+	ToggleEscrowConversionProposalHandler    = govclient.NewProposalHandler(cli.NewToggleEscrowConversionProposalCmd, rest.ToggleEscrowConversionRESTHandler)
+	AddToEscrowPoolProposalHandler           = govclient.NewProposalHandler(cli.NewAddToEscrowPoolProposalCmd, rest.AddToEscrowPoolRESTHandler)
+	AddToEscrowPoolAndConvertProposalHandler = govclient.NewProposalHandler(cli.NewAddToEscrowPoolAndConvertProposalCmd, rest.AddToEscrowPoolAndConvertRESTHandler)
 )
