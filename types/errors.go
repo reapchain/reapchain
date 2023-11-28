@@ -7,7 +7,7 @@ import (
 // RootCodespace is the codespace for all errors defined in this package
 const RootCodespace = "reapchain"
 
-// root error codes for Evmos
+// root error codes for Reapchain
 const (
 	codeKeyTypeNotSupported = iota + 2
 )

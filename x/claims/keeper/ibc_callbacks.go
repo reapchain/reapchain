@@ -8,7 +8,7 @@ import (
 	"github.com/reapchain/ibc-go/v3/modules/core/exported"
 
 	"github.com/reapchain/reapchain/v8/ibc"
-	evmos "github.com/reapchain/reapchain/v8/types"
+	reapchain "github.com/reapchain/reapchain/v8/types"
 	"github.com/reapchain/reapchain/v8/x/claims/types"
 )
 
@@ -84,7 +84,7 @@ func (k Keeper) OnRecvPacket(
 	}
 
 	// Get bech32 address from the counterparty and change the bech32 human
-	// readable prefix (HRP) of the sender to `evmos1`
+	// readable prefix (HRP) of the sender to `reap1`
 	sender, recipient, senderBech32, recipientBech32, err := ibc.GetTransferSenderRecipient(packet)
 	if err != nil {
 		return channeltypes.NewErrorAcknowledgement(err.Error())
@@ -124,7 +124,7 @@ func (k Keeper) OnRecvPacket(
 			// -> return error acknowledgement to prevent funds from getting stuck
 			return channeltypes.NewErrorAcknowledgement(
 				sdkerrors.Wrapf(
-					evmos.ErrKeyTypeNotSupported, "receiver address %s is not a valid ethereum address", recipientBech32,
+					reapchain.ErrKeyTypeNotSupported, "receiver address %s is not a valid ethereum address", recipientBech32,
 				).Error(),
 			)
 		default:

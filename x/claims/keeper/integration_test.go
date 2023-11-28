@@ -7,6 +7,9 @@ import (
 	"strconv"
 	"time"
 
+	. "github.com/onsi/ginkgo/v2"
+	. "github.com/onsi/gomega"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/common/hexutil"
 	ethtypes "github.com/ethereum/go-ethereum/core/types"
@@ -38,7 +41,7 @@ var _ = Describe("Claiming", Ordered, func() {
 	claimsAddr := s.app.AccountKeeper.GetModuleAddress(types.ModuleName)
 	distrAddr := s.app.AccountKeeper.GetModuleAddress(distrtypes.ModuleName)
 	stakeDenom := stakingtypes.DefaultParams().BondDenom
-	claimsDenom := types.DefaultClaimsDenom
+	claimsDenom := "creap" //types.DefaultClaimsDenom
 	accountCount := 4
 
 	actionValue := sdk.NewInt(int64(math.Pow10(5) * 10))

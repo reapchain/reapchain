@@ -20,10 +20,10 @@ import (
 	ibcgotesting "github.com/reapchain/ibc-go/v3/testing"
 
 	ethermint "github.com/reapchain/ethermint/types"
-	evmosapp "github.com/reapchain/reapchain/v8/app"
+	reapapp "github.com/reapchain/reapchain/v8/app"
 )
 
-var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = evmosapp.SetupTestingApp
+var DefaultTestingAppInit func() (ibcgotesting.TestingApp, map[string]json.RawMessage) = reapapp.SetupTestingApp
 
 // SetupWithGenesisValSet initializes a new SimApp with a validator set and genesis accounts
 // that also act as delegators. For simplicity, each validator is bonded with a delegation
@@ -90,7 +90,7 @@ func SetupWithGenesisValSet(t *testing.T, valSet *tmtypes.ValidatorSet, genAccs 
 		abci.RequestInitChain{
 			ChainId:         chainID,
 			Validators:      []abci.ValidatorUpdate{},
-			ConsensusParams: evmosapp.DefaultConsensusParams,
+			ConsensusParams: reapapp.DefaultConsensusParams,
 			AppStateBytes:   stateBytes,
 		},
 	)

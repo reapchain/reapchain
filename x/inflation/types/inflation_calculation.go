@@ -41,7 +41,7 @@ func CalculateEpochMintProvision(
 
 	// Multiply epochMintProvision with power reduction (10^18 for reapchain) as the
 	// calculation is based on `reapchain` and the issued tokens need to be given in
-	// `aevmos`
+	// `areap`
 	epochProvision = epochProvision.Mul(ethermint.PowerReduction.ToDec())
 	return epochProvision
 }
