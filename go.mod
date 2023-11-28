@@ -12,12 +12,13 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/onsi/ginkgo/v2 v2.1.4
+	github.com/onsi/gomega v1.20.0
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.16
-	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.16
-	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.17
-	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.22
+	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.17
+	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.17
+	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.18
+	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.21
 	github.com/regen-network/cosmos-proto v0.3.1
 	github.com/spf13/cast v1.5.0
 	github.com/spf13/cobra v1.5.0
@@ -86,6 +87,7 @@ require (
 	github.com/golang/glog v0.0.0-20210429001901-424d2337a529 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/btree v1.0.1 // indirect
+	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/google/orderedcode v0.0.1 // indirect
 	github.com/google/uuid v1.4.0 // indirect
 	github.com/gorilla/handlers v1.5.1 // indirect
@@ -119,7 +121,6 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
-	github.com/onsi/gomega v1.20.0 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.2 // indirect
 	github.com/petermattis/goid v0.0.0-20180202154549-b0b1615b78e5 // indirect
@@ -130,7 +131,7 @@ require (
 	github.com/prometheus/procfs v0.7.3 // indirect
 	github.com/prometheus/tsdb v0.10.0 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
-	github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.13 // indirect
+	github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.12 // indirect
 	github.com/rjeczalik/notify v0.9.2 // indirect
 	github.com/rs/cors v1.8.2 // indirect
 	github.com/rs/zerolog v1.27.0 // indirect
