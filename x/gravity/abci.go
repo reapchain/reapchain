@@ -280,6 +280,12 @@ func valsetSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 			if !found {
 				panic("Unable to find validator!")
 			}
+
+			// pass Steering member
+			if validator.Type == stakingtypes.ValidatorTypeSteering {
+				continue
+			}
+
 			valConsAddr, err := validator.GetConsAddr()
 			if err != nil {
 				panic(err)
@@ -385,11 +391,20 @@ func batchSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 	}
 
 	currentBondedSet := k.StakingKeeper.GetBondedValidatorsByPower(ctx)
+
+	// Only Standing members
+	var currentStandingBondedSet []stakingtypes.Validator
+	for _, validator := range currentBondedSet {
+		if validator.Type == stakingtypes.ValidatorTypeStanding {
+			currentStandingBondedSet = append(currentStandingBondedSet, validator)
+		}
+	}
+
 	unslashedBatches := k.GetUnSlashedBatches(ctx, maxHeight)
 	for _, batch := range unslashedBatches {
 		// SLASH BONDED VALIDTORS who didn't attest batch requests
 		confirms := prepBatchConfirms(ctx, k, batch)
-		for _, val := range currentBondedSet {
+		for _, val := range currentStandingBondedSet {
 			consAddr, err := val.GetConsAddr()
 			if err != nil {
 				panic(err)
@@ -463,12 +478,21 @@ func logicCallSlashing(ctx sdk.Context, k keeper.Keeper, params types.Params) {
 	}
 
 	currentBondedSet := k.StakingKeeper.GetBondedValidatorsByPower(ctx)
+
+	// Only Standing members
+	var currentStandingBondedSet []stakingtypes.Validator
+	for _, validator := range currentBondedSet {
+		if validator.Type == stakingtypes.ValidatorTypeStanding {
+			currentStandingBondedSet = append(currentStandingBondedSet, validator)
+		}
+	}
+
 	unslashedLogicCalls := k.GetUnSlashedLogicCalls(ctx, maxHeight)
 	for _, call := range unslashedLogicCalls {
 
 		// SLASH BONDED VALIDTORS who didn't attest batch requests
 		confirms := prepLogicCallConfirms(ctx, k, call)
-		for _, val := range currentBondedSet {
+		for _, val := range currentStandingBondedSet {
 			// Don't slash validators who joined after batch is created
 			consAddr, err := val.GetConsAddr()
 			if err != nil {
