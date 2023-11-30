@@ -5,7 +5,6 @@ import (
 	"testing"
 
 	"bytes"
-	_ "github.com/Gravity-Bridge/Gravity-Bridge/module/config"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/reapchain/reapchain/v8/x/gravity/types"
 	"github.com/stretchr/testify/assert"

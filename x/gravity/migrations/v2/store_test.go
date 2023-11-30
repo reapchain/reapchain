@@ -6,7 +6,6 @@ import (
 	"strings"
 	"testing"
 
-	_ "github.com/Gravity-Bridge/Gravity-Bridge/module/config"
 	gethcommon "github.com/ethereum/go-ethereum/common"
 	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
 	"github.com/reapchain/cosmos-sdk/testutil"

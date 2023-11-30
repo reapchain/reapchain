@@ -2,9 +2,9 @@ package keeper_test
 
 import (
 	gocontext "context"
+	gravityparams "github.com/reapchain/reapchain/v8/app/params"
 	"testing"
 
-	"github.com/Gravity-Bridge/Gravity-Bridge/module/app"
 	"github.com/reapchain/cosmos-sdk/baseapp"
 	codectypes "github.com/reapchain/cosmos-sdk/codec/types"
 	sdk "github.com/reapchain/cosmos-sdk/types"
@@ -15,7 +15,7 @@ import (
 
 func TestQueryGetAttestations(t *testing.T) {
 	input := keeper.CreateTestEnv(t)
-	encCfg := app.MakeEncodingConfig()
+	encCfg := gravityparams.MakeEncodingConfig()
 	k := input.GravityKeeper
 	ctx := input.Context
 

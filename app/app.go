@@ -147,15 +147,10 @@ import (
 	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
 	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
 
-	//// Osmosis-Labs Bech32-IBC
 	"github.com/reapchain/reapchain/v8/x/bech32ibc"
-	//bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
-	//bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
+
 	"github.com/reapchain/reapchain/v8/x/gravity"
-	//gravityparams "github.com/Gravity-Bridge/Gravity-Bridge/module/app/params"
-	//"github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades"
-	//v2 "github.com/Gravity-Bridge/Gravity-Bridge/module/app/upgrades/v2"
-	//"github.com/Gravity-Bridge/Gravity-Bridge/module/x/gravity"
+
 	escrowclient "github.com/reapchain/reapchain/v8/x/escrow/client"
 	escrowkeeper "github.com/reapchain/reapchain/v8/x/escrow/keeper"
 	escrowtypes "github.com/reapchain/reapchain/v8/x/escrow/types"

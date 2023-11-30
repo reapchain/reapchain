@@ -11,7 +11,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	_ "github.com/Gravity-Bridge/Gravity-Bridge/module/config"
 	"github.com/reapchain/reapchain/v8/x/gravity/keeper"
 	"github.com/reapchain/reapchain/v8/x/gravity/types"
 )
