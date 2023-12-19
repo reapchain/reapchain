@@ -202,19 +202,20 @@ func hasDuplicates(d []types.MsgSetOrchestratorAddress) bool {
 // from the current state of the chain
 func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 	var (
-		p                  = k.GetParams(ctx)
-		calls              = k.GetOutgoingLogicCalls(ctx)
-		batches            = k.GetOutgoingTxBatches(ctx)
-		valsets            = k.GetValsets(ctx)
-		attmap, attKeys    = k.GetAttestationMapping(ctx)
-		vsconfs            = []types.MsgValsetConfirm{}
-		batchconfs         = []types.MsgConfirmBatch{}
-		callconfs          = []types.MsgConfirmLogicCall{}
-		attestations       = []types.Attestation{}
-		delegates          = k.GetDelegateKeys(ctx)
-		erc20ToDenoms      = []types.ERC20ToDenom{}
-		unbatchedTransfers = k.GetUnbatchedTransactions(ctx)
-		pendingForwards    = k.PendingIbcAutoForwards(ctx, 0)
+		p                           = k.GetParams(ctx)
+		calls                       = k.GetOutgoingLogicCalls(ctx)
+		batches                     = k.GetOutgoingTxBatches(ctx)
+		valsets                     = k.GetValsets(ctx)
+		attmap, attKeys             = k.GetAttestationMapping(ctx)
+		vsconfs                     = []types.MsgValsetConfirm{}
+		batchconfs                  = []types.MsgConfirmBatch{}
+		callconfs                   = []types.MsgConfirmLogicCall{}
+		attestations                = []types.Attestation{}
+		delegates                   = k.GetDelegateKeys(ctx)
+		erc20ToDenoms               = []types.ERC20ToDenom{}
+		unbatchedTransfers          = k.GetUnbatchedTransactions(ctx)
+		pendingForwards             = k.PendingIbcAutoForwards(ctx, 0)
+		defaultErc20ContractAddress = k.GetDefaultErc20ContractAddress(ctx)
 	)
 	var forwards []types.PendingIbcAutoForward
 	for _, forward := range pendingForwards {
@@ -271,16 +272,17 @@ func ExportGenesis(ctx sdk.Context, k Keeper) types.GenesisState {
 			LastTxPoolId:              k.getID(ctx, types.KeyLastTXPoolID),
 			LastBatchId:               k.getID(ctx, types.KeyLastOutgoingBatchID),
 		},
-		Valsets:                valsets,
-		ValsetConfirms:         vsconfs,
-		Batches:                extBatches,
-		BatchConfirms:          batchconfs,
-		LogicCalls:             calls,
-		LogicCallConfirms:      callconfs,
-		Attestations:           attestations,
-		DelegateKeys:           delegates,
-		Erc20ToDenoms:          erc20ToDenoms,
-		UnbatchedTransfers:     unbatchedTxs,
-		PendingIbcAutoForwards: forwards,
+		Valsets:                     valsets,
+		ValsetConfirms:              vsconfs,
+		Batches:                     extBatches,
+		BatchConfirms:               batchconfs,
+		LogicCalls:                  calls,
+		LogicCallConfirms:           callconfs,
+		Attestations:                attestations,
+		DelegateKeys:                delegates,
+		Erc20ToDenoms:               erc20ToDenoms,
+		UnbatchedTransfers:          unbatchedTxs,
+		PendingIbcAutoForwards:      forwards,
+		DefaultErc20ContractAddress: defaultErc20ContractAddress,
 	}
 }
