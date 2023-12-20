@@ -2,6 +2,7 @@ package permissions
 
 import (
 	"fmt"
+
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	sdkerrors "github.com/reapchain/cosmos-sdk/types/errors"
 	govtypes "github.com/reapchain/cosmos-sdk/x/gov/types"
@@ -122,8 +123,8 @@ func handleReplaceStandingMemberProposal(ctx sdk.Context, k *keeper.Keeper, sk t
 	}
 	var ReplacementWhiteListedValidator = types.WhitelistedValidator{
 		ValidatorAddress: p.ReplacementValidatorAddress,
-		Moniker:          p.ReplacementAccountAddress,
-		AccountAddress:   p.ReplacementMoniker,
+		Moniker:          p.ReplacementMoniker,
+		AccountAddress:   p.ReplacementAccountAddress,
 	}
 
 	err := k.AppendWhitelistedValidator(ctx, ReplacementWhiteListedValidator)
