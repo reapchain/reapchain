@@ -44,58 +44,62 @@ func (k Keeper) ForceUnbondAllDelegations(ctx sdk.Context, sk types.StakingKeepe
 
 	validator := sk.Validator(ctx, validatorAddress)
 
-	if validator.IsJailed() {
-		consAddr, err := validator.GetConsAddr()
-		if err != nil {
-			return err
-		}
-		sk.Unjail(ctx, consAddr)
-	}
+	if validator != nil {
 
-	listOfDelegations := sk.GetValidatorDelegations(ctx, validatorAddress)
-	for _, delegation := range listOfDelegations {
-		delegatorShares := delegation.GetShares()
-		delegatorAddress := delegation.GetDelegatorAddr()
-
-		validator, found := sk.GetValidator(ctx, validatorAddress)
-		if !found {
-			return stakingtypes.ErrNoValidatorFound
-		}
-		if sk.HasMaxUnbondingDelegationEntries(ctx, delegatorAddress, validatorAddress) {
-			return stakingtypes.ErrMaxUnbondingDelegationEntries
-		}
-
-		returnAmount, err := sk.Unbond(ctx, delegatorAddress, validatorAddress, delegatorShares)
-		if err != nil {
-			return err
-		}
-
-		if validator.IsBonded() {
-			coins := sdk.NewCoins(sdk.NewCoin(sk.BondDenom(ctx), returnAmount))
-			if err := bk.SendCoinsFromModuleToModule(ctx, stakingtypes.BondedPoolName, stakingtypes.NotBondedPoolName, coins); err != nil {
-				panic(err)
+		if validator.IsJailed() {
+			consAddr, err := validator.GetConsAddr()
+			if err != nil {
+				return err
 			}
+			sk.Unjail(ctx, consAddr)
 		}
 
-		unbondingDuration, _ := time.ParseDuration(types.DefaultUnbondingTime)
-		completionTime := ctx.BlockHeader().Time.Add(unbondingDuration)
+		listOfDelegations := sk.GetValidatorDelegations(ctx, validatorAddress)
+		for _, delegation := range listOfDelegations {
+			delegatorShares := delegation.GetShares()
+			delegatorAddress := delegation.GetDelegatorAddr()
 
-		ubd := sk.SetUnbondingDelegationEntry(ctx, delegatorAddress, validatorAddress, ctx.BlockHeight(), completionTime, returnAmount)
-		sk.InsertUBDQueue(ctx, ubd, completionTime)
+			validator, found := sk.GetValidator(ctx, validatorAddress)
+			if !found {
+				return stakingtypes.ErrNoValidatorFound
+			}
+			if sk.HasMaxUnbondingDelegationEntries(ctx, delegatorAddress, validatorAddress) {
+				return stakingtypes.ErrMaxUnbondingDelegationEntries
+			}
 
-		ctx.EventManager().EmitEvents(sdk.Events{
-			sdk.NewEvent(
-				stakingtypes.EventTypeUnbond,
-				sdk.NewAttribute(stakingtypes.AttributeKeyValidator, delegatorAddress.String()),
-				sdk.NewAttribute(sdk.AttributeKeyAmount, delegatorShares.String()),
-				sdk.NewAttribute(stakingtypes.AttributeKeyCompletionTime, completionTime.Format(time.RFC3339)),
-			),
-			sdk.NewEvent(
-				sdk.EventTypeMessage,
-				sdk.NewAttribute(sdk.AttributeKeyModule, stakingtypes.AttributeValueCategory),
-				sdk.NewAttribute(sdk.AttributeKeySender, delegatorAddress.String()),
-			),
-		})
+			returnAmount, err := sk.Unbond(ctx, delegatorAddress, validatorAddress, delegatorShares)
+			if err != nil {
+				return err
+			}
+
+			if validator.IsBonded() {
+				coins := sdk.NewCoins(sdk.NewCoin(sk.BondDenom(ctx), returnAmount))
+				if err := bk.SendCoinsFromModuleToModule(ctx, stakingtypes.BondedPoolName, stakingtypes.NotBondedPoolName, coins); err != nil {
+					panic(err)
+				}
+			}
+
+			unbondingDuration, _ := time.ParseDuration(types.DefaultUnbondingTime)
+			completionTime := ctx.BlockHeader().Time.Add(unbondingDuration)
+
+			ubd := sk.SetUnbondingDelegationEntry(ctx, delegatorAddress, validatorAddress, ctx.BlockHeight(), completionTime, returnAmount)
+			sk.InsertUBDQueue(ctx, ubd, completionTime)
+
+			ctx.EventManager().EmitEvents(sdk.Events{
+				sdk.NewEvent(
+					stakingtypes.EventTypeUnbond,
+					sdk.NewAttribute(stakingtypes.AttributeKeyValidator, delegatorAddress.String()),
+					sdk.NewAttribute(sdk.AttributeKeyAmount, delegatorShares.String()),
+					sdk.NewAttribute(stakingtypes.AttributeKeyCompletionTime, completionTime.Format(time.RFC3339)),
+				),
+				sdk.NewEvent(
+					sdk.EventTypeMessage,
+					sdk.NewAttribute(sdk.AttributeKeyModule, stakingtypes.AttributeValueCategory),
+					sdk.NewAttribute(sdk.AttributeKeySender, delegatorAddress.String()),
+				),
+			})
+		}
+
 	}
 	return nil
 }

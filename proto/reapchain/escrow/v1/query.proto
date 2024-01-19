@@ -1,0 +1,63 @@
+syntax = "proto3";
+package reapchain.escrow.v1;
+
+import "cosmos/base/query/v1beta1/pagination.proto";
+import "reapchain/escrow/v1/genesis.proto";
+import "reapchain/escrow/v1/escrow.proto";
+import "cosmos/base/v1beta1/coin.proto";
+import "google/api/annotations.proto";
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/reapchain/reapchain/v8/x/escrow/types";
+
+// Query defines the gRPC queried service.
+service Query {
+  rpc RegisteredDenoms(QueryRegisteredDenomsRequest) returns (QueryRegisteredDenomsResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/registered_denoms";
+  }
+
+  // Params retrieves the escrow module params
+  rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/params";
+  }
+
+  // EscrowPool queries the available supply of a coin.
+  rpc EscrowPoolBalance(QueryEscrowPoolBalanceRequest) returns (QueryEscrowPoolBalanceResponse) {
+    option (google.api.http).get = "/reapchain/escrow/v1/escrow_pool_balance/{denom}";
+  }
+}
+
+message QueryRegisteredDenomsRequest {
+  // pagination defines an optional pagination for the request.
+  cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryRegisteredDenomsResponse {
+  repeated RegisteredDenom registered_denoms = 1 [ (gogoproto.nullable) = false ];
+  // pagination defines the pagination in the response.
+  cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+
+message QueryParamsRequest {}
+
+message QueryParamsResponse {
+  Params params = 1 [ (gogoproto.nullable) = false ];
+}
+
+message QueryEscrowPoolBalanceRequest {
+  option (gogoproto.equal)           = false;
+  option (gogoproto.goproto_getters) = false;
+
+  // address is the address to query balances for.
+  string denom = 1;
+
+
+}
+
+message QueryEscrowPoolBalanceResponse {
+  // balances is the balances of all the coins.
+   cosmos.base.v1beta1.Coin escrow_pool_balance = 1
+  [(gogoproto.nullable) = false];
+
+
+}

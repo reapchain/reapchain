@@ -1,0 +1,15 @@
+syntax = "proto3";
+package reapchain.permissions.v1;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "github.com/reapchain/reapchain/v8/x/permissions/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+
+  bool podc_whitelist_enabled = 1 [(gogoproto.moretags) = "yaml:\"podc_whitelist_enabled\"",  (gogoproto.jsontag)    = "podc_whitelist_enabled,omitempty"];
+  bool gov_min_initial_deposit_enabled = 2 [(gogoproto.moretags) = "yaml:\"gov_min_initial_deposit_enabled\"",  (gogoproto.jsontag)    = "gov_min_initial_deposit_enabled,omitempty"];
+  string gov_min_initial_deposit_percentage = 3 [ (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Dec", (gogoproto.nullable) = false];
+}

@@ -1,0 +1,101 @@
+syntax = "proto3";
+package reapchain.escrow.v1;
+
+import "gogoproto/gogo.proto";
+import "cosmos/bank/v1beta1/bank.proto";
+option go_package = "github.com/reapchain/reapchain/v8/x/escrow/types";
+
+
+message RegisteredDenom {
+  option (gogoproto.equal) = true;
+  string denom = 1;
+  bool enabled = 2;
+}
+
+message RegisterEscrowDenomProposal {
+  option (gogoproto.equal) = false;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // cosmos base denomination to be able to convert
+  string denom = 3;
+
+  string initial_pool_balance = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+
+}
+
+
+message RegisterEscrowDenomAndConvertProposal {
+  option (gogoproto.equal) = false;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // cosmos base denomination to be able to convert
+  string denom = 3;
+
+  string initial_pool_balance = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+
+  string proposer = 5;
+  string receiver = 6;
+
+
+}
+
+message ToggleEscrowConversionProposal {
+  option (gogoproto.equal) = true;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // token identifier can be either the hex contract address of the ERC20 or the
+  // Cosmos base denomination
+  string denom = 3;
+}
+
+message AddToEscrowPoolProposal {
+  option (gogoproto.equal) = true;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // token identifier can be either the hex contract address of the ERC20 or the
+  // Cosmos base denomination
+  string denom = 3;
+
+
+  string amount = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+
+}
+
+
+message AddToEscrowPoolAndConvertProposal {
+  option (gogoproto.equal) = true;
+  // title of the proposal
+  string title = 1;
+  // proposal description
+  string description = 2;
+  // token identifier can be either the hex contract address of the ERC20 or the
+  // Cosmos base denomination
+  string denom = 3;
+
+
+  string amount = 4 [
+    (gogoproto.customtype) = "github.com/reapchain/cosmos-sdk/types.Int",
+    (gogoproto.nullable) = false
+  ];
+  string proposer = 5;
+  string receiver = 6;
+
+}
+

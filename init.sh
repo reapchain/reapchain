@@ -1,5 +1,5 @@
 KEY="mykey"
-CHAINID="evmos_9000-1"
+CHAINID="reapchain_221230-1"
 MONIKER="localtestnet"
 KEYRING="test" # remember to change to other types of keyring like 'file' in-case exposing to outside world, otherwise your balance will be wiped quickly. The keyring test does not require private key to steal tokens from you
 KEYALGO="eth_secp256k1"
@@ -27,10 +27,10 @@ reapchaind config chain-id $CHAINID
 # if $KEY exists it should be deleted
 reapchaind keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 
-# Set moniker and chain-id for Evmos (Moniker can be anything, chain-id must be an integer)
+# Set moniker and chain-id for Reapchain (Moniker can be anything, chain-id must be an integer)
 reapchaind init $MONIKER --chain-id $CHAINID
 
-# Change parameter token denominations to aevmos
+# Change parameter token denominations to areap
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="areap"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
@@ -54,8 +54,8 @@ cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["claims"]["params"]["
 cat $HOME/.reapchaind/config/genesis.json | jq '.app_state["claims"]["params"]["duration_until_decay"]="100000s"' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 
 # Claim module account:
-# 0xA61808Fe40fEb8B3433778BBC2ecECCAA47c8c47 || evmos15cvq3ljql6utxseh0zau9m8ve2j8erz89m5wkz
-cat $HOME/.reapchaind/config/genesis.json | jq -r --arg amount_to_claim "$amount_to_claim" '.app_state["bank"]["balances"] += [{"address":"evmos15cvq3ljql6utxseh0zau9m8ve2j8erz89m5wkz","coins":[{"denom":"aevmos", "amount":$amount_to_claim}]}]' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
+# 0xA61808Fe40fEb8B3433778BBC2ecECCAA47c8c47 || reap15cvq3ljql6utxseh0zau9m8ve2j8erz89m5wkz
+cat $HOME/.reapchaind/config/genesis.json | jq -r --arg amount_to_claim "$amount_to_claim" '.app_state["bank"]["balances"] += [{"address":"reap15cvq3ljql6utxseh0zau9m8ve2j8erz89m5wkz","coins":[{"denom":"areap", "amount":$amount_to_claim}]}]' > $HOME/.reapchaind/config/tmp_genesis.json && mv $HOME/.reapchaind/config/tmp_genesis.json $HOME/.reapchaind/config/genesis.json
 
 # disable produce empty block
 if [[ "$OSTYPE" == "darwin"* ]]; then

@@ -4,75 +4,73 @@ parent:
 -->
 
 <div align="center">
-  <h1> Evmos </h1>
+  <h1> Reapchain </h1>
 </div>
+
+<!-- TODO: add banner -->
+<!-- ![banner](docs/ethermint.jpg) -->
 
 <div align="center">
   <a href="https://github.com/reapchain/reapchain/releases/latest">
-    <img alt="Version" src="https://img.shields.io/github/tag/tharsis/evmos.svg" />
+    <img alt="Version" src="https://img.shields.io/github/tag/reapchain/reapchain.svg" />
   </a>
   <a href="https://github.com/reapchain/reapchain/blob/main/LICENSE">
-    <img alt="License: Apache-2.0" src="https://img.shields.io/github/license/tharsis/evmos.svg" />
-  </a>
-  <a href="https://pkg.go.dev/github.com/reapchain/reapchain">
-    <img alt="GoDoc" src="https://godoc.org/github.com/reapchain/reapchain?status.svg" />
-  </a>
-  <a href="https://goreportcard.com/report/github.com/reapchain/reapchain">
-    <img alt="Go report card" src="https://goreportcard.com/badge/github.com/reapchain/reapchain"/>
-  </a>
-  <a href="https://bestpractices.coreinfrastructure.org/projects/5018">
-    <img alt="Lines of code" src="https://img.shields.io/tokei/lines/github/tharsis/evmos">
+    <img alt="License: Apache-2.0" src="https://img.shields.io/github/license/reapchain/reapchain.svg" />
   </a>
 </div>
 <div align="center">
-  <a href="https://discord.gg/evmos">
-    <img alt="Discord" src="https://img.shields.io/discord/809048090249134080.svg" />
-  </a>
-  <a href="https://github.com/reapchain/reapchain/actions?query=branch%3Amain+workflow%3ALint">
-    <img alt="Lint Status" src="https://github.com/reapchain/reapchain/actions/workflows/lint.yml/badge.svg?branch=main" />
-  </a>
-  <a href="https://codecov.io/gh/tharsis/evmos">
-    <img alt="Code Coverage" src="https://codecov.io/gh/tharsis/evmos/branch/main/graph/badge.svg" />
-  </a>
-  <a href="https://twitter.com/EvmosOrg">
-    <img alt="Twitter Follow Evmos" src="https://img.shields.io/twitter/follow/EvmosOrg"/>
-  </a>
 </div>
 
-Evmos is a scalable, high-throughput Proof-of-Stake blockchain that is fully compatible and
-interoperable with Ethereum. It's built using the [Cosmos SDK](https://github.com/reapchain/cosmos-sdk/) which runs on top of [Tendermint Core](https://github.com/reapchain/reapchain-core) consensus engine.
+This repository hosts `ReapChain`. This repository is forked from [evmos](https://github.com/evmos/evmos) at 2022-05-03. ReapChain is a mainnet app implementation using [reapchain cosmos-sdk](https://github.com/reapchain/cosmos-sdk), [reapchain-core](https://github.com/reapchain/reapchain-core), [ethermint](https://github.com/reapchain/ethermint) and [ibc-go](https://github.com/reapchain/ibc-go).
 
-**Note**: Requires [Go 1.18+](https://golang.org/dl/)
+**Node**: Requires [Go 1.18+](https://golang.org/dl/)
 
-## Installation
+# Quick Start
 
-For prerequisites and detailed build instructions please read the [Installation](https://evmos.dev/validators/quickstart/installation.html) instructions. Once the dependencies are installed, run:
+## Local
 
-```bash
-make install
+**Build**
+```
+make build
+make install 
 ```
 
-Or check out the latest [release](https://github.com/reapchain/reapchain/releases).
+**Configure**
+```
+sh init_single.sh
+```
+or
+```
+sh init_single.sh testnet  # for testnet
+```
 
-## Quick Start
+**Run**
+```
+reapchaind start                # Run a node
+```
 
-To learn how the Evmos works from a high-level perspective, go to the [Introduction](https://evmos.dev/about/intro/overview.html) section from the documentation. You can also check the instructions to [Run a Node](https://evmos.dev/validators/quickstart/run_node.html).
+**visit with your browser**
+* Node: http://localhost:26657/
 
-## Community
+## Localnet with 4 nodes
 
-The following chat channels and forums are a great spot to ask questions about Evmos:
+**Run**
+```
+make localnet-start
+```
 
-- [Evmos Twitter](https://twitter.com/EvmosOrg)
-- [Evmos Discord](https://discord.gg/evmos)
-- [Evmos Forum](https://commonwealth.im/evmos)
-- [Tharsis Twitter](https://twitter.com/TharsisHQ)
+**Stop**
+```
+make localnet-stop
+```
+## Docker
+**Warnings**: Initial development is in progress, but there has not yet been a stable.
 
-## Contributing
+# How to contribute
+check out [CONTRIBUTING.md](CONTRIBUTING.md) for our guidelines & policies for how we develop ReapChain. Thank you to all those who have contributed!
 
-Looking for a good place to start contributing? Check out some [`good first issues`](https://github.com/reapchain/reapchain/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22).
-
-For additional instructions, standards and style guides, please refer to the [Contributing](./CONTRIBUTING.md) document.
-
-## Careers
-
-See our open positions on [Cosmos Jobs](https://jobs.cosmos.network/project/evmos-d0sk1uxuh-remote/), [Notion](https://tharsis.notion.site), or feel free to [reach out](mailto:careers@thars.is) via email.
+# Guide && Resources
+- [ReapchainGuide](https://reapchain.gitbook.io/mainnet)
+- [Mainnet Dashboard](https://dashboard.reapchain.org)
+- [Testnet Dashboard](https://dashboard.reapchain.org)
+- [Faucet](https://test-faucet.reapchain.org)

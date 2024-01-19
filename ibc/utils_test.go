@@ -15,7 +15,7 @@ import (
 
 func init() {
 	cfg := sdk.GetConfig()
-	cfg.SetBech32PrefixForAccount("reapchain", "evmospub")
+	cfg.SetBech32PrefixForAccount("reap", "reappub")
 }
 
 func TestGetTransferSenderRecipient(t *testing.T) {
@@ -56,7 +56,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "123456",
 					},
 				),
@@ -70,7 +70,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1",
+						Receiver: "reap1",
 						Amount:   "123456",
 					},
 				),
@@ -84,13 +84,13 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "123456",
 					},
 				),
 			},
-			"evmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
-			"evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			"reap1qql8ag4cluz6r4dz28p3w00dnc9w8ueuwzjd6j",
+			"reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 			false,
 		},
 		{
@@ -98,14 +98,14 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Sender:   "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Receiver: "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
 						Amount:   "123456",
 					},
 				),
 			},
-			"evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
-			"evmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			"reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
+			"reap1qql8ag4cluz6r4dz28p3w00dnc9w8ueuwzjd6j",
 			false,
 		},
 		{
@@ -114,13 +114,13 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "osmo1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhnecd2",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "123456",
 					},
 				),
 			},
-			"evmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
-			"evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			"reap1qql8ag4cluz6r4dz28p3w00dnc9w8ueuwzjd6j",
+			"reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 			false,
 		},
 	}
@@ -164,7 +164,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "",
 					},
 				),
@@ -178,7 +178,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "test",
 					},
 				),
@@ -192,7 +192,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   "10000",
 					},
 				),
@@ -206,7 +206,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "evmos1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "reap1g87z6erdyq69pn7sxf8uwgxfsf77duvu7n04y9",
 						Amount:   types.IBCTriggerAmt,
 					},
 				),

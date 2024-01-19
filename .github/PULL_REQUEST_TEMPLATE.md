@@ -1,49 +1,25 @@
-<!-- < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < < ☺
-v                               ✰  Thanks for creating a PR! ✰    
-v    Before smashing the submit button please review the checkboxes.
-v    If a checkbox is n/a - please still include it but + a little note why
-☺ > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > >  -->
+<!--- Provide a general summary of your changes in the Title above -->
 
 ## Description
+<!--- Describe your changes in detail -->
+closes: #XXXX
 
-<!-- Add a description of the changes that this PR introduces and the files that
-are the most critical to review.
--->
+## Motivation and context
+<!--- Why is this change required? What problem does it solve? -->
+<!--- If it fixes an open issue, please link to the issue here. -->
 
-Closes: #XXX
+## How has this been tested?
+<!--- Please describe in detail how you tested your changes. -->
+<!--- Include details of your testing environment, and the tests you ran to -->
+<!--- see how your change affects other areas of the code, etc. -->
 
-______
+## Screenshots (if appropriate):
 
-**All** items are required. Please add a note to the item if the item is not applicable and
-please add links to any relevant follow up issues.
-
-PR review checkboxes:
-
-I have...
-
-- [ ] added a relevant changelog entry to the `Unreleased` section in `CHANGELOG.md`
-- [ ] included the correct [type prefix](https://github.com/commitizen/conventional-commit-types/blob/v3.0.0/index.json) in the PR title
-- [ ] targeted the correct branch (see [PR Targeting](https://github.com/evmos/evmos/blob/main/CONTRIBUTING.md#pr-targeting))
-- [ ] provided a link in the PR description to the relevant issue or specification
-- [ ] reviewed "Files changed" and left comments if necessary
-- [ ] confirmed all required CI checks have passed
-
-Code maintenance:
-
-I have...
-
-- [ ] written unit and integration [tests](https://github.com/evmos/evmos/blob/main/CONTRIBUTING.md#testing)
-- [ ] added relevant [`godoc`](https://go.dev/blog/godoc) and [code comments](https://blog.jbowen.dev/2019/09/the-magic-of-go-comments/).
-- [ ] updated relevant documentation (`docs/`) or specification (`x/<module>/spec/`)
-
-______
-
-### Reviewers Checklist
-
-**All** items are required. Please add a note if the item is not applicable and please add your handle next to the items reviewed if you only reviewed selected items.
-
-I have...
-
-- [ ] confirmed the correct [type prefix](https://github.com/commitizen/conventional-commit-types/blob/v3.0.0/index.json) in the PR title
-- [ ] confirmed all author checklist items have been addressed
-- [ ] confirmed that this PR does not change production code
+## Checklist:
+<!--- Go over all the following points, and put an `x` in all the boxes that apply. -->
+<!--- If any of the checklist items are not applicable, leave it `[ ]` and write a little note why. --->
+<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
+- [ ] I followed the [contributing guidelines](https://github.com/reapchain/reapchain/blob/main/CONTRIBUTING.md) and [code of conduct](https://github.com/reapchain/reapchain/blob/main/CODE_OF_CONDUCT.md).
+- [ ] I have added a relevant changelog to `CHANGELOG.md`
+- [ ] I have added tests to cover my changes.
+- [ ] I have updated the documentation accordingly.

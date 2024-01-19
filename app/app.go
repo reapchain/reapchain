@@ -9,6 +9,10 @@ import (
 	"os"
 	"path/filepath"
 
+	bech32ibckeeper "github.com/reapchain/reapchain/v8/x/bech32ibc/keeper"
+	bech32ibctypes "github.com/reapchain/reapchain/v8/x/bech32ibc/types"
+	"github.com/reapchain/reapchain/v8/x/escrow"
+
 	"github.com/reapchain/reapchain/v8/app/upgrades/v0_8_6"
 
 	"github.com/gorilla/mux"
@@ -110,12 +114,6 @@ import (
 	_ "github.com/reapchain/reapchain/v8/client/docs/statik"
 
 	"github.com/reapchain/reapchain/v8/app/ante"
-	v2 "github.com/reapchain/reapchain/v8/app/upgrades/v2"
-	v4 "github.com/reapchain/reapchain/v8/app/upgrades/v4"
-	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
-	v6 "github.com/reapchain/reapchain/v8/app/upgrades/v6"
-	v7 "github.com/reapchain/reapchain/v8/app/upgrades/v7"
-	v8 "github.com/reapchain/reapchain/v8/app/upgrades/v8"
 	"github.com/reapchain/reapchain/v8/x/claims"
 	claimskeeper "github.com/reapchain/reapchain/v8/x/claims/keeper"
 	claimstypes "github.com/reapchain/reapchain/v8/x/claims/types"
@@ -148,6 +146,16 @@ import (
 	permissionsmodule "github.com/reapchain/reapchain/v8/x/permissions"
 	permissionsmodulekeeper "github.com/reapchain/reapchain/v8/x/permissions/keeper"
 	permissionsmoduletypes "github.com/reapchain/reapchain/v8/x/permissions/types"
+
+	"github.com/reapchain/reapchain/v8/x/bech32ibc"
+
+	"github.com/reapchain/reapchain/v8/x/gravity"
+
+	escrowclient "github.com/reapchain/reapchain/v8/x/escrow/client"
+	escrowkeeper "github.com/reapchain/reapchain/v8/x/escrow/keeper"
+	escrowtypes "github.com/reapchain/reapchain/v8/x/escrow/types"
+	gravitykeeper "github.com/reapchain/reapchain/v8/x/gravity/keeper"
+	gravitytypes "github.com/reapchain/reapchain/v8/x/gravity/types"
 )
 
 func init() {
@@ -161,8 +169,8 @@ func init() {
 	// manually update the power reduction by replacing micro (u) -> atto (a) reapchain
 	//sdk.DefaultPowerReduction = ethermint.PowerReduction
 	// modify fee market parameter defaults through global
-	feemarkettypes.DefaultMinGasPrice = v5.MainnetMinGasPrices
-	feemarkettypes.DefaultMinGasMultiplier = v5.MainnetMinGasMultiplier
+	feemarkettypes.DefaultMinGasPrice = v0_8_6.MainnetMinGasPrices
+	feemarkettypes.DefaultMinGasMultiplier = v0_8_6.MainnetMinGasMultiplier
 }
 
 // Name defines the application binary name
@@ -190,6 +198,8 @@ var (
 			incentivesclient.RegisterIncentiveProposalHandler, incentivesclient.CancelIncentiveProposalHandler,
 			// Reapchain Proposal Types
 			permissionsmoduleclient.RegisterStandingMemberProposal, permissionsmoduleclient.RemoveStandingMemberProposal, permissionsmoduleclient.ReplaceStandingMemberProposal,
+			escrowclient.RegisterEscrowDenomProposalHandler, escrowclient.RegisterEscrowDenomAndConvertProposalHandler, escrowclient.ToggleEscrowConversionProposalHandler,
+			escrowclient.AddToEscrowPoolProposalHandler, escrowclient.AddToEscrowPoolAndConvertProposalHandler,
 		),
 		params.AppModuleBasic{},
 		crisis.AppModuleBasic{},
@@ -211,6 +221,9 @@ var (
 		recovery.AppModuleBasic{},
 		feesplit.AppModuleBasic{},
 		permissionsmodule.AppModuleBasic{},
+		gravity.AppModuleBasic{},
+		bech32ibc.AppModuleBasic{},
+		escrow.AppModuleBasic{},
 	)
 
 	// module account permissions
@@ -227,6 +240,8 @@ var (
 		claimstypes.ModuleName:            nil,
 		incentivestypes.ModuleName:        {authtypes.Minter, authtypes.Burner},
 		permissionsmoduletypes.ModuleName: nil,
+		gravitytypes.ModuleName:           {authtypes.Minter, authtypes.Burner},
+		escrowtypes.ModuleName:            {authtypes.Minter, authtypes.Burner},
 	}
 
 	// module accounts that are allowed to receive tokens
@@ -262,7 +277,7 @@ type Reapchain struct {
 
 	// keepers
 	AccountKeeper    authkeeper.AccountKeeper
-	BankKeeper       bankkeeper.Keeper
+	BankKeeper       bankkeeper.BaseKeeper
 	CapabilityKeeper *capabilitykeeper.Keeper
 	StakingKeeper    stakingkeeper.Keeper
 	SlashingKeeper   slashingkeeper.Keeper
@@ -295,6 +310,10 @@ type Reapchain struct {
 	RecoveryKeeper    *recoverykeeper.Keeper
 	FeesplitKeeper    feesplitkeeper.Keeper
 	PermissionsKeeper permissionsmodulekeeper.Keeper
+
+	GravityKeeper   *gravitykeeper.Keeper
+	Bech32IBCKeeper *bech32ibckeeper.Keeper
+	EscrowKeeper    escrowkeeper.Keeper
 
 	// the module manager
 	mm *module.Manager
@@ -353,6 +372,8 @@ func NewReapchain(
 		epochstypes.StoreKey, claimstypes.StoreKey, vestingtypes.StoreKey,
 		feesplittypes.StoreKey,
 		permissionsmoduletypes.StoreKey,
+		gravitytypes.StoreKey, bech32ibctypes.StoreKey,
+		escrowtypes.StoreKey,
 	)
 
 	// Add the EVM transient store key
@@ -437,6 +458,12 @@ func NewReapchain(
 		appCodec, keys[ibchost.StoreKey], app.GetSubspace(ibchost.ModuleName), &stakingKeeper, app.UpgradeKeeper, scopedIBCKeeper,
 	)
 
+	bech32IbcKeeper := *bech32ibckeeper.NewKeeper(
+		app.IBCKeeper.ChannelKeeper, appCodec, keys[bech32ibctypes.StoreKey],
+		app.TransferKeeper,
+	)
+	app.Bech32IBCKeeper = &bech32IbcKeeper
+
 	// register the proposal types
 	govRouter := govtypes.NewRouter()
 	govRouter.AddRoute(govtypes.RouterKey, govtypes.ProposalHandler).
@@ -446,7 +473,9 @@ func NewReapchain(
 		AddRoute(ibcclienttypes.RouterKey, ibcclient.NewClientProposalHandler(app.IBCKeeper.ClientKeeper)).
 		AddRoute(erc20types.RouterKey, erc20.NewErc20ProposalHandler(&app.Erc20Keeper)).
 		AddRoute(incentivestypes.RouterKey, incentives.NewIncentivesProposalHandler(&app.IncentivesKeeper)).
-		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper))
+		AddRoute(permissionsmoduletypes.RouterKey, permissionsmodule.NewPermissionsModuleProposalHandler(&app.PermissionsKeeper, &app.StakingKeeper, app.BankKeeper)).
+		AddRoute(bech32ibctypes.RouterKey, bech32ibc.NewBech32IBCProposalHandler(*app.Bech32IBCKeeper)).
+		AddRoute(escrowtypes.RouterKey, escrow.NewEscrowProposalHandler(&app.EscrowKeeper))
 
 	govKeeper := govkeeper.NewKeeper(
 		appCodec, keys[govtypes.StoreKey], app.GetSubspace(govtypes.ModuleName),
@@ -484,6 +513,11 @@ func NewReapchain(
 	app.Erc20Keeper = erc20keeper.NewKeeper(
 		keys[erc20types.StoreKey], appCodec, app.GetSubspace(erc20types.ModuleName),
 		app.AccountKeeper, app.BankKeeper, app.EvmKeeper,
+	)
+
+	app.EscrowKeeper = escrowkeeper.NewKeeper(
+		keys[escrowtypes.StoreKey], appCodec, app.GetSubspace(escrowtypes.ModuleName),
+		app.AccountKeeper, app.BankKeeper,
 	)
 
 	app.IncentivesKeeper = incentiveskeeper.NewKeeper(
@@ -576,6 +610,23 @@ func NewReapchain(
 	// If evidence needs to be handled for the app, set routes in router here and seal
 	app.EvidenceKeeper = *evidenceKeeper
 
+	bankBaseKeeper := bankkeeper.NewBaseKeeper(
+		appCodec, keys[banktypes.StoreKey], app.AccountKeeper, app.GetSubspace(banktypes.ModuleName), app.BlockedAddrs(),
+	)
+	gravityKeeper := gravitykeeper.NewKeeper(
+		keys[gravitytypes.StoreKey],
+		app.GetSubspace(gravitytypes.ModuleName),
+		appCodec,
+		&bankBaseKeeper,
+		&stakingKeeper,
+		&app.SlashingKeeper,
+		&app.DistrKeeper,
+		&app.AccountKeeper,
+		&app.TransferKeeper,
+		&bech32IbcKeeper,
+	)
+	app.GravityKeeper = &gravityKeeper
+
 	/****  Module Options ****/
 
 	// NOTE: we may consider parsing `appOpts` inside module constructors. For the moment
@@ -622,6 +673,16 @@ func NewReapchain(
 
 		// Reapchain app modules
 		permissionsmodule.NewAppModule(appCodec, app.PermissionsKeeper, app.AccountKeeper, app.BankKeeper, app.StakingKeeper),
+
+		gravity.NewAppModule(
+			gravityKeeper,
+			app.BankKeeper,
+		),
+		bech32ibc.NewAppModule(
+			appCodec,
+			bech32IbcKeeper,
+		),
+		escrow.NewAppModule(app.EscrowKeeper, app.AccountKeeper),
 	)
 
 	// During begin block slashing happens after distr.BeginBlocker so that
@@ -648,6 +709,8 @@ func NewReapchain(
 		banktypes.ModuleName,
 		govtypes.ModuleName,
 		crisistypes.ModuleName,
+		bech32ibctypes.ModuleName,
+		gravitytypes.ModuleName,
 		genutiltypes.ModuleName,
 		authz.ModuleName,
 		feegrant.ModuleName,
@@ -655,6 +718,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		claimstypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
@@ -667,7 +731,7 @@ func NewReapchain(
 		crisistypes.ModuleName,
 		govtypes.ModuleName,
 		stakingtypes.ModuleName,
-
+		gravitytypes.ModuleName,
 		evmtypes.ModuleName,
 		feemarkettypes.ModuleName,
 		// Note: epochs' endblock should be "real" end of epochs, we keep epochs endblock at the end
@@ -681,6 +745,7 @@ func NewReapchain(
 		banktypes.ModuleName,
 		distrtypes.ModuleName,
 		slashingtypes.ModuleName,
+		bech32ibctypes.ModuleName,
 		genutiltypes.ModuleName,
 		evidencetypes.ModuleName,
 		authz.ModuleName,
@@ -691,6 +756,7 @@ func NewReapchain(
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
@@ -729,15 +795,18 @@ func NewReapchain(
 		feegrant.ModuleName,
 		paramstypes.ModuleName,
 		upgradetypes.ModuleName,
-		// Evmos modules
+		// Reapchain modules
 		vestingtypes.ModuleName,
 		inflationtypes.ModuleName,
 		erc20types.ModuleName,
+		escrowtypes.ModuleName,
 		incentivestypes.ModuleName,
 		epochstypes.ModuleName,
 		recoverytypes.ModuleName,
 		feesplittypes.ModuleName,
 		// NOTE: crisis module must go at the end to check for invariants on each module
+		bech32ibctypes.ModuleName, // Must go before gravity so that pending ibc auto forwards can be restored
+		gravitytypes.ModuleName,
 		crisistypes.ModuleName,
 		permissionsmoduletypes.ModuleName,
 	)
@@ -807,7 +876,9 @@ func NewReapchain(
 		panic(err)
 	}
 
-	app.SetAnteHandler(ante.NewAnteHandler(options))
+	app.SetAnteHandler(ante.NewAnteHandler(
+		options, &gravityKeeper, &app.AccountKeeper, &app.BankKeeper, nil, app.IBCKeeper, appCodec,
+	))
 	app.SetEndBlocker(app.EndBlocker)
 	app.setupUpgradeHandlers()
 
@@ -1051,6 +1122,7 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(govtypes.ModuleName).WithKeyTable(govtypes.ParamKeyTable())
 	paramsKeeper.Subspace(crisistypes.ModuleName)
 	paramsKeeper.Subspace(ibctransfertypes.ModuleName)
+	paramsKeeper.Subspace(gravitytypes.ModuleName)
 	paramsKeeper.Subspace(ibchost.ModuleName)
 	// ethermint subspaces
 	paramsKeeper.Subspace(evmtypes.ModuleName)
@@ -1063,74 +1135,12 @@ func initParamsKeeper(
 	paramsKeeper.Subspace(recoverytypes.ModuleName)
 	paramsKeeper.Subspace(feesplittypes.ModuleName)
 	paramsKeeper.Subspace(permissionsmoduletypes.ModuleName)
+	paramsKeeper.Subspace(escrowtypes.ModuleName)
 
 	return paramsKeeper
 }
 
 func (app *Reapchain) setupUpgradeHandlers() {
-	// v2 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v2.UpgradeName,
-		v2.CreateUpgradeHandler(app.mm, app.configurator),
-	)
-
-	// NOTE: no v3 upgrade handler as it required an unscheduled manual upgrade.
-
-	// v4 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v4.UpgradeName,
-		v4.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.IBCKeeper.ClientKeeper,
-		),
-	)
-
-	// v5 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v5.UpgradeName,
-		v5.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.ClaimsKeeper,
-			app.StakingKeeper,
-			app.ParamsKeeper,
-			app.TransferKeeper,
-			app.SlashingKeeper,
-		),
-	)
-
-	// v6 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v6.UpgradeName,
-		v6.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.ClaimsKeeper,
-			app.StakingKeeper,
-			app.ParamsKeeper,
-			app.TransferKeeper,
-			app.SlashingKeeper,
-		),
-	)
-
-	// v7 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v7.UpgradeName,
-		v7.CreateUpgradeHandler(
-			app.mm, app.configurator,
-			app.BankKeeper,
-			app.InflationKeeper,
-			app.ClaimsKeeper,
-		),
-	)
-
-	// v8 upgrade handler
-	app.UpgradeKeeper.SetUpgradeHandler(
-		v8.UpgradeName,
-		v8.CreateUpgradeHandler(
-			app.mm, app.configurator,
-		),
-	)
 
 	app.UpgradeKeeper.SetUpgradeHandler(
 		v0_8_6.UpgradeName,
@@ -1152,21 +1162,6 @@ func (app *Reapchain) setupUpgradeHandlers() {
 	var storeUpgrades *storetypes.StoreUpgrades
 
 	switch upgradeInfo.Name {
-	case v2.UpgradeName:
-		// no store upgrades in v2
-	case v4.UpgradeName:
-		// no store upgrades in v4
-	case v5.UpgradeName:
-		// no store upgrades in v5
-	case v6.UpgradeName:
-		// no store upgrades in v6
-	case v7.UpgradeName:
-		// no store upgrades in v7
-	case v8.UpgradeName:
-		// add feesplit module
-		storeUpgrades = &storetypes.StoreUpgrades{
-			Added: []string{feesplittypes.ModuleName},
-		}
 	case v0_8_6.UpgradeName:
 	}
 

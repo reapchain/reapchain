@@ -59,14 +59,14 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"equal metadata",
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
@@ -77,14 +77,14 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
@@ -99,24 +99,24 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"different base field",
 			banktypes.Metadata{
-				Base: "aevmos",
+				Base: "areap",
 			},
 			banktypes.Metadata{
-				Base: "taevmos",
+				Base: "tareap",
 			},
 			true,
 		},
 		{
 			"different denom units length",
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
@@ -127,14 +127,14 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
@@ -145,19 +145,19 @@ func TestEqualMetadata(t *testing.T) {
 		{
 			"different denom units",
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
 					{
-						Denom:    "uevmos",
+						Denom:    "ureap",
 						Exponent: 12,
 						Aliases:  []string{"micro reapchain"},
 					},
@@ -168,19 +168,19 @@ func TestEqualMetadata(t *testing.T) {
 				},
 			},
 			banktypes.Metadata{
-				Base:        "aevmos",
+				Base:        "areap",
 				Display:     "reapchain",
-				Name:        "Evmos",
-				Symbol:      "EVMOS",
-				Description: "EVM, staking and governance denom of Evmos",
+				Name:        "Reapchain",
+				Symbol:      "REAP",
+				Description: "EVM, staking and governance denom of Reapchain",
 				DenomUnits: []*banktypes.DenomUnit{
 					{
-						Denom:    "aevmos",
+						Denom:    "areap",
 						Exponent: 0,
 						Aliases:  []string{"atto reapchain"},
 					},
 					{
-						Denom:    "Uevmos",
+						Denom:    "Ureap",
 						Exponent: 12,
 						Aliases:  []string{"micro reapchain"},
 					},
@@ -225,20 +225,20 @@ func TestEqualAliases(t *testing.T) {
 		},
 		{
 			"different values",
-			[]string{"attoevmos"},
+			[]string{"attoreap"},
 			[]string{"atto reapchain"},
 			false,
 		},
 		{
 			"same values, unsorted",
-			[]string{"atto reapchain", "aevmos"},
-			[]string{"aevmos", "atto reapchain"},
+			[]string{"atto reapchain", "areap"},
+			[]string{"areap", "atto reapchain"},
 			false,
 		},
 		{
 			"same values, sorted",
-			[]string{"aevmos", "atto reapchain"},
-			[]string{"aevmos", "atto reapchain"},
+			[]string{"areap", "atto reapchain"},
+			[]string{"areap", "atto reapchain"},
 			true,
 		},
 	}

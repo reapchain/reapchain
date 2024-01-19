@@ -4,7 +4,7 @@ order: 1
 
 # Installation
 
-Build and install the Evmos binaries from source or using Docker. {synopsis}
+Build and install the reapchain binaries from source or using Docker. {synopsis}
 
 ## Pre-requisites
 
@@ -14,7 +14,7 @@ Build and install the Evmos binaries from source or using Docker. {synopsis}
 ## Install Go
 
 ::: warning
-Evmos is built using [Go](https://golang.org/dl/) version `1.18+`
+reapchain is built using [Go](https://golang.org/dl/) version `1.18+`
 :::
 
 ```bash
@@ -60,7 +60,7 @@ You can build {{ $themeConfig.project.name }} using Docker by running:
 make build-docker
 ```
 
-The command above will create a docker container: `tharsishq/evmos:latest`. Now you can run `reapchaind` in the container.
+The command above will create a docker container: `tharsishq/reapchain:latest`. Now you can run `reapchaind` in the container.
 
 ```bash
 docker run -it -p 26657:26657 -p 26656:26656 -v ~/.reapchaind/:/root/.reapchaind tharsishq/reapchain:latest reapchaind version

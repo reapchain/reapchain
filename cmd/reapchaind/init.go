@@ -36,7 +36,6 @@ const (
 	ValidatorType = "validator-type"
 )
 
-
 type printInfo struct {
 	Moniker    string          `json:"moniker" yaml:"moniker"`
 	ChainID    string          `json:"chain_id" yaml:"chain_id"`
@@ -74,7 +73,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 	cmd := &cobra.Command{
 		Use:   "init [moniker]",
 		Short: "Initialize private validator, p2p, genesis, and application configuration files",
-		Long:  `Initialize validators's and node's configuration files.`,
+		Long:  `Initialize validator's and node's configuration files.`,
 		Args:  cobra.ExactArgs(1),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			clientCtx := client.GetClientContextFromCmd(cmd)
@@ -89,11 +88,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 			config.P2P.MaxNumOutboundPeers = 30
 
 			// Set default seeds
-			seeds := []string{
-				"40f4fac63da8b1ce8f850b0fa0f79b2699d2ce72@seed.reapchain.jerrychong.com:26656",                 // jerrychong
-				"e3e11fca4ecf4035a751f3fea90e3a821e274487@bd-reapchain-mainnet-seed-node-01.bdnodes.net:26656", // blockdaemon
-				"fc86e7e75c5d2e4699535e1b1bec98ae55b16826@bd-reapchain-mainnet-seed-node-02.bdnodes.net:26656", // blockdaemon
-			}
+			seeds := []string{}
 			config.P2P.Seeds = strings.Join(seeds, ",")
 
 			config.Mempool.Size = 10000

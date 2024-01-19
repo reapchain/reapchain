@@ -16,18 +16,13 @@ import (
 	"github.com/reapchain/cosmos-sdk/version"
 	genutiltypes "github.com/reapchain/cosmos-sdk/x/genutil/types"
 
-	v3 "github.com/reapchain/reapchain/v8/app/upgrades/v3"
-	v5 "github.com/reapchain/reapchain/v8/app/upgrades/v5"
 	"github.com/reapchain/reapchain/v8/types"
 )
 
 // FlagGenesisTime defines the genesis time in string format
 const FlagGenesisTime = "genesis-time"
 
-var migrationMap = genutiltypes.MigrationMap{
-	"v3": v3.MigrateGenesis, // migration to v3
-	"v5": v5.MigrateGenesis, // migration to v5
-}
+var migrationMap = genutiltypes.MigrationMap{}
 
 // GetMigrationCallback returns a MigrationCallback for a given version.
 func GetMigrationCallback(version, chainID string) genutiltypes.MigrationCallback {
@@ -45,7 +40,7 @@ func MigrateGenesisCmd() *cobra.Command {
 		Short: "Migrate genesis to a specified target version",
 		Long:  "Migrate the source genesis into the target version and print to STDOUT.",
 		Example: fmt.Sprintf(
-			"%s migrate v3 /path/to/genesis.json --chain-id=evmos_9001-2 --genesis-time=2022-04-01T17:00:00Z",
+			"%s migrate v3 /path/to/genesis.json --chain-id=reapchain_221230-2 --genesis-time=2023-01-01T17:00:00Z",
 			version.AppName,
 		),
 		Args: cobra.ExactArgs(2),
