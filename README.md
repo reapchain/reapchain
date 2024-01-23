@@ -27,42 +27,48 @@ This repository hosts `ReapChain`. This repository is forked from [evmos](https:
 
 # Quick Start
 
-## Local
-
 **Build**
 ```
 make build
 make install 
 ```
 
+**Check version**
+```
+reapchaind version
+```
+
+**Change folder**
+```
+cd node
+```
 **Configure**
 ```
-sh init_single.sh
-```
-or
-```
-sh init_single.sh testnet  # for testnet
+sh node_initialize.sh
 ```
 
 **Run**
 ```
-reapchaind start                # Run a node
+# sh node_run.sh [FOREGROUND or BACKGROUND] [DATA DIR]
+sh node_run.sh b reapchain-node-data
 ```
 
+
+# Check Node
+**Check process**
+```
+ps -ef | grep reapchaind
+```
+**Check log**
+```
+tail -f reapchain-node-data/log/log.log
+```
 **visit with your browser**
-* Node: http://localhost:26657/
+* Node: http://[local-IP]:27000/
 
-## Localnet with 4 nodes
+## Ref Initial Setup
+- https://reapchain.gitbook.io/mainnet/user-guides/initial-setup
 
-**Run**
-```
-make localnet-start
-```
-
-**Stop**
-```
-make localnet-stop
-```
 ## Docker
 **Warnings**: Initial development is in progress, but there has not yet been a stable.
 
@@ -70,7 +76,7 @@ make localnet-stop
 check out [CONTRIBUTING.md](CONTRIBUTING.md) for our guidelines & policies for how we develop ReapChain. Thank you to all those who have contributed!
 
 # Guide && Resources
-- [ReapchainGuide](https://reapchain.gitbook.io/mainnet)
+- [ReapchainGuide](https://reapchain.gitbook.io)
 - [Mainnet Dashboard](https://dashboard.reapchain.org)
-- [Testnet Dashboard](https://dashboard.reapchain.org)
+- [Testnet Dashboard](https://test-dashboard.reapchain.org)
 - [Faucet](https://test-faucet.reapchain.org)

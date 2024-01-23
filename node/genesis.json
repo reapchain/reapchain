@@ -1,0 +1,6147 @@
+{
+  "app_hash": "",
+  "app_state": {
+    "auth": {
+      "accounts": [
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "1",
+            "address": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "ArJkfS1EWBhTn5/5SdL5egbPpHRYqy2zwTs1llN9snU9"
+            },
+            "sequence": "2"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "28",
+            "address": "reap1rsah7qsysn9rh2wwd0nuq73wrl2xc82zep0p95",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A9o4LKMO3swCvDsUzGmNsGof9KAgfDZQDf5idnVl9lDE"
+            },
+            "sequence": "43"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "3",
+            "address": "reap1yz5psrp7pekpukkzq6ywahuzky5d2c74328z8c",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A762Mwn+L/4GfX+Bh0Z9x8ja2cSRY0q2df6efDWSdM0v"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "23",
+            "address": "reap1yl6hdjhmkf37639730gffanpzndzdpmhl4wvkf",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "transfer",
+          "permissions": [
+            "minter",
+            "burner"
+          ]
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "10",
+            "address": "reap1gypevvsjyvrn3z9h0n39l9qhpdcu00nezsyd9h",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A6EAX6yfw+8EUnMwVlDBZ6taexUJr28uVtXjLO+aAx0L"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "9",
+            "address": "reap1gsez6p98e77z2kkg2smlu2px5735vwadtfd5kt",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A8sUJqwF7oQxXdNaqtNDGdoGV1o1IwHscLHa8S+nQGLF"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "13",
+            "address": "reap1gu5lm3kj9nten6lmw3xjfdvd309el2xt68wc6j",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A8MCfYKyLGPPJaMO/8/CcPYjymymWlrKTsMneWUmz9Pi"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "25",
+            "address": "reap1glht96kr2rseywuvhhay894qw7ekuc4qmwtlgv",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "erc20",
+          "permissions": [
+            "minter",
+            "burner"
+          ]
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "12",
+            "address": "reap1ftfyf9tckar7t4mfhjh452s6putyrj6ul4j70l",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A5UMaSsTJF4DAizF5NyD/o0AKiSm9++hzifSsq+Kmbpd"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "5",
+            "address": "reap1f782nrh8zfhz40ymn9z4pz4qu4x6mxw7uktqdq",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A0wJfy9RMN8lM2G/zbX7FUT/8bCIEl+mGr7eckrBwQ6c"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "20",
+            "address": "reap1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3y332ca",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "21",
+            "address": "reap1tygms3xhhs3yv487phx3dw4a95jn7t7ls3dmwf",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "not_bonded_tokens_pool",
+          "permissions": [
+            "burner",
+            "staking"
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "27",
+            "address": "reap1vqu8rska6swzdmnhf90zuv0xmelej4lquca34z",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "evm",
+          "permissions": [
+            "minter",
+            "burner"
+          ]
+        },
+        {
+          "@type": "/reapchain.vesting.v1.ClawbackVestingAccount",
+          "base_vesting_account": {
+            "base_account": {
+              "account_number": "31",
+              "address": "reap1dv582jlffrmm66gl6r8esr4z45m20al9qjemkr",
+              "pub_key": {
+                "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+                "key": "A9rXkQF6o8q6/6xGg7BvvPTgEtnkvLnBtfDbGp0GvYvL"
+              },
+              "sequence": "2"
+            },
+            "delegated_free": [],
+            "delegated_vesting": [],
+            "end_time": "1695913200",
+            "original_vesting": [
+              {
+                "amount": "2000000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "funder_address": "reap1rsah7qsysn9rh2wwd0nuq73wrl2xc82zep0p95",
+          "lockup_periods": [
+            {
+              "amount": [
+                {
+                  "amount": "2000000000000000000",
+                  "denom": "areap"
+                }
+              ],
+              "length": "0"
+            }
+          ],
+          "start_time": "2023-09-27T04:39:26Z",
+          "vesting_periods": [
+            {
+              "amount": [
+                {
+                  "amount": "1000000000000000000",
+                  "denom": "areap"
+                }
+              ],
+              "length": "37234"
+            },
+            {
+              "amount": [
+                {
+                  "amount": "1000000000000000000",
+                  "denom": "areap"
+                }
+              ],
+              "length": "86400"
+            }
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "24",
+            "address": "reap1d4e35hk3gk4k6t5gh02dcm923z8ck86qhr0z29",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "inflation",
+          "permissions": [
+            "minter"
+          ]
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "7",
+            "address": "reap1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e62yczju",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A9+3MyjTOPVo1/ZKgsDEzekqfpxvt/7E1UAZYIwlRxSp"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "2",
+            "address": "reap1wtxtlvt6u5cxryp558lrgwre28lspwa4h9j67y",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A8WjcUZzi4/ZlWFGWFjnRasNabPWdhWOr/bL+BHcfu3K"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "11",
+            "address": "reap1w4h2ww9agw8kwa3k9a0quwalavtm5kyzz949g8",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "AlhHLzeW7ga0/38+dDkdWc4OiTxUqeYLLsNr/e6XAlpJ"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "8",
+            "address": "reap1whugvc9ngap4u658sp5chlexn0gm3z5xlqc8sd",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A4jrrrxPSGF4yK6j02NRdzPnLJIvNzPDkjlM1VYsWHx7"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "22",
+            "address": "reap10d07y265gmmuvt4z0w9aw880jnsr700jtgtqhe",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "gov",
+          "permissions": [
+            "burner"
+          ]
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "14",
+            "address": "reap1052hvfzm93lmnxtk3g0e8tmj5lma23903dlwdj",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "AjyyJlw+3xHVoEJbqevUhe4S+AUyvQTNLpNeyNA9NlKX"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/reapchain.vesting.v1.ClawbackVestingAccount",
+          "base_vesting_account": {
+            "base_account": {
+              "account_number": "32",
+              "address": "reap13ve0xp3twshpum30f9nwsku0smmulmsg6dl4dv",
+              "pub_key": null,
+              "sequence": "0"
+            },
+            "delegated_free": [],
+            "delegated_vesting": [],
+            "end_time": "1696604400",
+            "original_vesting": [
+              {
+                "amount": "1000000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "funder_address": "reap1dv582jlffrmm66gl6r8esr4z45m20al9qjemkr",
+          "lockup_periods": [
+            {
+              "amount": [
+                {
+                  "amount": "1000000000000000000",
+                  "denom": "areap"
+                }
+              ],
+              "length": "0"
+            }
+          ],
+          "start_time": "2023-10-06T07:30:28Z",
+          "vesting_periods": [
+            {
+              "amount": [
+                {
+                  "amount": "1000000000000000000",
+                  "denom": "areap"
+                }
+              ],
+              "length": "26972"
+            }
+          ]
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "18",
+            "address": "reap1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8k4ueg4",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "distribution",
+          "permissions": []
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "30",
+            "address": "reap1597jfruj5h7yul3gk2pyptgluqvrvupflrpfd3",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "AjUxENRtvPhiWWE9YueH/QydmAs6QXQL3a90zUVlcouP"
+            },
+            "sequence": "2"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "19",
+            "address": "reap15cvq3ljql6utxseh0zau9m8ve2j8erz8ksa9dq",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "claims",
+          "permissions": []
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "26",
+            "address": "reap1krxwf5e308jmclyhfd9u92kp369l083wq3hawz",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "incentives",
+          "permissions": [
+            "minter",
+            "burner"
+          ]
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "16",
+            "address": "reap1kd73sseljuj4pejj2qsugj4p6t4uz9gpn8u7u8",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "Ag9/5BerUKYEuRdcKfdEDMk/ezx5Nv9+i8QhVyIKIuLQ"
+            },
+            "sequence": "1"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "4",
+            "address": "reap1eqmazhwyzgpvcaute2nk2sarkx4hpsk9cch2td",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "AqP4afEKo6pSYz26hc7+ipBXtu9+OIej5n+HZhO0Ocsl"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "6",
+            "address": "reap1esasm0wyj9lkchedke42ngqutek6auyju0u9tv",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A4ctIxfilFSMxIQDQRxK1S4WDgeUjWsMgBQEVKdIQuWh"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "29",
+            "address": "reap165rw7n6zx9jj9x9y6rl7xz0d4u3azz8uuvsauw",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "AlLPH0RbE355Gpn/cD+XfeNsE2vAvCtjmsGZudamnmzo"
+            },
+            "sequence": "1"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "15",
+            "address": "reap16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6p20mfd",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "A1nOIj95pFKikjm3o8i1Z84xNHU9Ao0yQrwLwPSqNYD/"
+            },
+            "sequence": "0"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/ethermint.types.v1.EthAccount",
+          "base_account": {
+            "account_number": "0",
+            "address": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+            "pub_key": {
+              "@type": "/ethermint.crypto.v1.ethsecp256k1.PubKey",
+              "key": "Aqdr2LRsBrk3JC00ivb/LlVm8a7YCFmHnz5KfUj7T0TF"
+            },
+            "sequence": "2"
+          },
+          "code_hash": "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.ModuleAccount",
+          "base_account": {
+            "account_number": "17",
+            "address": "reap17xpfvakm2amg962yls6f84z3kell8c5lpnm92h",
+            "pub_key": null,
+            "sequence": "0"
+          },
+          "name": "fee_collector",
+          "permissions": []
+        }
+      ],
+      "params": {
+        "max_memo_characters": "256",
+        "sig_verify_cost_ed25519": "590",
+        "sig_verify_cost_secp256k1": "1000",
+        "tx_sig_limit": "7",
+        "tx_size_cost_per_byte": "10"
+      }
+    },
+    "authz": {
+      "authorization": []
+    },
+    "bank": {
+      "balances": [
+        {
+          "address": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+          "coins": [
+            {
+              "amount": "384267599997531688000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1rsah7qsysn9rh2wwd0nuq73wrl2xc82zep0p95",
+          "coins": [
+            {
+              "amount": "478997467784000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1fl48vsnmsdzcv85q5d2q4z5ajdha8yu3y332ca",
+          "coins": [
+            {
+              "amount": "616200000000000000000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1dv582jlffrmm66gl6r8esr4z45m20al9qjemkr",
+          "coins": [
+            {
+              "amount": "37500000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap10d07y265gmmuvt4z0w9aw880jnsr700jtgtqhe",
+          "coins": [
+            {
+              "amount": "100000000000000000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap13ve0xp3twshpum30f9nwsku0smmulmsg6dl4dv",
+          "coins": [
+            {
+              "amount": "1000000000000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1jv65s3grqf6v6jl3dp4t6c9t9rk99cd8k4ueg4",
+          "coins": [
+            {
+              "amount": "109138060243976862008804320",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1597jfruj5h7yul3gk2pyptgluqvrvupflrpfd3",
+          "coins": [
+            {
+              "amount": "937249999853000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1kd73sseljuj4pejj2qsugj4p6t4uz9gpn8u7u8",
+          "coins": [
+            {
+              "amount": "199499900000000000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap165rw7n6zx9jj9x9y6rl7xz0d4u3azz8uuvsauw",
+          "coins": [
+            {
+              "amount": "68750000000000",
+              "denom": "areap"
+            }
+          ]
+        },
+        {
+          "address": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+          "coins": [
+            {
+              "amount": "384267599980075728000000",
+              "denom": "areap"
+            }
+          ]
+        }
+      ],
+      "denom_metadata": [],
+      "params": {
+        "default_send_enabled": true,
+        "send_enabled": []
+      },
+      "supply": [
+        {
+          "amount": "726406575342465753424657320",
+          "denom": "areap"
+        }
+      ]
+    },
+    "bech32ibc": {
+      "hrpIBCRecords": [],
+      "nativeHRP": "reap"
+    },
+    "capability": {
+      "index": "2",
+      "owners": [
+        {
+          "index": "1",
+          "index_owners": {
+            "owners": [
+              {
+                "module": "ibc",
+                "name": "ports/transfer"
+              },
+              {
+                "module": "transfer",
+                "name": "ports/transfer"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "claims": {
+      "claims_records": [],
+      "params": {
+        "airdrop_start_time": "2023-12-27T06:13:53.60945134Z",
+        "authorized_channels": [
+          "channel-0",
+          "channel-3"
+        ],
+        "claims_denom": "areap",
+        "duration_of_decay": "5259600s",
+        "duration_until_decay": "2629800s",
+        "enable_claims": false,
+        "evm_channels": [
+          "channel-2"
+        ]
+      }
+    },
+    "crisis": {
+      "constant_fee": {
+        "amount": "10000000000000000000",
+        "denom": "areap"
+      }
+    },
+    "distribution": {
+      "delegator_starting_infos": [
+        {
+          "delegator_address": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+          "starting_info": {
+            "height": "1412838",
+            "previous_period": "2",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "delegator_address": "reap1yz5psrp7pekpukkzq6ywahuzky5d2c74328z8c",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "delegator_address": "reap1gypevvsjyvrn3z9h0n39l9qhpdcu00nezsyd9h",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "delegator_address": "reap1gsez6p98e77z2kkg2smlu2px5735vwadtfd5kt",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "delegator_address": "reap1gu5lm3kj9nten6lmw3xjfdvd309el2xt68wc6j",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "delegator_address": "reap1ftfyf9tckar7t4mfhjh452s6putyrj6ul4j70l",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "delegator_address": "reap1f782nrh8zfhz40ymn9z4pz4qu4x6mxw7uktqdq",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "delegator_address": "reap1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e62yczju",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "delegator_address": "reap1wtxtlvt6u5cxryp558lrgwre28lspwa4h9j67y",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "delegator_address": "reap1w4h2ww9agw8kwa3k9a0quwalavtm5kyzz949g8",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "delegator_address": "reap1whugvc9ngap4u658sp5chlexn0gm3z5xlqc8sd",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "delegator_address": "reap1052hvfzm93lmnxtk3g0e8tmj5lma23903dlwdj",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "100000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "delegator_address": "reap1eqmazhwyzgpvcaute2nk2sarkx4hpsk9cch2td",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "delegator_address": "reap1esasm0wyj9lkchedke42ngqutek6auyju0u9tv",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "delegator_address": "reap16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6p20mfd",
+          "starting_info": {
+            "height": "0",
+            "previous_period": "1",
+            "stake": "100000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "delegator_address": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+          "starting_info": {
+            "height": "1412027",
+            "previous_period": "2",
+            "stake": "44000000000000000000000000.000000000000000000"
+          },
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "delegator_withdraw_infos": [],
+      "fee_pool": {
+        "community_pool": [
+          {
+            "amount": "100000000000000000057037480.031219345721386556",
+            "denom": "areap"
+          }
+        ]
+      },
+      "outstanding_rewards": [
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "75005614513176751866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "1438445220085575604815621.000000000000000000",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "509263214564458439866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "1438445220085575604815621.000000000000000000",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "outstanding_rewards": [
+            {
+              "amount": "75005614519032711866828.426341475305615246",
+              "denom": "areap"
+            }
+          ],
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "params": {
+        "base_proposer_reward": "0.010000000000000000",
+        "bonus_proposer_reward": "0.040000000000000000",
+        "community_tax": "0.000000000000000000",
+        "withdraw_addr_enabled": true
+      },
+      "previous_proposer": "reapvalcons13t7s8yrwrlrlspyfn9xwfsu2kyhlnnsgr9jhzx",
+      "validator_accumulated_commissions": [
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "143844522008557560481562.100000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "143844522008557560481562.100000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "accumulated": {
+            "commission": [
+              {
+                "amount": "50926321456445843986682.842634147530561359",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "validator_current_rewards": [
+        {
+          "rewards": {
+            "period": "3",
+            "rewards": [
+              {
+                "amount": "24079293056730876764312.302421152984344429",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "1294600698077018044334058.900000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "458336893108012595880145.583707327775053887",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "rewards": {
+            "period": "2",
+            "rewards": [
+              {
+                "amount": "1294600698077018044334058.900000000000000000",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "rewards": {
+            "period": "3",
+            "rewards": [
+              {
+                "amount": "24079293062586863371455.159517162234344429",
+                "denom": "areap"
+              }
+            ]
+          },
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "validator_historical_rewards": [
+        {
+          "period": "2",
+          "rewards": {
+            "cumulative_reward_ratio": [
+              {
+                "amount": "0.009869490910256402",
+                "denom": "areap"
+              }
+            ],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "period": "1",
+          "rewards": {
+            "cumulative_reward_ratio": [],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "period": "2",
+          "rewards": {
+            "cumulative_reward_ratio": [
+              {
+                "amount": "0.009869490910123312",
+                "denom": "areap"
+              }
+            ],
+            "reference_count": 2
+          },
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "validator_slash_events": []
+    },
+    "epochs": {
+      "epochs": [
+        {
+          "current_epoch": "93",
+          "current_epoch_start_height": "1490296",
+          "current_epoch_start_time": "2023-12-27T06:13:53.60945134Z",
+          "duration": "86400s",
+          "epoch_counting_started": true,
+          "identifier": "day",
+          "start_time": "2023-12-27T06:13:53.60945134Z"
+        },
+        {
+          "current_epoch": "553",
+          "current_epoch_start_height": "1490296",
+          "current_epoch_start_time": "2023-12-27T06:13:53.60945134Z",
+          "duration": "14400s",
+          "epoch_counting_started": true,
+          "identifier": "podc",
+          "start_time": "2023-12-27T06:13:53.60945134Z"
+        },
+        {
+          "current_epoch": "14",
+          "current_epoch_start_height": "1474098",
+          "current_epoch_start_time": "2023-12-27T06:13:53.60945134Z",
+          "duration": "604800s",
+          "epoch_counting_started": true,
+          "identifier": "week",
+          "start_time": "2023-12-27T06:13:53.60945134Z"
+        }
+      ]
+    },
+    "erc20": {
+      "params": {
+        "enable_erc20": true,
+        "enable_evm_hook": true
+      },
+      "token_pairs": []
+    },
+    "escrow": {
+      "escrow_pools": [],
+      "params": {
+        "enable_escrow": true
+      },
+      "registered_denoms": []
+    },
+    "evidence": {
+      "evidence": []
+    },
+    "evm": {
+      "accounts": [
+        {
+          "address": "0x1117b20a07D30C3d8C41B75aBF6Fa035A4D8F338",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x1C3b7F020484Ca3bA9Ce6be7C07A2E1FD46c1D42",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x20a8180c3e0E6C1e5aC20688eEdF82b128D563D5",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x410396321223073888b77cE25f94170b71c7be79",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x44322d04a7cFBc255ac85437fE2826a7a3463BAD",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x4729fDc6D22Cd799ebFb744D24B58D8BcB9fA8Cb",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x4ad2449578B747e5D769bcAF5A2a1A0f1641Cb5c",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x4f8EA98ee7126e2abC9B9945508aa0E54DaD99dE",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x6de9F3a718F5209985005dEa44c8a4702fF4173A",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x72cCBFb17ae530619034A1fe34387951Ff00BBb5",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x756EA738BD438f6776362f5E0e3BbFeb17BA5882",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x75f88660B347435E6a8780698BFf269bd1B88a86",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0x7D1576245B2c7Fb999768a1F93aF72A7f7D544af",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xa17D248F92A5Fc4E7E28B28240Ad1fe018367029",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xb37D18433F972550e6525021c44aA1d2eBc11501",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xC837d15dC41202Cc778BCAA76543a3B1AB70c2c5",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xCC3B0dbdC4917F6C5F2Db66Aa9a01c5E6DAEF092",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xd506EF4f4231652298A4D0fFE309Edaf23D108FC",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xd675cbCC20484a9836977d4E002A123F0822EC7A",
+          "code": "",
+          "storage": []
+        },
+        {
+          "address": "0xED100333f1d44B615C0858A07Ea7Cab573147AE7",
+          "code": "",
+          "storage": []
+        }
+      ],
+      "params": {
+        "allow_unprotected_txs": false,
+        "chain_config": {
+          "arrow_glacier_block": "0",
+          "berlin_block": "0",
+          "byzantium_block": "0",
+          "constantinople_block": "0",
+          "dao_fork_block": "0",
+          "dao_fork_support": true,
+          "eip150_block": "0",
+          "eip150_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "eip155_block": "0",
+          "eip158_block": "0",
+          "gray_glacier_block": "0",
+          "homestead_block": "0",
+          "istanbul_block": "0",
+          "london_block": "0",
+          "merge_netsplit_block": "0",
+          "muir_glacier_block": "0",
+          "petersburg_block": "0"
+        },
+        "enable_call": true,
+        "enable_create": true,
+        "evm_denom": "areap",
+        "extra_eips": []
+      }
+    },
+    "feegrant": {
+      "allowances": []
+    },
+    "feemarket": {
+      "block_gas": "0",
+      "params": {
+        "base_fee": "7",
+        "base_fee_change_denominator": 8,
+        "elasticity_multiplier": 2,
+        "enable_height": "0",
+        "min_gas_multiplier": "0.500000000000000000",
+        "min_gas_price": "0.000000000000000000",
+        "no_base_fee": false
+      }
+    },
+    "feesplit": {
+      "fee_splits": [],
+      "params": {
+        "addr_derivation_cost_create": "50",
+        "developer_shares": "0.500000000000000000",
+        "enable_fee_split": false
+      }
+    },
+    "genutil": {
+      "gen_txs": []
+    },
+    "gov": {
+      "deposit_params": {
+        "max_deposit_period": "604800s",
+        "min_deposit": [
+          {
+            "amount": "100000000000000000000000",
+            "denom": "areap"
+          }
+        ]
+      },
+      "deposits": [
+        {
+          "amount": [
+            {
+              "amount": "50000000000000000000000",
+              "denom": "areap"
+            }
+          ],
+          "depositor": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+          "proposal_id": "1"
+        },
+        {
+          "amount": [
+            {
+              "amount": "50000000000000000000000",
+              "denom": "areap"
+            }
+          ],
+          "depositor": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+          "proposal_id": "1"
+        }
+      ],
+      "proposals": [
+        {
+          "content": {
+            "@type": "/cosmos.gov.v1beta1.TextProposal",
+            "description": "1. Target Quantities for Adjustment: \nEcosystem Incentives, Company Reserve, Standing Committee Node\n2. Adjustment Scope: \n1) The standing committee node holding, which operates at 2% of the total issuance, will be adjusted to 1%.\n2) The adjusted 1% of standing committee node quantity will be attributed to the foundation, and the attributed quantity will be used for node ecosystem security and operation costs, immediately included in circulating supply upon voting approval.\n3) 50% of the Company Reserve quantity of 200 million will be included in circulating supply for research and development expenses upon voting approval.\n3. Comparison of Adjusted Quantities in the Event of Voting Approval for Current Foundation Holdings\n1) Company Reserve Adjustment\n(Before) 200 millions -> (After) 100 millions\n2) Standing Committee Node\n(Before) 616 millions -> (After) 380 millions",
+            "title": "Adjustment of existing Reapchain Foundation holdings and additional distribution"
+          },
+          "deposit_end_time": "2023-12-28T07:29:24.291724530Z",
+          "final_tally_result": {
+            "abstain": "0",
+            "no": "0",
+            "no_with_veto": "0",
+            "yes": "0"
+          },
+          "proposal_id": "1",
+          "status": "PROPOSAL_STATUS_VOTING_PERIOD",
+          "submit_time": "2023-12-21T07:29:24.291724530Z",
+          "total_deposit": [
+            {
+              "amount": "100000000000000000000000",
+              "denom": "areap"
+            }
+          ],
+          "voting_end_time": "2023-12-31T06:00:17.898395747Z",
+          "voting_start_time": "2023-12-24T06:00:17.898395747Z"
+        }
+      ],
+      "starting_proposal_id": "2",
+      "tally_params": {
+        "quorum": "0.334000000000000000",
+        "threshold": "0.667000000000000000",
+        "veto_threshold": "0.334000000000000000"
+      },
+      "votes": [],
+      "voting_params": {
+        "voting_period": "604800s"
+      }
+    },
+    "gravity": {
+      "attestations": [],
+      "batch_confirms": [],
+      "batches": [],
+      "default_erc20_contract_address": "0x1fc5EF0337AEA85C5f9198853a6E3A579a7A6987",
+      "delegate_keys": [
+        {
+          "eth_address": "0x1117b20a07D30C3d8C41B75aBF6Fa035A4D8F338",
+          "orchestrator": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+          "validator": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "eth_address": "0x20a8180c3e0E6C1e5aC20688eEdF82b128D563D5",
+          "orchestrator": "reap1yz5psrp7pekpukkzq6ywahuzky5d2c74328z8c",
+          "validator": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "eth_address": "0x410396321223073888b77cE25f94170b71c7be79",
+          "orchestrator": "reap1gypevvsjyvrn3z9h0n39l9qhpdcu00nezsyd9h",
+          "validator": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "eth_address": "0x44322d04a7cFBc255ac85437fE2826a7a3463BAD",
+          "orchestrator": "reap1gsez6p98e77z2kkg2smlu2px5735vwadtfd5kt",
+          "validator": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "eth_address": "0x4729fDc6D22Cd799ebFb744D24B58D8BcB9fA8Cb",
+          "orchestrator": "reap1gu5lm3kj9nten6lmw3xjfdvd309el2xt68wc6j",
+          "validator": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "eth_address": "0x4ad2449578B747e5D769bcAF5A2a1A0f1641Cb5c",
+          "orchestrator": "reap1ftfyf9tckar7t4mfhjh452s6putyrj6ul4j70l",
+          "validator": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "eth_address": "0x4f8EA98ee7126e2abC9B9945508aa0E54DaD99dE",
+          "orchestrator": "reap1f782nrh8zfhz40ymn9z4pz4qu4x6mxw7uktqdq",
+          "validator": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "eth_address": "0x6de9F3a718F5209985005dEa44c8a4702fF4173A",
+          "orchestrator": "reap1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e62yczju",
+          "validator": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "eth_address": "0x72cCBFb17ae530619034A1fe34387951Ff00BBb5",
+          "orchestrator": "reap1wtxtlvt6u5cxryp558lrgwre28lspwa4h9j67y",
+          "validator": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "eth_address": "0x756EA738BD438f6776362f5E0e3BbFeb17BA5882",
+          "orchestrator": "reap1w4h2ww9agw8kwa3k9a0quwalavtm5kyzz949g8",
+          "validator": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "eth_address": "0x75f88660B347435E6a8780698BFf269bd1B88a86",
+          "orchestrator": "reap1whugvc9ngap4u658sp5chlexn0gm3z5xlqc8sd",
+          "validator": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "eth_address": "0xC837d15dC41202Cc778BCAA76543a3B1AB70c2c5",
+          "orchestrator": "reap1eqmazhwyzgpvcaute2nk2sarkx4hpsk9cch2td",
+          "validator": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "eth_address": "0xCC3B0dbdC4917F6C5F2Db66Aa9a01c5E6DAEF092",
+          "orchestrator": "reap1esasm0wyj9lkchedke42ngqutek6auyju0u9tv",
+          "validator": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "eth_address": "0xED100333f1d44B615C0858A07Ea7Cab573147AE7",
+          "orchestrator": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+          "validator": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "erc20_to_denoms": [],
+      "gravity_nonces": {
+        "last_batch_id": "0",
+        "last_observed_nonce": "0",
+        "last_slashed_batch_block": "0",
+        "last_slashed_logic_call_block": "0",
+        "last_slashed_valset_nonce": "0",
+        "last_tx_pool_id": "0",
+        "latest_valset_nonce": "0"
+      },
+      "logic_call_confirms": [],
+      "logic_calls": [],
+      "params": {
+        "average_block_time": "5000",
+        "average_ethereum_block_time": "15000",
+        "bridge_active": true,
+        "bridge_chain_id": "0",
+        "bridge_ethereum_address": "0x0000000000000000000000000000000000000000",
+        "contract_source_hash": "",
+        "enable_slash": false,
+        "ethereum_blacklist": [],
+        "gravity_id": "reapchain-bridge-mainnet",
+        "min_bridge_fee": "3000000000000000000000",
+        "min_chain_fee_basis_points": "2",
+        "signed_batches_window": "10",
+        "signed_logic_calls_window": "70",
+        "signed_valsets_window": "20",
+        "slash_fraction_bad_eth_signature": "0.001000000000000000",
+        "slash_fraction_batch": "0.001000000000000000",
+        "slash_fraction_logic_call": "0",
+        "slash_fraction_valset": "0.001000000000000000",
+        "target_batch_timeout": "43200000",
+        "unbond_slashing_valsets_window": "100",
+        "valset_reward": {
+          "amount": "0",
+          "denom": ""
+        }
+      },
+      "pending_ibc_auto_forwards": [],
+      "unbatched_transfers": [],
+      "valset_confirms": [],
+      "valsets": []
+    },
+    "ibc": {
+      "channel_genesis": {
+        "ack_sequences": [],
+        "acknowledgements": [],
+        "channels": [],
+        "commitments": [],
+        "next_channel_sequence": "0",
+        "receipts": [],
+        "recv_sequences": [],
+        "send_sequences": []
+      },
+      "client_genesis": {
+        "clients": [],
+        "clients_consensus": [],
+        "clients_metadata": [],
+        "create_localhost": false,
+        "next_client_sequence": "0",
+        "params": {
+          "allowed_clients": [
+            "06-solomachine",
+            "07-tendermint"
+          ]
+        }
+      },
+      "connection_genesis": {
+        "client_connection_paths": [],
+        "connections": [],
+        "next_connection_sequence": "0",
+        "params": {
+          "max_expected_time_per_block": "30000000000"
+        }
+      }
+    },
+    "incentives": {
+      "gas_meters": [],
+      "incentives": [],
+      "params": {
+        "allocation_limit": "0.050000000000000000",
+        "enable_incentives": false,
+        "incentives_epoch_identifier": "week",
+        "reward_scaler": "1.200000000000000000"
+      }
+    },
+    "inflation": {
+      "current_inflation_amount": "10006575342465753424657320",
+      "epoch_identifier": "podc",
+      "epochs_per_period": "2190",
+      "max_inflation_amount": "397000000000000000000000000",
+      "params": {
+        "enable_inflation": true,
+        "exponential_calculation": {
+          "a": "39700000.000000000000000000",
+          "bonding_target": "0.660000000000000000",
+          "c": "0.000000000000000000",
+          "max_variance": "0.000000000000000000",
+          "r": "0.000000000000000000"
+        },
+        "inflation_distribution": {
+          "community_pool": "0.000000000000000000",
+          "staking_rewards": "1.000000000000000000",
+          "usage_incentives": "0.000000000000000000"
+        },
+        "mint_denom": "areap"
+      },
+      "period": "0",
+      "skipped_epochs": "0"
+    },
+    "params": null,
+    "permissions": {
+      "params": {
+        "gov_min_initial_deposit_enabled": true,
+        "gov_min_initial_deposit_percentage": "0.500000000000000000",
+        "podc_whitelist_enabled": true
+      }
+    },
+    "recovery": {
+      "params": {
+        "enable_recovery": false,
+        "packet_timeout_duration": "14400s"
+      }
+    },
+    "slashing": {
+      "missed_blocks": [
+        {
+          "address": "reapvalcons1pc7xsrm6et8x8wuztwe5hzymnlka8ac746rmek",
+          "missed_blocks": [
+            {
+              "index": "20296",
+              "missed": false
+            },
+            {
+              "index": "20297",
+              "missed": false
+            },
+            {
+              "index": "20298",
+              "missed": false
+            },
+            {
+              "index": "24605",
+              "missed": false
+            },
+            {
+              "index": "40151",
+              "missed": false
+            },
+            {
+              "index": "57531",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1yacyvknz4982w3t2lvpxrhpga3a5lj0fgys7y6",
+          "missed_blocks": [
+            {
+              "index": "31143",
+              "missed": false
+            },
+            {
+              "index": "53031",
+              "missed": false
+            },
+            {
+              "index": "53032",
+              "missed": false
+            },
+            {
+              "index": "53033",
+              "missed": false
+            },
+            {
+              "index": "77429",
+              "missed": false
+            },
+            {
+              "index": "79604",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1xzkdwny3xrc7cpjjx0j9dslmk6ghr8x69stlsg",
+          "missed_blocks": []
+        },
+        {
+          "address": "reapvalcons1gprezk42amhxx37ccgh76m2ty2kdsuvwjzeajy",
+          "missed_blocks": [
+            {
+              "index": "18074",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1f7x5mze45azhhch9zn52a0nkegr2ses8rsxm4g",
+          "missed_blocks": [
+            {
+              "index": "70944",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1wmetfg04laa3y70f8fwmlc9g7sukzglhqjppws",
+          "missed_blocks": [
+            {
+              "index": "992",
+              "missed": false
+            },
+            {
+              "index": "20296",
+              "missed": false
+            },
+            {
+              "index": "20297",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1026v6yuyz3lxclm8d0hfzkcl2t5armu0hs0n5v",
+          "missed_blocks": []
+        },
+        {
+          "address": "reapvalcons13t7s8yrwrlrlspyfn9xwfsu2kyhlnnsgr9jhzx",
+          "missed_blocks": [
+            {
+              "index": "972",
+              "missed": false
+            },
+            {
+              "index": "43443",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1neeqe0twfws76mj3gna8yq59na2hj82qhqqr0m",
+          "missed_blocks": []
+        },
+        {
+          "address": "reapvalcons1hf8s6zu8pycjchswk6ue75cz77m2xyuu03aj9r",
+          "missed_blocks": [
+            {
+              "index": "23820",
+              "missed": true
+            },
+            {
+              "index": "64469",
+              "missed": false
+            },
+            {
+              "index": "64471",
+              "missed": false
+            },
+            {
+              "index": "64473",
+              "missed": false
+            },
+            {
+              "index": "64474",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1cnqyj9ucgf08csrdtahclalsjm4ymhzf2fhue3",
+          "missed_blocks": [
+            {
+              "index": "0",
+              "missed": false
+            },
+            {
+              "index": "1",
+              "missed": false
+            },
+            {
+              "index": "2",
+              "missed": false
+            },
+            {
+              "index": "3",
+              "missed": false
+            },
+            {
+              "index": "4",
+              "missed": false
+            },
+            {
+              "index": "5",
+              "missed": false
+            },
+            {
+              "index": "6",
+              "missed": false
+            },
+            {
+              "index": "7",
+              "missed": false
+            },
+            {
+              "index": "8",
+              "missed": false
+            },
+            {
+              "index": "9",
+              "missed": false
+            },
+            {
+              "index": "10",
+              "missed": false
+            },
+            {
+              "index": "11",
+              "missed": false
+            },
+            {
+              "index": "12",
+              "missed": false
+            },
+            {
+              "index": "13",
+              "missed": false
+            },
+            {
+              "index": "14",
+              "missed": false
+            },
+            {
+              "index": "15",
+              "missed": false
+            },
+            {
+              "index": "16",
+              "missed": false
+            },
+            {
+              "index": "17",
+              "missed": false
+            },
+            {
+              "index": "18",
+              "missed": false
+            },
+            {
+              "index": "19",
+              "missed": false
+            },
+            {
+              "index": "20",
+              "missed": false
+            },
+            {
+              "index": "21",
+              "missed": false
+            },
+            {
+              "index": "22",
+              "missed": false
+            },
+            {
+              "index": "23",
+              "missed": false
+            },
+            {
+              "index": "24",
+              "missed": false
+            },
+            {
+              "index": "25",
+              "missed": false
+            },
+            {
+              "index": "26",
+              "missed": false
+            },
+            {
+              "index": "27",
+              "missed": false
+            },
+            {
+              "index": "28",
+              "missed": false
+            },
+            {
+              "index": "29",
+              "missed": false
+            },
+            {
+              "index": "30",
+              "missed": false
+            },
+            {
+              "index": "31",
+              "missed": false
+            },
+            {
+              "index": "32",
+              "missed": false
+            },
+            {
+              "index": "33",
+              "missed": false
+            },
+            {
+              "index": "34",
+              "missed": false
+            },
+            {
+              "index": "35",
+              "missed": false
+            },
+            {
+              "index": "36",
+              "missed": false
+            },
+            {
+              "index": "37",
+              "missed": false
+            },
+            {
+              "index": "38",
+              "missed": false
+            },
+            {
+              "index": "39",
+              "missed": false
+            },
+            {
+              "index": "40",
+              "missed": false
+            },
+            {
+              "index": "41",
+              "missed": false
+            },
+            {
+              "index": "42",
+              "missed": false
+            },
+            {
+              "index": "43",
+              "missed": false
+            },
+            {
+              "index": "44",
+              "missed": false
+            },
+            {
+              "index": "45",
+              "missed": false
+            },
+            {
+              "index": "46",
+              "missed": false
+            },
+            {
+              "index": "47",
+              "missed": false
+            },
+            {
+              "index": "48",
+              "missed": false
+            },
+            {
+              "index": "49",
+              "missed": false
+            },
+            {
+              "index": "50",
+              "missed": false
+            },
+            {
+              "index": "51",
+              "missed": false
+            },
+            {
+              "index": "52",
+              "missed": false
+            },
+            {
+              "index": "53",
+              "missed": false
+            },
+            {
+              "index": "54",
+              "missed": false
+            },
+            {
+              "index": "55",
+              "missed": false
+            },
+            {
+              "index": "56",
+              "missed": false
+            },
+            {
+              "index": "57",
+              "missed": false
+            },
+            {
+              "index": "58",
+              "missed": false
+            },
+            {
+              "index": "59",
+              "missed": false
+            },
+            {
+              "index": "60",
+              "missed": false
+            },
+            {
+              "index": "61",
+              "missed": false
+            },
+            {
+              "index": "62",
+              "missed": false
+            },
+            {
+              "index": "63",
+              "missed": false
+            },
+            {
+              "index": "64",
+              "missed": false
+            },
+            {
+              "index": "65",
+              "missed": false
+            },
+            {
+              "index": "66",
+              "missed": false
+            },
+            {
+              "index": "67",
+              "missed": false
+            },
+            {
+              "index": "68",
+              "missed": false
+            },
+            {
+              "index": "69",
+              "missed": false
+            },
+            {
+              "index": "70",
+              "missed": false
+            },
+            {
+              "index": "71",
+              "missed": false
+            },
+            {
+              "index": "72",
+              "missed": false
+            },
+            {
+              "index": "73",
+              "missed": false
+            },
+            {
+              "index": "74",
+              "missed": false
+            },
+            {
+              "index": "75",
+              "missed": false
+            },
+            {
+              "index": "76",
+              "missed": false
+            },
+            {
+              "index": "77",
+              "missed": false
+            },
+            {
+              "index": "78",
+              "missed": false
+            },
+            {
+              "index": "79",
+              "missed": false
+            },
+            {
+              "index": "80",
+              "missed": false
+            },
+            {
+              "index": "81",
+              "missed": false
+            },
+            {
+              "index": "82",
+              "missed": false
+            },
+            {
+              "index": "83",
+              "missed": false
+            },
+            {
+              "index": "84",
+              "missed": false
+            },
+            {
+              "index": "85",
+              "missed": false
+            },
+            {
+              "index": "86",
+              "missed": false
+            },
+            {
+              "index": "87",
+              "missed": false
+            },
+            {
+              "index": "88",
+              "missed": false
+            },
+            {
+              "index": "89",
+              "missed": false
+            },
+            {
+              "index": "90",
+              "missed": false
+            },
+            {
+              "index": "91",
+              "missed": false
+            },
+            {
+              "index": "92",
+              "missed": false
+            },
+            {
+              "index": "93",
+              "missed": false
+            },
+            {
+              "index": "94",
+              "missed": false
+            },
+            {
+              "index": "95",
+              "missed": false
+            },
+            {
+              "index": "96",
+              "missed": false
+            },
+            {
+              "index": "97",
+              "missed": false
+            },
+            {
+              "index": "98",
+              "missed": false
+            },
+            {
+              "index": "99",
+              "missed": false
+            },
+            {
+              "index": "100",
+              "missed": false
+            },
+            {
+              "index": "101",
+              "missed": false
+            },
+            {
+              "index": "102",
+              "missed": false
+            },
+            {
+              "index": "103",
+              "missed": false
+            },
+            {
+              "index": "104",
+              "missed": false
+            },
+            {
+              "index": "105",
+              "missed": false
+            },
+            {
+              "index": "106",
+              "missed": false
+            },
+            {
+              "index": "107",
+              "missed": false
+            },
+            {
+              "index": "108",
+              "missed": false
+            },
+            {
+              "index": "109",
+              "missed": false
+            },
+            {
+              "index": "110",
+              "missed": false
+            },
+            {
+              "index": "111",
+              "missed": false
+            },
+            {
+              "index": "112",
+              "missed": false
+            },
+            {
+              "index": "113",
+              "missed": false
+            },
+            {
+              "index": "114",
+              "missed": false
+            },
+            {
+              "index": "115",
+              "missed": false
+            },
+            {
+              "index": "116",
+              "missed": false
+            },
+            {
+              "index": "117",
+              "missed": false
+            },
+            {
+              "index": "118",
+              "missed": false
+            },
+            {
+              "index": "119",
+              "missed": false
+            },
+            {
+              "index": "120",
+              "missed": false
+            },
+            {
+              "index": "121",
+              "missed": false
+            },
+            {
+              "index": "122",
+              "missed": false
+            },
+            {
+              "index": "123",
+              "missed": false
+            },
+            {
+              "index": "124",
+              "missed": false
+            },
+            {
+              "index": "125",
+              "missed": false
+            },
+            {
+              "index": "126",
+              "missed": false
+            },
+            {
+              "index": "127",
+              "missed": false
+            },
+            {
+              "index": "128",
+              "missed": false
+            },
+            {
+              "index": "129",
+              "missed": false
+            },
+            {
+              "index": "130",
+              "missed": false
+            },
+            {
+              "index": "131",
+              "missed": false
+            },
+            {
+              "index": "132",
+              "missed": false
+            },
+            {
+              "index": "133",
+              "missed": false
+            },
+            {
+              "index": "134",
+              "missed": false
+            },
+            {
+              "index": "135",
+              "missed": false
+            },
+            {
+              "index": "136",
+              "missed": false
+            },
+            {
+              "index": "137",
+              "missed": false
+            },
+            {
+              "index": "138",
+              "missed": false
+            },
+            {
+              "index": "139",
+              "missed": false
+            },
+            {
+              "index": "140",
+              "missed": false
+            },
+            {
+              "index": "141",
+              "missed": false
+            },
+            {
+              "index": "142",
+              "missed": false
+            },
+            {
+              "index": "143",
+              "missed": false
+            },
+            {
+              "index": "144",
+              "missed": false
+            },
+            {
+              "index": "145",
+              "missed": false
+            },
+            {
+              "index": "146",
+              "missed": false
+            },
+            {
+              "index": "147",
+              "missed": false
+            },
+            {
+              "index": "148",
+              "missed": false
+            },
+            {
+              "index": "149",
+              "missed": false
+            },
+            {
+              "index": "150",
+              "missed": false
+            },
+            {
+              "index": "151",
+              "missed": false
+            },
+            {
+              "index": "152",
+              "missed": false
+            },
+            {
+              "index": "153",
+              "missed": false
+            },
+            {
+              "index": "154",
+              "missed": false
+            },
+            {
+              "index": "155",
+              "missed": false
+            },
+            {
+              "index": "156",
+              "missed": false
+            },
+            {
+              "index": "157",
+              "missed": false
+            },
+            {
+              "index": "158",
+              "missed": false
+            },
+            {
+              "index": "159",
+              "missed": false
+            },
+            {
+              "index": "160",
+              "missed": false
+            },
+            {
+              "index": "161",
+              "missed": false
+            },
+            {
+              "index": "162",
+              "missed": false
+            },
+            {
+              "index": "163",
+              "missed": false
+            },
+            {
+              "index": "164",
+              "missed": false
+            },
+            {
+              "index": "165",
+              "missed": false
+            },
+            {
+              "index": "166",
+              "missed": false
+            },
+            {
+              "index": "167",
+              "missed": false
+            },
+            {
+              "index": "168",
+              "missed": false
+            },
+            {
+              "index": "169",
+              "missed": false
+            },
+            {
+              "index": "170",
+              "missed": false
+            },
+            {
+              "index": "171",
+              "missed": false
+            },
+            {
+              "index": "172",
+              "missed": false
+            },
+            {
+              "index": "173",
+              "missed": false
+            },
+            {
+              "index": "174",
+              "missed": false
+            },
+            {
+              "index": "175",
+              "missed": false
+            },
+            {
+              "index": "176",
+              "missed": false
+            },
+            {
+              "index": "177",
+              "missed": false
+            },
+            {
+              "index": "178",
+              "missed": false
+            },
+            {
+              "index": "179",
+              "missed": false
+            },
+            {
+              "index": "180",
+              "missed": false
+            },
+            {
+              "index": "181",
+              "missed": false
+            },
+            {
+              "index": "182",
+              "missed": false
+            },
+            {
+              "index": "183",
+              "missed": false
+            },
+            {
+              "index": "184",
+              "missed": false
+            },
+            {
+              "index": "185",
+              "missed": false
+            },
+            {
+              "index": "186",
+              "missed": false
+            },
+            {
+              "index": "187",
+              "missed": false
+            },
+            {
+              "index": "188",
+              "missed": false
+            },
+            {
+              "index": "189",
+              "missed": false
+            },
+            {
+              "index": "190",
+              "missed": false
+            },
+            {
+              "index": "191",
+              "missed": false
+            },
+            {
+              "index": "192",
+              "missed": false
+            },
+            {
+              "index": "193",
+              "missed": false
+            },
+            {
+              "index": "194",
+              "missed": false
+            },
+            {
+              "index": "195",
+              "missed": false
+            },
+            {
+              "index": "196",
+              "missed": false
+            },
+            {
+              "index": "197",
+              "missed": false
+            },
+            {
+              "index": "198",
+              "missed": false
+            },
+            {
+              "index": "199",
+              "missed": false
+            },
+            {
+              "index": "200",
+              "missed": false
+            },
+            {
+              "index": "201",
+              "missed": false
+            },
+            {
+              "index": "202",
+              "missed": false
+            },
+            {
+              "index": "203",
+              "missed": false
+            },
+            {
+              "index": "204",
+              "missed": false
+            },
+            {
+              "index": "205",
+              "missed": false
+            },
+            {
+              "index": "206",
+              "missed": false
+            },
+            {
+              "index": "207",
+              "missed": false
+            },
+            {
+              "index": "208",
+              "missed": false
+            },
+            {
+              "index": "209",
+              "missed": false
+            },
+            {
+              "index": "210",
+              "missed": false
+            },
+            {
+              "index": "211",
+              "missed": false
+            },
+            {
+              "index": "212",
+              "missed": false
+            },
+            {
+              "index": "213",
+              "missed": false
+            },
+            {
+              "index": "214",
+              "missed": false
+            },
+            {
+              "index": "215",
+              "missed": false
+            },
+            {
+              "index": "216",
+              "missed": false
+            },
+            {
+              "index": "217",
+              "missed": false
+            },
+            {
+              "index": "218",
+              "missed": false
+            },
+            {
+              "index": "219",
+              "missed": false
+            },
+            {
+              "index": "220",
+              "missed": false
+            },
+            {
+              "index": "221",
+              "missed": false
+            },
+            {
+              "index": "222",
+              "missed": false
+            },
+            {
+              "index": "223",
+              "missed": false
+            },
+            {
+              "index": "224",
+              "missed": false
+            },
+            {
+              "index": "225",
+              "missed": false
+            },
+            {
+              "index": "226",
+              "missed": false
+            },
+            {
+              "index": "227",
+              "missed": false
+            },
+            {
+              "index": "228",
+              "missed": false
+            },
+            {
+              "index": "229",
+              "missed": false
+            },
+            {
+              "index": "230",
+              "missed": false
+            },
+            {
+              "index": "231",
+              "missed": false
+            },
+            {
+              "index": "232",
+              "missed": false
+            },
+            {
+              "index": "233",
+              "missed": false
+            },
+            {
+              "index": "234",
+              "missed": false
+            },
+            {
+              "index": "235",
+              "missed": false
+            },
+            {
+              "index": "236",
+              "missed": false
+            },
+            {
+              "index": "237",
+              "missed": false
+            },
+            {
+              "index": "238",
+              "missed": false
+            },
+            {
+              "index": "239",
+              "missed": false
+            },
+            {
+              "index": "240",
+              "missed": false
+            },
+            {
+              "index": "241",
+              "missed": false
+            },
+            {
+              "index": "242",
+              "missed": false
+            },
+            {
+              "index": "243",
+              "missed": false
+            },
+            {
+              "index": "244",
+              "missed": false
+            },
+            {
+              "index": "245",
+              "missed": false
+            },
+            {
+              "index": "246",
+              "missed": false
+            },
+            {
+              "index": "247",
+              "missed": false
+            },
+            {
+              "index": "248",
+              "missed": false
+            },
+            {
+              "index": "249",
+              "missed": false
+            },
+            {
+              "index": "250",
+              "missed": false
+            },
+            {
+              "index": "251",
+              "missed": false
+            },
+            {
+              "index": "252",
+              "missed": false
+            },
+            {
+              "index": "253",
+              "missed": false
+            },
+            {
+              "index": "254",
+              "missed": false
+            },
+            {
+              "index": "255",
+              "missed": false
+            },
+            {
+              "index": "256",
+              "missed": false
+            },
+            {
+              "index": "257",
+              "missed": false
+            },
+            {
+              "index": "258",
+              "missed": false
+            },
+            {
+              "index": "259",
+              "missed": false
+            },
+            {
+              "index": "260",
+              "missed": false
+            },
+            {
+              "index": "261",
+              "missed": false
+            },
+            {
+              "index": "262",
+              "missed": false
+            },
+            {
+              "index": "263",
+              "missed": false
+            },
+            {
+              "index": "264",
+              "missed": false
+            },
+            {
+              "index": "265",
+              "missed": false
+            },
+            {
+              "index": "266",
+              "missed": false
+            },
+            {
+              "index": "267",
+              "missed": false
+            },
+            {
+              "index": "268",
+              "missed": false
+            },
+            {
+              "index": "269",
+              "missed": false
+            },
+            {
+              "index": "270",
+              "missed": false
+            },
+            {
+              "index": "271",
+              "missed": false
+            },
+            {
+              "index": "272",
+              "missed": false
+            },
+            {
+              "index": "273",
+              "missed": false
+            },
+            {
+              "index": "274",
+              "missed": false
+            },
+            {
+              "index": "275",
+              "missed": false
+            },
+            {
+              "index": "276",
+              "missed": false
+            },
+            {
+              "index": "277",
+              "missed": false
+            },
+            {
+              "index": "278",
+              "missed": false
+            },
+            {
+              "index": "279",
+              "missed": false
+            },
+            {
+              "index": "280",
+              "missed": false
+            },
+            {
+              "index": "281",
+              "missed": false
+            },
+            {
+              "index": "282",
+              "missed": false
+            },
+            {
+              "index": "283",
+              "missed": false
+            },
+            {
+              "index": "284",
+              "missed": false
+            },
+            {
+              "index": "285",
+              "missed": false
+            },
+            {
+              "index": "286",
+              "missed": false
+            },
+            {
+              "index": "287",
+              "missed": false
+            },
+            {
+              "index": "288",
+              "missed": false
+            },
+            {
+              "index": "289",
+              "missed": false
+            },
+            {
+              "index": "290",
+              "missed": false
+            },
+            {
+              "index": "291",
+              "missed": false
+            },
+            {
+              "index": "292",
+              "missed": false
+            },
+            {
+              "index": "293",
+              "missed": false
+            },
+            {
+              "index": "294",
+              "missed": false
+            },
+            {
+              "index": "295",
+              "missed": false
+            },
+            {
+              "index": "296",
+              "missed": false
+            },
+            {
+              "index": "297",
+              "missed": false
+            },
+            {
+              "index": "298",
+              "missed": false
+            },
+            {
+              "index": "299",
+              "missed": false
+            },
+            {
+              "index": "300",
+              "missed": false
+            },
+            {
+              "index": "301",
+              "missed": false
+            },
+            {
+              "index": "302",
+              "missed": false
+            },
+            {
+              "index": "303",
+              "missed": false
+            },
+            {
+              "index": "304",
+              "missed": false
+            },
+            {
+              "index": "305",
+              "missed": false
+            },
+            {
+              "index": "306",
+              "missed": false
+            },
+            {
+              "index": "307",
+              "missed": false
+            },
+            {
+              "index": "308",
+              "missed": false
+            },
+            {
+              "index": "309",
+              "missed": false
+            },
+            {
+              "index": "310",
+              "missed": false
+            },
+            {
+              "index": "311",
+              "missed": false
+            },
+            {
+              "index": "312",
+              "missed": false
+            },
+            {
+              "index": "313",
+              "missed": false
+            },
+            {
+              "index": "314",
+              "missed": false
+            },
+            {
+              "index": "315",
+              "missed": false
+            },
+            {
+              "index": "316",
+              "missed": false
+            },
+            {
+              "index": "317",
+              "missed": false
+            },
+            {
+              "index": "318",
+              "missed": false
+            },
+            {
+              "index": "319",
+              "missed": false
+            },
+            {
+              "index": "320",
+              "missed": false
+            },
+            {
+              "index": "321",
+              "missed": false
+            },
+            {
+              "index": "322",
+              "missed": false
+            },
+            {
+              "index": "323",
+              "missed": false
+            },
+            {
+              "index": "324",
+              "missed": false
+            },
+            {
+              "index": "325",
+              "missed": false
+            },
+            {
+              "index": "326",
+              "missed": false
+            },
+            {
+              "index": "327",
+              "missed": false
+            },
+            {
+              "index": "328",
+              "missed": false
+            },
+            {
+              "index": "329",
+              "missed": false
+            },
+            {
+              "index": "330",
+              "missed": false
+            },
+            {
+              "index": "331",
+              "missed": false
+            },
+            {
+              "index": "332",
+              "missed": false
+            },
+            {
+              "index": "333",
+              "missed": false
+            },
+            {
+              "index": "334",
+              "missed": false
+            },
+            {
+              "index": "335",
+              "missed": false
+            },
+            {
+              "index": "336",
+              "missed": false
+            },
+            {
+              "index": "337",
+              "missed": false
+            },
+            {
+              "index": "338",
+              "missed": false
+            },
+            {
+              "index": "339",
+              "missed": false
+            },
+            {
+              "index": "340",
+              "missed": false
+            },
+            {
+              "index": "341",
+              "missed": false
+            },
+            {
+              "index": "342",
+              "missed": false
+            },
+            {
+              "index": "343",
+              "missed": false
+            },
+            {
+              "index": "344",
+              "missed": false
+            },
+            {
+              "index": "345",
+              "missed": false
+            },
+            {
+              "index": "346",
+              "missed": false
+            },
+            {
+              "index": "347",
+              "missed": false
+            },
+            {
+              "index": "348",
+              "missed": false
+            },
+            {
+              "index": "349",
+              "missed": false
+            },
+            {
+              "index": "350",
+              "missed": false
+            },
+            {
+              "index": "351",
+              "missed": false
+            },
+            {
+              "index": "352",
+              "missed": false
+            },
+            {
+              "index": "353",
+              "missed": false
+            },
+            {
+              "index": "354",
+              "missed": false
+            },
+            {
+              "index": "355",
+              "missed": false
+            },
+            {
+              "index": "356",
+              "missed": false
+            },
+            {
+              "index": "357",
+              "missed": false
+            },
+            {
+              "index": "358",
+              "missed": false
+            },
+            {
+              "index": "359",
+              "missed": false
+            },
+            {
+              "index": "360",
+              "missed": false
+            },
+            {
+              "index": "361",
+              "missed": false
+            },
+            {
+              "index": "362",
+              "missed": false
+            },
+            {
+              "index": "363",
+              "missed": false
+            },
+            {
+              "index": "364",
+              "missed": false
+            },
+            {
+              "index": "365",
+              "missed": false
+            },
+            {
+              "index": "366",
+              "missed": false
+            },
+            {
+              "index": "367",
+              "missed": false
+            },
+            {
+              "index": "368",
+              "missed": false
+            },
+            {
+              "index": "369",
+              "missed": false
+            },
+            {
+              "index": "370",
+              "missed": false
+            },
+            {
+              "index": "371",
+              "missed": false
+            },
+            {
+              "index": "372",
+              "missed": false
+            },
+            {
+              "index": "373",
+              "missed": false
+            },
+            {
+              "index": "374",
+              "missed": false
+            },
+            {
+              "index": "375",
+              "missed": false
+            },
+            {
+              "index": "376",
+              "missed": false
+            },
+            {
+              "index": "377",
+              "missed": false
+            },
+            {
+              "index": "378",
+              "missed": false
+            },
+            {
+              "index": "379",
+              "missed": false
+            },
+            {
+              "index": "380",
+              "missed": false
+            },
+            {
+              "index": "381",
+              "missed": false
+            },
+            {
+              "index": "382",
+              "missed": false
+            },
+            {
+              "index": "383",
+              "missed": false
+            },
+            {
+              "index": "384",
+              "missed": false
+            },
+            {
+              "index": "385",
+              "missed": false
+            },
+            {
+              "index": "386",
+              "missed": false
+            },
+            {
+              "index": "387",
+              "missed": false
+            },
+            {
+              "index": "388",
+              "missed": false
+            },
+            {
+              "index": "389",
+              "missed": false
+            },
+            {
+              "index": "390",
+              "missed": false
+            },
+            {
+              "index": "391",
+              "missed": false
+            },
+            {
+              "index": "392",
+              "missed": false
+            },
+            {
+              "index": "393",
+              "missed": false
+            },
+            {
+              "index": "394",
+              "missed": false
+            },
+            {
+              "index": "395",
+              "missed": false
+            },
+            {
+              "index": "396",
+              "missed": false
+            },
+            {
+              "index": "397",
+              "missed": false
+            },
+            {
+              "index": "398",
+              "missed": false
+            },
+            {
+              "index": "399",
+              "missed": false
+            },
+            {
+              "index": "400",
+              "missed": false
+            },
+            {
+              "index": "401",
+              "missed": false
+            },
+            {
+              "index": "402",
+              "missed": false
+            },
+            {
+              "index": "403",
+              "missed": false
+            },
+            {
+              "index": "404",
+              "missed": false
+            },
+            {
+              "index": "405",
+              "missed": false
+            },
+            {
+              "index": "406",
+              "missed": false
+            },
+            {
+              "index": "407",
+              "missed": false
+            },
+            {
+              "index": "408",
+              "missed": false
+            },
+            {
+              "index": "409",
+              "missed": false
+            },
+            {
+              "index": "410",
+              "missed": false
+            },
+            {
+              "index": "411",
+              "missed": false
+            },
+            {
+              "index": "412",
+              "missed": false
+            },
+            {
+              "index": "413",
+              "missed": false
+            },
+            {
+              "index": "414",
+              "missed": false
+            },
+            {
+              "index": "415",
+              "missed": false
+            },
+            {
+              "index": "416",
+              "missed": false
+            },
+            {
+              "index": "417",
+              "missed": false
+            },
+            {
+              "index": "418",
+              "missed": false
+            },
+            {
+              "index": "20296",
+              "missed": false
+            },
+            {
+              "index": "20297",
+              "missed": false
+            },
+            {
+              "index": "35746",
+              "missed": false
+            },
+            {
+              "index": "44377",
+              "missed": false
+            },
+            {
+              "index": "44378",
+              "missed": false
+            },
+            {
+              "index": "44379",
+              "missed": false
+            },
+            {
+              "index": "53031",
+              "missed": false
+            },
+            {
+              "index": "53032",
+              "missed": false
+            },
+            {
+              "index": "53033",
+              "missed": false
+            },
+            {
+              "index": "89831",
+              "missed": false
+            },
+            {
+              "index": "89832",
+              "missed": false
+            },
+            {
+              "index": "89833",
+              "missed": false
+            },
+            {
+              "index": "89834",
+              "missed": false
+            },
+            {
+              "index": "89835",
+              "missed": false
+            },
+            {
+              "index": "89836",
+              "missed": false
+            },
+            {
+              "index": "89837",
+              "missed": false
+            },
+            {
+              "index": "89838",
+              "missed": false
+            },
+            {
+              "index": "89839",
+              "missed": false
+            },
+            {
+              "index": "89840",
+              "missed": false
+            },
+            {
+              "index": "89841",
+              "missed": false
+            },
+            {
+              "index": "89842",
+              "missed": false
+            },
+            {
+              "index": "89843",
+              "missed": false
+            },
+            {
+              "index": "89844",
+              "missed": false
+            },
+            {
+              "index": "89845",
+              "missed": false
+            },
+            {
+              "index": "89846",
+              "missed": false
+            },
+            {
+              "index": "89847",
+              "missed": false
+            },
+            {
+              "index": "89848",
+              "missed": false
+            },
+            {
+              "index": "89849",
+              "missed": false
+            },
+            {
+              "index": "89850",
+              "missed": false
+            },
+            {
+              "index": "89851",
+              "missed": false
+            },
+            {
+              "index": "89852",
+              "missed": false
+            },
+            {
+              "index": "89853",
+              "missed": false
+            },
+            {
+              "index": "89854",
+              "missed": false
+            },
+            {
+              "index": "89855",
+              "missed": false
+            },
+            {
+              "index": "89856",
+              "missed": false
+            },
+            {
+              "index": "89857",
+              "missed": false
+            },
+            {
+              "index": "89858",
+              "missed": false
+            },
+            {
+              "index": "89859",
+              "missed": false
+            },
+            {
+              "index": "89860",
+              "missed": false
+            },
+            {
+              "index": "89861",
+              "missed": false
+            },
+            {
+              "index": "89862",
+              "missed": false
+            },
+            {
+              "index": "89863",
+              "missed": false
+            },
+            {
+              "index": "89864",
+              "missed": false
+            },
+            {
+              "index": "89865",
+              "missed": false
+            },
+            {
+              "index": "89866",
+              "missed": false
+            },
+            {
+              "index": "89867",
+              "missed": false
+            },
+            {
+              "index": "89868",
+              "missed": false
+            },
+            {
+              "index": "89869",
+              "missed": false
+            },
+            {
+              "index": "89870",
+              "missed": false
+            },
+            {
+              "index": "89871",
+              "missed": false
+            },
+            {
+              "index": "89872",
+              "missed": false
+            },
+            {
+              "index": "89873",
+              "missed": false
+            },
+            {
+              "index": "89874",
+              "missed": false
+            },
+            {
+              "index": "89875",
+              "missed": false
+            },
+            {
+              "index": "89876",
+              "missed": false
+            },
+            {
+              "index": "89877",
+              "missed": false
+            },
+            {
+              "index": "89878",
+              "missed": false
+            },
+            {
+              "index": "89879",
+              "missed": false
+            },
+            {
+              "index": "89880",
+              "missed": false
+            },
+            {
+              "index": "89881",
+              "missed": false
+            },
+            {
+              "index": "89882",
+              "missed": false
+            },
+            {
+              "index": "89883",
+              "missed": false
+            },
+            {
+              "index": "89884",
+              "missed": false
+            },
+            {
+              "index": "89885",
+              "missed": false
+            },
+            {
+              "index": "89886",
+              "missed": false
+            },
+            {
+              "index": "89887",
+              "missed": false
+            },
+            {
+              "index": "89888",
+              "missed": false
+            },
+            {
+              "index": "89889",
+              "missed": false
+            },
+            {
+              "index": "89890",
+              "missed": false
+            },
+            {
+              "index": "89891",
+              "missed": false
+            },
+            {
+              "index": "89892",
+              "missed": false
+            },
+            {
+              "index": "89893",
+              "missed": false
+            },
+            {
+              "index": "89894",
+              "missed": false
+            },
+            {
+              "index": "89895",
+              "missed": false
+            },
+            {
+              "index": "89896",
+              "missed": false
+            },
+            {
+              "index": "89897",
+              "missed": false
+            },
+            {
+              "index": "89898",
+              "missed": false
+            },
+            {
+              "index": "89899",
+              "missed": false
+            },
+            {
+              "index": "89900",
+              "missed": false
+            },
+            {
+              "index": "89901",
+              "missed": false
+            },
+            {
+              "index": "89902",
+              "missed": false
+            },
+            {
+              "index": "89903",
+              "missed": false
+            },
+            {
+              "index": "89904",
+              "missed": false
+            },
+            {
+              "index": "89905",
+              "missed": false
+            },
+            {
+              "index": "89906",
+              "missed": false
+            },
+            {
+              "index": "89907",
+              "missed": false
+            },
+            {
+              "index": "89908",
+              "missed": false
+            },
+            {
+              "index": "89909",
+              "missed": false
+            },
+            {
+              "index": "89910",
+              "missed": false
+            },
+            {
+              "index": "89911",
+              "missed": false
+            },
+            {
+              "index": "89912",
+              "missed": false
+            },
+            {
+              "index": "89913",
+              "missed": false
+            },
+            {
+              "index": "89914",
+              "missed": false
+            },
+            {
+              "index": "89915",
+              "missed": false
+            },
+            {
+              "index": "89916",
+              "missed": false
+            },
+            {
+              "index": "89917",
+              "missed": false
+            },
+            {
+              "index": "89918",
+              "missed": false
+            },
+            {
+              "index": "89919",
+              "missed": false
+            },
+            {
+              "index": "89920",
+              "missed": false
+            },
+            {
+              "index": "89921",
+              "missed": false
+            },
+            {
+              "index": "89922",
+              "missed": false
+            },
+            {
+              "index": "89923",
+              "missed": false
+            },
+            {
+              "index": "89924",
+              "missed": false
+            },
+            {
+              "index": "89925",
+              "missed": false
+            },
+            {
+              "index": "89926",
+              "missed": false
+            },
+            {
+              "index": "89927",
+              "missed": false
+            },
+            {
+              "index": "89928",
+              "missed": false
+            },
+            {
+              "index": "89929",
+              "missed": false
+            },
+            {
+              "index": "89930",
+              "missed": false
+            },
+            {
+              "index": "89931",
+              "missed": false
+            },
+            {
+              "index": "89932",
+              "missed": false
+            },
+            {
+              "index": "89933",
+              "missed": false
+            },
+            {
+              "index": "89934",
+              "missed": false
+            },
+            {
+              "index": "89935",
+              "missed": false
+            },
+            {
+              "index": "89936",
+              "missed": false
+            },
+            {
+              "index": "89937",
+              "missed": false
+            },
+            {
+              "index": "89938",
+              "missed": false
+            },
+            {
+              "index": "89939",
+              "missed": false
+            },
+            {
+              "index": "89940",
+              "missed": false
+            },
+            {
+              "index": "89941",
+              "missed": false
+            },
+            {
+              "index": "89942",
+              "missed": false
+            },
+            {
+              "index": "89943",
+              "missed": false
+            },
+            {
+              "index": "89944",
+              "missed": false
+            },
+            {
+              "index": "89945",
+              "missed": false
+            },
+            {
+              "index": "89946",
+              "missed": false
+            },
+            {
+              "index": "89947",
+              "missed": false
+            },
+            {
+              "index": "89948",
+              "missed": false
+            },
+            {
+              "index": "89949",
+              "missed": false
+            },
+            {
+              "index": "89950",
+              "missed": false
+            },
+            {
+              "index": "89951",
+              "missed": false
+            },
+            {
+              "index": "89952",
+              "missed": false
+            },
+            {
+              "index": "89953",
+              "missed": false
+            },
+            {
+              "index": "89954",
+              "missed": false
+            },
+            {
+              "index": "89955",
+              "missed": false
+            },
+            {
+              "index": "89956",
+              "missed": false
+            },
+            {
+              "index": "89957",
+              "missed": false
+            },
+            {
+              "index": "89958",
+              "missed": false
+            },
+            {
+              "index": "89959",
+              "missed": false
+            },
+            {
+              "index": "89960",
+              "missed": false
+            },
+            {
+              "index": "89961",
+              "missed": false
+            },
+            {
+              "index": "89962",
+              "missed": false
+            },
+            {
+              "index": "89963",
+              "missed": false
+            },
+            {
+              "index": "89964",
+              "missed": false
+            },
+            {
+              "index": "89965",
+              "missed": false
+            },
+            {
+              "index": "89966",
+              "missed": false
+            },
+            {
+              "index": "89967",
+              "missed": false
+            },
+            {
+              "index": "89968",
+              "missed": false
+            },
+            {
+              "index": "89969",
+              "missed": false
+            },
+            {
+              "index": "89970",
+              "missed": false
+            },
+            {
+              "index": "89971",
+              "missed": false
+            },
+            {
+              "index": "89972",
+              "missed": false
+            },
+            {
+              "index": "89973",
+              "missed": false
+            },
+            {
+              "index": "89974",
+              "missed": false
+            },
+            {
+              "index": "89975",
+              "missed": false
+            },
+            {
+              "index": "89976",
+              "missed": false
+            },
+            {
+              "index": "89977",
+              "missed": false
+            },
+            {
+              "index": "89978",
+              "missed": false
+            },
+            {
+              "index": "89979",
+              "missed": false
+            },
+            {
+              "index": "89980",
+              "missed": false
+            },
+            {
+              "index": "89981",
+              "missed": false
+            },
+            {
+              "index": "89982",
+              "missed": false
+            },
+            {
+              "index": "89983",
+              "missed": false
+            },
+            {
+              "index": "89984",
+              "missed": false
+            },
+            {
+              "index": "89985",
+              "missed": false
+            },
+            {
+              "index": "89986",
+              "missed": false
+            },
+            {
+              "index": "89987",
+              "missed": false
+            },
+            {
+              "index": "89988",
+              "missed": false
+            },
+            {
+              "index": "89989",
+              "missed": false
+            },
+            {
+              "index": "89990",
+              "missed": false
+            },
+            {
+              "index": "89991",
+              "missed": false
+            },
+            {
+              "index": "89992",
+              "missed": false
+            },
+            {
+              "index": "89993",
+              "missed": false
+            },
+            {
+              "index": "89994",
+              "missed": false
+            },
+            {
+              "index": "89995",
+              "missed": false
+            },
+            {
+              "index": "89996",
+              "missed": false
+            },
+            {
+              "index": "89997",
+              "missed": false
+            },
+            {
+              "index": "89998",
+              "missed": false
+            },
+            {
+              "index": "89999",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1en80uwcagc62p8zswud7wfww0g7yw42xlu23ra",
+          "missed_blocks": [
+            {
+              "index": "1351",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons16ehr690n8tz0xm2spuxkxgp9d3lnuj5g0pt44a",
+          "missed_blocks": [
+            {
+              "index": "1240",
+              "missed": false
+            },
+            {
+              "index": "1241",
+              "missed": false
+            },
+            {
+              "index": "1242",
+              "missed": false
+            },
+            {
+              "index": "1243",
+              "missed": false
+            },
+            {
+              "index": "1244",
+              "missed": false
+            },
+            {
+              "index": "1245",
+              "missed": false
+            },
+            {
+              "index": "1246",
+              "missed": false
+            },
+            {
+              "index": "1247",
+              "missed": false
+            },
+            {
+              "index": "1248",
+              "missed": false
+            },
+            {
+              "index": "56490",
+              "missed": false
+            },
+            {
+              "index": "56491",
+              "missed": false
+            },
+            {
+              "index": "56492",
+              "missed": false
+            },
+            {
+              "index": "56493",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1me3pv5dsnp2elqeu95yrh6vtmd9k37943zcdvc",
+          "missed_blocks": []
+        },
+        {
+          "address": "reapvalcons1u64mmjrl7qpqf9fpy692zhus3ru2f04cyr80wa",
+          "missed_blocks": [
+            {
+              "index": "70785",
+              "missed": false
+            }
+          ]
+        },
+        {
+          "address": "reapvalcons1ayufz7j2vhhj3c9cmrcksxga4klkxrvcvxn7g8",
+          "missed_blocks": []
+        }
+      ],
+      "params": {
+        "downtime_jail_duration": "1800s",
+        "min_signed_per_window": "0.500000000000000000",
+        "signed_blocks_window": "90000",
+        "slash_fraction_double_sign": "0.050000000000000000",
+        "slash_fraction_downtime": "0.010000000000000000"
+      },
+      "signing_infos": [
+        {
+          "address": "reapvalcons1pc7xsrm6et8x8wuztwe5hzymnlka8ac746rmek",
+          "validator_signing_info": {
+            "address": "reapvalcons1pc7xsrm6et8x8wuztwe5hzymnlka8ac746rmek",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1yacyvknz4982w3t2lvpxrhpga3a5lj0fgys7y6",
+          "validator_signing_info": {
+            "address": "reapvalcons1yacyvknz4982w3t2lvpxrhpga3a5lj0fgys7y6",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1xzkdwny3xrc7cpjjx0j9dslmk6ghr8x69stlsg",
+          "validator_signing_info": {
+            "address": "reapvalcons1xzkdwny3xrc7cpjjx0j9dslmk6ghr8x69stlsg",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "1",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1gprezk42amhxx37ccgh76m2ty2kdsuvwjzeajy",
+          "validator_signing_info": {
+            "address": "reapvalcons1gprezk42amhxx37ccgh76m2ty2kdsuvwjzeajy",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1f7x5mze45azhhch9zn52a0nkegr2ses8rsxm4g",
+          "validator_signing_info": {
+            "address": "reapvalcons1f7x5mze45azhhch9zn52a0nkegr2ses8rsxm4g",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1wmetfg04laa3y70f8fwmlc9g7sukzglhqjppws",
+          "validator_signing_info": {
+            "address": "reapvalcons1wmetfg04laa3y70f8fwmlc9g7sukzglhqjppws",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1026v6yuyz3lxclm8d0hfzkcl2t5armu0hs0n5v",
+          "validator_signing_info": {
+            "address": "reapvalcons1026v6yuyz3lxclm8d0hfzkcl2t5armu0hs0n5v",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons13t7s8yrwrlrlspyfn9xwfsu2kyhlnnsgr9jhzx",
+          "validator_signing_info": {
+            "address": "reapvalcons13t7s8yrwrlrlspyfn9xwfsu2kyhlnnsgr9jhzx",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1neeqe0twfws76mj3gna8yq59na2hj82qhqqr0m",
+          "validator_signing_info": {
+            "address": "reapvalcons1neeqe0twfws76mj3gna8yq59na2hj82qhqqr0m",
+            "index_offset": "1491790",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1hf8s6zu8pycjchswk6ue75cz77m2xyuu03aj9r",
+          "validator_signing_info": {
+            "address": "reapvalcons1hf8s6zu8pycjchswk6ue75cz77m2xyuu03aj9r",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "1",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1cnqyj9ucgf08csrdtahclalsjm4ymhzf2fhue3",
+          "validator_signing_info": {
+            "address": "reapvalcons1cnqyj9ucgf08csrdtahclalsjm4ymhzf2fhue3",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1en80uwcagc62p8zswud7wfww0g7yw42xlu23ra",
+          "validator_signing_info": {
+            "address": "reapvalcons1en80uwcagc62p8zswud7wfww0g7yw42xlu23ra",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons16ehr690n8tz0xm2spuxkxgp9d3lnuj5g0pt44a",
+          "validator_signing_info": {
+            "address": "reapvalcons16ehr690n8tz0xm2spuxkxgp9d3lnuj5g0pt44a",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1me3pv5dsnp2elqeu95yrh6vtmd9k37943zcdvc",
+          "validator_signing_info": {
+            "address": "reapvalcons1me3pv5dsnp2elqeu95yrh6vtmd9k37943zcdvc",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1u64mmjrl7qpqf9fpy692zhus3ru2f04cyr80wa",
+          "validator_signing_info": {
+            "address": "reapvalcons1u64mmjrl7qpqf9fpy692zhus3ru2f04cyr80wa",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        },
+        {
+          "address": "reapvalcons1ayufz7j2vhhj3c9cmrcksxga4klkxrvcvxn7g8",
+          "validator_signing_info": {
+            "address": "reapvalcons1ayufz7j2vhhj3c9cmrcksxga4klkxrvcvxn7g8",
+            "index_offset": "1491802",
+            "jailed_until": "1970-01-01T00:00:00Z",
+            "missed_blocks_counter": "0",
+            "start_height": "0",
+            "tombstoned": false
+          }
+        }
+      ]
+    },
+    "staking": {
+      "delegations": [
+        {
+          "delegator_address": "reap1zytmyzs86vxrmrzpkadt7maqxkjd3ueckzavc6",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk"
+        },
+        {
+          "delegator_address": "reap1yz5psrp7pekpukkzq6ywahuzky5d2c74328z8c",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5"
+        },
+        {
+          "delegator_address": "reap1gypevvsjyvrn3z9h0n39l9qhpdcu00nezsyd9h",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam"
+        },
+        {
+          "delegator_address": "reap1gsez6p98e77z2kkg2smlu2px5735vwadtfd5kt",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8"
+        },
+        {
+          "delegator_address": "reap1gu5lm3kj9nten6lmw3xjfdvd309el2xt68wc6j",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7"
+        },
+        {
+          "delegator_address": "reap1ftfyf9tckar7t4mfhjh452s6putyrj6ul4j70l",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn"
+        },
+        {
+          "delegator_address": "reap1f782nrh8zfhz40ymn9z4pz4qu4x6mxw7uktqdq",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v"
+        },
+        {
+          "delegator_address": "reap1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e62yczju",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s"
+        },
+        {
+          "delegator_address": "reap1wtxtlvt6u5cxryp558lrgwre28lspwa4h9j67y",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg"
+        },
+        {
+          "delegator_address": "reap1w4h2ww9agw8kwa3k9a0quwalavtm5kyzz949g8",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst"
+        },
+        {
+          "delegator_address": "reap1whugvc9ngap4u658sp5chlexn0gm3z5xlqc8sd",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp"
+        },
+        {
+          "delegator_address": "reap1052hvfzm93lmnxtk3g0e8tmj5lma23903dlwdj",
+          "shares": "100000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947"
+        },
+        {
+          "delegator_address": "reap1eqmazhwyzgpvcaute2nk2sarkx4hpsk9cch2td",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp"
+        },
+        {
+          "delegator_address": "reap1esasm0wyj9lkchedke42ngqutek6auyju0u9tv",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq"
+        },
+        {
+          "delegator_address": "reap16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6p20mfd",
+          "shares": "100000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p"
+        },
+        {
+          "delegator_address": "reap1a5gqxvl3639kzhqgtzs8af72k4e3g7h82ur54l",
+          "shares": "44000000000000000000000000.000000000000000000",
+          "validator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn"
+        }
+      ],
+      "exported": true,
+      "last_total_power": "616200000",
+      "last_validator_powers": [
+        {
+          "address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947",
+          "power": "100000"
+        },
+        {
+          "address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq",
+          "power": "44000000"
+        },
+        {
+          "address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p",
+          "power": "100000"
+        },
+        {
+          "address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn",
+          "power": "44000000"
+        }
+      ],
+      "params": {
+        "bond_denom": "areap",
+        "historical_entries": 10000,
+        "max_entries": 7,
+        "max_standing_members": 14,
+        "max_validators": 29,
+        "min_standing_member_staking_quantity": "22000000000000000000000000",
+        "min_steering_member_staking_quantity": "100000000000000000000000",
+        "unbonding_time": "1814400s"
+      },
+      "redelegations": [],
+      "unbonding_delegations": [],
+      "validators": [
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "89aPWP/ALsqbCKR+T764uaxBk5D3UPp/7+dgv8DUfK4="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #2",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Opal",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1zytmyzs86vxrmrzpkadt7maqxkjd3uec5hh8qk",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "NBAtXewdRDTKQq5Yoc2ckitdo3xwa5uC8zj9I47si0U="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #4",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Ruby",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1yz5psrp7pekpukkzq6ywahuzky5d2c74nldfl5",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "oAU3h+bh4n35kbluyZbjqWEqHcnU2cr49aZRDWUj8XE="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #11",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Aquamarine",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1gypevvsjyvrn3z9h0n39l9qhpdcu00neq9wxam",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "yKJ5LIkG2DYt4Fv5BhftSAreQyn64WvQVCXj+bwQLQo="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #10",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Onyx",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1gsez6p98e77z2kkg2smlu2px5735vwadfu8lw8",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "g6vSmeAosDw0kXVhsh6vlI4QRLvHKaWKFaHvhSl2DDQ="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #14",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Agate",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1gu5lm3kj9nten6lmw3xjfdvd309el2xtcjynz7",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "ypq5rzroOaMdck3zMow+gtPXosMSXX58d0kG6Rj4fPU="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #13",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Turquois",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1ftfyf9tckar7t4mfhjh452s6putyrj6uaqc4hn",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "KFU/tVUFNpBqiz9Sfo46PNnQpVC+R5pq/uSiNxONJxI="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #6",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Jade",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1f782nrh8zfhz40ymn9z4pz4qu4x6mxw77rpt4v",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "YjeS4MZv1JO+eaRYYGj4Drx3Agc4rwgd0OUkvxqgT7k="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #8",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Pearl",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1dh5l8fcc75sfnpgqth4yfj9ywqhlg9e6g3jf2s",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "nM7tv6YvV9IEK8iklefV8vFDBmGAydAPyrvFXPZ4as8="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #3",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Emerald",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1wtxtlvt6u5cxryp558lrgwre28lspwa44sc3xg",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "WmRvGgoCd9vJogdJ4Nb4Wv+aRmLDFXHf9XJsID7CPqg="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #12",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Amethyst",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1w4h2ww9agw8kwa3k9a0quwalavtm5kyzqslwst",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "HcI40TkKOhVoIO7b1Ar3kvfaNYa1Zi3ZHMcxzoyl/38="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #9",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Quartz",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1whugvc9ngap4u658sp5chlexn0gm3z5xa4jvgp",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "oXaM1PJtX4vL/WOW7NoPYZ2vgZxNtUon/FN+yAqkH4Y="
+          },
+          "delegator_shares": "100000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Steering Validator for the Reapchain Mainnet - #1",
+            "identity": "38B48ABC65F87B3A",
+            "moniker": "Melon",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "100000000000000000000000",
+          "operator_address": "reapvaloper1052hvfzm93lmnxtk3g0e8tmj5lma2390nc4947",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "100000000000000000000000",
+          "type": "steering",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "bOs9xnk92O9/hENXSXwnqMonvh2shB2hAa5IT7R8ccs="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #5",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Diamond",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1eqmazhwyzgpvcaute2nk2sarkx4hpsk96dapnp",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "gL7d37HWn7jiL/M1NEj5reMqB2uYKbFo7Makg7ghnHM="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #7",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Sapphire",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1esasm0wyj9lkchedke42ngqutek6auyj76kwnq",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "h7v+7S999KjLpnONBuVEHUF8rl2aeF1/QuIVSstnmQI="
+          },
+          "delegator_shares": "100000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Steering Validator for the Reapchain Mainnet - #2",
+            "identity": "38B48ABC65F87B3A",
+            "moniker": "Persimmon",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "100000000000000000000000",
+          "operator_address": "reapvaloper16e6uhnpqfp9fsd5h048qq2sj8uyz9mr6rl9s3p",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "100000000000000000000000",
+          "type": "steering",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        },
+        {
+          "commission": {
+            "commission_rates": {
+              "max_change_rate": "0.010000000000000000",
+              "max_rate": "0.200000000000000000",
+              "rate": "0.100000000000000000"
+            },
+            "update_time": "2023-12-27T06:13:53.60945134Z"
+          },
+          "consensus_pubkey": {
+            "@type": "/cosmos.crypto.ed25519.PubKey",
+            "key": "OpgxaUH4lTjJN0ruLJdMhqbkonB6tDSwXdBJgJ7f7LQ="
+          },
+          "delegator_shares": "44000000000000000000000000.000000000000000000",
+          "description": {
+            "details": "Standing Validator for the Reapchain Mainnet - #1",
+            "identity": "6FAC140370673BF1",
+            "moniker": "Tanzanite",
+            "security_contact": "",
+            "website": ""
+          },
+          "jailed": false,
+          "min_self_delegation": "22000000000000000000000000",
+          "operator_address": "reapvaloper1a5gqxvl3639kzhqgtzs8af72k4e3g7h8gffldn",
+          "status": "BOND_STATUS_BONDED",
+          "tokens": "44000000000000000000000000",
+          "type": "standing",
+          "unbonding_height": "0",
+          "unbonding_time": "1970-01-01T00:00:00Z"
+        }
+      ]
+    },
+    "transfer": {
+      "denom_traces": [],
+      "params": {
+        "receive_enabled": true,
+        "send_enabled": true
+      },
+      "port_id": "transfer"
+    },
+    "upgrade": {},
+    "vesting": {}
+  },
+  "chain_id": "reapchain_221230-1",
+  "consensus_params": {
+    "block": {
+      "max_bytes": "22020096",
+      "max_gas": "-1",
+      "time_iota_ms": "1000"
+    },
+    "evidence": {
+      "max_age_duration": "172800000000000",
+      "max_age_num_blocks": "100000",
+      "max_bytes": "1048576"
+    },
+    "validator": {
+      "pub_key_types": [
+        "ed25519"
+      ]
+    },
+    "version": {}
+  },
+  "consensus_round": {
+    "consensus_start_block_height": "1491793",
+    "period": "12",
+    "qrn_period": "4",
+    "validator_period": "4",
+    "vrf_period": "4"
+  },
+  "genesis_time": "2023-12-27T06:13:53.60945134Z",
+  "initial_height": "1491802",
+  "next_qrns": [
+    {
+      "height": "1491805",
+      "qrn_index": 0,
+      "signature": "tY51HITLCpML2oqBdyiP01MeASbySx1BLD1PfT7r3Yeehyu+nDYIRPyuq4B+Rn0aL3pn51TH+G8BcMixbLCHCQ==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "NBAtXewdRDTKQq5Yoc2ckitdo3xwa5uC8zj9I47si0U="
+      },
+      "timestamp": "2023-12-26T05:30:15.373869166Z",
+      "value": "3622385077712452127"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 1,
+      "signature": "tsTt+Z20GCUNIHJvaMWmaqn5+JVgEcbbou+dwTyW8tBqnnK/JaG7Vhf/dkYk1rL2bVe1H4y60hh+OIu0mUsvDg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "ypq5rzroOaMdck3zMow+gtPXosMSXX58d0kG6Rj4fPU="
+      },
+      "timestamp": "2023-12-26T05:30:15.37923108Z",
+      "value": "2168861625277887804"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 2,
+      "signature": "FHJrogxyQtCHRpNMlRsMYVKJdOekOTFz2FJwc9QgpSKA/MX+TL3ItCf4qPEt0OYLmufSNJJ2ZOE9KtSB3X7lCA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "OpgxaUH4lTjJN0ruLJdMhqbkonB6tDSwXdBJgJ7f7LQ="
+      },
+      "timestamp": "2023-12-26T05:30:15.374923581Z",
+      "value": "13647612137157476040"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 3,
+      "signature": "n7KY49N2KxyZfT0WSMo4QcLl2KLQlTegDs/BzOEohWOSu4nLMSQ31lEkZRv0BNKkY+BJeK+SJ7menFFDYf99CA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "yKJ5LIkG2DYt4Fv5BhftSAreQyn64WvQVCXj+bwQLQo="
+      },
+      "timestamp": "2023-12-26T05:30:15.3769746Z",
+      "value": "9616595830494777776"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 4,
+      "signature": "cPIRKKsTKDI8fSkFiipX4WYC3ZU1aoYUK4tT6nGTkDFv4KpGeaaRPXjLCLfH3+kOqPh3sFTJkdQbXzYNhXewBg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "KFU/tVUFNpBqiz9Sfo46PNnQpVC+R5pq/uSiNxONJxI="
+      },
+      "timestamp": "2023-12-26T05:30:15.373483055Z",
+      "value": "15823871475444669008"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 5,
+      "signature": "htUMU/fw+jC0fEdghWEKABAXiAV4loFc8Q0g4pwaamCWc1cd4v07CdnSPa9psuzpuo5cz3xCqoadG5W+tuQVDw==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "nM7tv6YvV9IEK8iklefV8vFDBmGAydAPyrvFXPZ4as8="
+      },
+      "timestamp": "2023-12-26T05:30:15.378734214Z",
+      "value": "7080273405132802579"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 6,
+      "signature": "JaO1ZU6bBY6/85NuvetVBCyaSuP4jD3TMWm6YgpQlkobVnK7MA0vIEofESf9PIKsDpsF9jz50Q+mFMqKsJwYAg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "bOs9xnk92O9/hENXSXwnqMonvh2shB2hAa5IT7R8ccs="
+      },
+      "timestamp": "2023-12-26T05:30:15.377406206Z",
+      "value": "15404166186275491253"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 7,
+      "signature": "exk8jkpAv/0E6fzn9BIGNH3L41w08TV2faYPgG4wLcTbaqiS7mJ0UdiyRzK8lt0RrxeiMi+cmlDlaOqQcSAnDg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "89aPWP/ALsqbCKR+T764uaxBk5D3UPp/7+dgv8DUfK4="
+      },
+      "timestamp": "2023-12-26T05:30:15.378921806Z",
+      "value": "9624438242683905329"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 8,
+      "signature": "2KSP6IQ31grpplV/8X/b8T5l38dcqDg4vpFiREEaZnhMhFWArRfNCOh+ZDcIoCw2uE/FnCKE6zR6QngYhULeBA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "YjeS4MZv1JO+eaRYYGj4Drx3Agc4rwgd0OUkvxqgT7k="
+      },
+      "timestamp": "2023-12-26T05:30:15.375046908Z",
+      "value": "15624581959671831375"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 9,
+      "signature": "4zTLDKfAHE74aOuhH9F6YLjm29NrGgjgpDD+DpFFFx0d08ie8JeMUXoTDCmqJPc/dlvYOo44Y6i3GDNEn6hOBg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "g6vSmeAosDw0kXVhsh6vlI4QRLvHKaWKFaHvhSl2DDQ="
+      },
+      "timestamp": "2023-12-26T05:30:15.391798132Z",
+      "value": "14909583748349268564"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 10,
+      "signature": "7lO6CIYqJMrQfQrAMi7HOQ1QrCgTM1+D7gtCjhYs7bDu0zjmbtw0JblLzfRVFTr3BdcY7iWlJYfJWH7oe3SuDg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "WmRvGgoCd9vJogdJ4Nb4Wv+aRmLDFXHf9XJsID7CPqg="
+      },
+      "timestamp": "2023-12-26T05:30:15.375408948Z",
+      "value": "16768770174272576652"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 11,
+      "signature": "PgA1c2EmrooldDndDi/nODv8TIfSe9DNLLEsw/fqgawve9bKSKcpMQtA/OogHCgt+FrYBjlIfbvcVRmYOwtNCg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "HcI40TkKOhVoIO7b1Ar3kvfaNYa1Zi3ZHMcxzoyl/38="
+      },
+      "timestamp": "2023-12-26T05:30:15.379413554Z",
+      "value": "9359580300837505714"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 12,
+      "signature": "9uBRJ7ku4/lLPp1B7K7kLBUyzOtJvj9E7JiIs07X7Vr1uXT+l0xrGIvAe1OhKiWaI+QHyELgaTfz8rdRNsCMAQ==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gL7d37HWn7jiL/M1NEj5reMqB2uYKbFo7Makg7ghnHM="
+      },
+      "timestamp": "2023-12-26T05:30:15.376255131Z",
+      "value": "15770479368683377783"
+    },
+    {
+      "height": "1491805",
+      "qrn_index": 13,
+      "signature": "LvSwk08eCtCjGw1ec7n+j/5Xy/dvRUaO+MCPlDc/FAd89o8fPhe27h/SVz3/YFL4qohuDZwYT0oPaRfrgHTdCA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oAU3h+bh4n35kbluyZbjqWEqHcnU2cr49aZRDWUj8XE="
+      },
+      "timestamp": "2023-12-26T05:30:15.377131719Z",
+      "value": "14577918622772707094"
+    }
+  ],
+  "next_vrfs": [
+    {
+      "height": "1491805",
+      "proof": "1aIHsI5CNt5cpu1YiCOZbqse1FYpSg4xH25ewkXvtQ+SCxdhwrVlefcC1knnMdiaADb2Utr15oobYmKQzCv9BhU2/iWWx50lj4iHlNwZxxvW8rl6Z3ljGKaq2rBCvuGB",
+      "seed": "MTg0MzcxOTUyNzU1NjQ1NTY0OTM=",
+      "steering_member_candidate_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "h7v+7S999KjLpnONBuVEHUF8rl2aeF1/QuIVSstnmQI="
+      },
+      "timestamp": "2023-12-26T05:30:36.793716974Z",
+      "value": "JnTyXEB6VlrBTn3N8xCA6GOn7aOnajkja2XtfeSc2E4=",
+      "vrf_index": 0
+    },
+    {
+      "height": "1491805",
+      "proof": "QEmpxP40oU6gBziz48Kpp4ZbSdOXezGwzp3JAx2wdAxw9x8qo5X37OUbVWqzGxrgr5wXabVYV8b4toCPsKYrBy5ygVzQR0EREwjnV1D+JNpxrEmLixGmir3okjIo/LVd",
+      "seed": "MTg0MzcxOTUyNzU1NjQ1NTY0OTM=",
+      "steering_member_candidate_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oXaM1PJtX4vL/WOW7NoPYZ2vgZxNtUon/FN+yAqkH4Y="
+      },
+      "timestamp": "2023-12-26T05:30:36.79497908Z",
+      "value": "8+aM07wQhBhR9wYpbir3BLiGvjXRiACzMaUulX6CT2s=",
+      "vrf_index": 1
+    }
+  ],
+  "qrns": [
+    {
+      "height": "1491793",
+      "qrn_index": 5,
+      "signature": "iIMWzvK06axZO1Hn/SBoEdqVIqwObbYVHzYuYi2aXZYRTY0448RTwOc1dxDIdNTz+eko97kYDXIVtqO+0f8KBw==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "nM7tv6YvV9IEK8iklefV8vFDBmGAydAPyrvFXPZ4as8="
+      },
+      "timestamp": "2023-12-26T05:29:11.411892307Z",
+      "value": "17187319730592854663"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 0,
+      "signature": "MS164pqwlxjDgxyhTOHegxjzKyzPwPFbKcnABIWTAH6z+cnfn6uqaPZtChG+8/dbPJfsjFooKkMZs3rwu0RiAQ==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "NBAtXewdRDTKQq5Yoc2ckitdo3xwa5uC8zj9I47si0U="
+      },
+      "timestamp": "2023-12-26T05:29:11.406686873Z",
+      "value": "16611096086348117892"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 7,
+      "signature": "Wl5HrD0Sf0m2MJW1DabwBmWfkz0e0UOW2s8stW4ER0YMoAeSUEqYJxpgZb6VQL7DeBt9rBLUCaFIVBsAuv+RBQ==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "89aPWP/ALsqbCKR+T764uaxBk5D3UPp/7+dgv8DUfK4="
+      },
+      "timestamp": "2023-12-26T05:29:11.408584652Z",
+      "value": "16219710721487237300"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 9,
+      "signature": "uRC1iyYdJf64gtgFqpVMAFARnOvMIhDPLNyE6hVR3zGdTNr+JvNq55wpQPBa6QjEbElcw0h93+VRqR8Z5KUQCA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "g6vSmeAosDw0kXVhsh6vlI4QRLvHKaWKFaHvhSl2DDQ="
+      },
+      "timestamp": "2023-12-26T05:29:11.41493586Z",
+      "value": "14936264372336234870"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 2,
+      "signature": "FzQ30x0kw9ZnidjYajRyivxoOMp50MNjHtY2iQVmP5idhHm0ykcBFkF/GFO/t3dONZ0Q04rwknvjgSPaGJlEDg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "OpgxaUH4lTjJN0ruLJdMhqbkonB6tDSwXdBJgJ7f7LQ="
+      },
+      "timestamp": "2023-12-26T05:29:11.404526134Z",
+      "value": "13351264191000593819"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 13,
+      "signature": "O3+4QLvbmnIyMz177ydQaHHcayupXeEQ+FZb4wM8oUhzTVGyeECjHRwsAJLCA+FgJMg1a5tvknKN/MTJltOBCw==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oAU3h+bh4n35kbluyZbjqWEqHcnU2cr49aZRDWUj8XE="
+      },
+      "timestamp": "2023-12-26T05:29:11.408864913Z",
+      "value": "12061472111178937773"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 8,
+      "signature": "qpmGWr/DCTNR+tSdtE4pC7O+dUUbLHTQ5zJoOXopMe+pnEgEiSglhr2CyWPuKl4CmVGpqtDzCKT1CvJRq/dEDA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "YjeS4MZv1JO+eaRYYGj4Drx3Agc4rwgd0OUkvxqgT7k="
+      },
+      "timestamp": "2023-12-26T05:29:11.407875167Z",
+      "value": "11853915837289479481"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 4,
+      "signature": "h7ion+qfHdr//HdP4OXsOuC4OijLmqeTFrAv7egjYKJL0B/oRBmqKcaD9FeDHtp+lUYoaJm8Jiuk5LvQ+QcoBw==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "KFU/tVUFNpBqiz9Sfo46PNnQpVC+R5pq/uSiNxONJxI="
+      },
+      "timestamp": "2023-12-26T05:29:11.414790059Z",
+      "value": "10584775596940368517"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 1,
+      "signature": "D91ZZfF9Wv3fzwTm16sWJcUqbqmeIx758n/hUM0sPOAtrzG392j3XWO2lu3211VkY33yu7GDuRQX49Y7ynU7BA==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "ypq5rzroOaMdck3zMow+gtPXosMSXX58d0kG6Rj4fPU="
+      },
+      "timestamp": "2023-12-26T05:29:11.407251333Z",
+      "value": "7318050223791223421"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 11,
+      "signature": "+28uaoVOLehAXZ32LX6X9H0Eq5WCHUCt/0exKJZcd2nE1YWrN9sli5fnBX0m/GE/VevhLVD2Gkwr76kUQf/5Ag==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "HcI40TkKOhVoIO7b1Ar3kvfaNYa1Zi3ZHMcxzoyl/38="
+      },
+      "timestamp": "2023-12-26T05:29:11.412519868Z",
+      "value": "6667587957070498852"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 10,
+      "signature": "IUJDXnz4+/luiglIoGo2ORBJy46Mv6CQzMGeNrVhkoHZ3dVI3bcjBOka+UlYx+RSOY6zwvrVpc1HxZyn68nYBg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "WmRvGgoCd9vJogdJ4Nb4Wv+aRmLDFXHf9XJsID7CPqg="
+      },
+      "timestamp": "2023-12-26T05:29:11.407893758Z",
+      "value": "6295567480894833453"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 3,
+      "signature": "w9/hQGpiz/5Bm8sZfRSmqDcrVI94p6P5fXAP0/8eUKe+HO00dJakkFrrw/Y1MDaLWnphnvCjrH4bE9XoTf0mAg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "yKJ5LIkG2DYt4Fv5BhftSAreQyn64WvQVCXj+bwQLQo="
+      },
+      "timestamp": "2023-12-26T05:29:11.521016984Z",
+      "value": "3496913426057627603"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 12,
+      "signature": "PIz08KVDIfxABSxvDvEufsUw9FUjqeu2om+w0lC1RGFXY0mDDiW7CfgIQRZXZF+3q9f7RaRi9Fl5tZIi00oIAg==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gL7d37HWn7jiL/M1NEj5reMqB2uYKbFo7Makg7ghnHM="
+      },
+      "timestamp": "2023-12-26T05:29:11.407969405Z",
+      "value": "2637884202265295356"
+    },
+    {
+      "height": "1491793",
+      "qrn_index": 6,
+      "signature": "Vp3yZ+fGsGWqy5rsK5anBANkH3D5Lk0wegpiQISJW5HZMt7uRc09M4aJ9FyiCecpkXfGcoXenZqTrFlU0La1Cw==",
+      "standing_member_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "bOs9xnk92O9/hENXSXwnqMonvh2shB2hAa5IT7R8ccs="
+      },
+      "timestamp": "2023-12-26T05:29:11.408057978Z",
+      "value": "1048514647233759390"
+    }
+  ],
+  "standing_members": [
+    {
+      "address": "0E3C680F7ACACE63BB825BB34B889B9FEDD3F71E",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "NBAtXewdRDTKQq5Yoc2ckitdo3xwa5uC8zj9I47si0U="
+      }
+    },
+    {
+      "address": "2770465A62A94EA7456AFB0261DC28EC7B4FC9E9",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "ypq5rzroOaMdck3zMow+gtPXosMSXX58d0kG6Rj4fPU="
+      }
+    },
+    {
+      "address": "30ACD74C9130F1EC065233E456C3FBB691719CDA",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "OpgxaUH4lTjJN0ruLJdMhqbkonB6tDSwXdBJgJ7f7LQ="
+      }
+    },
+    {
+      "address": "4047915AAAEEEE6347D8C22FED6D4B22ACD8718E",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "yKJ5LIkG2DYt4Fv5BhftSAreQyn64WvQVCXj+bwQLQo="
+      }
+    },
+    {
+      "address": "4F8D4D8B35A7457BE2E514E8AEBE76CA06A86607",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "KFU/tVUFNpBqiz9Sfo46PNnQpVC+R5pq/uSiNxONJxI="
+      }
+    },
+    {
+      "address": "76F2B4A1F5FF7B1279E93A5DBFE0A8F4396123F7",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "nM7tv6YvV9IEK8iklefV8vFDBmGAydAPyrvFXPZ4as8="
+      }
+    },
+    {
+      "address": "7AB4CD1384147E6C7F676BEE915B1F52E9D1EF8F",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "bOs9xnk92O9/hENXSXwnqMonvh2shB2hAa5IT7R8ccs="
+      }
+    },
+    {
+      "address": "8AFD03906E1FC7F80489994CE4C38AB12FF9CE08",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "89aPWP/ALsqbCKR+T764uaxBk5D3UPp/7+dgv8DUfK4="
+      }
+    },
+    {
+      "address": "BA4F0D0B8709312C5E0EB6B99F5302F7B6A3139C",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "YjeS4MZv1JO+eaRYYGj4Drx3Agc4rwgd0OUkvxqgT7k="
+      }
+    },
+    {
+      "address": "C4C0491798425E7C406D5F6F8FF7F096EA4DDC49",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "g6vSmeAosDw0kXVhsh6vlI4QRLvHKaWKFaHvhSl2DDQ="
+      }
+    },
+    {
+      "address": "CCCEFE3B1D4634A09C50771BE725CE7A3C475546",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "WmRvGgoCd9vJogdJ4Nb4Wv+aRmLDFXHf9XJsID7CPqg="
+      }
+    },
+    {
+      "address": "D66E3D15F33AC4F36D500F0D6320256C7F3E4A88",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "HcI40TkKOhVoIO7b1Ar3kvfaNYa1Zi3ZHMcxzoyl/38="
+      }
+    },
+    {
+      "address": "DE621651B098559F833C2D083BE98BDB4B68F8B5",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gL7d37HWn7jiL/M1NEj5reMqB2uYKbFo7Makg7ghnHM="
+      }
+    },
+    {
+      "address": "E6ABBDC87FF002049521268AA15F9088F8A4BEB8",
+      "name": "",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oAU3h+bh4n35kbluyZbjqWEqHcnU2cr49aZRDWUj8XE="
+      }
+    }
+  ],
+  "steering_member_candidates": [
+    {
+      "address": "9E720CBD6E4BA1ED6E5144FA7202859F55791D40",
+      "name": "",
+      "power": "100000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "h7v+7S999KjLpnONBuVEHUF8rl2aeF1/QuIVSstnmQI="
+      }
+    },
+    {
+      "address": "E938917A4A65EF28E0B8D8F168191DADBF630D98",
+      "name": "",
+      "power": "100000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oXaM1PJtX4vL/WOW7NoPYZ2vgZxNtUon/FN+yAqkH4Y="
+      }
+    }
+  ],
+  "validators": [
+    {
+      "address": "8AFD03906E1FC7F80489994CE4C38AB12FF9CE08",
+      "name": "Opal",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "89aPWP/ALsqbCKR+T764uaxBk5D3UPp/7+dgv8DUfK4="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "0E3C680F7ACACE63BB825BB34B889B9FEDD3F71E",
+      "name": "Ruby",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "NBAtXewdRDTKQq5Yoc2ckitdo3xwa5uC8zj9I47si0U="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "E6ABBDC87FF002049521268AA15F9088F8A4BEB8",
+      "name": "Aquamarine",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oAU3h+bh4n35kbluyZbjqWEqHcnU2cr49aZRDWUj8XE="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "4047915AAAEEEE6347D8C22FED6D4B22ACD8718E",
+      "name": "Onyx",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "yKJ5LIkG2DYt4Fv5BhftSAreQyn64WvQVCXj+bwQLQo="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "C4C0491798425E7C406D5F6F8FF7F096EA4DDC49",
+      "name": "Agate",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "g6vSmeAosDw0kXVhsh6vlI4QRLvHKaWKFaHvhSl2DDQ="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "2770465A62A94EA7456AFB0261DC28EC7B4FC9E9",
+      "name": "Turquois",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "ypq5rzroOaMdck3zMow+gtPXosMSXX58d0kG6Rj4fPU="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "4F8D4D8B35A7457BE2E514E8AEBE76CA06A86607",
+      "name": "Jade",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "KFU/tVUFNpBqiz9Sfo46PNnQpVC+R5pq/uSiNxONJxI="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "BA4F0D0B8709312C5E0EB6B99F5302F7B6A3139C",
+      "name": "Pearl",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "YjeS4MZv1JO+eaRYYGj4Drx3Agc4rwgd0OUkvxqgT7k="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "76F2B4A1F5FF7B1279E93A5DBFE0A8F4396123F7",
+      "name": "Emerald",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "nM7tv6YvV9IEK8iklefV8vFDBmGAydAPyrvFXPZ4as8="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "CCCEFE3B1D4634A09C50771BE725CE7A3C475546",
+      "name": "Amethyst",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "WmRvGgoCd9vJogdJ4Nb4Wv+aRmLDFXHf9XJsID7CPqg="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "D66E3D15F33AC4F36D500F0D6320256C7F3E4A88",
+      "name": "Quartz",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "HcI40TkKOhVoIO7b1Ar3kvfaNYa1Zi3ZHMcxzoyl/38="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "E938917A4A65EF28E0B8D8F168191DADBF630D98",
+      "name": "Melon",
+      "power": "100000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oXaM1PJtX4vL/WOW7NoPYZ2vgZxNtUon/FN+yAqkH4Y="
+      },
+      "type": "steering"
+    },
+    {
+      "address": "7AB4CD1384147E6C7F676BEE915B1F52E9D1EF8F",
+      "name": "Diamond",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "bOs9xnk92O9/hENXSXwnqMonvh2shB2hAa5IT7R8ccs="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "DE621651B098559F833C2D083BE98BDB4B68F8B5",
+      "name": "Sapphire",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "gL7d37HWn7jiL/M1NEj5reMqB2uYKbFo7Makg7ghnHM="
+      },
+      "type": "standing"
+    },
+    {
+      "address": "9E720CBD6E4BA1ED6E5144FA7202859F55791D40",
+      "name": "Persimmon",
+      "power": "100000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "h7v+7S999KjLpnONBuVEHUF8rl2aeF1/QuIVSstnmQI="
+      },
+      "type": "steering"
+    },
+    {
+      "address": "30ACD74C9130F1EC065233E456C3FBB691719CDA",
+      "name": "Tanzanite",
+      "power": "44000000",
+      "pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "OpgxaUH4lTjJN0ruLJdMhqbkonB6tDSwXdBJgJ7f7LQ="
+      },
+      "type": "standing"
+    }
+  ],
+  "vrfs": [
+    {
+      "height": "1491793",
+      "proof": "gHw2buq7/8VR7eCWWiqWCS4HW8FV62h2N/OdqXTqLgKOteo2Qk5UsvBASPCVbvs9jQ99koXAQ6REWlh3TDHXDNkvY5ExCPcw0XuwWY/ecgyzobda2dYa3CzvmtD9VgOD",
+      "seed": "MTU4MTQ2OTY1MzM1MDQ0MTUwMTQ=",
+      "steering_member_candidate_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "oXaM1PJtX4vL/WOW7NoPYZ2vgZxNtUon/FN+yAqkH4Y="
+      },
+      "timestamp": "2023-12-26T05:29:32.705461588Z",
+      "value": "rftd08j+hJkm+Yol9G9MlBJ7OJylmltwQ0Re0lXq+TA=",
+      "vrf_index": 1
+    },
+    {
+      "height": "1491793",
+      "proof": "sN5AOcwo5idXJ8hoBM813Y9dFpUGAkR5LeQGSu042gzTHEGd5ik26SxdwNl56CK27gVdkJ0I3TFCvf8qjsjYA6pgOut9H3Vm/tLZFX+stOdVluelUInUsqANVtn2vIBZ",
+      "seed": "MTU4MTQ2OTY1MzM1MDQ0MTUwMTQ=",
+      "steering_member_candidate_pub_key": {
+        "type": "tendermint/PubKeyEd25519",
+        "value": "h7v+7S999KjLpnONBuVEHUF8rl2aeF1/QuIVSstnmQI="
+      },
+      "timestamp": "2023-12-26T05:29:32.767878459Z",
+      "value": "ByR85Ri0JY6fSrv9t1s0PSqagGBvFu83nFBSQXykAxM=",
+      "vrf_index": 0
+    }
+  ]
+}
