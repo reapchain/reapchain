@@ -9,6 +9,8 @@ import (
 // GetParams returns the total set of inflation parameters.
 func (k Keeper) GetParams(ctx sdk.Context) (params types.Params) {
 	k.paramstore.GetParamSetIfExists(ctx, &params)
+	params.CurrentInflationAmount = k.GetCurrentInflationAmount(ctx)
+	params.MaxInflationAmount = k.GetMaxInflationAmount(ctx)
 	return params
 }
 
