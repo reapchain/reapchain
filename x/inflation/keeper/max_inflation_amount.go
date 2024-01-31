@@ -1,7 +1,6 @@
 package keeper
 
 import (
-	"fmt"
 	sdk "github.com/reapchain/cosmos-sdk/types"
 	"github.com/reapchain/reapchain/v8/x/inflation/types"
 )
@@ -34,8 +33,6 @@ func (k Keeper) SetCurrentInflation(ctx sdk.Context, currentInflationsAmount str
 		ps := k.paramstore.WithKeyTable(types.ParamKeyTable())
 		k.paramstore = ps
 	}
-
-	fmt.Println("SetCurrentInflation: ", currentInflationsAmount)
 
 	k.paramstore.Set(ctx, types.ParamStoreKeyCurrentInflationAmount, currentInflationsAmount)
 }
