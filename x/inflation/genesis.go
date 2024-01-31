@@ -38,13 +38,13 @@ func InitGenesis(
 	// Get bondedRatio
 	bondedRatio := k.BondedRatio(ctx)
 
-	// setMaxInflationAmount
-	maxInflationAmount := data.Params.MaxInflationAmount
-	k.SetMaxInflationAmount(ctx, maxInflationAmount)
-
-	// setCurrentInflation
-	currentInflationAmount := data.Params.CurrentInflationAmount
-	k.SetCurrentInflation(ctx, currentInflationAmount)
+	//// setMaxInflationAmount
+	//maxInflationAmount := data.Params.MaxInflationAmount
+	//k.SetMaxInflationAmount(ctx, maxInflationAmount)
+	//
+	//// setCurrentInflation
+	//currentInflationAmount := data.Params.CurrentInflationAmount
+	//k.SetCurrentInflation(ctx, currentInflationAmount)
 
 	// Calculate epoch mint provision
 	epochMintProvision := types.CalculateEpochMintProvision(
