@@ -15,9 +15,9 @@ require (
 	github.com/onsi/gomega v1.20.0
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/statik v0.1.7
-	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.19
-	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.19
-	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.20
+	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.20
+	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.20
+	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.21
 	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.24
 	github.com/regen-network/cosmos-proto v0.3.1
 	github.com/spf13/cast v1.5.0
@@ -50,7 +50,7 @@ require (
 	github.com/btcsuite/btcutil v1.0.3-0.20201208143702-a53e38424cce // indirect
 	github.com/cenkalti/backoff/v4 v4.1.3 // indirect
 	github.com/cespare/xxhash v1.1.0 // indirect
-	github.com/cespare/xxhash/v2 v2.1.2 // indirect
+	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/coinbase/rosetta-sdk-go v0.7.0 // indirect
 	github.com/confio/ics23/go v0.7.0 // indirect
 	github.com/cosmos/btcutil v1.0.4 // indirect
