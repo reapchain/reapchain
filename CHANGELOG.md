@@ -1,380 +1,498 @@
-<!--
-Guiding Principles:
+ # CHANGELOG
+
+ ## [Friday, Jan 19, 2024](https://github.com/reapchain/reapchain/commit/93137e38caf18ca7a4284dc54806d5d989e823a0)
+- chore: Bump Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.24
+  - IAVL v0.2.15
+  - Cosmos-SDK v0.4.19
+  - IBC-GO v0.5.20
+  - Ethermint v0.2.19
+
+## [Friday, Jan 19, 2024](https://github.com/reapchain/reapchain/commit/c949c0f144e1519eda9f5d948ec816c20cf710b9)
+- Merge pull request #73 from reapchain/dev
+  - Dev
+
+## [Wednesday, Dec 27, 2023](https://github.com/reapchain/reapchain/commit/1391d6c00b6a866c4333a01d6df2b3a6cd18498e)
+- chore: Downgrade to Reapchain Core v0.1.21
 
-Changelogs are for humans, not machines.
-There should be an entry for every single version.
-The same types of changes should be grouped.
-Versions and sections should be linkable.
-The latest version comes first.
-The release date of each version is displayed.
-Mention whether you follow Semantic Versioning.
+## [Wednesday, Dec 20, 2023](https://github.com/reapchain/reapchain/commit/daf64e38b94fdb1bbae69e369e5e75559bb59410)
+- Merge branch 'features/bridge-genesis-invariants' into dev
+
+## [Wednesday, Dec 20, 2023](https://github.com/reapchain/reapchain/commit/4b8fbc4f4c936ca6b49294a1a1245fd14c9c2129)
+- Merge branch 'bug/bridge-export' into dev
+
+## [Wednesday, Dec 20, 2023](https://github.com/reapchain/reapchain/commit/a0aae6edcb0839f4ace49cb0c2e8249d8ca4be4a)
+- Merge branch 'feature/permissions-module' into dev
+
+## [Wednesday, Dec 20, 2023](https://github.com/reapchain/reapchain/commit/026aa5e73035d330919a65d66c6956f19c7fbf10)
+- fix: Getting Empty Validator
+
+## [Tuesday, Dec 19, 2023](https://github.com/reapchain/reapchain/commit/6e446e34fefea3fda0ee01b3c4075910f32d9255)
+- Modify gravity genesis
+  - invariants: LastObservedEthereumBlockHeight
+
+## [Tuesday, Dec 19, 2023](https://github.com/reapchain/reapchain/commit/28175ff8066511f854467e63097067ee16d5b16e)
+- Modify bug for gravity
+  - export: defaultErc20ContractAddress
+
+## [Thursday, Nov 30, 2023](https://github.com/reapchain/reapchain/commit/7777cfaed962a4c7a964ea3b15895fc5fc97bb07)
+- chore: Bump Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.23
+  - IAVL v0.2.14
+  - Cosmos-SDK v0.4.18
+  - IBC-GO v0.5.19
+  - Ethermint v0.2.18
+
+## [Thursday, Nov 30, 2023](https://github.com/reapchain/reapchain/commit/271f12e9a6fe215aa4a558dcb0853dc54533839f)
+- refactor: Test Code Imports
+
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/a9ea33c95ff3df87a2cde265256a337077d88205)
+- Update SDK, IBC, Ethermint. Downgrade Core, IAVL
+  - Cosmos-SDK v0.4.17
+  - IBC-GO v0.5.18
+  - Ethermint v0.2.17
+  - Reapchain-Core v0.1.21
+  - IAVL v0.2.12
+
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/40ac8cb39bde4e48245d7ad7e4a94f2341d116ef)
+- refactor: v5 -> v0_8_6
+
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/3508ea0c93e2310137efe9f6f2d85a327ba089bb)
+- Merge branch 'features/refactoring-for-reapchain' into dev
+
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/ea8c190f2a0db5bcdc577944297ba7395492a34f)
+- Merge branch 'bug/bridge-slashing' into dev
 
-Usage:
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/6bc3c987470bdf9d4689c1871a02e07789451e93)
+- Merge branch 'feature/escrow_module' into dev
 
-Change log entries are to be added to the Unreleased section under the
-appropriate stanza (see below). Each entry should ideally include a tag and
-the Github issue reference in the following format:
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/15ae100c8d81c45faf380af40b882c0d0b3a13cc)
+- feat: Additional Funcs & Fixes for Escrow Module
+  - Added receiver optional input for conversion functions
+  - Fixed balance issues during automatic conversions
+  - Changed keywords for Escrow Pool Balance
 
-* (<tag>) \#<issue-number> message
+## [Tuesday, Nov 28, 2023](https://github.com/reapchain/reapchain/commit/065be0e3aa00246fb79754d1aa043b05823da263)
+- refactor: Removed unused Seed Nodes during initialization
 
-The issue numbers will later be link-ified during the release process so you do
-not have to worry about including a link manually, but you can if you wish.
+## [Wednesday, Nov 22, 2023](https://github.com/reapchain/reapchain/commit/d2a287e64c1636d4a28f5aeb544998356cabefc0)
+- Modify logicCallSlashing
+  - slash only standing members
 
-Types of changes (Stanzas):
+## [Wednesday, Nov 22, 2023](https://github.com/reapchain/reapchain/commit/b88d6b5da29c795fb95d19c709fd9b5df82166c8)
+- Modify batchSlashing
+  - slash only standing members
 
-"Features" for new features.
-"Improvements" for changes in existing functionality.
-"Deprecated" for soon-to-be removed features.
-"Bug Fixes" for any bug fixes.
-"Client Breaking" for breaking CLI commands and REST routes used by end-users.
-"API Breaking" for breaking exported APIs used by developers building on SDK.
-"State Machine Breaking" for any changes that result in a different AppState given same genesisState and txList.
+## [Wednesday, Nov 22, 2023](https://github.com/reapchain/reapchain/commit/fc1563d918cf8d421a9786f5d1510da517052239)
+- Modify valsetSlashing
+  - pass steering member in slashing unbonding-validator routine
 
-Ref: https://keepachangelog.com/en/1.0.0/
--->
+## [Wednesday, Nov 22, 2023](https://github.com/reapchain/reapchain/commit/b50e990ab5c4b758db723a64276ed19f79ed8b78)
+- Refactoring
 
-# Changelog
+## [Monday, Nov 13, 2023](https://github.com/reapchain/reapchain/commit/71773d95df85ada954cdf30a752c052c4a1951ed)
+- Update Cosmos-SDK, IBC, Ethermint
+  - Cosmos-SDK v0.4.16
+  - IBC-GO v0.5.17
+  - Ethermint v0.2.16
 
-## [v8.0.0] - 2022-09-16
+## [Monday, Nov 13, 2023](https://github.com/reapchain/reapchain/commit/2f40c7cc9609dc264723108d3a8881726cd478e9)
+- Merge branch 'features/Modify-SetOrchestratorAddress' into dev
 
-### State Machine Breaking
+## [Tuesday, Nov 7, 2023](https://github.com/reapchain/reapchain/commit/00b2965fee9b930d2139aef4f0aba9cd31867610)
+- Modify checking validation for Steering Member
 
-- (deps) Bump Ethermint version to [`v0.19.0`](https://github.com/reapchain/ethermint/releases/tag/v0.19.0)
-- (feesplit) Add `x/feesplit` module
+## [Thursday, Nov 2, 2023](https://github.com/reapchain/reapchain/commit/ede0a9e9f2082813dbd379fa0eb62f0eb199556b)
+- refactoring
 
-### Improvements
+## [Wednesday, Nov 1, 2023](https://github.com/reapchain/reapchain/commit/79f929758f9508a1ac380f2f26434f0714cb7e98)
+- Update Cosmos-SDK, IBC, Ethermint
+  - Cosmos-SDK v0.4.15
+  - IBC-GO v0.5.16
+  - Ethermint v0.2.15
 
-- (deps) [\#839](https://github.com/reapchain/reapchain/pull/839) Bump ibc-go to [`v3.2.0`](https://github.com/reapchain/ibc-go/releases/tag/v3.2.0) and Cosmos SDK to [`v0.45.7`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.7).
-- (build) [\#725](https://github.com/reapchain/reapchain/pull/725) Migrate Protobuf code generator to [Protobuf Workspaces](https://docs.buf.build/reference/workspaces)
+## [Wednesday, Nov 1, 2023](https://github.com/reapchain/reapchain/commit/da1bb005e7bf70b34cfd4c9aa9f78b2ad418a650)
+- Merge branch 'feature/escrow_module' into dev
 
-## [v7.0.0] - 2022-08-04
+## [Wed Nov 1, 2023](https://github.com/reapchain/reapchain/commit/5f061b66bf4e9049d459317472d9a30b7c900e33)
+- Code Refactoring & Additional Changes
+  - Keyword Supply -> Pool
+  - Optional Reciever Address for Transactions
+  - Optimized Escrow Pool List
 
-### State Machine Breaking
+## [Mon Sep 25, 2023](https://github.com/reapchain/reapchain/commit/dda95fc3985c58f61b909a3b1d4f704d7828a97d) 
+- Update Makefile
 
-- (deps) Bump Ethermint version to [`v0.18.0`](https://github.com/reapchain/ethermint/releases/tag/v0.18.0)
+## [Mon Oct 30, 2023](https://github.com/reapchain/reapchain/commit/646a5554320340f786f2c3fc2662f8fd7de44e68)
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.22
+  - IAVL v0.2.13
+  - Cosmos-SDK v0.4.14
+  - IBC-GO v0.5.15
+  - Ethermint v0.2.14
 
-### Bug Fixes
+## [Mon Oct 30, 2023](https://github.com/reapchain/reapchain/commit/329665c902c9a5c873cdba282e49f58525e8f4c1) 
+- Merge branch 'feature/escrow_module' into dev
 
-- (app) [\#760](https://github.com/reapchain/reapchain/pull/760) Migrate inaccessible balance of testnet faucet account to new address
-- (inflation) [\#748](https://github.com/reapchain/reapchain/pull/748) Remove overcounted epochs from `skippedEpochs` value in store
+## [Mon Oct 30, 2023](https://github.com/reapchain/reapchain/commit/901ffaced58788152c196011a78b10bc985f7ac3) 
+- Merge branch 'features/refactoring-for-bridge' into dev
 
-## [v6.0.3] - 2022-07-26
+## [Mon Oct 30, 2023](https://github.com/reapchain/reapchain/commit/f5bc1be815b13def1e01e1a1861a5b994a2d9480)
+- Escrow Module Modifications
+  - Added automatic conversion after governance proposal
+  - Changed keywords and functions names [supply -> pool]
 
-### Bug Fixes
+## [Fri Oct 27, 2023](https://github.com/reapchain/reapchain/commit/1fd0060934f3d2ef05dd01eb02133b6b86cc69d4)  
+- refactoring
 
-- (deps) [\#803](https://github.com/reapchain/reapchain/pull/803) Bump Ethermint version to [`v0.17.2`](https://github.com/reapchain/ethermint/releases/tag/v0.17.2)
+## [Fri Oct 27, 2023](https://github.com/reapchain/reapchain/commit/d71fdb2b12dd7c890124d5bdf3be39572e934b44) 
+- send chain-fee to fee-collector
 
-## [v6.0.2] - 2022-07-13
+## [Thu Oct 19, 2023](https://github.com/reapchain/reapchain/commit/adba93168e9e717da37ce5a24e1c7b67023e4f88) 
+- Add params MinBridgeFee
 
-### Bug Fixes
+## [Wed Oct 18, 2023](https://github.com/reapchain/reapchain/commit/572cf12a7addc5dae1ca078e84cb188c9ada3b5a) 
+- Change GravityDenomPrefix
 
-- (deps) [\#769](https://github.com/reapchain/reapchain/pull/769) Bump Ethermint version to [`v0.17.1`](https://github.com/reapchain/ethermint/releases/tag/v0.17.1)
+## [Tue Oct 17, 2023](https://github.com/reapchain/reapchain/commit/03578eaddc3570d76d6c95a0c6470aa228f6a892)  
+- Add some comments
 
-## [v6.0.1] - 2022-06-28
+## [Mon Oct 16, 2023](https://github.com/reapchain/reapchain/commit/a3ca49b8262cfb0a6fbc36b1fd2356a6819e2f5e)
+- modifyed wrong string in *.md
 
-### Improvements
+## [Thu Oct 12, 2023](https://github.com/reapchain/reapchain/commit/054836db2926f1a73b411cdbe778a01286da67df)
+- Add gravity DefaultErc20ContractAddress
 
-- (ci) [\#729](https://github.com/reapchain/reapchain/pull/729) Remove unshallow action in goreleaser.
+## [Tue Oct 10, 2023](https://github.com/reapchain/reapchain/commit/802c867ceb5b95836a1cd39a4de9bcc427522600)
+- update *.md
 
-## [v6.0.0] - 2022-06-28
+## [Thu Oct 5, 2023](https://github.com/reapchain/reapchain/commit/dbc5fc5fbd406f798bcdf43116ba9576495f3546)  
+- Add gravity param
+  - enable_slash
 
-### State Machine Breaking
+## [Wed Sep 27, 2023](https://github.com/reapchain/reapchain/commit/20cef7beb457edc0fad2559d3030baf202dd9ba3)  
+- docs: import previously readme file
 
-- (deps) [\#719](https://github.com/reapchain/reapchain/pull/719) Bump Ethermint version to [`v0.17.0`](https://github.com/reapchain/ethermint/releases/tag/v0.17.0)
+## [Mon Sep 25, 2023](https://github.com/reapchain/reapchain/commit/50c6e72c36bd2c095b9ea3e4a851e58fd9229cd2)  
+- Update Makefile
 
-### API Breaking
+## [Fri Sep 15, 2023](https://github.com/reapchain/reapchain/commit/889a9efcecd73d08191dfd00dce8d2288501ad21)  
+- Modify ValSet
 
-- (all) [\#701](https://github.com/reapchain/reapchain/pull/703) Rename Go module to `evmos/evmos`
+## [Mon Sep 11, 2023](https://github.com/reapchain/reapchain/commit/cdbc386cb4e4984b4ec41b19cf9545d6a2bdc3b4) 
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.20
+  - IAVL v0.2.11
+  - Cosmos-SDK v0.4.12
+  - IBC-GO v0.5.13
+  - Ethermint v0.2.12
 
-### Improvements
+## [Fri Sep 8, 2013](https://github.com/reapchain/reapchain/commit/702ce80b6698ac9a4fb1d658441a0215d045f246)
+- feat: Escrow Module
 
-- (deps) [\#714](https://github.com/reapchain/reapchain/pull/714) Bump Go version to `1.18`.
-- (cmd) [\#696](https://github.com/reapchain/reapchain/pull/696) Set a custom tendermint node configuration on initialization.
-- (feesplit) [\#685](https://github.com/reapchain/reapchain/pull/685) Internal Specification audit.
-- (feesplit) [\#691](https://github.com/reapchain/reapchain/pull/691) Internal API audit.
-- (feesplit) [\#715](https://github.com/reapchain/reapchain/pull/715) Internal state machine audit.
+## [Fri Sep 8, 2013](https://github.com/reapchain/reapchain/commit/6860eb4adbc9af9ea598dbed71aaeb0e956a51b9)
+- fix: Script for Proto Generation
 
-## [v5.0.0] - 2022-06-14
+## [Fri Sep 8, 2013](https://github.com/reapchain/reapchain/commit/810e00dd60585cfbe6cd8fa89dbff1b1bd7dbc4d)
+- fix: removed unused TX CLI
 
-### State Machine Breaking
+## [Fri Sep 8, 2013](https://github.com/reapchain/reapchain/commit/9e7549c480d3179132530bcf9ed0a37c89e68009)
+- feat: Proto Files Generated
 
-- (deps) [\#684](https://github.com/reapchain/reapchain/pull/684) Bump ibc-go version to [`v3.1.0`](https://github.com/reapchain/ibc-go/releases/tag/v3.1.0)
-- (vesting) [\#666](https://github.com/reapchain/reapchain/pull/666) Remove support of Cosmos SDK `VestingAccount` types.
-- (deps) [\#663](https://github.com/reapchain/reapchain/pull/663) Bump Ethermint version to [`v0.16.1`](https://github.com/reapchain/ethermint/releases/tag/v0.16.1)
-- (claims) [\#605](https://github.com/reapchain/reapchain/pull/605) Remove duplicated `SetClaimsRecord`.
-- (erc20) [\#602](https://github.com/reapchain/reapchain/pull/602) Modified `RegisterERC20` proposals. Fix erc20 name sanitization to allow spaces on token name.
+## [Fri Sep 8, 2013](https://github.com/reapchain/reapchain/commit/d99e59a0c77fdcabcd081c942f1a4ef57e4591cd)
+- feat: Proto Files for Escrow & Permissions Module
 
-### API Breaking
+## [Fri Sep 1, 2013](https://github.com/reapchain/reapchain/commit/bc3b2666fb21af4017dc9e190c99693d072d143a)
+- Modify gravity mint denom
 
-- (claims) [\#605](https://github.com/reapchain/reapchain/pull/605) Remove `claims-` prefix in CLI query commands.
-- (erc20) [\#592](https://github.com/reapchain/reapchain/pull/592) Finish module completeness audit.
-- (analytics) [\#637](https://github.com/reapchain/reapchain/pull/637) Add telemetry to Evmos modules.
-- (vesting) [\#643](https://github.com/reapchain/reapchain/pull/643) Remove the `create-vesting-account` CLI command from Cosmos SDK in favor of the clawback vesting accounts.
+## [Fri Sep 1, 2013](https://github.com/reapchain/reapchain/commit/cdf53235365031d3bb56701bd6a7f74cac5787cd)
+- Add cmd
+  - gentx
+  - eth_keys
 
-### Improvements
+## [Fri Sep 1, 2013](https://github.com/reapchain/reapchain/commit/ed714987bc8524c53cc84d87e26755adbb2fec4e)
+- bug fix
+  - getID()
 
-- (erc20) [\#677](https://github.com/reapchain/reapchain/pull/677) Add Amino registration to `ConvertCoin` and `ConvertERC20` msgs for ERC712 compatibility.
-- (deps) [\#668](https://github.com/reapchain/reapchain/pull/668) Bump Cosmos SDK to [`v0.45.5`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.5)
-- (erc20) [\#642](https://github.com/reapchain/reapchain/pull/642) Remove enforcing ibc and channel names during `RegisterCoin`
+## [Fri Sep 1, 2013](https://github.com/reapchain/reapchain/commit/533b07b2b35430f0827ab48cb786e6ffcd48624e)
+- bug fix
+  - bech32IbcKeeper
 
-### Bug Fixes
+## [Mon Aug 21, 2013](https://github.com/reapchain/reapchain/commit/dab9d333668982c6eeb4ca52eb6090db7c6fa0e0)
+- Modify AnteHandler
 
-- (app) [\#682](https://github.com/reapchain/reapchain/pull/682) Fix Tendermint consensus params (Evidence `MaxAgeNumBlocks` and `MaxAgeDuration`)
-- (incentives) [\#656](https://github.com/reapchain/reapchain/pull/656) Fix incentives that were previously only allocated to `EthAccount`s.
-- (feesplit) [\#612](https://github.com/reapchain/reapchain/pull/612) Fix fees registration cli command and description
-- (inflation) [\#554](https://github.com/reapchain/reapchain/pull/554) Changing erroneous epoch skips to `daily` instead of `weekly`
-- (claims) [\#626](https://github.com/reapchain/reapchain/pull/626) fix durations denominated in `nanoseconds`
-- (epochs) [\#629](https://github.com/reapchain/reapchain/pull/629) fix epochs durations denominated in `nanoseconds`
-
-## [v4.0.1] - 2022-05-10
-
-### Bug Fixes
-
-(erc20) [\#588](https://github.com/reapchain/reapchain/pull/588) Revert PR [\#556](https://github.com/reapchain/reapchain/pull/556).
-
-## [v4.0.0] - 2022-05-09
-
-### State Machine Breaking
-
-- (app) [\#537](https://github.com/reapchain/reapchain/pull/537) Fix router key for IBC client proposals.
-- (erc20) [\#530](https://github.com/reapchain/reapchain/pull/530) Use the highest denom unit when deploying an ERC20 contract.
-
-### API Breaking
-
-- (upgrade) [\#557](https://github.com/reapchain/reapchain/pull/557) Update Evmos go.mod version `v3` -> `v4`
-- (erc20) [\#544](https://github.com/reapchain/reapchain/pull/544) Remove `updateTokenPairERC20Proposal` functionality rename `relay` to `conversion`
-- (inflation) [\#536](https://github.com/reapchain/reapchain/pull/536) Rename inflation endpoint `/evmos/inflation/v1/total_supply` -> `/evmos/inflation/v1/circulating_supply`
-
-### Improvements
-
-- (deps) [\#580](https://github.com/reapchain/reapchain/pull/580) Bump Ethermint to [`v0.15.0`](https://github.com/reapchain/ethermint/releases/tag/v0.15.0)
-- (gitpod) [\#564](https://github.com/reapchain/reapchain/pull/564) Add one-click development environment
-- (erc20) [\#556](https://github.com/reapchain/reapchain/pull/556) Remove deprecated migrations.
-- (incentives) [\#551](https://github.com/reapchain/reapchain/pull/551) Add additional check to only distribute incentives to EOAs.
-- (cmd) [\#543](https://github.com/reapchain/reapchain/pull/543) Update mainnet default `min-gas-price` to `0.0025aevmos`.
-- (epochs) [\#539](https://github.com/reapchain/reapchain/pull/539) Use constants for epoch identifiers.
-
-### Bug Fixes
-
-- (erc20) [\#530](https://github.com/reapchain/reapchain/pull/530) Fix `Metadata` equal check for denom units.
-- (app) [\#523](https://github.com/reapchain/reapchain/pull/523) Fix testnet upgrade store loader.
-
-## [v3.0.1] - 2022-05-09
-
-### Improvements
-
-- (app) [\#555](https://github.com/reapchain/reapchain/pull/555) `v4.0.0` upgrade logic.
-- (p2p) [\#541](https://github.com/reapchain/reapchain/pull/541) Increase default inbound connections and use 8:1 ratio of inbound:outbound. Add default seeds to reduce the need for configuration.
-- (deps) [\#528](https://github.com/reapchain/reapchain/pull/528) Bump Cosmos SDK to [`v0.45.4`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.4)
-
-## [v3.0.0] - 2022-04-22
-
-### State Machine Breaking
-
-- [\#342](https://github.com/reapchain/reapchain/pull/342) Implement IBC middleware to recover stuck funds
-
-### API Breaking
-
-- [\#415](https://github.com/reapchain/reapchain/pull/415) Bump Evmos go version to v3
-
-### Bug Fixes
-
-- (vesting) [\#502](https://github.com/reapchain/reapchain/pull/502) Fix gas exhaustion bug by removing `SpendableCoins` during vesting account clawback.
-- (vesting) [\#483](https://github.com/reapchain/reapchain/pull/483) Fix balance clawback when vesting start time is in the future
-- (claims) [\#381](https://github.com/reapchain/reapchain/pull/381) Fix claim migration and deletion for EVM chains via IBC attestation.
-- (claims) [\#374](https://github.com/reapchain/reapchain/pull/374) Fix balance invariant in Claims `InitGenesis`
-- (erc20) [\#366](https://github.com/reapchain/reapchain/issues/366) Delete ERC20 denom map when deleting pair.
-- (claims) [\#505](https://github.com/reapchain/reapchain/pull/505) Fix IBC attestation ordering
-
-### Improvements
-
-- (vesting) [\#486](https://github.com/reapchain/reapchain/pull/486) Refactor `x/vesting` types and tests.
-- (erc20) [\#484](https://github.com/reapchain/reapchain/pull/484) Avoid unnecessary commits to the StateDB and don't estimate gas when performing a query
-- (deps) [\#478](https://github.com/reapchain/reapchain/pull/478) Bump Cosmos SDK to [`v0.45.3`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.3)
-- (deps) [\#478](https://github.com/reapchain/reapchain/pull/478) Bump Ethermint to [`v0.14.0`](https://github.com/reapchain/ethermint/releases/tag/v0.14.0)
-- (vesting) [\#468](https://github.com/reapchain/reapchain/pull/468) Use coins `Min` function from Cosmos SDK.
-- (cmd) [\#446](https://github.com/reapchain/reapchain/pull/446) Update `migrate` command to migrate Evmos, Ethermint and Cosmos SDK modules.
-- (app) [\#446](https://github.com/reapchain/reapchain/pull/446) Refactor upgrade code.
-- (ibc) [\#412](https://github.com/reapchain/reapchain/pull/412) Introduce boilerplate struct for IBC applications.
-- (deps) [\#402](https://github.com/reapchain/reapchain/pull/402) Bump IBC go to [`v3.0.0`](https://github.com/reapchain/ibc-go/releases/tag/v3.0.0)
-- (ibctesting) [\#388](https://github.com/reapchain/reapchain/pull/388) Support Cosmos and EVM chains in IBC testing `Coordinator`.
-- (claims) [\#385](https://github.com/reapchain/reapchain/pull/385) Add claims invariant.
-- (inflation) [\#383](https://github.com/reapchain/reapchain/pull/383) Add gRPC endpoints for inflation rate and total supply
-- (inflation) [\#369](https://github.com/reapchain/reapchain/pull/369) Add `enableInflation` parameter.
-- (claims) [\#432](https://github.com/reapchain/reapchain/pull/432) Add IBC trigger amount to claims merge/migrate IBC callbacks.
-- (claims) [\#442](https://github.com/reapchain/reapchain/pull/443) Remove claims merge/migrate cases where sender already completed an action as they are never reached
-- (claims) [\#507](https://github.com/reapchain/reapchain/pull/507) Always return claimable amount on grpc queries regarding of claims status.
-- (claims) [\#516](https://github.com/reapchain/reapchain/pull/516) Retain claims records when all actions have been completed.
-
-## [v2.0.1] - 2022-03-06
-
-### Bug Fixes
-
-- (upgrade) [#\363](https://github.com/reapchain/reapchain/pull/363) Don't use `GetParams` for upgrades.
-
-## [v2.0.0] - 2022-03-06
-
-### State Machine Breaking
-
-- (claims) Restrict claiming to a list of authorized IBC channels.
-
-### Improvements
-
-- (deps) [\#360](https://github.com/reapchain/reapchain/pull/360) Bump Ethermint to [`v0.11.0`](https://github.com/reapchain/ethermint/releases/tag/v0.11.0)
-- (deps) [\#282](https://github.com/reapchain/reapchain/pull/282) Bump IBC go to [`v3.0.0-rc1`](https://github.com/reapchain/ibc-go/releases/tag/v3.0.0-rc1)
-
-### Bug Fixes
-
-- (erc20) [\#337](https://github.com/reapchain/reapchain/pull/337) Ignore errors in ERC20 module's EVM hook.
-- (erc20) [\#336](https://github.com/reapchain/reapchain/pull/336) Return `nil` for disabled ERC20 module or ERC20 EVM hook.
-
-## [v1.1.2] - 2022-03-06
-
-### Bug Fixes
-
-- (app) [\#354](https://github.com/reapchain/reapchain/pull/354) Add v2 version upgrade logic
-
-## [v1.1.1] - 2022-03-04
-
-### Improvements
-
-- (deps) [\#345](https://github.com/reapchain/reapchain/pull/345) Bump Ethermint to [`v0.10.2`](https://github.com/reapchain/ethermint/releases/tag/v0.10.2)
-
-### Bug Fixes
-
-- (app) [\#341](https://github.com/reapchain/reapchain/pull/341) Return error when `--ledger` flag is passed in CLI
-
-## [v1.1.0] - 2022-03-02
-
-### Bug Fixes
-
-- (ante) [\#318](https://github.com/reapchain/reapchain/pull/318) Add authz check in vesting and min commission `AnteHandler` decorators.
-- (vesting) [\#317](https://github.com/reapchain/reapchain/pull/317) Fix clawback for vested coins.
-
-## [v1.0.0] - 2022-02-28
-
-### State Machine Breaking
-
-- (ante) [\#302](https://github.com/reapchain/reapchain/pull/302) Add AnteHandler decorator to enforce global min validator commission rate.
-- (app) [\#224](https://github.com/reapchain/reapchain/pull/224) Fix power reduction my setting the correct value on app initialization.
-- (keys) [\#189](https://github.com/reapchain/reapchain/pull/189) Remove support for Tendermint's `secp256k1` keys.
-- [\#173](https://github.com/reapchain/reapchain/pull/173) Rename `intrarelayer` module to `erc20`
-- [\#190](https://github.com/reapchain/reapchain/pull/190) Remove governance hook from `erc20` module
-
-### Features
-
-- [\#286](https://github.com/reapchain/reapchain/pull/286) Add `x/vesting` module.
-- [\#184](https://github.com/reapchain/reapchain/pull/184) Add claims module for claiming the airdrop tokens.
-- [\#183](https://github.com/reapchain/reapchain/pull/183) Add epoch module for incentives.
-- [\#202](https://github.com/reapchain/reapchain/pull/202) Add custom configuration for state sync snapshots and tendermint p2p peers. This introduces a custom `InitCmd` function.
-- [\#176](https://github.com/reapchain/reapchain/pull/176) Add `x/incentives` module.
-
-### Improvements
-
-- (deps) Bumped Ethermint to [`v0.10.0`](https://github.com/reapchain/ethermint/releases/tag/v0.10.0)
-- (deps) Bumped IBC-go to `v3.0.0-rc0`
-- (deps) Bumped Cosmos SDK to [`v0.45.1`](https://github.com/reapchain/cosmos-sdk/releases/tag/v0.45.1)
-- (deps) bumped Tendermint to `v0.34.15` and tm-db to `v0.6.6`.
-- [\#180](https://github.com/reapchain/reapchain/pull/180) Delete `TokenPair` if ERC20 contract has been selfdestructed.
-
-### Bug Fixes
-
-- (erc20) [\#169](https://github.com/reapchain/reapchain/pull/169) Fixes several testnet bugs:
-  - Check if supply exists for a token before when submitting a `RegisterCoinProposal`, allowing users to create an ERC20 representation of an invalid Cosmos Coin.
-  - Sanitize the ERC20 token name when creating coin metadata on ER `RegisterERC20Proposal`.
-  - Fix coin metadata validation error when registering an ERC20 with 0 denom units.
-- (erc20) [\#191](https://github.com/reapchain/reapchain/pull/191) Add direct balance protection (IF-ETHERMINT-06).
-- (erc20) [\#192](https://github.com/reapchain/reapchain/pull/192) Add delayed malicious effect protection (IF-ETHERMINT-06).
-- (erc20) [\#200](https://github.com/reapchain/reapchain/pull/200) Match coin and token decimals for erc20 deployment during registerCoin
-- (erc20) [\#201](https://github.com/reapchain/reapchain/pull/201) bug(erc-20): Compile built-in contracts in the build process (IF-ETHERMINT-02).
-
-## [v0.4.2] - 2021-12-11
-
-### Bug Fixes
-
-- (app) [\#166](https://github.com/reapchain/reapchain/pull/166) Fix `UpgradeHandler`.
-
-## [v0.4.1] - 2021-12-07
-
-### Improvements
-
-- (build) [\#143](https://github.com/reapchain/reapchain/pull/143) Added `build-reproducible` rule in `Makefile` to build docker containers
-
-### Bug Fixes
-
-- (build) [\#151](https://github.com/reapchain/reapchain/pull/151) Fixes `version` command by picking the latest tag in the current branch instead of across all branches as the current version
-
-## [v0.4.0] - 2021-12-02
-
-### State Machine Breaking
-
-- (erc20) [\#119](https://github.com/reapchain/reapchain/issues/119) Register `x/erc20` proposal types on governance module.
-
-### Improvements
-
-- (app) [\#128](https://github.com/reapchain/reapchain/pull/128) Add ibc-go `TestingApp` interface.
-- (ci) [\#117](https://github.com/reapchain/reapchain/pull/117) Enable automatic backport of PRs.
-- (deps) [\#135](https://github.com/reapchain/reapchain/pull/135) Bump Ethermint version to [`v0.9.0`](https://github.com/reapchain/ethermint/releases/tag/v0.9.0)
-- (ci) [\#136](https://github.com/reapchain/reapchain/pull/136) Deploy `evmos` docker container to [docker hub](https://hub.docker.com/u/tharsishq) for every versioned releases
-
-### Bug Fixes
-
-- (build) [\#116](https://github.com/reapchain/reapchain/pull/116) Fix `build-docker` command
-
-## [v0.3.0] - 2021-11-24
-
-### API Breaking
-
-- (erc20) [\#99](https://github.com/reapchain/reapchain/pull/99) Rename `enable_e_v_m_hook` json parameter to `enable_evm_hook`.
-
-### Improvements
-
-- (deps) [\#110](https://github.com/reapchain/reapchain/pull/110) Bump Ethermint version to [`v0.8.1`](https://github.com/reapchain/ethermint/releases/tag/v0.8.1)
-- (erc20) [\#107](https://github.com/reapchain/reapchain/pull/107) Add IBC validation
-- (cmd) [\#105](https://github.com/reapchain/reapchain/pull/105) Improve testnet command to include JSON-RPC client.
-
-## Bug Fixes
-
-- (erc20) [\#109](https://github.com/reapchain/reapchain/pull/109) Fix hardcoded erc20 nonce and `UpdateTokenPairERC20` proposal to support ERC20s with 0 decimals.
-- (erc20) [\#102](https://github.com/reapchain/reapchain/pull/102) Add `convert-erc20` cmd
-
-## [v0.2.0] - 2021-11-17
-
-### Features
-
-- (erc20) [\#82](https://github.com/reapchain/reapchain/pull/82) ERC20 module
-- (cmd) [\#32](https://github.com/reapchain/reapchain/pull/32) Create `testnet` command that spins up a new local testnet with N nodes.
-
-### Improvements
-
-- (deps) [\#94](https://github.com/reapchain/reapchain/pull/94) Bump Ethermint version to [`v0.8.0`](https://github.com/reapchain/ethermint/releases/tag/v0.8.0)
-- (deps) [\#80](https://github.com/reapchain/reapchain/pull/80) Bump ibc-go to [`v2.0.0`](https://github.com/reapchain/ibc-go/releases/tag/v2.0.0)
-
-## [v0.1.3] - 2021-10-24
-
-### Improvements
-
-- (deps) [\#64](https://github.com/reapchain/reapchain/pull/64) Bump Ethermint version to `v0.7.2`
-
-### Bug Fixes
-
-- (cmd) [\#41](https://github.com/reapchain/reapchain/pull/41) Fix `debug` command.
-
-## [v0.1.2] - 2021-10-08
-
-### Improvements
-
-- (deps) [\#34](https://github.com/reapchain/reapchain/pull/34) Bump Ethermint version to `v0.7.1`
-
-## [v0.1.1] - 2021-10-07
-
-### Bug Fixes
-
-- (build) [\#30](https://github.com/reapchain/reapchain/pull/30) Fix `version` command.
-
-## [v0.1.0] - 2021-10-07
-
-### Improvements
-
-- (cmd) [\#26](https://github.com/reapchain/reapchain/pull/26) Use config on genesis accounts.
-- (deps) [\#28](https://github.com/reapchain/reapchain/pull/28) Bump Ethermint version to `v0.7.0`
+## [Mon Aug 21, 2023](https://github.com/reapchain/reapchain/commit/6240a129c4783c1d8df42e1da511596bd17f3b05)
+- feat: Gravity + Bech32IBC
+
+## [Thu Aug 10, 2023](https://github.com/reapchain/reapchain/commit/18f340a20dd1ac71657e4804b4467c4dea3445a0)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.19
+  - IAVL v0.2.10
+  - Cosmos-SDK v0.4.11
+  - IBC-GO v0.5.12
+  - Ethermint v0.2.11
+  - Upated App Imports for SDK v0.4.11
+
+## [Thu Jul 27, 2023](https://github.com/reapchain/reapchain/commit/3841d2b38d1d03b94ad5f4495127639ea0201650)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.18
+  - IAVL v0.2.9
+  - Cosmos-SDK v0.4.10
+  - IBC-GO v0.5.11
+  - Ethermint v0.2.10
+
+## [Thu Jul 27, 2023](https://github.com/reapchain/reapchain/commit/f359c61fb7b0abe8ee5529ff8d0ba5fcf3ae0387)  
+- Merge branch 'v8.0.0.v1' of https://github.com/reapchain/reapchain into v8.0.0.v1
+
+## [Thu Jul 27, 2023](https://github.com/reapchain/reapchain/commit/3ae58688acfbd69b1f1f0863fca6cff6baed230a)
+- Remove chainId in qrn
+
+## [Tue Jul 25, 2023](https://github.com/reapchain/reapchain/commit/0833d4821d41b9cef23b128f90e642c76411733a) 
+- Merge branch 'feature/permissions-module' into v8.0.0.v1
+
+## [Tue Jul 25, 2023](https://github.com/reapchain/reapchain/commit/ffcef166e864c40f043a3f2b70e6c9f7a1a36eb9)
+- fix: Forced Validator Removal Bug Fix
+  - Added time check to avoid premature validator removal
+  - Added removal of validator from unbonding queue once forcefully removed
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/0e8df67ed930bfd55eeb706659f7306fbaba06f0)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.17
+  - IAVL v0.2.8
+  - Cosmos-SDK v0.4.9
+  - IBC-GO v0.5.10
+  - Ethermint v0.2.9
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/730400600c833c1711f814b6dcf2d9cdd5f42c0d)  
+- Merge branch 'feature/permissions-module' into v8.0.0.v1
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/94a73de92e1df6c58cc5f1a3d0afbd41e6edb16b)
+- feat: Permissions Module Parameters Updated
+  - renamed parameters
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/368d298f1f5b54cf4bedcdb571f90f9a3d9b3e3e)  
+- Merge branch 'feature/permissions-module' into v8.0.0.v1
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/aba467c9c03225df0e18a10ba752c7515ea3c242)
+- refactor: removed print logs
+
+## [Mon Jul 24, 2023](https://github.com/reapchain/reapchain/commit/a07914bf0adfc2687e7d54ce3440b956a1bfab44)
+- feat: Staking Filtering, Forced Removal
+  - Added a filter to prevent delegation to removed validators
+  - Added a forced removal of validators that were removed through governance
+  - ABCI Login updated
+  - Example TX code
+
+## [Wed Jul 19, 2023](https://github.com/reapchain/reapchain/commit/d3138c20aa8f1a1c76373b0e379be30dadbf4468) 
+- Merge branch 'feature/premature-unlock-bug-fix' into feature/permissions-module
+
+## [Wed Jul 19, 2023](https://github.com/reapchain/reapchain/commit/30b044febe8c7566c0424850d574aa95c8ae75e9)
+- For export, add functions
+
+## [Tue Jul 11, 2023](https://github.com/reapchain/reapchain/commit/1dca7b0c7426595e69b720890c0cbc5091ae9708)
+- Error Code Changed
+
+## [Tue Jul 11, 2023](https://github.com/reapchain/reapchain/commit/a13719eddd5d543e1b7dd5b2beb539088d280a5b)
+- Moniker Validation
+  - Check that the createValidator message has the same corresponding moniker as the whitelisted validator
+
+## [Tue Jul 11, 2023](https://github.com/reapchain/reapchain/commit/49831384cf39a77fd6a65240e5ab77753bc0918d)
+- Modified Error Log for Initial Minimum Deposit
+  - Added error log to show how much deposit is required
+
+## [Tue Jul 11, 2023](https://github.com/reapchain/reapchain/commit/a44810df3612093ff26318899c3f49edddbff9c9)
+- Handle Jailed Validators
+  - Code for force unjail already jailed validators
+
+## [Tue Jul 4, 2023](https://github.com/reapchain/reapchain/commit/8e259545a865a9e796ecae8fc0c55594c19a5b3d)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.15
+  - IAVL v0.2.6
+  - Cosmos-SDK v0.4.8
+  - IBC-GO v0.5.9
+  - Ethermint v0.2.8
+
+## [Mon Jul 3, 2023](https://github.com/reapchain/reapchain/commit/b093c53252ab635cca781a34134f4b035210b3d7) 
+- Remove Inflation Logs
+
+## [Mon Jul 3, 2023](https://github.com/reapchain/reapchain/commit/facb59801ae8952ec60700214ef67ef8a2a5ee13)
+- Removed Log Outpus
+
+## [Tue Jun 20, 2023](https://github.com/reapchain/reapchain/commit/62184c75322cea8f8c59898892e643ea6b9a4540)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.14-rc8
+  - IAVL v0.2.5-rc8
+  - Cosmos-SDK v0.4.7-rc8
+  - IBC-GO v0.5.8-rc8
+  - Ethermint v0.2.7-rc8
+
+## [Mon Jun 19, 2023](https://github.com/reapchain/reapchain/commit/ea038478e1e9486888622ed2bf97fba5281d5dfe)  
+- Updated Test Codes, Go Packages
+  - Reapchain-Core v0.1.14-rc7
+  - IAVL v0.2.5-rc7
+  - Cosmos-SDK v0.4.7-rc7
+  - IBC-GO v0.5.8-rc7
+  - Ethermint v0.2.7-rc7
+
+## [Mon Jun 19, 2023](https://github.com/reapchain/reapchain/commit/94ffd9c484b1b1e324bda4e037b38e6183a59a8d)
+- Renaming Parameters
+
+## [Mon Jun 19, 2023](https://github.com/reapchain/reapchain/commit/7790de0adba74a05679cc88e868bf6ac44fba248)
+- Code Cleanup
+
+## [Mon Jun 19, 2023](https://github.com/reapchain/reapchain/commit/2a5e48bfc6dde3aa8e31b738b473f6f04daf8b16)  
+- Merge remote-tracking branch 'remotes/origin/feature/premature-unlock-bug-fix' into feature/permissions-module
+
+## [Fri Jun 2, 2023](https://github.com/reapchain/reapchain/commit/e7ab46285ac2894765b20cb0930622424608a085)
+- Code Cleanup, GRPC API Endpoints, Genesis Changes
+  - Removed adding whitelist at genesis
+  - Added GRPC endpoints for querying Params and Whitelist
+
+## [Fri Jun 16, 2023](https://github.com/reapchain/reapchain/commit/7c95fa70d330f4fb4c6a79a6ec0d7ab4c8727ba7)
+- CreateValidator Transaction checks whitelist enabled param
+
+## [Fri Jun 16, 2023](https://github.com/reapchain/reapchain/commit/51e4d31bd7048182fb6184564cb97f82d759a615)
+- Whitelist_Enabled Parameter
+  - Additional parameter in genesis for Permissinos Module to check if a whitelist should be used or not
+  - BeginBlocker code to monitor the status of whitelisted validators
+  - Proto modifications
+
+## [Thu Jun 15, 2023](https://github.com/reapchain/reapchain/commit/5133af0ae63f1ad7fdaf4c753aa068e39bb8800b)
+- Permissions Module
+  - Governace Routers for Registering, Removing, and Replacing Standing Member in a White List
+  - Genesis Params for Governance Initial Deposit Variables
+  - Ante Handlers for Governance and Staking
+  - Governance Ante Handler checks Minimum Initial Deposits
+  - Staking Ante Handler checks if a Create Standing Member message is in the White List
+
+## [Thu May 25, 2023](https://github.com/reapchain/reapchain/commit/b83dffed96b9b2251253628e95b921a9924bc666) 
+- Initial Bug fix for Premature Unlock
+  - Added more checks for balances to make sure vesting coins cannot be staked
+
+## [Mon May 8, 2023](https://github.com/reapchain/reapchain/commit/beac9a99ba150d3f7a517d1daa00cee1c7dd5329)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.14-rc6
+  - IAVL v0.2.5-rc6
+  - Cosmos-SDK v0.4.7-rc6
+  - IBC-GO v0.5.8-rc6
+  - Ethermint v0.2.7-rc6
+
+## [Tue May 2, 2023](https://github.com/reapchain/reapchain/commit/29a3987ae1ac9986c8a5823410c85a21987976ac)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.14-rc5
+  - IAVL v0.2.5-rc5
+  - Cosmos-SDK v0.4.7-rc5
+  - IBC-GO v0.5.8-rc5
+  - Ethermint v0.2.7-rc5
+
+## [Mon Apr 24, 2023](https://github.com/reapchain/reapchain/commit/f972f73384cccb42098a9d8743fa9d343b4af601)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint & Changes
+  - Reapchain-Core v0.1.14-rc4
+  - IAVL v0.2.5-rc4
+  - Cosmos-SDK v0.4.7-rc4
+  - IBC-GO v0.5.8-rc4
+  - Ethermint v0.2.7-rc4
+  - Modify proto and cmd package (reapchain-core to podc / reapchain to podc)
+
+## [Wed Apr 19, 2023](https://github.com/reapchain/reapchain/commit/4381cd2f14b0f94eb538a89105100e9627d2cbd6)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.14-rc3
+  - IAVL v0.2.5-rc3
+  - Cosmos-SDK v0.4.7-rc3
+  - IBC-GO v0.5.8-rc3
+  - Ethermint v0.2.7-rc3
+
+## [Wed Apr 12, 2023](https://github.com/reapchain/reapchain/commit/64a5df11b27efceea709d76825b4b4dabd04de42)  
+- Update Core, IAVL, Cosmos-SDK, IBC, Ethermint
+  - Reapchain-Core v0.1.14-rc2
+  - IAVL v0.2.5-rc2
+  - Cosmos-SDK v0.4.7-rc2
+  - IBC-GO v0.5.8-rc2
+  - Ethermint v0.2.7-rc2
+
+## [Fri Apr 7, 2023](https://github.com/reapchain/reapchain/commit/6e7e31354ebf01c0ca36326166a844666d7eafb2)  
+- v8.0.0 Package Update
+
+## [Thu Mar 2, 2023](https://github.com/reapchain/reapchain/commit/d0396b165189e0d5b6e384157999c9e00f70392c)
+- Change reapchain-core, sdk, and ibc-go version
+
+## [Fri Jan 13, 2023](https://github.com/reapchain/reapchain/commit/289faa8432a4c75203248fc86360d3be3060b008)
+- Software Upgrade
+  - Added code for Software Upgrade process for MainNet
+
+## [Thu Jan 5, 2023](https://github.com/reapchain/reapchain/commit/a61872df6e40dbee4b8223c7abc30a092ba84b17)
+- Add init option
+
+## [Thu Dec 15, 2022](https://github.com/reapchain/reapchain/commit/30487e45f637aaa442db47593def5fb19ccc685a)
+- Add log
+
+## [Tue Dec 13, 2022](https://github.com/reapchain/reapchain/commit/08e1b438712326fc5f3c533ed835a9dad3724536)
+- Remove teamAlloc.
+
+## [Fri Apr 7, 2023](https://github.com/reapchain/reapchain/commit/87b4107210b7881568954af23455c6b966ecc812)
+- Inflation Function Changes
+
+## [Wed Nov 23, 2022](https://github.com/reapchain/reapchain/commit/2035928b89e110401e0a1adcbbed0ebfd0dbf4cb)
+- Change go.mod and add inflation function
+
+## [Wed Nov 23, 2022](https://github.com/reapchain/reapchain/commit/cb21ed61f7232a243207d78e7a33ea25dca80667)  
+- Merge branch 'feature/inflation' into dev
+
+## [Fri Apr 7, 2023](https://github.com/reapchain/reapchain/commit/c5a5899cf5f7c0f222aed77e925527644b4d073c)
+- Makefile Modifications
+
+## [Fri Sep 2, 2022](https://github.com/reapchain/reapchain/commit/11bffcc02659054120cb78f6e2e637acad49355d)
+- API Refactoring - Protobufs modified
+
+## [Fri Sep 2, 2022](https://github.com/reapchain/reapchain/commit/f47d89b1b9dbe42a3a9a17438c11c7d3d4f28a3b)
+- API Refactoring
+  - Renamed API to /reapchain/
+
+## [Thu Aug 25, 2022](https://github.com/reapchain/reapchain/commit/f066a1ffb6fa34f9165763e3d402440844171781)
+- Add max inflation setting function
+
+## [Tue Aug 23, 2022](https://github.com/reapchain/reapchain/commit/5d2146662743eb14bd22ecc9781aa2d3229bbdc2)
+- Merge pull request #41 from reapchain/feature/modify-voting-power
+  - Feature/modify voting power
+
+## [Tue Aug 23, 2022](https://github.com/reapchain/reapchain/commit/a0c385a939e027dc37d274755e6b86b5593c9aea)
+- Modify for voting-power
+  - Modify DefaultPowerReduction
+  - genDoc.Validators
+  - genDoc.StandingMembers
+
+## [Wed Jun 8, 2022](https://github.com/reapchain/reapchain/commit/df51ca2148a0efbb1589774cc37ab1413029fa47)
+- Inserted Reapchain-Core init code
+
+## [Wed Jun 8, 2022](https://github.com/reapchain/reapchain/commit/ac2ad96a5453bcdf55a9ab84299c7fde300a8b93)
+- Daemon Rename
+
+## [Tue Apr 19, 2022](https://github.com/reapchain/reapchain/commit/809e590c60a5b2f4725636e93289271bcf927a33)
+- Modify for [create-validator]
+
+## [Thu Apr 28, 2022](https://github.com/reapchain/reapchain/commit/5b76a8855406cdb3bbcaff28d466c236a4e3e999)
+- Add NewValidator parameter (validator type).
+
+## [Wed Jun 8, 2022](https://github.com/reapchain/reapchain/commit/2f098997207a075ef1e9d4b2e3d011573bde5333)
+- Additional keyword changes
+
+## [Thu Apr 6, 2023](https://github.com/reapchain/reapchain/commit/727226d53139855837dd354d8be8544eed53be2b)
+- Binary Keyword Changes
+
+## [Thu Feb 24, 2022](https://github.com/reapchain/reapchain/commit/1b6d0b8297e5c00e949a042f780923630f6858a0)
+- Add Reap coin definition and modify RegisterDenoms.
+  - Add reap
+  - Register denom
+  - Cherry picks for coin denominations
+
+## [Wed Jun 8, 2022](https://github.com/reapchain/reapchain/commit/307450b6a066eadb794a2a5ee4dc581b7ea3757e)
+- v4.0.1 Upgrade Keyword Changes
+
+## [Wed Jun 8, 2022](https://github.com/reapchain/reapchain/commit/84ddb7315a60c7026a784e5c920b5d601b3631c4)
+- Folder rename, bip39 import
+
+## [Mon Apr 18, 2022](https://github.com/reapchain/reapchain/commit/e3dc6a15b1bd44f663d0fe02d784e952da63ca56)
+- Add parameter.
+
+## [Thu Apr 6, 2023](https://github.com/reapchain/reapchain/commit/e498533131c5cf369523415373e9c993689e7cc7)
+- v8.0.0 Initial Commit
