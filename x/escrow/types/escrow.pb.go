@@ -6,8 +6,8 @@ package types
 import (
 	fmt "fmt"
 	_ "github.com/reapchain/cosmos-sdk/x/bank/types"
-	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
+	_ "github.com/gogo/protobuf/gogoproto"
 	github_com_reapchain_cosmos_sdk_types "github.com/reapchain/cosmos-sdk/types"
 	io "io"
 	math "math"

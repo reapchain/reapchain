@@ -18,6 +18,8 @@ var (
 	ParamStoreKeyExponentialCalculation = []byte("ParamStoreKeyExponentialCalculation")
 	ParamStoreKeyInflationDistribution  = []byte("ParamStoreKeyInflationDistribution")
 	ParamStoreKeyEnableInflation        = []byte("ParamStoreKeyEnableInflation")
+	ParamStoreKeyMaxInflationAmount     = []byte("ParamStoreKeyMaxInflationAmount")
+	ParamStoreKeyCurrentInflationAmount = []byte("ParamStoreKeyCurrentInflationAmount")
 )
 
 // ParamTable for inflation module
@@ -66,6 +68,8 @@ func (p *Params) ParamSetPairs() paramtypes.ParamSetPairs {
 		paramtypes.NewParamSetPair(ParamStoreKeyExponentialCalculation, &p.ExponentialCalculation, validateExponentialCalculation),
 		paramtypes.NewParamSetPair(ParamStoreKeyInflationDistribution, &p.InflationDistribution, validateInflationDistribution),
 		paramtypes.NewParamSetPair(ParamStoreKeyEnableInflation, &p.EnableInflation, validateBool),
+		paramtypes.NewParamSetPair(ParamStoreKeyMaxInflationAmount, &p.MaxInflationAmount, validateMaxInflationAmount),
+		paramtypes.NewParamSetPair(ParamStoreKeyCurrentInflationAmount, &p.CurrentInflationAmount, validateCurrentInflationAmount),
 	}
 }
 
