@@ -15,6 +15,7 @@ func (k Keeper) MintAndAllocateInflation(
 	staking, incentives, communityPool sdk.Coins,
 	err error,
 ) {
+	params := k.GetParams(ctx)
 
 	currentInflationAmount, errors := sdk.NewIntFromString(k.GetCurrentInflationAmount(ctx))
 	if !errors {
@@ -26,6 +27,8 @@ func (k Keeper) MintAndAllocateInflation(
 		return nil, nil, nil, nil
 	}
 	if currentInflationAmount.Equal(maxInflationAmount) {
+		params.EnableInflation = false
+		k.SetParams(ctx, params)
 		return nil, nil, nil, nil
 	}
 
