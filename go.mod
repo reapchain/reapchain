@@ -18,7 +18,7 @@ require (
 	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.21
 	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.21
 	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.22
-	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.24
+	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.14-rc8
 	github.com/regen-network/cosmos-proto v0.3.1
 	github.com/spf13/cast v1.5.0
 	github.com/spf13/cobra v1.5.0

@@ -1121,8 +1121,8 @@ github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.15 h1:55zL7iuUaOi9Y3rk4IP808svd
 github.com/reapchain/iavl v0.19.0-reap.iavl.v0.2.15/go.mod h1:MgF055gx3gwcShAoCUzt+um46W88iQ1BZz4GJFXzoXc=
 github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.22 h1:nPCH5JQ/wwjH7DCr2TxlNpFlObYhryY0qYl8IMEBq7s=
 github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.22/go.mod h1:k+h96n7ffmkwxy9E44NRbJkqH9HGXlRLsyUwaIpkDZs=
-github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.24 h1:L/3DMs5Q4qs0xkeovmZhZ86I1fjAgtct0C84MotjJfI=
-github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.24/go.mod h1:JvYq9sN5x1x6Uf3xG26pO/4xYRco0Wmdo5RJxUtgjSM=
+github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.14-rc8 h1:j/NDdQ/QLHozU4XhnaQQtGjCoxP0LCxZ9kUFuEJN6Oo=
+github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.14-rc8/go.mod h1:JvYq9sN5x1x6Uf3xG26pO/4xYRco0Wmdo5RJxUtgjSM=
 github.com/regen-network/cosmos-proto v0.3.1 h1:rV7iM4SSFAagvy8RiyhiACbWEGotmqzywPxOvwMdxcg=
 github.com/regen-network/cosmos-proto v0.3.1/go.mod h1:jO0sVX6a1B36nmE8C9xBFXpNwWejXC7QqCOnH3O0+YM=
 github.com/regen-network/protobuf v1.3.3-alpha.regen.1 h1:OHEc+q5iIAXpqiqFKeLpu5NwTIkVXUs48vFMwzqpqY4=
