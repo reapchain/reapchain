@@ -14,7 +14,7 @@ require (
 	github.com/onsi/ginkgo/v2 v2.1.4
 	github.com/onsi/gomega v1.20.0
 	github.com/pkg/errors v0.9.1
-	github.com/rakyll/statik v0.1.7
+	github.com/rakyll/statik v0.1.8
 	github.com/reapchain/cosmos-sdk v0.45.7-reap.sdk.v0.4.21
 	github.com/reapchain/ethermint v0.19.0-reap.ethermint.v0.2.21
 	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.22
