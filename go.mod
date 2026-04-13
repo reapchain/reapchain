@@ -1,6 +1,6 @@
 module github.com/reapchain/reapchain/v8
 
-go 1.18
+go 1.23
 
 require (
 	github.com/armon/go-metrics v0.4.0
@@ -28,7 +28,7 @@ require (
 	golang.org/x/exp v0.0.0-20230811145659-89c5cff77bcb
 	google.golang.org/genproto/googleapis/api v0.0.0-20240125205218-1f4bbc51befe
 	google.golang.org/grpc v1.60.1
-	google.golang.org/protobuf v1.32.0
+	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v2 v2.4.0
 )
 
@@ -84,7 +84,7 @@ require (
 	github.com/golang/glog v0.0.0-20210429001901-424d2337a529 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/btree v1.0.1 // indirect
-	github.com/google/go-cmp v0.5.9 // indirect
+	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/google/orderedcode v0.0.1 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/handlers v1.5.1 // indirect
