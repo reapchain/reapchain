@@ -1,6 +1,6 @@
 module github.com/reapchain/reapchain/v8
 
-go 1.18
+go 1.21.0
 
 require (
 	github.com/armon/go-metrics v0.4.0
@@ -20,7 +20,7 @@ require (
 	github.com/reapchain/ibc-go/v3 v3.2.0-reap.ibc.v0.5.22
 	github.com/reapchain/reapchain-core v0.34.20-reap.core.v0.1.24
 	github.com/regen-network/cosmos-proto v0.3.1
-	github.com/spf13/cast v1.5.0
+	github.com/spf13/cast v1.10.0
 	github.com/spf13/cobra v1.5.0
 	github.com/stretchr/testify v1.8.0
 	github.com/tendermint/tm-db v0.6.7
